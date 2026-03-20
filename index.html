@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Cosmogravity</title>
+
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;700&display=swap" rel="stylesheet">
+
+
+
+    <link rel="stylesheet" href="./CSS/styleIndex.css">
+    <link rel="stylesheet" href="./CSS/styleNav.css">
+</head>
+<body>
+<div class="grillePrincipale">
+    <div class="Nav" id="positionNav"></div>
+
+    <div class="grilleCorps">
+        <div class="titre">
+            <p>CosmoGravity</p>
+        </div>
+
+        <div class="txtUniv">
+            <h2 id="Univers"></h2>
+            <p id="txtUnivers"></p>
+        </div>
+
+        <div class="Logo">
+            <img src="./Images/CosmoGravity_logo.png" alt="">
+        </div>
+
+        <div class="txtTraj">
+            <h2 id="Trajectoires"></h2>
+            <p id="txtTrajectoires"></p>
+        </div>
+
+        <div class="Logos">
+            <div class="version" id="version"></div>
+            <img src="./Images/Logos.png" alt="">
+        </div>
+
+        <div>
+            <p id="watermark">© JWST, NASA, ESA, CSA, and STScI</p>
+        </div>
+    </div>
+
+</div>
+
+<script src="./JavaScript/Fonctions_pour_HTML.js"></script>
+<script src="./JavaScript/Langues/gestion_langues.js"></script>
+<script>
+    sessionStorage.setItem("isHome","True");
+    $(function() {
+        $("#positionNav").load("./Navigation.html");
+    });
+    text_page_index();
+</script>
+</body>
+</html>

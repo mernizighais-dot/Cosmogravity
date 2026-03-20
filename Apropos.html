@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="./CSS/styleApropos.css">
+    <link rel="stylesheet" href="./CSS/styleNav.css">
+
+    <title>A propos de cosmogravity</title>
+
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+</head>
+
+<body>
+<div class="grillePrincipale">
+    <div id="positionNav" class="Nav"></div>
+
+    <div class="boite">
+        <h2 id="titreDesc"></h2>
+        <p id="desc"></p>
+        <ul>
+            <li id="desc1"></li>
+            <li id="desc2"></li>
+			<li id="desc3"></li>
+        </ul>
+    </div>
+
+    <div class="boite">
+        <h2 id="acteurs"></h2>
+        <div class="grilleActeurs">
+            <div class="boite" style="border: 2px solid rgb(121,20,123);">
+                <h3 id="Directeurs"></h3>
+                <div>
+                    <div id="Dir1"></div>
+                    <div id="Dir2"></div>
+                </div>
+            </div>
+
+            <div class="boite" style="border: 2px solid rgb(154,124,203);">
+                <h3 id="encadrant"></h3>
+                <div>
+                    <div id="enc1"></div>
+                    <div id="enc2"></div>
+                    <div id="enc3"></div>
+                    <div id="enc4"></div>
+                </div>
+            </div>
+
+            <div class="boite" style="border: 2px solid rgb(153,194,175);">
+                <h3 id="participant" ></h3>
+                <div>
+                    <div id="parti1"></div>
+                    <div id="parti2"></div>
+                    <div id="parti3"></div>
+                    <div id="parti4"></div>
+                </div>
+            </div>
+
+            <div class="boite" style="border: 2px solid rgb(39,121,124);">
+                <h3 id="remerciement"></h3>
+                <div>
+                    <div id="remer1"></div>
+                    <div id="remer2"></div>
+                    <div id="remer3"></div>
+                    <div id="remer4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="boite">
+        <h2 id="versions"></h2>
+        <ul>
+            <li id="license"></li>
+            <li id="2025"></li>
+            <li id="2024"></li>
+            <li id="2023"></li>
+            <li id="2022"></li>
+            <li id="2021"></li>
+            <li id="2020"></li>
+            <li id="2019"></li>
+            <li id="2018"></li>
+            <li id="2017"></li>
+            <li id="2016"></li>
+            <li id="2015"></li>
+            <li id="2014"></li>
+            <li id="2013"></li>
+            <li id="2009"></li>
+        </ul>
+    </div>
+</div>
+
+<script src="./JavaScript/Langues/gestion_langues.js"></script>
+
+<script>
+    texte_Apropos()
+    sessionStorage.setItem("isHome","False");
+    $(function() {
+        $("#positionNav").load("Navigation.html");
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Paramétrage des constantes universelles</title>
+
+    <script src="JavaScript/Fonctions_pour_HTML.js"></script>
+
+    <link rel="stylesheet" href="./CSS/styleUnivers.css">
+    <link rel="stylesheet" href="./CSS/styleAnimation.css">
+</head>
+<body>
+<div id="Entree">
+    <div class="boiteEntree">
+        <div class="paramètre">
+            <label for="c">
+                <img id="infoc" src="./Images/icone_info.png" alt="" width="20" height="20" title="">
+                c =
+            </label>
+            <input id="c" type="number" min="0" value="299792458" step="10000000">
+            <span>m / s</span>
+
+            <label for="G">
+                <img id="infoG" src="./Images/icone_info.png" alt="" width="20" height="20" title="">
+                G =
+            </label>
+            <input id="G" type="number" min="0" value="6.67385e-11" step="1e-12">
+            <span>m<sup>3</sup> . kg / s<sup>2</sup></span>
+
+            <label for="k">
+                <img id="infok" src="./Images/icone_info.png" alt="" width="20" height="20" title="">
+                k =
+            </label>
+            <input id="k" type="number" min="0" value="1.38064852e-23" step="1e-24">
+            <span>m<sup>2</sup> . kg / s<sup>2</sup> / K</span>
+
+            <label for="h">
+                <img id="infoh" src="./Images/icone_info.png" alt="" width="20" height="20" title="">
+                h =
+            </label>
+            <input id="h" type="number" min="0" value="6.62607004e-34" step="1e-35">
+            <span>m<sup>2</sup> . kg / s</span>
+        </div>
+
+        <div class="paramètre">
+        <span>
+            <img id="infoTypeAnnee" src="./Images/icone_info.png" alt="" width="20" height="20", style="float: right">
+        </span>
+            <select name="optionsAnnee" id="typeAnnee">
+                <option id="annee_grégorienne" value="Grégorienne"></option>
+                <option id="annee_sidérale" value="Sidérale"></option>
+                <option id="annee_julienne" value="Julienne"></option>
+                <option id="annee_tropique" value="Tropique"></option>
+            </select>
+        </div>
+    </div>
+
+    <div class="boiteSortie">
+        <div class="résultats">
+            <button id="enregistrer" class="petitBoutton" onclick=envoisConstantes("enregistrer")></button>
+            <button id="réinitialiser" class="petitBoutton" onclick=envoisConstantes("reset")></button>
+            <button id="retour" class="petitBoutton" onclick=envoisConstantes("retour")></button>
+        </div>
+    </div>
+</div>
+<script src="JavaScript/Langues/gestion_langues.js"></script>
+<script>
+    choixLangueFr();
+    texte_constantes();
+</script>
+</body>
+</html>

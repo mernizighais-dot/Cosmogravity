@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Modèle &Lambda;CDM</title>
+
+    <script src="JavaScript/Fonctions_pour_HTML.js"></script>
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <script src="./node_modules/plotly.js-basic-dist/plotly-basic.js"></script>
+    <script src="./node_modules/html2canvas/dist/html2canvas.js"></script>
+
+
+    <link rel="stylesheet" href="./CSS/styleUnivers.css">
+    <link rel="stylesheet" href="./CSS/styleAnimation.css">
+    <link rel="stylesheet" href="./CSS/styleNav.css">
+
+</head>
+<body>
+<!-- Setup des constantes universelles, n'est pas affiché -->
+<input style="display: none" id="c" type="number" value="299792458">
+<input style="display: none" id="G" type="number" value="6.67385e-11">
+<input style="display: none" id="k" type="number" value="1.38064852e-23">
+<input style="display: none" id="h" type="number" value="6.62607004e-34">
+<input style="display: none" id="typeAnnee" type="number" value="">
+
+<div class="grillePrincipale">
+    <div id="positionNav" class="Nav"></div>
+    <!--Fenêtre entrée-->
+    <button onclick="toggleEntreeSortie('panneauEntree')" class="petitBoutton"
+            style="background-color: rgba(188,167,220,0.6); display:block; top: 60px; left:10px; position: absolute">
+        <img id="flecheGauche" class="flècheMenu"
+             src="./Images/fleche_menu.png"
+             alt="">
+    </button>
+    <div id="panneauEntree" class="Entree">
+        <div class="boiteEntree">
+            <div><h2 id="Entrées"></h2></div>
+
+            <div class="paramètre" style="grid-template-columns: 1fr 1fr">
+                <button style="height: 110%" id="constantesUniverselles" class="grosBoutton" onclick=fenetreConstantes()></button>
+                <button style="height: 110%" id="calculetteCosmologique" class="grosBoutton" onclick=fenetreCalculette()></button>
+            </div>
+
+            <div class="paramètre">
+                <label for="T0">
+                    <img id="infoT0" src="./Images/icone_info.png" alt="" width="20" height="20" title="">
+                    T<sub>0</sub> =
+                </label>
+                <input id="T0" type="number" min="0" value="2.7255" step="0.0001">
+                <span>K</span>
+            </div>
+
+            <div class="paramètre">
+                <label for="H0">
+                    <img id="infoH0" src="./Images/icone_info.png" alt="" width="20" height="20">
+                    H<sub>0</sub> =
+                </label>
+                <input id="H0" type="number" value="67.74" step="0.01">
+                <span>Km.s<sup>-1</sup>.Mpc<sup>-1</sup></span>
+            </div>
+
+            <div class="paramètre">
+                <span>
+                    <img id="infoTypeUnivers" src="./Images/icone_info.png" alt="" width="20" height="20", style="float: right">
+                </span>
+                <select name="Monofluide" id="optionsMonofluide" onchange="universMonofluides()">
+                    <option id="Monofluide_optionNull" value="optionNull"></option>
+                    <option id="Monofluide_optionM" value="optionM"></option>
+                    <option id="Monofluide_optionR" value="optionR"></option>
+                    <option id="Monofluide_optionLDE" value="optionLDE"></option>
+                    <option id="Monofluide_optionK" value="optionK"></option>
+                </select>
+            </div>
+
+            <div class="paramètre">
+                <label for="Omégam0">
+                    <img id="infoOmégam0" src="./Images/icone_info.png" alt="" width="20" height="20">
+                    &Omega;<sub>m<sub>0</sub></sub> = </label>
+                <input id="Omégam0" type="number" value="0.3089" step="0.0001">
+                <span></span>
+            </div>
+
+            <div class="paramètre">
+                <label for="Omégal0">
+                    <img id="infoOmégaLDE0" src="./Images/icone_info.png" alt="" width="20" height="20">
+                    &Omega;<sub>&Lambda;<sub>0</sub></sub> =
+                </label>
+                <input id="Omégal0" type="number" value="0.6911" step="0.0001">
+                <span></span>
+            </div>
+
+            <div class="paramètre" style="grid-template-columns: 1fr 1fr">
+                <label id="label_optionsOmégar0" for="optionsOmégar0">
+                    <img id="infoOmégaR0" src="./Images/icone_info.png" alt="" width="20" height="20">
+                </label>
+                <select name="Détail Omégar0" id="optionsOmégar0">
+                    <option id="Omégar0_optionRFC_et_Neutrinos" value="optionRFC_et_Neutrinos"></option>
+                    <option id="Omégar0_optionRFC" value="optionRFC"></option>
+                    <option id="Omégar0_optionRien" value="optionRien"></option>
+                </select>
+            </div>
+
+            <div class="paramètre" style="grid-template-columns: 1fr 1fr">
+                <label id="label_optionsOmégak0" for="OptionsOmégak0">
+                    <img id="infoOmégaK0" src="./Images/icone_info.png" alt="" width="20" height="20">
+                </label>
+                <input id="OptionsOmégak0" type="checkbox">
+            </div>
+
+            <p id="selecParam"></p>
+
+            <div id="conteneurCanvas">
+                <canvas id="canvas"></canvas>
+            </div>
+        </div>
+
+        <div class="boiteEntree">
+            <div id="Tracé"></div>
+
+            <div class="paramètre">
+                <label for="a_min">
+                    <img id="infoAmin" src="./Images/icone_info.png" alt="" width="20" height="20">
+                    a<sub>min</sub> =
+                </label>
+                <input id="a_min" type="number" value="0" step="0.1" min="0">
+                <span></span>
+            </div>
+
+            <div class="paramètre">
+                <label for="a_max">
+                    <img id="infoAmax" src="./Images/icone_info.png" alt="" width="20" height="20">
+                    a<sub>max</sub> =
+                </label>
+                <input id="a_max" type="number" value="5" step="0.1" min="0">
+                <span></span>
+            </div>
+
+            <br />
+
+            <div class="paramètre">
+                <span></span>
+                <button id="bouttonTracer" class="grosBoutton" onclick="updateUnivers(); affichage_site_LCDM()"></button>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <!--Fenêtre graphe-->
+    <div id="panneauGraphe" class="Graphe" style="position: relative;">
+        <div class="boiteGraphe">
+            <div id="headGraphiqueLCDM"></div>
+
+            <button style="background-color: rgba(188,167,220,0.6); position: absolute; top: 50px; right: 50px; cursor: pointer;" class="petitBoutton" onclick=avertissement()>
+                <img id="panneauAvertissement"
+                     style="width: 25px; height: 25px"
+                    src="./Images/panneau_avertissement.png"
+                    alt="avertissement">
+            </button>
+
+            <div style="text-align: justify; padding: 15px" class="avertissement" id="avertissementUnivers"></div>
+
+            <div id="graphique_LCDM"></div>
+            <a id="png" download="Graphique.png" style="display:none"></a>
+
+            <div style="display: flex; gap: 10px">
+                <div style="justify-self: left">
+                    <h3 id="entreeEnregistrer" style="text-align: center"></h3>
+                    <div id="Om_enregistrer"></div>
+                    <div id="Ol_enregistrer"></div>
+                    <div id="Or_enregistrer"></div>
+                    <div id="Ok_enregistrer"></div>
+                </div>
+                <div style="justify-self: right">
+                    <h3 id="sortieEnregistrer" style="text-align: center"></h3>
+                    <div id="tdébut_enregistrer"></div>
+                    <div id="tfin_enregistrer"></div>
+                    <div id="hp_enregistrer"></div>
+                    <div id="he_enregistrer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Fenêtre sortie-->
+    <button onclick="toggleEntreeSortie('panneauSortie')" class="petitBoutton"
+            style="background-color: rgba(188,167,220,0.6); display:block; top: 60px; right:10px; position: absolute">
+        <img id="flecheDroite" class="flècheMenu tournee"
+             src="./Images/fleche_menu.png"
+             alt="">
+    </button>
+    <div id="panneauSortie" class="Sortie">
+        <div class="boiteSortie">
+            <div id="loading" class="load_bar"> 
+                <span id="load_msg">loading</span>
+            </div>
+            <div><h2 id="Sorties"></h2></div>
+
+            <div id="Omégas"></div>
+
+            <div class="résultats">
+                <label for="Omégar0">
+                    <img id="infoOmégar0Sortie" src="./Images/icone_info.png" alt="" width="20" height="20">
+                    &Omega;<sub>r<sub>0</sub></sub> =
+                </label>
+                <input style="cursor: not-allowed" readonly id="Omégar0" type="text" value="" step="any">
+                <span></span>
+            </div>
+
+            <div class="résultats">
+                <label for="Omégak0">
+                    <img id="infoOmégak0Sortie" src="./Images/icone_info.png" alt="" width="20" height="20">
+                    &Omega;<sub>k<sub>0</sub></sub> =
+                </label>
+                <input style="cursor: not-allowed" readonly id="Omégak0" type="text" value="" step="any">
+                <span></span>
+            </div>
+
+            <br />
+
+            <div id="Temps"></div>
+
+            <div id="début" class="résultats" style="display: flex; text-align: center"></div>
+
+            <div id="fin" class="résultats" style="display: flex; text-align: center"></div>
+
+            <div id="duree" class="résultats" style="display: flex; text-align: center"></div>
+
+            <br />
+
+            <div id="horizonEvenement" style="text-align: center">
+                <h3 id="evenement" style="text-align: center"></h3>
+                <span id="DmHorizonEvenement_label">d<sub>e0</sub>= </span>
+                <output id="resultat_dm_evenement_m"></output>
+                <span>m = </span>
+                <output id="resultat_dm_evenement_pc"></output>
+                <span>pc = </span>
+                <output id="resultat_dm_evenement_al"></output>
+                <span class="unite_al"></span>
+            </div>
+
+            <div id="horizonParticule" style="text-align: center">
+                <h3 id="particule" style="text-align: center"></h3>
+                <span id="DmHorizonParticule_label">d<sub>p0</sub>= </span>
+                <output id="resultat_dm_particule_m"></output>
+                <span>m = </span>
+                <output id="resultat_dm_particule_pc"></output>
+                <span>pc = </span>
+                <output id="resultat_dm_particule_al"></output>
+                <span class="unite_al"></span>
+            </div>
+        </div>
+
+        <div class="boiteSortie">
+            <div id="Enregistrer">
+                <h2>Enregistrement</h2>
+            </div>
+
+            <div class="résultats">
+                <label id="labelNom_fichier" for="nom_fichier">
+                    <img id="infoNomFichier" src="./Images/icone_info.png" alt="" width="20" height="20">
+                </label>
+                <input id="nom_fichier" type="text" value="">
+            </div>
+
+            <div class="résultats">
+                <label for="optionsEnregistrement">Format : </label>
+                <select name="Format enregistrement" id="optionsEnregistrement">
+                    <option value="PNG">PNG</option>
+                    <option value="SVG">SVG</option>
+                    <option value="JPEG">JPG</option>
+                    <option value="CSV">CSV</option>
+                </select>
+            </div>
+
+            <br />
+
+            <div class="résultats">
+                <span></span>
+                <button onclick="enregistrer()" id="bouttonEnregistrer" class="grosBoutton"></button>
+                <span></span>
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+
+
+    <script src="./JavaScript/fonction_utilitaire.js"></script>
+    <script src="./JavaScript/Langues/gestion_langues.js"></script>
+    <script src="./JavaScript/Univers/Fonctions_utiles.js"></script>
+    <script src="./JavaScript/Univers/calcul_facteur_echelle_LCDM.js"></script>
+    <script src="./JavaScript/MéthodesNumériques.js"></script>
+    <script src="./JavaScript/Univers/Dessin_Interactif_Séparatrices.js"></script>
+<script>
+    sessionStorage.setItem("isHome","False");
+    texte_univers_LCDM();
+
+    $(function() {
+        $("#positionNav").load("Navigation.html");
+    });
+
+    window.onload = loadvalues();
+    updateUnivers()
+    document.getElementById("graphique_LCDM").style = 'height:50%' 
+    affichage_site_LCDM()
+    update_point()
+</script>
+</body>
+</html>

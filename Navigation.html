@@ -1,0 +1,92 @@
+<nav id="nav" class="menu">
+    <div class="item haut" style="cursor: pointer">
+        <a id="txt-acceuil" href="./index.html" style="text-decoration: none; color: inherit; cursor: pointer"></a>
+    </div>
+
+    <div id="txt-univers" class="item haut univers">
+        <div class="sousMenu" style="top: 100%; left: 0">
+            <button onclick="langageTheorieUnivers()" id="txt-théorieUnivers" class="item univers" style="cursor: pointer"></button>
+
+            <button onclick="langageTutorielUnivers()" id="txt-tutoUnivers" class="item univers" style="cursor: pointer"></button>
+
+            <div id="txt-simulationUnivers" class="item univers">
+                <div class="sousMenu">
+                    <div class="item univers" style="white-space: nowrap; cursor: pointer">
+                        <a id="txt-modeleLCDM" href="./Univers_LCDM.html" style="text-decoration: none; color: inherit;"></a>
+                    </div>
+
+                    <div class="item univers" style="white-space: nowrap; cursor: pointer">
+                        <a id="txt-modeleDE" href="./Univers_DE.html" style="text-decoration: none; color: inherit;"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="txt-trajectoire" class="item haut trajectoire">
+        <div class="sousMenu" style="top: 100%; left: 0">
+            <button onclick="langageTheorieTrajectoire()" id="txt-théorieTrajectoire" class="item trajectoire" style="cursor: pointer"></button>
+
+            <button onclick="langageTutorielTrajectoires()" id="txt-tutoTrajectoire" class="item trajectoire" style="cursor: pointer"></button>
+
+            <div id="txt-simulationTrajectoire" class="item trajectoire">
+                <div class="sousMenu">
+                    <div id="txt-metriqueSCH" class="item trajectoire">
+                        <div class="sousMenu">
+                            <div class="item trajectoire" style="white-space: nowrap; cursor: pointer">
+                                <a id="txt-BBSCH" href="./Simulation_trajectoire.html" style="text-decoration: none; color: inherit;"></a>
+                            </div>
+
+                            <div class="item trajectoire" style="white-space: nowrap; cursor: pointer">
+                                <a id="txt-BPSCH" href="./Simulation_trajectoire_photons.html" style="text-decoration: none; color: inherit;"></a>
+                            </div>
+
+                            <div class="item trajectoire" style="white-space: nowrap; cursor: pointer">
+                                <a id="txt-nBnBSCH" href="./Simulation_trajectoire_inter.html" style="text-decoration: none; color: inherit;"></a>
+                            </div>
+
+                            <div class="item trajectoire" style="white-space: nowrap; cursor: pointer">
+                                <a id="txt-nBPSCH" href="./Simulation_trajectoire_inter_photons.html" style="text-decoration: none; color: inherit;"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="txt-metriqueK" class="item trajectoire">
+                        <div class="sousMenu">
+                            <div class="item trajectoire" style="white-space: nowrap; cursor: pointer">
+                                <a id="txt-BK" href="./Simulation_trajectoire_kerr.html" style="text-decoration: none; color: inherit;"></a>
+                            </div>
+
+                            <div class="item trajectoire" style="white-space: nowrap; cursor: pointer">
+                                <a id="txt-PK" href="./Simulation_trajectoire_kerr_photons.html" style="text-decoration: none; color: inherit;"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="item espaceur"></div>
+
+    <div id="txt-langue" class="item bas">
+        <div class="sousMenu" style="top: 100%; left: 0">
+            <button id="LangueFr" onclick="choixLangueFr(); document.location.reload();" class="item" style="cursor: pointer">
+                Français
+            </button>
+
+            <button id="LangueEn" onclick="choixLangueEn(); document.location.reload();" class="item" style="cursor: pointer">
+                English
+            </button>
+        </div>
+    </div>
+
+    <a id="txt-propos" href="./Apropos.html" class="item bas" style="text-decoration: none; cursor: pointer"></a>
+
+    <a id="txt-LUPM" href="https://www.lupm.in2p3.fr/enseignement/cosmogravity/" class="item bas" style="text-decoration: none; cursor: pointer"></a>
+</nav>
+
+<script src="./JavaScript/Fonctions_pour_HTML.js"></script>
+<script>
+    texte_navigation()
+</script>
