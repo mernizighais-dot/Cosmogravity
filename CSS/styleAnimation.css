@@ -1,0 +1,29 @@
+.collapsed {
+    width: 5%;
+}
+
+.mid_expanded{
+    width: 70%;
+}
+
+.expanded {
+    width: 90%;
+}
+
+.collapse_bouton {
+    position: absolute;
+}
+
+.fenetre{
+    /*transition: width 1.5s;*/
+    position: relative;
+}
+
+.collapsed .boiteEntree,.collapsed .boiteSortie{
+    opacity:0;
+    display: none; /*a enlever*/
+}
+
+.hidden .boiteEntree,.hidden .boiteSortie{
+    display: none;
+}

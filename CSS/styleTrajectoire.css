@@ -1,0 +1,817 @@
+body {
+    margin: 0;
+    font-size: 15;
+    background-color: rgba(212, 215, 228, 0.85);
+}
+
+
+/*Pour les boutons verts (start,save...)*/
+.grosBoutton {
+    background-color: rgba(39, 121, 124, 0.85);
+    color: white;
+    font-size: 15px;
+    font-style: bold;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    min-width: 130px; /* Utilisez min-width au lieu de width */
+    height: 40px;
+}
+
+    .grosBoutton:active {
+        background-color: rgba(39, 121, 124, 0.85);
+        transform: translateY(2px);
+    }
+
+/*Pour les boutons de choix, si choisi (observateur,...)*/   
+.bouttonChoix {
+
+    position: relative;
+    display: inline-block;
+    height: 50px;
+    padding:10px 20px;
+    font-size: 15;
+    margin-top: 5px;
+    margin-right: 10px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: rgba(39, 121, 124, 0.85);;
+    background-color: #ffffff;
+    border: 2px solid rgba(39, 121, 124, 0.85);;
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+
+}
+
+/*Pour les boutons de choix, si pas choisi (observateur,...)*/     
+.bouttonChoix-inverse {
+    position: relative;
+    display: inline-block;
+    height: 50px;
+    padding: 20px 20px;
+    font-size: 15;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: rgba(39, 121, 124, 0.85);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    transition: color 0.3s ease;
+}
+
+.bouttonChoix-inverse::before,
+.bouttonChoix-inverse::after {
+    content: '';
+    position: absolute;
+    background-color: rgba(39, 121, 124, 0.85);
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    transition: width 0.3s ease;
+}
+
+.bouttonChoix-inverse::before {
+    left: 0;
+}
+
+.bouttonChoix-inverse::after {
+    right: 0;
+}
+
+.bouttonChoix-inverse:hover::before,
+.bouttonChoix-inverse:hover::after {
+    width: 50%;
+}
+
+.bouttonChoix-inverse:focus {
+    outline: none;
+}
+
+.bouttonChoix-inverse:active::before,
+.bouttonChoix-inverse:active::after {
+    width: 100%;
+}
+
+/*Pour les boutons ranger les fenetres*/
+.petitBoutton {
+    background-color: rgba(179, 221, 223, 0.85);
+    color: white;
+    font-size: 15;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    width: fit-content;
+    height: fit-content;
+    z-index: 3000;
+    position: relative;
+}
+
+    .petitBoutton:active {
+        background-color: rgba(61, 131, 134, 0.85);
+        transform: translateY(2px);
+    }
+
+.text_boutton
+    {
+        position: flex;
+        text-align: center;
+        color: black;
+        padding-bottom: 200px;
+    }
+    
+/*Pour la grille principale*/
+.grillePrincipale {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 38px 1fr;
+    grid-template-areas:
+            "Nav Nav Nav"
+            "Entree Graphe Sortie";
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    position: absolute;
+}
+
+
+
+.Nav {
+    grid-area: Nav;
+    column-span: all;
+}
+
+/*Pour les fleches sur les cotes*/
+.flècheMenu {
+    display: flex;
+    padding: 5px;
+    width: 20px;
+    height: 20px;
+    align-content: center;
+    justify-content: center;
+    transform: rotate(90deg);
+}
+
+.tournee {
+    transform: rotate(270deg);
+}
+
+/*Pour la fenetre d'entrée gauche*/
+.Entree {
+    grid-area: Entree;
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-rows: 0.2fr 1fr;
+    background-color: rgb(0, 0, 0);
+    padding: 1px;
+    gap: 3px;
+    border-radius: 30px;
+    position: relative;
+}
+
+    .Entree h2 {
+        text-align: center;
+    }
+
+    .boiteEntree {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgb(255, 255, 255);
+        gap: 1px;
+        padding: 1px;
+        border-radius: 15px;
+    }
+
+    .boiteEntree input,   
+    .boiteEntree textarea {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+    
+    
+        .boiteEntree .paramètre {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-auto-rows: 1fr;
+            gap: 10px;
+
+            align-items: center;
+            vertical-align: center;
+        }
+
+            .paramètre.w {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr;
+                grid-gap: 10px;
+
+                align-items: center;
+                vertical-align: center;
+            }
+
+            .paramètre input {
+                border-radius: 5px;
+                height: 1.5rem;
+                width: 7rem;
+                font-size: 15;
+            }
+
+            .paramètre img {
+                vertical-align: middle;
+                cursor: help;
+            }
+
+            .paramètre label {
+                justify-self: end;
+            }
+
+/*Pour la fenetre du graphe (milieu)*/
+.Graphe {
+    grid-area: Graphe;
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-rows: 0.1fr 1fr;
+    background-color: rgb(0, 0, 0);
+    padding: 1px;
+    gap: 3px;
+    border-radius: 10px;
+}
+
+    .Graphe h2 {
+        text-align: center;
+    }
+
+    .boiteGraphe {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgb(255, 255, 255);
+        gap: 1px;
+        padding: 5px;
+        border-radius: 30px;
+    }
+
+/*Pour la fenetre des sorties (droite)*/
+.Sortie {
+    grid-area: Sortie;
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-rows: 0.2fr 1fr;
+    background-color: rgb(0, 0, 0);
+    padding: 1px;
+    gap: 3px;
+    border-radius: 10px;
+}
+
+    .Sortie h2 {
+        text-align: center;
+    }
+
+    .boiteSortie {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgb(255, 255, 255);
+        gap: 1px;
+        padding: 1px;
+        border-radius: 15px;
+    }
+
+        .boiteSortie .résultats {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-auto-rows: 1fr;
+            gap: 1px;
+
+            align-items: center;
+            vertical-align: center;
+        }
+
+            .résultats input {
+                border-radius: 5px;
+                height: 1.5rem;
+                width: 7rem;
+                font-size: 15;
+            }
+
+            .résultats img {
+                vertical-align: middle;
+                cursor: help;
+            }
+
+            .résultats label {
+                justify-self: end;
+            }
+
+.cache {
+    display: none;
+}
+
+
+/* POUR LES INPUTS à deux*/
+.pls-inputs-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    position: absolute;
+    top: 70px;
+    
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-left: 30%;
+}
+
+.input-wrapper label {
+    width: 100px; /* Largeur fixe du label */
+    margin-right: 10px;
+    font-size: 15;
+    color: #333;
+    text-align: center;
+    white-space: nowrap; /* Empêche le texte de passer à la ligne */
+    overflow: hidden; /* Cache le texte qui dépasse */
+    text-overflow: ellipsis; /* Affiche "..." si le texte est trop long */
+}
+
+.input-wrapper input {
+    width: 90px; 
+    height: 30px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    text-align: center;
+    font-size: 15;
+    color: #333;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.input-wrapper input:focus {
+    border-color: rgba(39, 121, 124, 0.85);
+    box-shadow: 0 0 5px rgba(39, 121, 124, 0.85);
+    outline: none;
+}
+
+.input-wrapper input::placeholder {
+    color: #aaa;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.input-wrapper input:focus::placeholder {
+    opacity: 0.5;
+}
+
+@media (max-width: 600px) {
+    .input-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .input-wrapper label {
+        width: 100%;
+        margin-bottom: 5px;
+        text-align: left;
+    }
+
+    .input-wrapper input {
+        width: 100%;
+    }
+}
+
+.bouton_mobile {
+    width: 30px;
+    height: 30px;
+    opacity: 0.8;
+    transition: opacity 0.5s ease;
+  }
+  
+  .bouton_mobile:hover {
+    opacity: 1;
+  }
+  
+
+  .tg {
+    width: 100%;
+    margin: auto;
+  }
+
+/* Pour avoir des input à 4 dans les entrees */
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.1);
+    background-color: rgba(179, 221, 223, 0.85);
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    width: calc(50% - 20px);
+    margin: 10px;
+}
+.input-block {
+    display: block;
+    width: 100%;
+    margin-bottom: 8px; /* Espace entre les champs */
+  }
+.input-group label {
+    width: 100px; /* Largeur fixe du label */
+    font-size: 15;
+    color: #333;
+    text-align: center;
+    white-space: nowrap; /* Empêche le texte de passer à la ligne */
+    overflow: hidden; /* Cache le texte qui dépasse */
+}
+
+/* Cibler tous les inputs */
+.input-group input {
+    flex: 1;
+    height: 40px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 15;
+    color: #333;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.input-group input:focus {
+    border-color: rgba(39, 121, 124, 0.85);
+    box-shadow: 0 0 5px rgba(39, 121, 124, 0.85);
+    outline: none;
+}
+
+@media (max-width: 600px) {
+    .input-group {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .input-group label {
+        margin-bottom: 5px;
+    }
+
+    .input-group input {
+        width: 100%;
+    }
+}
+
+
+/* Pour les tableaux */
+.table-container {
+    width: 100%;
+    margin: 20px auto; /* Centre horizontalement avec des marges automatiques */
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    
+}
+
+th {
+    padding: 8px 10px; /* Augmenté de 5px 5px à 8px 10px */
+    text-align: center;
+    border: 1px solid black;
+}
+th.tg-6l4m {
+    padding: 8px 17px; /* Plus d'espace horizontal pour 1-2 caractères en plus */
+    background-color: rgba(39, 121, 124, 0.85);
+    color: #ffffff;
+    font-weight: bold;
+    width: auto; /* Permet à la cellule de s'adapter au contenu */
+}
+
+td {
+    padding: 10px 10px;
+    text-align: center;
+    border: 1px solid black;
+   
+}
+
+th:last-child, td:last-child {
+    border-right: none;
+}
+
+th {
+    background-color: rgba(39, 121, 124, 0.85);
+    color: #ffffff;
+    font-size: 13px;
+}
+
+thead tr.label-row th {
+    background-color: rgba(39, 121, 124, 0.85);
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tbody tr:hover {
+    background-color: #e2e6ea;
+}
+
+tbody td {
+    font-size: 13;
+    color: #333333;
+}
+
+@media screen and (max-width: 600px) {
+    .table-container {
+        width: 100%;
+        border-radius: 0;
+    }
+}
+
+
+  
+/*Pour le pilotage*/
+#cccccccc
+{
+  display:flex;
+  flex-direction: row;
+  position:fixed;
+  margin:auto;
+  right:0;
+  left:0;
+  width:130px;
+  height:130px;
+  bottom:50px;
+  
+  visibility:hidden;}
+
+/*Pour zoom et simu*/
+#panneau_mobile{
+
+  display:flex;
+  flex-direction: row;
+  position:fixed;
+  margin:auto;
+  right:0;
+  left:8%;
+  width:110px;
+  bottom:10px;
+  margin-left: 57%;
+  padding:6px;
+  visibility:hidden;
+}
+
+#panneau_mobile span{
+  text-align: center;
+  margin:auto;
+}
+#panneau_mobile2{
+  display:flex;
+  flex-direction: row;
+  position:fixed;
+  margin:auto;
+  right:8%;
+  left:0;
+  width:110px;
+  bottom:10px;
+  margin-right: 60%;
+  padding:6px;
+  visibility:hidden;
+}
+#panneau_mobile2 span{
+  text-align: center;
+  margin:auto;
+}
+
+/*Pour le petit bouton rond 'i' */
+.info-icon {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    left: 10px;
+    background-color: rgba(39, 121, 124, 0.85); /* Bleu clair agréable */
+    color: white; /* Texte blanc pour contraste */
+    border-radius: 50%; /* Cercle parfait */
+    font-size: 24px; /* Taille de police pour le symbole */
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre douce pour la profondeur */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Animation de transition fluide */
+  }
+  
+  .info-icon::before {
+    content: "\2139"; /* Unicode pour le symbole "i" (ℹ) */
+  }
+  
+  .info-icon:hover {
+    transform: scale(1.1); /* Légèrement agrandir au survol */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.548); /* Ombre plus prononcée au survol */
+  }
+  
+/*Pour l'avertissement*/
+  .avertissement_style {
+    background-color:  rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-size: 17px;
+    /*border: none;*/
+    border-color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    width: fit-content;
+    height: fit-content;
+    z-index: 3000;
+    position: relative;
+}
+
+    .avertissement_style:active {
+        background-color: rgba(61, 131, 134, 0.85);
+        transform: translateY(2px);
+    }
+
+
+.titre_style{
+font-size: 20px;
+position: relative;
+margin-right: 20px;   
+text-align: center; 
+}
+
+/*Pour le div du graphe de simulation*/   
+#wrapper {
+    position: relative;
+     width:750px;
+        height:750px;
+    }
+    
+    #wrapper canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    
+    .canvaslaclasse{
+      min-height:0;
+      min-width:0;
+      flex-shrink: 0;
+      overflow:hidden;
+      align-self: center;
+    }
+    
+/*Pour le div du graphe de potentiel */   
+#wrapper2 {
+    height: 400px;
+    width: 600px;
+    display: flex; /* Utilisation du modèle flexbox */
+    justify-content: center; /* Centrage horizontal des éléments enfants */
+    align-items: center; /* Centrage vertical des éléments enfants */
+    box-sizing: border-box; /* Assure que le padding et la bordure sont inclus dans les dimensions */
+    flex: 1; /* Pour que le wrapper2 prenne toute la hauteur disponible */
+    margin-right: 60px;
+}
+/*Pour le graphe svg du potentiel*/   
+#grsvg_2 {
+    min-height: 0;
+    min-width: 0;
+    flex-shrink: 0; /* Empêche le rétrécissement de l'élément */
+    overflow: visible; /* Gestion du débordement selon les besoins */
+    /* align-self: center; */ /* Enlever cette ligne car align-items sur le conteneur parent s'en occupe */
+}
+/*Les axes du grphe de potentiel*/
+.axis path, .axis line {
+    fill: none;
+    stroke: black;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+  }
+
+/*Pour le div du graphe de simulation pour Kerr*/   
+.wrapper_kerr {
+    position: relative;
+ width:750px;
+ height:750px;
+}
+.wrapper_kerr canvas {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/*Pour le div du graphe de potentiel pour Kerr*/   
+.wrapper2_kerr{
+    display: flex; /* Utilisation du modèle flexbox */
+    justify-content: center; /* Centrage horizontal des éléments enfants */
+    align-items: center; /* Centrage vertical des éléments enfants */
+    box-sizing: border-box; /* Assure que le padding et la bordure sont inclus dans les dimensions */
+    flex: 1; /* Pour que le wrapper2 prenne toute la hauteur disponible */
+    margin-right: 60px; /* Décalage vers la gauche */
+  }
+
+/*Pour les canva utilisées*/   
+#myCanvas{
+  min-height:0;
+  min-width:0;
+  flex-shrink: 0;
+  overflow:hidden;
+  align-self: center;
+}
+#myCanvas22{
+  min-height:0;
+  min-width:0;
+  flex-shrink: 0;
+  overflow:hidden;
+  align-self: center;
+}
+#myCanvas3{
+  min-height:0;
+  min-width:0;
+  flex-shrink: 0;
+  overflow:hidden;
+  align-self: center;
+}
+
+
+/*Pour le choix du potentiel*/
+
+/* Conteneur pour le formulaire */
+  .container-choix {
+    background-color: rgba(179, 221, 223, 0.85);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 200px;
+    height: 50px;
+}
+
+/* Styles pour le label */
+.label-choix {
+    font-size: 15px;
+    display: block;
+    color: #333333;
+    letter-spacing: 1px;
+}
+
+/* Styles pour la liste déroulante */
+select{
+    padding: 6px;
+    font-size: 16px;
+    border: 2px solid #cccccc;
+    border-radius: 6px;
+    width: 60%; /* Largeur de la liste déroulante */
+    background-color: #f9f9f9;
+    text-align: center;
+    transition: border-color 0.3s ease;
+}
+
+
+select:focus {
+    outline: none;
+    border-color:  rgba(39, 121, 124, 0.85);
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.3);
+}
+
+option {
+    font-size: 16px;
+}
+
+/* Style au survol d'une option */
+option:hover {
+background-color: #4FA7AD; /* Couleur bleue au survol */
+}
+
+/* Placeholder style */
+option[disabled]:first-child {
+    color: #aaaaaa;
+}

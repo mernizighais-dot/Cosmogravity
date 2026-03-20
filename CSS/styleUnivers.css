@@ -1,0 +1,255 @@
+body {
+    margin: 0;
+    font-size: 20px;
+    background-color: rgb(239, 239, 239);
+}
+
+.grosBoutton {
+    background-color: rgb(104, 45, 104);
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    width: 200px;
+    height: 25px;
+}
+
+    .grosBoutton:active {
+        background-color: rgb(149, 65, 149);
+        transform: translateY(2px);
+    }
+
+.petitBoutton {
+    background-color: rgb(104, 45, 104);
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    width: fit-content;
+    height: fit-content;
+    z-index: 3000;
+    position: relative;
+}
+
+    .petitBoutton:active {
+        background-color: rgb(149, 65, 149);
+        transform: translateY(2px);
+    }
+
+.grillePrincipale {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 38px 1fr;
+    grid-template-areas:
+            "Nav Nav Nav"
+            "Entree Graphe Sortie";
+    gap: 5px;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    position: absolute;
+}
+
+.Nav {
+    grid-area: Nav;
+    column-span: all;
+}
+
+.flècheMenu {
+    display: flex;
+    padding: 5px;
+    width: 20px;
+    height: 20px;
+    align-content: center;
+    justify-content: center;
+    transform: rotate(90deg);
+}
+
+.tournee {
+    transform: rotate(270deg);
+}
+
+.Entree {
+    grid-area: Entree;
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-rows: 3fr 1fr;
+    background-color: rgb(0, 0, 0);
+    padding: 2px;
+    gap: 2px;
+    border-radius: 10px;
+    position: relative;
+}
+
+    .Entree h2 {
+        text-align: center;
+    }
+
+    .boiteEntree {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        background-color: rgb(255, 255, 255);
+        gap: 10px;
+        padding: 5px;
+        border-radius: 3px;
+    }
+        .boiteEntree .paramètre {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-auto-rows: 1fr;
+            gap: 10px;
+
+            align-items: center;
+            vertical-align: center;
+        }
+
+            .paramètre.w {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr;
+                grid-gap: 10px;
+
+                align-items: center;
+                vertical-align: center;
+            }
+
+            .paramètre input {
+                border-radius: 5px;
+                height: 1.5rem;
+                width: 7rem;
+                font-size: 16px;
+            }
+
+            .paramètre img {
+                vertical-align: middle;
+                cursor: help;
+            }
+
+            .paramètre label {
+                justify-self: end;
+            }
+
+
+.Graphe {
+    grid-area: Graphe;
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-rows: 1fr;
+    background-color: rgb(0, 0, 0);
+    padding: 2px;
+    gap: 2px;
+    border-radius: 10px;
+}
+
+    .Graphe h2 {
+        text-align: center;
+    }
+
+    .boiteGraphe {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgb(255, 255, 255);
+        gap: 10px;
+        padding: 5px;
+        border-radius: 10px;
+    }
+
+
+.Sortie {
+    grid-area: Sortie;
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-rows: 3fr 1fr;
+    background-color: rgb(0, 0, 0);
+    padding: 2px;
+    gap: 2px;
+    border-radius: 10px;
+}
+
+    .Sortie h2 {
+        text-align: center;
+    }
+
+    .boiteSortie {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgb(255, 255, 255);
+        gap: 10px;
+        padding: 5px;
+        border-radius: 3px;
+    }
+
+        .boiteSortie .résultats {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-auto-rows: 1fr;
+            gap: 10px;
+
+            align-items: center;
+            vertical-align: center;
+        }
+
+            .résultats input {
+                border-radius: 5px;
+                height: 1.5rem;
+                width: 7rem;
+                font-size: 16px;
+            }
+
+            .résultats img {
+                vertical-align: middle;
+                cursor: help;
+            }
+
+            .résultats label {
+                justify-self: end;
+            }
+
+.cache {
+    display: none;
+}
+
+#graphique_LCDM, #graphique_DE {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.avertissement {
+    display: none;
+}
+
+.load_bar {
+    position: fixed;
+    text-align:center;
+    border-radius: 20px;
+    margin-top: 20;
+    bottom: 20;
+    right: 10;
+    width: 200px;
+    color: black;
+    background-color: #eeeeee;
+}
+
+#conteneurCanvas {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+}
+
+#canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}

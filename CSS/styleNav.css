@@ -1,0 +1,161 @@
+@keyframes balayage {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes blinker {
+    from { color:rgba(255,255,255,1) }
+    to{ color: rgba(255, 255, 255, 0.4)}
+  }
+
+nav {
+    position:fixed;
+    top: 0;
+    left: 0;
+    margin-top: 0;
+    margin-left: 0;
+    z-index: 900;
+    font-size: 1rem;
+    animation: blinker 1s infinite alternate;
+
+}
+
+    .menu {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        position: absolute;
+
+        height: fit-content;
+        width: 100%;
+        background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,0.4)),
+        url("../Images/DeepFieldWebb.jpg") no-repeat;
+        background-size: cover;
+    }
+
+        .item {
+            position: relative;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            /* border-radius: 10px;*/
+            color:white;
+            cursor: default;
+            font-family: Arial, sans-serif;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 5px;
+            background-color: rgb(220, 93, 79);
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+
+        .item:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+            .item button {
+                border: none;
+                background: none;
+            }
+
+            .item:hover {
+                background: linear-gradient(to bottom, rgba(220, 93, 79, 0.85), rgba(210, 144, 137, 0.85));
+            }
+
+            .item:hover > .sousMenu {
+                display: block;
+                animation: balayage 1s forwards;
+            }
+
+
+
+            .item.espaceur {
+                flex-grow: 1;
+            }
+
+                .item.espaceur:hover::after {
+                    width: 0;
+                    left: 0;
+                }
+
+
+
+                .item.univers:hover {
+                    background: linear-gradient(to bottom, rgba(121, 20, 123, 0.85), rgba(154, 124, 203, 0.85));
+                }
+
+                .item.univers::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    width: 0;
+                    height: 5px;
+                    background-color: rgb(121, 20, 123);
+                    transition: width 0.3s ease, left 0.3s ease;
+                }
+
+                    .item.univers:hover::after {
+                        width: 100%;
+                        left: 0;
+                    }
+
+                .item.espaceur:hover {
+                    background: none;
+                }
+
+                .item.trajectoire:hover {
+                    background: linear-gradient(to bottom, rgba(39, 121, 124, 0.85), rgba(153, 194, 175, 0.85));
+                }
+
+                .item.trajectoire::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    width: 0;
+                    height: 5px;
+                    background-color: rgb(39, 121, 124);
+                    transition: width 0.3s ease, left 0.3s ease;
+                }
+
+                    .item.trajectoire:hover::after {
+                        width: 100%;
+                        left: 0;
+                    }
+
+        .sousMenu {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            box-sizing: border-box;
+
+            width: fit-content;
+            opacity: 0;
+            transform: translateX(-20px);
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.6)),
+            url("../Images/DeepFieldWebb.jpg") no-repeat;
+            background-size: cover;
+        }
+
+.cache {
+    display: none
+}
