@@ -42,7 +42,7 @@ function toggleEntreeSortie (IDpanel) {
 }
 
 /**
- * Fonction permettant d'ouvrir la fenêtre ou la gestion des constantes a lieu
+ * Fonction permettant d'ouvrir la fenêtre où la gestion des constantes a lieu
  */
 function fenetreConstantes() {
     let url = "./constantes_universelles.html"
@@ -405,6 +405,9 @@ function updateCalculette() {
         update_point()
     } else {
         update_rho(1)
+        resizeCanvas()
+        update_graphe_interactif()
+        update_point()
     }
     let equa_diff_2
     if (document.getElementById("Omégal0")) {
