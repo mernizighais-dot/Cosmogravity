@@ -64,7 +64,7 @@ function s_testLangueJson() {
 }
 
 /**
- * Fonction qui permet de vérifier la langue choisie et renvoie l'accronyme correspondant
+ * Fonction qui permet de vérifier la langue choisie et renvoie l'acronyme correspondant
  * @return {string} fr pour français et en pour anglais
  */
 function s_testLangue() {
