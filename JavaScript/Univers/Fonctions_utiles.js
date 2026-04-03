@@ -16,8 +16,8 @@ let k = Number(document.getElementById("k").value);
 
 
 /**
- * Fonction permettant de récupérer le nombre de jours par ans en fonction du type d'année sélectionné
- * @return {number} Le nombre de jour par ans
+ * Fonction permettant de récupérer le nombre de jours par an en fonction du type d'année sélectionné
+ * @return {number} Le nombre de jours par an
  */
 function nbrJours() {
     let typeAnnee = document.getElementById("typeAnnee").value
