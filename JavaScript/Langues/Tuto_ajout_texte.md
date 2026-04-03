@@ -4,8 +4,8 @@
 2.  Ouvrez le fichier gestion_langues.js et trouvez la fonction texte_xxx correspondant à la page HTML ou vous voulez ajouter du texte
 3.  Dans cette fonction ajoutez un : <br />
     document.getElementById("<id de l'élément>").innerHTML = texte.\<page>.\<tag>; <br />
-    La page qui vous intéresse peut se trouve dans les fichier .json et devraient être assez reconaissable. <br />
-    Veillez à bien choisir le tag pour qu'il ne soit pas trop différent de l'ID de l'élément et reconaissable.
+    La page qui vous intéresse peut se trouve dans les fichier .json et devraient être assez reconnaissable. <br />
+    Veillez à bien choisir le tag pour qu'il ne soit pas trop différent de l'ID de l'élément et reconnaissable.
 4.  Ouvrez les fichiers fr.json et en.json, allez dans la page correspondante (première indentation) et ajoutez au niveau
     de la deuxième indentation: <br />
     "\<tag>": "\<texte français ou anglais>" <br />
