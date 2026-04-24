@@ -532,6 +532,7 @@ function texte_Apropos() {
 
     document.getElementById("versions").innerHTML = texte.Apropos.versions
     document.getElementById("license").innerHTML = texte.Apropos.License
+    document.getElementById("2026").innerHTML = texte.Apropos.v2026
     document.getElementById("2025").innerHTML = texte.Apropos.v2025
     document.getElementById("2024").innerHTML = texte.Apropos.v2024
     document.getElementById("2023").innerHTML = texte.Apropos.v2023
