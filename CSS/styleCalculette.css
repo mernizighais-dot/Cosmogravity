@@ -14,6 +14,11 @@
     position: absolute;
 }
 
+#PanneauCentral {
+    min-width: 0;
+    overflow: hidden;
+}
+
 .parametreGraphique{
     align-items: center;
     display: flex;
