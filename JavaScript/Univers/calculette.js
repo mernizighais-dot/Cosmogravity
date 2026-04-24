@@ -4,7 +4,7 @@
  * @returns 
  */
 function affichage_des_z(fonction_EouF){
-    document.getElementById("loading2").style.display = "block"; // Correct style setting
+    document.getElementById("loading2").style.display = "flex"; // Correct style setting
 
     setTimeout(() => {
     let start_temps=Date.now(); //commencer le timer pour savoir combien de temps les calculs prennent
@@ -258,14 +258,16 @@ function array_lerp(zmin=-1,zmax=5,pas) {
 }
 
 function generer_graphique_distance(fonction_EouF,is_t){
-    document.getElementById("loading").style.display = "block";
+    document.getElementById("loading").style.display = "flex";
     setTimeout(() => {
     if (sessionStorage.getItem("affichage_d_t")=="True" && is_t == 1) {
         document.getElementById('graphique_d_t').classList.add('cache')
-        sessionStorage.setItem("affichage_d_t","False") 
+        sessionStorage.setItem("affichage_d_t","False")
+        document.getElementById("fonction_dit").value = "plot"; 
     } else if (sessionStorage.getItem("affichage_d_z")=="True" && is_t == 0) {
         document.getElementById('graphique_d_z').classList.add('cache')
         sessionStorage.setItem("affichage_d_z","False")
+        document.getElementById("fonction_diz").value = "plot";
     } else {
     let start_temps=Date.now();
     log_abs=document.getElementById('check_log_abs').checked;
@@ -447,20 +449,29 @@ function generer_graphique_distance(fonction_EouF,is_t){
     Plotly.newPlot(graphdivid,data,layout,{displaylogo: false});
 
     document.getElementById("temps_calcul_graph").innerHTML = "Le calcul a duré : " + (Date.now()-start_temps) + " millisecondes !";
-}
-document.getElementById("loading").style.display = "none";
-},5);
+    }
+    document.getElementById("loading").style.display = "none";
+    },5);
+
+    if (is_t==1){
+        document.getElementById("fonction_dit").value = "erase";
+    }
+    else {
+        document.getElementById("fonction_diz").value = "erase";
+    }
 }
 
 function generer_graphique_Omega(fonction_EouF,is_t){
-    document.getElementById("loading").style="";
+    document.getElementById("loading").style="flex";
     setTimeout(() => {
     if (sessionStorage.getItem("affichage_omega_t")=="True" && is_t == 1) {
         document.getElementById('graphique_omega_t').classList.add('cache')
-        sessionStorage.setItem("affichage_omega_t","False") 
+        sessionStorage.setItem("affichage_omega_t","False")
+        document.getElementById("fonction_omegait").value = "plot"; 
     } else if (sessionStorage.getItem("affichage_omega_z")=="True" && is_t == 0) {
         document.getElementById('graphique_omega_z').classList.add('cache')
         sessionStorage.setItem("affichage_omega_z","False")
+        document.getElementById("fonction_omegaiz").value = "plot";
     } else {
     let start_temps=Date.now();
     log_abs=document.getElementById('check_log_abs').checked;
@@ -660,17 +671,28 @@ function generer_graphique_Omega(fonction_EouF,is_t){
     document.getElementById("temps_calcul_graph").innerHTML = "Le calcul a duré : " + (Date.now()-start_temps) + " millisecondes !";
     }
     document.getElementById("loading").style.display = "none";
-    }, 5); 
+    }, 5);
+
+    if (is_t==1){
+        document.getElementById("fonction_omegait").value = "erase";
+    }
+    else {
+        document.getElementById("fonction_omegaiz").value = "erase";
+    }
+    
 }
+
 function generer_graphique_TempsDecalage(fonction_EouF, is_t){
-    document.getElementById("loading").style.display = "block";
+    document.getElementById("loading").style.display = "flex";
     setTimeout(() => {
     if (sessionStorage.getItem("affichage_z_t")=="True" && is_t == 1) {
         document.getElementById('graphique_z_t').classList.add('cache')
-        sessionStorage.setItem("affichage_z_t","False") 
+        sessionStorage.setItem("affichage_z_t","False")
+        document.getElementById("fonction_zt").value = "plot"; 
     } else if (sessionStorage.getItem("affichage_t_z")=="True" && is_t == 0) {
         document.getElementById('graphique_t_z').classList.add('cache')
         sessionStorage.setItem("affichage_t_z","False")
+        document.getElementById("fonction_tz").value = "plot" ;
     } else {
     let start_temps=Date.now();
     log_abs=document.getElementById('check_log_abs').checked;
@@ -812,9 +834,16 @@ function generer_graphique_TempsDecalage(fonction_EouF, is_t){
 
     document.getElementById("temps_calcul_graph").innerHTML = "Le calcul a duré : " + (Date.now()-start_temps) + " millisecondes !";
     
-}
-document.getElementById("loading").style.display = "none";
-}, 5); 
+    }
+    document.getElementById("loading").style.display = "none";
+    }, 5); 
+
+    if (is_t==1){
+        document.getElementById("fonction_zt").value = "erase";
+    }
+    else {
+        document.getElementById("fonction_tz").value = "erase";
+    }
 
 }
 

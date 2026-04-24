@@ -42,11 +42,11 @@
 }
 
 .load_bar_calc {
-    align-self:center;
-    text-align: center;
-    width: 300px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+
     height: 3em;
-    color: black;
 }
 
 .boite_calculette{
@@ -82,7 +82,6 @@
     
 }
 
-
 .js-plotly-plot {
     align-self: center;
 }
@@ -102,4 +101,21 @@
     display: flex;
     flex-direction: row;
     gap:8pt;
+}
+
+.roue_chargement {
+    display: block;
+    border: 2px solid transparent;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    animation: spin 1s linear infinite;
+}
+
+/* Animation de rotation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

@@ -29,6 +29,12 @@
 <div class="grillePrincipale" style="align-items: start;gap: 2px;">
     <div id="positionNav" class="Nav"></div>
     <!--Fenêtre entrée-->
+    <button onclick="toggleEntreeSortie('panneauEntree')" class="petitBoutton"
+            style="background-color: rgba(188,167,220,0.6); display:block; top: 60px; left:10px; position: absolute">
+        <img id="flecheGauche" class="flècheMenu"
+             src="./Images/fleche_menu.png"
+             alt="">
+    </button>
     <div id="panneauEntree" class="fenetre_calculette" >
         <div class="boiteEntree" style="border: 1px solid black;">
             <div id="Entrées"></div>
@@ -261,7 +267,7 @@
         <div class="boite_calculette">
             <h3 id="generateur_graphique" style="text-align: center;"></h3>
            <div id="loading" class="load_bar_calc" style="display:none"> 
-                <span id="load_msg">loading</span>
+                <span id="roue" class="roue_chargement"></span>
             </div>
             <span id="avertissement_nbb" class="cache" style="text-align: center;color: red;">Error</span>
             <div class="parametreGraphique">
@@ -350,13 +356,19 @@
     </div>
 
     <!--Fenêtre sortie-->
+    <button onclick="toggleEntreeSortie('panneauSortie')" class="petitBoutton"
+            style="background-color: rgba(188,167,220,0.6); display:block; top: 60px; right:10px; position: absolute">
+        <img id="flecheDroite" class="flècheMenu tournee"
+             src="./Images/fleche_menu.png"
+             alt="">
+    </button>
     <div id="panneauSortie" class="fenetre_calculette">
         <div id="Entree_z1_z2" class="boite_calculette" style="align-items: center;">
             <div id="titre_z1_z2">
                 <h3 id="calcul_z_titre" style="margin-bottom: 2px";></h3>
             </div>
             <div id="loading2" class="load_bar_calc" style="display:none"> 
-                <span id="load_msg2">loading</span>
+                <span id="roue" class="roue_chargement"></span>
             </div>
             <button id="bouton_calculer_z" class="grosBoutton" onclick="affichage_des_z(fonction_F)">Calculer</button>
             <div>
