@@ -664,33 +664,6 @@
     window.onload = loadvalues(true);
     window.addEventListener("resize", resize_graphs);
 
-    const panneauE = document.getElementById("panneauEntree");
-    const panneauS = document.getElementById("panneauSortie");
-
-    let resizeTimeout = null;
-
-    function handlePanneauChange() {
-        clearTimeout(resizeTimeout);
-
-        resizeTimeout = setTimeout(() => {
-            resize_graphs();
-        }, 50);
-    }
-
-    const observer = new MutationObserver(() => {
-        handlePanneauChange();
-    });
-
-    observer.observe(panneauE, {
-        attributes: true,
-        attributeFilter: ["class"]
-    });
-
-    observer.observe(panneauS, {
-        attributes: true,
-        attributeFilter: ["class"]
-    });
-
     updateCalculette()
 
 </script> 
