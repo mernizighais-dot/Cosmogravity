@@ -451,6 +451,7 @@ function generer_graphique_distance(fonction_EouF,is_t){
     document.getElementById("temps_calcul_graph").innerHTML = "Le calcul a duré : " + (Date.now()-start_temps) + " millisecondes !";
     }
     document.getElementById("loading").style.display = "none";
+    resize_graphs();
     },5);
 
     if (is_t==1){
@@ -671,6 +672,7 @@ function generer_graphique_Omega(fonction_EouF,is_t){
     document.getElementById("temps_calcul_graph").innerHTML = "Le calcul a duré : " + (Date.now()-start_temps) + " millisecondes !";
     }
     document.getElementById("loading").style.display = "none";
+    resize_graphs();
     }, 5);
 
     if (is_t==1){
@@ -836,6 +838,7 @@ function generer_graphique_TempsDecalage(fonction_EouF, is_t){
     
     }
     document.getElementById("loading").style.display = "none";
+    resize_graphs();
     }, 5); 
 
     if (is_t==1){
@@ -1085,10 +1088,30 @@ function update_rho(isDE){
 
 function resize_graphs() {
     let taille = window.innerWidth
-    var update = {
+    let hauteur = window.innerHeight
+
+    if (document.getElementById("panneauEntree").classList.contains("cache") && document.getElementById("panneauSortie").classList.contains("cache")){
+        // Si les deux panneaux latéraux sont désactivés
+        var update = {
+        width : 0.9*taille,
+        height : 0.9*hauteur
+        }
+    }
+    else if ( (document.getElementById("panneauEntree").classList.contains("cache") || document.getElementById("panneauSortie").classList.contains("cache")) && !(document.getElementById("panneauEntree").classList.contains("cache") && document.getElementById("panneauSortie").classList.contains("cache")) ){
+        //Si l'un des deux panneaux est désactivé
+        var update = {
+        width : 2*taille/3,
+        height : taille/4
+        }
+    }
+    else {
+        //Si les deux panneaux latéraux sont activés
+        var update = {
         width : taille/2,
         height : taille/4
+        }
     }
+    
     if (sessionStorage.getItem("affichage_d_z")=="True") {
         Plotly.relayout("graphique_d_z",update)
     }
