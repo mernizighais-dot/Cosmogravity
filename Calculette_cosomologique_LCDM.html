@@ -29,6 +29,12 @@
 <div class="grillePrincipale" style="align-items: start;gap: 2px;">
     <div id="positionNav" class="Nav"></div>
     <!--Fenêtre entrée-->
+    <button onclick="toggleEntreeSortie('panneauEntree')" class="petitBoutton"
+            style="background-color: rgba(188,167,220,0.6); display:block; top: 60px; left:10px; position: absolute">
+        <img id="flecheGauche" class="flècheMenu"
+             src="./Images/fleche_menu.png"
+             alt="">
+    </button>
     <div id="panneauEntree" class="fenetre_calculette" >
         <div class="boiteEntree" style="border: 1px solid black;">
             <div id="Entrées"></div>
@@ -350,6 +356,12 @@
     </div>
 
     <!--Fenêtre sortie-->
+    <button onclick="toggleEntreeSortie('panneauSortie')" class="petitBoutton"
+            style="background-color: rgba(188,167,220,0.6); display:block; top: 60px; right:10px; position: absolute">
+        <img id="flecheDroite" class="flècheMenu tournee"
+             src="./Images/fleche_menu.png"
+             alt="">
+    </button>
     <div id="panneauSortie" class="fenetre_calculette">
         <div id="Entree_z1_z2" class="boite_calculette" style="align-items: center;">
             <h4 id="calcul_z_titre"></h4>
