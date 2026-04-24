@@ -246,6 +246,7 @@ body {
     padding: 1px;
     gap: 3px;
     border-radius: 10px;
+    min-width: 0;
 }
 
     .Graphe h2 {
@@ -260,6 +261,7 @@ body {
         gap: 1px;
         padding: 5px;
         border-radius: 30px;
+        min-width: 0;
     }
 
 /*Pour la fenetre des sorties (droite)*/
@@ -666,17 +668,20 @@ margin-right: 20px;
 text-align: center; 
 }
 
-/*Pour le div du graphe de simulation*/   
+/*Pour le div du graphe de simulation*/
 #wrapper {
     position: relative;
-     width:750px;
-        height:750px;
+    width: 750px;
+    height: 750px;
+    transition: width 0.3s ease, height 0.3s ease;
     }
-    
+
     #wrapper canvas {
         position: absolute;
         top: 0;
         left: 0;
+        width: 100%;
+        height: 100%;
     }
     
     
@@ -715,17 +720,19 @@ text-align: center;
     shape-rendering: crispEdges;
   }
 
-/*Pour le div du graphe de simulation pour Kerr*/   
+/*Pour le div du graphe de simulation pour Kerr*/
 .wrapper_kerr {
     position: relative;
- width:750px;
- height:750px;
+    width: 750px;
+    height: 750px;
+    transition: width 0.3s ease, height 0.3s ease;
 }
 .wrapper_kerr canvas {
-
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 /*Pour le div du graphe de potentiel pour Kerr*/   

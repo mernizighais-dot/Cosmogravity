@@ -451,6 +451,7 @@ function generer_graphique_distance(fonction_EouF,is_t){
     document.getElementById("temps_calcul_graph").innerHTML = "Le calcul a duré : " + (Date.now()-start_temps) + " millisecondes !";
     }
     document.getElementById("loading").style.display = "none";
+    resize_graphs();
     },5);
 
     if (is_t==1){
@@ -671,6 +672,7 @@ function generer_graphique_Omega(fonction_EouF,is_t){
     document.getElementById("temps_calcul_graph").innerHTML = "Le calcul a duré : " + (Date.now()-start_temps) + " millisecondes !";
     }
     document.getElementById("loading").style.display = "none";
+    resize_graphs();
     }, 5);
 
     if (is_t==1){
@@ -836,6 +838,7 @@ function generer_graphique_TempsDecalage(fonction_EouF, is_t){
     
     }
     document.getElementById("loading").style.display = "none";
+    resize_graphs();
     }, 5); 
 
     if (is_t==1){
