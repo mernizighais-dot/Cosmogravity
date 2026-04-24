@@ -3,13 +3,13 @@
         <a id="txt-acceuil" href="./index.html" style="text-decoration: none; color: inherit; cursor: pointer"></a>
     </div>
 
-    <div id="txt-univers" class="item haut univers">
+    <div id="txt-univers" class="item haut univers" style="cursor: pointer">
         <div class="sousMenu" style="top: 100%; left: 0">
             <button onclick="langageTheorieUnivers()" id="txt-théorieUnivers" class="item univers" style="cursor: pointer"></button>
 
             <button onclick="langageTutorielUnivers()" id="txt-tutoUnivers" class="item univers" style="cursor: pointer"></button>
 
-            <div id="txt-simulationUnivers" class="item univers">
+            <div id="txt-simulationUnivers" class="item univers" style="cursor: pointer">
                 <div class="sousMenu">
                     <div class="item univers" style="white-space: nowrap; cursor: pointer">
                         <a id="txt-modeleLCDM" href="./Univers_LCDM.html" style="text-decoration: none; color: inherit;"></a>
@@ -23,15 +23,15 @@
         </div>
     </div>
 
-    <div id="txt-trajectoire" class="item haut trajectoire">
+    <div id="txt-trajectoire" class="item haut trajectoire" style="cursor: pointer">
         <div class="sousMenu" style="top: 100%; left: 0">
             <button onclick="langageTheorieTrajectoire()" id="txt-théorieTrajectoire" class="item trajectoire" style="cursor: pointer"></button>
 
             <button onclick="langageTutorielTrajectoires()" id="txt-tutoTrajectoire" class="item trajectoire" style="cursor: pointer"></button>
 
-            <div id="txt-simulationTrajectoire" class="item trajectoire">
+            <div id="txt-simulationTrajectoire" class="item trajectoire" style="cursor: pointer">
                 <div class="sousMenu">
-                    <div id="txt-metriqueSCH" class="item trajectoire">
+                    <div id="txt-metriqueSCH" class="item trajectoire" style="cursor: pointer">
                         <div class="sousMenu">
                             <div class="item trajectoire" style="white-space: nowrap; cursor: pointer">
                                 <a id="txt-BBSCH" href="./Simulation_trajectoire.html" style="text-decoration: none; color: inherit;"></a>
@@ -51,7 +51,7 @@
                         </div>
                     </div>
 
-                    <div id="txt-metriqueK" class="item trajectoire">
+                    <div id="txt-metriqueK" class="item trajectoire" style="cursor: pointer">
                         <div class="sousMenu">
                             <div class="item trajectoire" style="white-space: nowrap; cursor: pointer">
                                 <a id="txt-BK" href="./Simulation_trajectoire_kerr.html" style="text-decoration: none; color: inherit;"></a>
@@ -69,7 +69,7 @@
 
     <div class="item espaceur"></div>
 
-    <div id="txt-langue" class="item bas">
+    <div id="txt-langue" class="item bas" style="cursor: pointer">
         <div class="sousMenu" style="top: 100%; left: 0">
             <button id="LangueFr" onclick="choixLangueFr(); document.location.reload();" class="item" style="cursor: pointer">
                 Français
@@ -88,5 +88,32 @@
 
 <script src="./JavaScript/Fonctions_pour_HTML.js"></script>
 <script>
+    /*Affiche du texte dans la bonne langue (cf gestion_langues.js)*/
     texte_navigation()
+
+    /*Ajout de la classe active pour une classe item quand on clique dessus, permettant d'afficher un sous menu
+      (cf styleNav.css .item.active > .sousMenu)*/
+    document.querySelectorAll('.item').forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.stopPropagation();
+
+            // fermer les éléments au même niveau
+            const siblings = item.parentElement.querySelectorAll('.item');
+            siblings.forEach(el => {
+                if (el !== item) {
+                    el.classList.remove('active');
+                }
+            });
+
+            item.classList.toggle('active');
+        });
+    });
+
+    // fermer tous les menus si on clique en dehors
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.item').forEach(item => {
+            item.classList.remove('active');
+        });
+    });
+
 </script>

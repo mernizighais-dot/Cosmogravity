@@ -80,11 +80,17 @@ nav {
             }
 
             .item:hover > .sousMenu {
+                /*Affiche le sous menu quand on passe la souris sur un item*/
                 display: block;
                 animation: balayage 1s forwards;
             }
 
-
+            .item.active > .sousMenu {
+                /*Affiche le sous menu quand on appuie sur la souris sur un item :
+                  cf le script dans Navigation.html qui ajoute la classe active à un item quand on clique dessus*/
+                display: block;
+                animation: balayage 1s forwards;
+            }
 
             .item.espaceur {
                 flex-grow: 1;
