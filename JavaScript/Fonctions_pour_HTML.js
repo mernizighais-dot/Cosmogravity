@@ -39,6 +39,9 @@ function toggleEntreeSortie (IDpanel) {
     }
 
     ajustementGraphique()
+    if (typeof resize_graphs === 'function') {
+        resize_graphs();
+    }
 }
 
 /**
