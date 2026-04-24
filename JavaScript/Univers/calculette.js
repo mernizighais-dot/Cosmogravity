@@ -419,7 +419,7 @@ function generer_graphique_distance(fonction_EouF,is_t){
         }
     ];
     //configuration de la fenetre plotly
-    let layout = { width:window.innerWidth/2, height:450, 
+    let layout = { width:get_plot_width(), height:450, 
         title: plot_title,
         titlefont:{family:"Time New Roman, sans-serif",size:20,color:"#111111"},
         xaxis: {
@@ -642,7 +642,7 @@ function generer_graphique_Omega(fonction_EouF,is_t){
         }
     ];
     //configuration de la fenetre plotly
-    let layout = {  width:window.innerWidth/2, height:450,  
+    let layout = {  width:get_plot_width(), height:450,  
         title: plot_title,
         titlefont:{family:"Time New Roman, sans-serif",size:20,color:"#111111"},
         xaxis: {
@@ -807,7 +807,7 @@ function generer_graphique_TempsDecalage(fonction_EouF, is_t){
         }
     ];
     //configuration de la fenetre plotly
-    let layout = {  width:window.innerWidth/2, height:450, 
+    let layout = {  width:get_plot_width(), height:450, 
         title: plot_title,
         titlefont:{family:"Time New Roman, sans-serif",size:20,color:"#111111"},
         xaxis: {
@@ -1086,32 +1086,16 @@ function update_rho(isDE){
 }
 
 
-function resize_graphs() {
-    let taille = window.innerWidth
-    let hauteur = window.innerHeight
+function get_plot_width() {
+    const panneau = document.getElementById("PanneauCentral");
+    return panneau ? panneau.offsetWidth - 20 : window.innerWidth / 2;
+}
 
-    if (document.getElementById("panneauEntree").classList.contains("cache") && document.getElementById("panneauSortie").classList.contains("cache")){
-        // Si les deux panneaux latéraux sont désactivés
-        var update = {
-        width : 0.9*taille,
-        height : 0.9*hauteur
-        }
+function resize_graphs() {
+    var update = {
+        width : get_plot_width(),
+        height : 450
     }
-    else if ( (document.getElementById("panneauEntree").classList.contains("cache") || document.getElementById("panneauSortie").classList.contains("cache")) && !(document.getElementById("panneauEntree").classList.contains("cache") && document.getElementById("panneauSortie").classList.contains("cache")) ){
-        //Si l'un des deux panneaux est désactivé
-        var update = {
-        width : 2*taille/3,
-        height : taille/4
-        }
-    }
-    else {
-        //Si les deux panneaux latéraux sont activés
-        var update = {
-        width : taille/2,
-        height : taille/4
-        }
-    }
-    
     if (sessionStorage.getItem("affichage_d_z")=="True") {
         Plotly.relayout("graphique_d_z",update)
     }
