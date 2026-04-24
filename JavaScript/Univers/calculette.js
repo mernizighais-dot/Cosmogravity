@@ -4,7 +4,7 @@
  * @returns 
  */
 function affichage_des_z(fonction_EouF){
-    document.getElementById("loading2").style.display = "block"; // Correct style setting
+    document.getElementById("loading2").style.display = "flex"; // Correct style setting
 
     setTimeout(() => {
     let start_temps=Date.now(); //commencer le timer pour savoir combien de temps les calculs prennent
@@ -258,7 +258,7 @@ function array_lerp(zmin=-1,zmax=5,pas) {
 }
 
 function generer_graphique_distance(fonction_EouF,is_t){
-    document.getElementById("loading").style.display = "block";
+    document.getElementById("loading").style.display = "flex";
     setTimeout(() => {
     if (sessionStorage.getItem("affichage_d_t")=="True" && is_t == 1) {
         document.getElementById('graphique_d_t').classList.add('cache')
@@ -453,7 +453,7 @@ document.getElementById("loading").style.display = "none";
 }
 
 function generer_graphique_Omega(fonction_EouF,is_t){
-    document.getElementById("loading").style="";
+    document.getElementById("loading").style="flex";
     setTimeout(() => {
     if (sessionStorage.getItem("affichage_omega_t")=="True" && is_t == 1) {
         document.getElementById('graphique_omega_t').classList.add('cache')
@@ -662,8 +662,9 @@ function generer_graphique_Omega(fonction_EouF,is_t){
     document.getElementById("loading").style.display = "none";
     }, 5); 
 }
+
 function generer_graphique_TempsDecalage(fonction_EouF, is_t){
-    document.getElementById("loading").style.display = "block";
+    document.getElementById("loading").style.display = "flex";
     setTimeout(() => {
     if (sessionStorage.getItem("affichage_z_t")=="True" && is_t == 1) {
         document.getElementById('graphique_z_t').classList.add('cache')
