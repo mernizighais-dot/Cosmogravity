@@ -40,7 +40,7 @@ function toggleEntreeSortie (IDpanel) {
 
     ajustementGraphique()
     if (typeof resize_graphs === 'function') {
-        resize_graphs();
+        requestAnimationFrame(resize_graphs);
     }
 }
 
@@ -440,6 +440,32 @@ function ajustementGraphique() {
     }
 }
 window.addEventListener('resize', ajustementGraphique());
+
+/**
+ * Redimensionne les wrappers des canvas de simulation trajectoire
+ * pour remplir la largeur disponible du panneau central.
+ */
+function resize_graphs() {
+    var graphePanel = document.getElementById('panneauGraphe');
+    if (!graphePanel) return;
+    var wrapperSchw = document.getElementById('wrapper');
+    var wrapperKerr = document.querySelector('.wrapper_kerr');
+    if (!wrapperSchw && !wrapperKerr) return;
+
+    var size = Math.max(200, Math.min(graphePanel.clientWidth - 20, 1400));
+
+    if (wrapperSchw) {
+        wrapperSchw.style.width  = size + 'px';
+        wrapperSchw.style.height = size + 'px';
+    }
+    if (wrapperKerr) {
+        wrapperKerr.style.width  = size + 'px';
+        wrapperKerr.style.height = size + 'px';
+    }
+}
+
+window.addEventListener('resize', resize_graphs);
+document.addEventListener('DOMContentLoaded', resize_graphs);
 
 /**
  * Fonction qui permet de détecter un click sur le panneau d'avertissement
