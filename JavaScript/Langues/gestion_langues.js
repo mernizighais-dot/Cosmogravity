@@ -475,9 +475,6 @@ function texte_univers_calculette() {
     document.getElementById("avertissement_nbb2").innerHTML = texte.calculette.avertissement_nbb
 
     // document.getElementById('texte_avertissement_z_-1').innerHTML = texte.calculette.avertissement_z_grand;
-
-    document.getElementById("load_msg").innerHTML = texte.univers.load_msg
-    document.getElementById("load_msg2").innerHTML = texte.univers.load_msg
 };
 
 function texte_constantes() {
