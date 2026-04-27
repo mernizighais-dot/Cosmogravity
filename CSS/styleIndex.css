@@ -33,17 +33,43 @@ body {
     .grilleCorps {
         grid-area: Corps;
         position: relative;
-
-
+        
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 2fr 1fr;
+        grid-template-rows: auto 1fr auto;
         grid-template-areas:
                 "titre titre titre"
                 "txtUniv Logo txtTraj"
                 "Logos Logos Logos";
         gap: 5px;
 
+    }
+
+    .grilleCorps li {
+        font-family: 'Crimson Text', serif;
+        color : #fff;
+    }
+
+    .grilleCorps a {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.5em;
+        color : #fff;
+        text-decoration: none;
+    }
+
+    .grilleCorps samp {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.5em;
+    }
+
+    .grilleCorps button {
+        background-color: transparent;
+        border-color: transparent;
+        font-family: 'Crimson Text', serif;
+        font-size: 1.5em;
+        color : #fff;
+        border-width: 0;
+        padding: 0%;
     }
 
     .titre {
@@ -74,7 +100,7 @@ body {
         width: 100%;
         height: 5px;
         border-radius: 10px;
-        background: linear-gradient(to right, #ffffff, rgba(230, 114, 101, 0.85)); /* Dégradé pour la barre */
+        background: linear-gradient(to right, #ffffff, rgba(230, 114, 101, 0.85)); /*Dégradé pour la barre*/
         opacity: 0;
 
         animation: barIn 1s ease-out forwards;
@@ -86,6 +112,7 @@ body {
         flex-direction: column;
         grid-area: txtUniv;
         margin: 100px;
+        margin-top: 20px;
         background-color: rgba(0, 0, 0, 0.3);
         border-radius: 50px;
         padding: 10px;
@@ -115,7 +142,8 @@ body {
         grid-area: Logo;
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
+        padding-top: 20%;
         height: 100%;
     }
 
@@ -129,7 +157,7 @@ body {
         flex-direction: column;
         grid-area: txtTraj;
         margin: 100px;
-
+        margin-top: 20px;
         background-color: rgba(0, 0, 0, 0.3);
         border-radius: 50px;
         padding: 10px;
