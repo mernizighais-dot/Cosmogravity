@@ -548,7 +548,10 @@ function texte_Apropos() {
 }
 
 
-
+function texte_analyse_calculette() {
+    let texte = o_recupereJson()
+    //à faire
+}
 
 
 

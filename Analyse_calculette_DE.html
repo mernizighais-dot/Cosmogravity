@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="./CSS/styleAnalyseCalculette.css">
+    <link rel="stylesheet" href="./CSS/styleNav.css">
+
+    <title>Analyse de la calculette DE</title>
+
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <script src="./JavaScript/Langues/gestion_langues.js"></script>
+    <script src="JavaScript/Univers/analyse_calculette.js"></script>
+
+</head>
+
+<body>
+
+    <div class="grillePrincipale">
+    <div id="positionNav" class="Nav"></div>
+
+</div>
+
+<script>
+    texte_analyse_calculette()
+    sessionStorage.setItem("isHome","False");
+    $(function() {
+        $("#positionNav").load("Navigation.html");
+    });
+</script>
+
+</body>
+</html>
