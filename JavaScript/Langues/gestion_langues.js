@@ -210,6 +210,26 @@ function text_page_index() {
     document.getElementById("Trajectoires").innerHTML = texte.nav.trajectoire;
     document.getElementById("txtTrajectoires").innerHTML = texte.index.txtTrajectoires;
     document.getElementById("version").innerHTML = texte.index.version;
+    document.getElementById("txt-theorieUnivers-index").innerHTML = texte.nav.theorie;
+    document.getElementById("txt-tutoUnivers-index").innerHTML = texte.nav.tutoriel;
+    document.getElementById("txt-simu-index").innerHTML = texte.nav.simulation;
+    document.getElementById("txt-modeleLCDM-index").innerHTML = texte.nav.modeleLCDM;
+    document.getElementById("txt-modeleDE-index").innerHTML = texte.nav.modeleDE;
+    document.getElementById("facteur-echelle-lcdm").innerHTML = texte.index.facteur_echelle;
+    document.getElementById("facteur-echelle-de").innerHTML = texte.index.facteur_echelle;
+    document.getElementById("calculette-lcdm").innerHTML = texte.index.calculette;
+    document.getElementById("calculette-de").innerHTML = texte.index.calculette;
+    document.getElementById("metriqueSchwar").innerHTML = texte.nav.SCH;
+    document.getElementById("barybary").innerHTML = texte.nav.BBSCH;
+    document.getElementById("barypho").innerHTML = texte.nav.BPSCH;
+    document.getElementById("nonbary").innerHTML = texte.nav.nBnBSCH;
+    document.getElementById("nonbarypho").innerHTML = texte.nav.nBPSCH;
+    document.getElementById("metriqueKerr").innerHTML = texte.nav.K;
+    document.getElementById("barykerr").innerHTML = texte.nav.BK;
+    document.getElementById("phokerr").innerHTML = texte.nav.PK;
+    document.getElementById("txt-theorieTrajectoire-index").innerHTML = texte.nav.theorie;
+    document.getElementById("txt-tutoTrajectoire-index").innerHTML = texte.nav.tutoriel;
+    document.getElementById("txt-simuTraj-index").innerHTML = texte.nav.simulation;
 }
 
 function texte_univers_LCDM() {
