@@ -18,7 +18,10 @@
 		"PK": "Photon",
 		"langue": "Langue",
 		"propos": "À propos",
-		"LUPM": "Retour LUPM"
+		"LUPM": "Retour LUPM",
+		"facteurEchelle": "Facteur d'échelle",
+		"calculette": "Calculette cosmologique",
+		"analyse": "Analyse des calculs"
 	},
 	
 	"index":
