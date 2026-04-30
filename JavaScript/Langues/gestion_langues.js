@@ -578,7 +578,157 @@ function texte_Apropos() {
 
 function texte_analyse_calculette() {
     let texte = o_recupereJson()
-    //à faire
+    document.getElementById("analyseur_lcdm").innerHTML = texte.analyse_calculette.analyseur_lcdm
+    document.getElementById("versCalculette").innerHTML = texte.analyse_calculette.vers_calculette
+
+    document.getElementById("infoT0").title = texte.univers.infoT0
+    document.getElementById("infoH0").title = texte.univers.infoH0
+    document.getElementById("infoTypeUnivers").title = texte.univers.infoTypeUnivers
+    document.getElementById("Monofluide_optionNull").innerHTML = texte.univers.monofluide_null
+    document.getElementById("Monofluide_optionM").innerHTML = texte.univers.monofluide_M
+    document.getElementById("Monofluide_optionR").innerHTML = texte.univers.monofluide_R
+    if (document.getElementById("Monofluide_optionDE")) {
+        document.getElementById("Monofluide_optionDE").innerHTML = texte.univers.monofluide_DE
+    } else {
+        document.getElementById("Monofluide_optionLDE").innerHTML = texte.univers.monofluide_L
+    }
+    document.getElementById("Monofluide_optionK").innerHTML = texte.univers.monofluide_K
+    document.getElementById("infoOmégam0").title = texte.univers.infoOmégam0
+    document.getElementById("infoOmégaLDE0").title = texte.univers.infoOmégaL0
+    document.getElementById("infoOmégar0Sortie").title = texte.calculette.infoOmégaR0Sortie
+    document.getElementById("infoOmégak0Sortie").title = texte.calculette.infoOmégaK0Sortie
+    document.getElementById("label_optionsOmégar0").insertAdjacentHTML("beforeend", texte.univers.label_Omégar0)
+    document.getElementById("infoOmégaR0").title = texte.univers.infoOmégaR0
+    document.getElementById("Omégar0_optionRFC_et_Neutrinos").innerHTML = texte.univers.Omégar0_RFC_et_Neutrinos
+    document.getElementById("Omégar0_optionRFC").innerHTML = texte.univers.Omégar0_RFC
+    document.getElementById("Omégar0_optionRien").innerHTML = texte.univers.Omégar0_Rien
+    document.getElementById("infoOmégaK0").title = texte.univers.infoOmégaK0
+    document.getElementById("label_optionsOmégak0").insertAdjacentHTML("beforeend", texte.univers.label_Omégak0)
+    document.getElementById("rho").insertAdjacentHTML("beforeend", texte.calculette.densités_titre)
+
+    document.querySelectorAll(".unite_annee").forEach(function(i){i.innerHTML=texte.calculette.unitéannee});
+    document.querySelectorAll(".unite_al").forEach(function(i){i.innerHTML=texte.calculette.unitéanneelumiere});
+
+    //document.getElementById('bouton_calculer_inverse').innerHTML=texte.calculette.bouton_calculer;
+    //document.getElementById('bouton_calculer_z').innerHTML=texte.calculette.bouton_calculer;
+
+    document.getElementById("constantesUniverselles").innerHTML = texte.univers.constantes
+    //document.getElementById("facteurEchelle").innerHTML = texte.calculette.facteurechelle
+    //document.getElementById("diametre_apparent_titre").innerHTML = texte.calculette.diametre_apparent_titre;
+    //document.getElementById("calcul_inverse_titre").innerHTML = texte.calculette.calcul_inverse_titre;
+    //document.getElementById("calcul_z_titre").innerHTML = texte.calculette.calcul_z_titre;
+    //document.getElementById("parametre_z_titre").innerHTML = texte.calculette.parametre_z_titre;
+    //document.getElementById("geometrie_titre").innerHTML = texte.calculette.geometrie_titre;
+    //document.getElementById("photometrie_titre").innerHTML = texte.calculette.photometrie_titre;
+
+    // // document.getElementById("bouton_distance").innerHTML = texte.calculette.bouton_distance;
+    // document.getElementById("bouton_omega").innerHTML = texte.calculette.bouton_omega;
+    // document.getElementById("bouton_tempsdecalage").innerHTML = texte.calculette.bouton_tempsdecalage;
+    // document.getElementById("label_radio_fonction_z").innerHTML = texte.calculette.dependz;
+    // document.getElementById("label_radio_fonction_t").innerHTML = texte.calculette.dependt;
+    document.getElementById("label_check_log_abs").innerHTML = texte.calculette.abscisselog;
+    document.getElementById("label_check_log_ord").innerHTML = texte.calculette.ordonneelog;
+    document.getElementById("label_button_dit").title = texte.calculette.infobulle_dit
+    document.getElementById("label_button_diz").title = texte.calculette.infobulle_diz
+    document.getElementById("label_button_omegait").title = texte.calculette.infobulle_omegait
+    document.getElementById("label_button_omegaiz").title = texte.calculette.infobulle_omegaiz
+    document.getElementById("label_button_zt").title = texte.calculette.infobulle_zt
+    document.getElementById("label_button_tz").title = texte.calculette.infobulle_tz
+    if (document.getElementById("OmégaDE0")){
+        // document.getElementById("label_omegaDE_normalise").innerHTML = texte.calculette.omegaDE_normalise
+    }
+
+    xaxis_temps=texte.calculette.xaxis_temps;
+    yaxis_distance=texte.calculette.yaxis_distance
+    yaxis_omega=texte.calculette.yaxis_omega;
+    yaxis_temps=texte.calculette.yaxis_temps;//un peu la meme chose que xaxis mais je laisse dans le doute
+    yaxis_decalage=texte.calculette.yaxis_decalage;
+
+    document.getElementById("label_zmin").title = texte.calculette.infobulle_zmin;
+    document.getElementById("label_zmax").title = texte.calculette.infobulle_zmax;
+    document.getElementById("label_pas").title = texte.calculette.infobulle_pas;
+    // document.getElementById("label_radio_fonction_z").title = texte.calculette.infobulle_dependz;
+    // document.getElementById("label_radio_fonction_t").title = texte.calculette.infobulle_dependt;
+    document.getElementById("label_check_log_abs").title = texte.calculette.infobulle_logabsc;
+    document.getElementById("label_check_log_ord").title = texte.calculette.infobulle_logord;
+    // document.getElementById("bouton_distance").title = texte.calculette.infobulle_dist;
+    // document.getElementById("bouton_omega").title = texte.calculette.infobulle_omega;
+    // document.getElementById("bouton_tempsdecalage").title = texte.calculette.infobulle_tempsdecalage;
+    //document.getElementById("label_omega_totalz1").title = texte.calculette.infobulle_omegatotalz1;
+    //document.getElementById("label_omega_totalz2").title = texte.calculette.infobulle_omegatotalz2;
+
+
+    //document.getElementById("diametre_apparent_titre").title = texte.calculette.infobulle_diametre_apparent;
+    //document.getElementById("label_d_m").title = texte.calculette.infobulle_D_m;
+    //document.getElementById("label_d_kpc").title = texte.calculette.infobulle_D_kpc;
+    //document.getElementById("label_theta").title = texte.calculette.infobulle_theta;
+
+    //document.getElementById("calcul_inverse_titre").title = texte.calculette.infobulle_Calcul_inverse;
+    //document.getElementById("label_dminverse").title = texte.calculette.infobulle_dm_inv;
+    //document.getElementById("label_teminverse").title = texte.calculette.infobulle_tem_inv;
+    //document.getElementById("label_zneg").title = texte.calculette.infobulle_z_neg;
+
+
+
+    //document.getElementById("label_Tz1").title = texte.calculette.infobulle_Tz1;
+    //document.getElementById("label_Hz1").title = texte.calculette.infobulle_Hz1;
+    //document.getElementById("label_omegaR_z1").title = texte.calculette.infobulle_orz1;
+    //document.getElementById("label_omegaM_z1").title = texte.calculette.infobulle_omz1;
+    //document.getElementById("label_omegaK_z1").title = texte.calculette.infobulle_okz1;
+    document.getElementById("label_rho_m").title = texte.calculette.infobulle_rho_m
+    document.getElementById("label_rho_r").title = texte.calculette.infobulle_rho_r
+    /*if (document.getElementById("label_omegaL_z1")){
+        document.getElementById("label_omegaL_z1").title = texte.calculette.infobulle_olz1;
+        document.getElementById("label_omegaL_z2").title = texte.calculette.infobulle_olz2;
+
+        document.getElementById('bouton_calculer_horizon').innerHTML=texte.calculette.bouton_calculer;
+        document.getElementById("horizons_titre").innerHTML = texte.calculette.horizons_titre;
+        document.getElementById("horizons_titre").title = texte.calculette.infobulle_horizon;
+        document.getElementById("label_t_hori").title = texte.calculette.infobulle_t_horizon;
+        document.getElementById("label_deven").title = texte.calculette.infobulle_deven;
+        document.getElementById("label_dpart").title = texte.calculette.infobulle_dpart;
+
+    }else{
+        document.getElementById("label_rho_de").title = texte.calculette.infobulle_rho_DE
+        document.getElementById("label_omegaDE_z1").title = texte.calculette.infobulle_odez1;
+        document.getElementById("label_omegaDE_z2").title = texte.calculette.infobulle_odez2;
+        document.getElementById("label_omegaDEN_z1").title = texte.calculette.infobulle_odenz1;
+        document.getElementById("label_omegaDEN_z2").title = texte.calculette.infobulle_odenz2;
+    }
+    */
+    //document.getElementById("label_Tz2").title = texte.calculette.infobulle_Tz2;
+    //document.getElementById("label_Hz2").title = texte.calculette.infobulle_Hz2;
+    //document.getElementById("label_omegaR_z2").title = texte.calculette.infobulle_orz2;
+    //document.getElementById("label_omegaM_z2").title = texte.calculette.infobulle_omz2;
+    //document.getElementById("label_omegaK_z2").title = texte.calculette.infobulle_okz2;
+    //document.getElementById("label_dm1").title = texte.calculette.infobulle_dm1;
+    //document.getElementById("label_dm2").title = texte.calculette.infobulle_dm2;
+    //document.getElementById("label_delta_dm").title = texte.calculette.infobulle_delta_dm;
+    //document.getElementById("label_t1").title = texte.calculette.infobulle_t1;
+    //document.getElementById("label_t2").title = texte.calculette.infobulle_t2;
+    //document.getElementById("label_delta_t").title = texte.calculette.infobulle_delta_t;
+    //document.getElementById("label_z1").title = texte.calculette.infobulle_z1;
+    //document.getElementById("label_z2").title = texte.calculette.infobulle_z2;
+    //document.getElementById("label_ie").title = texte.calculette.infobulle_Ie;
+    //document.getElementById("label_dz1").title = texte.calculette.infobulle_dz1;
+    //document.getElementById("label_dz2").title = texte.calculette.infobulle_dz2;
+    //document.getElementById("label_le").title = texte.calculette.infobulle_Le;
+    //document.getElementById("label_dl1").title = texte.calculette.infobulle_dl1;
+    //document.getElementById("label_dl2").title = texte.calculette.infobulle_dl2;
+    //document.getElementById("label_da1").title = texte.calculette.infobulle_da1;
+    //document.getElementById("label_da2").title = texte.calculette.infobulle_da2;
+    //document.getElementById("label_E1").title = texte.calculette.infobulle_E1;
+    //document.getElementById("label_E2").title = texte.calculette.infobulle_E2;
+    //document.getElementById("label_mu1").title = texte.calculette.infobulle_mu1;
+    //document.getElementById("label_mu2").title = texte.calculette.infobulle_mu2;
+    document.getElementById("Enregistrer").innerHTML = texte.calculette.Enregistrer;
+    document.getElementById("infoNomFichier").title = texte.calculette.infoNomFichier
+    document.getElementById("labelNom_fichier").insertAdjacentHTML("beforeend", texte.calculette.labelNom)
+    document.getElementById("label_selection_graphe").innerHTML = texte.calculette.labelSelectionGraphe
+    document.getElementById("nom_fichier").value = texte.calculette.nomDéfaut
+    document.getElementById("bouttonEnregistrer").innerHTML = texte.calculette.bouttonEnregistrer
+    document.getElementById("avertissement_nbb").innerHTML = texte.calculette.avertissement_nbb
+    //document.getElementById("avertissement_nbb2").innerHTML = texte.calculette.avertissement_nbb
 }
 
 

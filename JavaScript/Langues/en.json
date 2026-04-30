@@ -477,5 +477,10 @@
 		"titre": "Photon Trajectory in Kerr Metric",
 		"moment_angulaire": "Angular momentum exceeds maximum value \r",
 		"vitesse_pas_définie": "undefined"
+	},
+
+	"analyse_calculette":{
+		"analyseur_lcdm":"Calculation analyzer of LCDM cosmological calculator",
+		"vers_calculette":"Calculator"
 	}
 }
