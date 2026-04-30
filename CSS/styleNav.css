@@ -158,7 +158,7 @@ nav {
             width: fit-content;
             opacity: 0;
             transform: translateX(-20px);
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.6)),
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2)),
             /*url("../Images/DeepFieldWebb.jpg") no-repeat;*/
             url("../Images/Hubble_comp.png") no-repeat;
             background-size: cover;
