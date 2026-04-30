@@ -455,10 +455,20 @@ function generer_graphique_distance(fonction_EouF,is_t){
     },5);
 
     if (is_t==1){
-        document.getElementById("fonction_dit").value = "erase";
+        if (s_testLangue() === "fr") {
+            document.getElementById("fonction_dit").value = "effacer";
+        }
+        else if (s_testLangue() === "en") {
+            document.getElementById("fonction_dit").value = "erase";
+        }    
     }
     else {
-        document.getElementById("fonction_diz").value = "erase";
+        if (s_testLangue() === "fr") {
+            document.getElementById("fonction_diz").value = "effacer";
+        }
+        else if (s_testLangue() === "en") {
+            document.getElementById("fonction_diz").value = "erase";
+        } 
     }
 }
 
@@ -676,10 +686,20 @@ function generer_graphique_Omega(fonction_EouF,is_t){
     }, 5);
 
     if (is_t==1){
-        document.getElementById("fonction_omegait").value = "erase";
+        if (s_testLangue() === "fr") {
+            document.getElementById("fonction_omegait").value = "effacer";
+        }
+        else if (s_testLangue() === "en") {
+            document.getElementById("fonction_omegait").value = "erase";
+        }
     }
     else {
-        document.getElementById("fonction_omegaiz").value = "erase";
+        if (s_testLangue() === "fr") {
+            document.getElementById("fonction_omegaiz").value = "effacer";
+        }
+        else if (s_testLangue() === "en") {
+            document.getElementById("fonction_omegaiz").value = "erase";
+        }
     }
     
 }
@@ -842,10 +862,20 @@ function generer_graphique_TempsDecalage(fonction_EouF, is_t){
     }, 5); 
 
     if (is_t==1){
-        document.getElementById("fonction_zt").value = "erase";
+        if (s_testLangue() === "fr") {
+            document.getElementById("fonction_zt").value = "effacer";
+        }
+        else if (s_testLangue() === "en") {
+            document.getElementById("fonction_zt").value = "erase";
+        }
     }
     else {
-        document.getElementById("fonction_tz").value = "erase";
+        if (s_testLangue() === "fr") {
+            document.getElementById("fonction_tz").value = "effacer";
+        }
+        else if (s_testLangue() === "en") {
+            document.getElementById("fonction_tz").value = "erase";
+        }
     }
 
 }
