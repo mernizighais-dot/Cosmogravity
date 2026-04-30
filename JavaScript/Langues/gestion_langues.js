@@ -201,10 +201,8 @@ function texte_navigation() {
     document.getElementById("txt-LUPM").insertAdjacentHTML("beforeend", texte.nav.LUPM)
     document.getElementById("txt-facteurEchelleLCDM").insertAdjacentHTML("beforeend", texte.nav.facteurEchelle)
     document.getElementById("txt-calculetteLCDM").insertAdjacentHTML("beforeend", texte.nav.calculette)
-    document.getElementById("txt-analyseLCDM").insertAdjacentHTML("beforeend", texte.nav.analyse)
     document.getElementById("txt-facteurEchelleDE").insertAdjacentHTML("beforeend", texte.nav.facteurEchelle)
     document.getElementById("txt-calculetteDE").insertAdjacentHTML("beforeend", texte.nav.calculette)
-    document.getElementById("txt-analyseDE").insertAdjacentHTML("beforeend", texte.nav.analyse)
 }
 
 
@@ -236,8 +234,6 @@ function text_page_index() {
     document.getElementById("txt-theorieTrajectoire-index").innerHTML = texte.nav.theorie;
     document.getElementById("txt-tutoTrajectoire-index").innerHTML = texte.nav.tutoriel;
     document.getElementById("txt-simuTraj-index").innerHTML = texte.nav.simulation;
-    document.getElementById("analyse-lcdm").innerHTML = texte.nav.analyse;
-    document.getElementById("analyse-de").innerHTML = texte.nav.analyse;
 }
 
 function texte_univers_LCDM() {
