@@ -1,17 +1,24 @@
 <nav id="nav" class="menu">
+
+        <label for="menu-mobile" class="menu-mobile"><img src="./Images/bouton_burger.png" alt="menu" class="burger"></label>
+        <input type="checkbox" id="menu-mobile" role="button">
+
     <div class="item haut" style="cursor: pointer">
         <a id="txt-acceuil" href="./index.html" style="text-decoration: none; color: inherit; cursor: pointer"></a>
     </div>
 
-    <div id="txt-univers" class="item haut univers" style="cursor: pointer">
+    <div class="item haut univers" style="cursor: pointer">
+        <div id="txt-univers"></div>
         <div class="sousMenu" style="top: 100%; left: 0">
             <button onclick="langageTheorieUnivers()" id="txt-théorieUnivers" class="item univers" style="cursor: pointer"></button>
 
             <button onclick="langageTutorielUnivers()" id="txt-tutoUnivers" class="item univers" style="cursor: pointer"></button>
 
-            <div id="txt-simulationUnivers" class="item univers" style="cursor: pointer">
+            <div class="item univers" style="cursor: pointer">
+                <div id="txt-simulationUnivers"></div>
                 <div class="sousMenu">
-                    <div id="txt-modeleLCDM" class="item univers" style="cursor: pointer">
+                    <div class="item univers" style="cursor: pointer">
+                        <div id="txt-modeleLCDM"></div>
                         <div class="sousMenu">
                             <div class="item univers" style="white-space: nowrap; cursor: pointer">
                                 <a id="txt-facteurEchelleLCDM" href="./Univers_LCDM.html" style="text-decoration: none; color: inherit;"></a>
@@ -21,7 +28,8 @@
                             </div>
                         </div>
                     </div>
-                    <div id="txt-modeleDE" class="item univers" style="cursor: pointer">
+                    <div class="item univers" style="cursor: pointer">
+                        <div id="txt-modeleDE"></div>
                         <div class="sousMenu">
                             <div class="item univers" style="white-space: nowrap; cursor: pointer">
                                 <a id="txt-facteurEchelleDE" href="./Univers_DE.html" style="text-decoration: none; color: inherit;"></a>
@@ -36,15 +44,18 @@
         </div>
     </div>
 
-    <div id="txt-trajectoire" class="item haut trajectoire" style="cursor: pointer">
+    <div class="item haut trajectoire" style="cursor: pointer">
+        <div id="txt-trajectoire"></div>
         <div class="sousMenu" style="top: 100%; left: 0">
             <button onclick="langageTheorieTrajectoire()" id="txt-théorieTrajectoire" class="item trajectoire" style="cursor: pointer"></button>
 
             <button onclick="langageTutorielTrajectoires()" id="txt-tutoTrajectoire" class="item trajectoire" style="cursor: pointer"></button>
 
-            <div id="txt-simulationTrajectoire" class="item trajectoire" style="cursor: pointer">
+            <div class="item trajectoire" style="cursor: pointer">
+                <div id="txt-simulationTrajectoire"></div>
                 <div class="sousMenu">
-                    <div id="txt-metriqueSCH" class="item trajectoire" style="cursor: pointer">
+                    <div class="item trajectoire" style="cursor: pointer">
+                        <div id="txt-metriqueSCH"></div>
                         <div class="sousMenu">
                             <div class="item trajectoire" style="white-space: nowrap; cursor: pointer">
                                 <a id="txt-BBSCH" href="./Simulation_trajectoire.html" style="text-decoration: none; color: inherit;"></a>
@@ -64,7 +75,8 @@
                         </div>
                     </div>
 
-                    <div id="txt-metriqueK" class="item trajectoire" style="cursor: pointer">
+                    <div class="item trajectoire" style="cursor: pointer">
+                        <div id="txt-metriqueK"></div>
                         <div class="sousMenu">
                             <div class="item trajectoire" style="white-space: nowrap; cursor: pointer">
                                 <a id="txt-BK" href="./Simulation_trajectoire_kerr.html" style="text-decoration: none; color: inherit;"></a>
@@ -82,7 +94,8 @@
 
     <div class="item espaceur"></div>
 
-    <div id="txt-langue" class="item bas" style="cursor: pointer">
+    <div class="item bas" style="cursor: pointer">
+        <div id="txt-langue"></div>
         <div class="sousMenu" style="top: 100%; left: 0">
             <button id="LangueFr" onclick="choixLangueFr(); document.location.reload();" class="item" style="cursor: pointer">
                 Français
@@ -128,5 +141,35 @@
             item.classList.remove('active');
         });
     });
+
+function updateUI() {
+    const items = document.querySelectorAll(".item");
+    const checkbox = document.querySelector('nav input[type="checkbox"]');
+
+    items.forEach(item => {
+        // Cas mobile
+        if (window.innerWidth <= 1200) {
+            if (checkbox && checkbox.checked) {
+                item.classList.remove("cache"); // menu ouvert
+            } else {
+                item.classList.add("cache"); // menu fermé
+            }
+        } 
+        // Cas desktop
+        else {
+            item.classList.remove("cache");
+        }
+    });
+}
+
+// événements
+window.addEventListener("resize", updateUI);
+window.addEventListener("load", updateUI);
+
+document.addEventListener("change", (e) => {
+    if (e.target.matches('nav input[type="checkbox"]')) {
+        updateUI();
+    }
+});
 
 </script>
