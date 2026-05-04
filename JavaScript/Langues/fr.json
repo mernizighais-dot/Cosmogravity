@@ -18,7 +18,10 @@
 		"PK": "Photon",
 		"langue": "Langue",
 		"propos": "À propos",
-		"LUPM": "Retour LUPM"
+		"LUPM": "Retour LUPM",
+		"facteurEchelle": "Facteur d'échelle",
+		"calculette": "Calculette cosmologique",
+		"analyse": "Analyse des calculs"
 	},
 	
 	"index":
@@ -484,6 +487,11 @@
 		"titre":"Trajectoire d'un photon en métrique de Kerr",
 		"moment_angulaire":"Moment angulaire supérieur à la valeur maximale \r",
 		"vitesse_pas_définie":"pas définie"
+	},
+
+	"analyse_calculette":{
+		"analyseur_lcdm":"Analyseur des calculs de la calculette cosmologique LCDM",
+		"vers_calculette":"Calculette"
 	}
 }
 
