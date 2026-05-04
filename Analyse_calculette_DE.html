@@ -1,34 +1,73 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    
-    <meta charset="UTF-8">
+    <head>
+        
+        <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="./CSS/styleAnalyseCalculette.css">
-    <link rel="stylesheet" href="./CSS/styleNav.css">
+        <link rel="stylesheet" href="./CSS/styleAnalyseCalculette.css">
+        <link rel="stylesheet" href="./CSS/styleNav.css">
 
-    <title>Analyse de la calculette DE</title>
+        <title>Analyse de la calculette DE</title>
 
-    <script src="./node_modules/jquery/dist/jquery.js"></script>
-    <script src="./JavaScript/Langues/gestion_langues.js"></script>
-    <script src="JavaScript/Univers/analyse_calculette.js"></script>
+        <script src="./node_modules/jquery/dist/jquery.js"></script>
+        <script src="./JavaScript/Langues/gestion_langues.js"></script>
+        <script src="JavaScript/Univers/analyse_calculette.js"></script>
 
-</head>
+        <script src="./JavaScript/fonction_utilitaire.js"></script>
+        <script src="./JavaScript/Univers/Fonctions_utiles.js"></script>
+        <script src="./JavaScript/Univers/calcul_facteur_echelle_DE.js"></script>
+        <script src="./JavaScript/MéthodesNumériques.js"></script>
+        <script src="JavaScript/Univers/calculette.js"></script>
+        <script src="./JavaScript/Univers/Dessin_Interactif_Séparatrices.js"></script>
 
-<body>
+    </head>
 
-    <div class="grillePrincipale">
-    <div id="positionNav" class="Nav"></div>
+    <body>
 
-</div>
+        <div class="grillePrincipale">
+            <div id="positionNav" class="Nav"></div>
+                <div class="grille_graph" style="margin-top: 200px;">
+                    <div class="fonction_t">
+                        <div>
+                            <input type="button" id="fonction_dit" class="petitBoutton" name="dependance" value="résultats" onclick="resultatCalculette(fonction_F,1,'distance')">
+                            <label id="label_button_dit" class="infobullable" for="fonction_dit">d<sub>i</sub>(t)</label>
+                        </div>
+                               
+                        <div>
+                            <input type="button" id="fonction_omegait" class="petitBoutton" name="dependance" value="résultats" onclick="resultatCalculette(fonction_F,1,'omega')">
+                            <label id="label_button_omegait" class="infobullable" for="fonction_omegait">&Omega;<sub>i</sub>(t)</label>
+                        </div>
+                            <div>
+                            <input type="button" id="fonction_zt" class="petitBoutton" name="dependance" value="résultats" onclick="resultatCalculette(fonction_F,1,'temps')">
+                            <label id="label_button_zt" class="infobullable" for="fonction_zt">z(t)</label>
+                        </div>
+                    </div>
+                    <div class="fonction_z">
+                        <div>
+                            <input type="button" id="fonction_diz" class="petitBoutton" name="dependance" value="résultats" onclick="resultatCalculette(fonction_F,0,'distance')">
+                            <label id="label_button_diz" class="infobullable" for="fonction_diz">d<sub>i</sub>(z)</label>
+                        </div>
+                        <div>
+                            <input type="button" id="fonction_omegaiz" class="petitBoutton" name="dependance" value="résultats" onclick="resultatCalculette(fonction_F,0,'omega')">
+                            <label id="label_button_omegaiz" class="infobullable" for="fonction_omegaiz">&Omega;<sub>i</sub>(z)</label>
+                        </div>
+                                
+                        <div>
+                            <input type="button" id="fonction_tz" class="petitBoutton" name="dependance" value="résultats" onclick="resultatCalculette(fonction_F,0,'temps')">
+                            <label id="label_button_tz" class="infobullable" for="fonction_tz">t(z)</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<script>
-    texte_analyse_calculette()
-    sessionStorage.setItem("isHome","False");
-    $(function() {
-        $("#positionNav").load("Navigation.html");
-    });
-</script>
+        <script>
+            texte_analyse_calculette()
+            sessionStorage.setItem("isHome","False");
+            $(function() {
+                $("#positionNav").load("Navigation.html");
+            });
+        </script>
 
-</body>
+    </body>
 </html>

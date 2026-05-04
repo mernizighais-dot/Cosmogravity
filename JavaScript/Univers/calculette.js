@@ -257,7 +257,7 @@ function array_lerp(zmin=-1,zmax=5,pas) {
     return (y)
 }
 
-function generer_graphique_distance(fonction_EouF,is_t){
+function generer_graphique_distance(fonction_EouF, is_t, is_test = 0) {
     document.getElementById("loading").style.display = "flex";
     setTimeout(() => {
     if (sessionStorage.getItem("affichage_d_t")=="True" && is_t == 1) {
@@ -418,6 +418,14 @@ function generer_graphique_distance(fonction_EouF,is_t){
             name :'<b>d<sub>LT</sub><b>',type:'scatter'
         }
     ];
+
+    if (is_test == 1){
+        downloadCSV(data[0].x,data[0].y,"distance_metrique.csv");
+        downloadCSV(data[1].x,data[1].y,"distance_diametre_apparent.csv");
+        downloadCSV(data[2].x,data[2].y,"distance_luminosite.csv");
+        downloadCSV(data[3].x,data[3].y,"distance_temps_lumiere.csv");
+    }
+
     //configuration de la fenetre plotly
     let layout = { width:get_plot_width(), height:450, 
         title: plot_title,
@@ -462,7 +470,7 @@ function generer_graphique_distance(fonction_EouF,is_t){
     }
 }
 
-function generer_graphique_Omega(fonction_EouF,is_t){
+function generer_graphique_Omega(fonction_EouF,is_t ,is_test = 0) {
     document.getElementById("loading").style="flex";
     setTimeout(() => {
     if (sessionStorage.getItem("affichage_omega_t")=="True" && is_t == 1) {
@@ -641,6 +649,15 @@ function generer_graphique_Omega(fonction_EouF,is_t){
             name :titre_omegal,type:'scatter'
         }
     ];
+
+
+    if (is_test == 1){
+        downloadCSV(data[0].x,data[0].y,"distance_metrique.csv");
+        downloadCSV(data[1].x,data[1].y,"distance_diametre_apparent.csv");
+        downloadCSV(data[2].x,data[2].y,"distance_luminosite.csv");
+        downloadCSV(data[3].x,data[3].y,"distance_temps_lumiere.csv");
+    }
+
     //configuration de la fenetre plotly
     let layout = {  width:get_plot_width(), height:450,  
         title: plot_title,
@@ -684,7 +701,7 @@ function generer_graphique_Omega(fonction_EouF,is_t){
     
 }
 
-function generer_graphique_TempsDecalage(fonction_EouF, is_t){
+function generer_graphique_TempsDecalage(fonction_EouF, is_t, is_test = 0) {
     document.getElementById("loading").style.display = "flex";
     setTimeout(() => {
     if (sessionStorage.getItem("affichage_z_t")=="True" && is_t == 1) {
@@ -806,6 +823,11 @@ function generer_graphique_TempsDecalage(fonction_EouF, is_t){
             name :'<b>&#x3A9;<sub>R</sub><b>',type:'scatter'
         }
     ];
+
+    if (is_test == 1){
+        downloadCSV(data[0].x,data[0].y,"distance_metrique.csv");
+    }
+
     //configuration de la fenetre plotly
     let layout = {  width:get_plot_width(), height:450, 
         title: plot_title,
