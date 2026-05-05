@@ -22,10 +22,10 @@ body {
     gap: 5px;
     padding: 0;
     margin: 0;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     box-sizing: border-box;
-    position: absolute;
+    position: relative;
 }
 
 .Nav {
@@ -97,16 +97,17 @@ body {
         text-decoration: underline;
         text-underline-offset: clamp(4px, 5vw, 50px);
         text-decoration-thickness: clamp(1px, 0.3vw, 5px);
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
     }
 
     .txtUniv {
         display: flex;
         flex-direction: column;
         grid-area: txtUniv;
-        margin: 100px;
+        margin: clamp(10px, 5vw, 100px);
         margin-top: 20px;
         background-color: rgba(0, 0, 0, 0.5);
-        border-radius: 50px;
+        border-radius: clamp(10px, 3vw, 50px);
         padding: 10px;
     }
 
@@ -118,16 +119,16 @@ body {
 
             text-align: center;
             font-family: 'Crimson Text', serif;
-            font-size: 3em;
+            font-size: clamp(2.5rem, 3.5vw, 4rem);
             font-weight: bold;
             text-transform: uppercase;
         }
 
-        .txtUniv p {
+        .txtUniv p, .txtUniv a, .txtUniv button, .txtUniv samp {
             color: #ffffff;
 
             text-align: center;
-            font-size: 1.5em;
+            font-size: clamp(1.5rem, 2vw, 2rem);
         }
 
     .Logo {
@@ -135,7 +136,7 @@ body {
         display: flex;
         justify-content: center;
         align-items: flex-start;
-        padding-top: 20%;
+        padding-top: clamp(10px, 10vw, 20%);
         height: 100%;
     }
 
@@ -148,10 +149,10 @@ body {
         display: flex;
         flex-direction: column;
         grid-area: txtTraj;
-        margin: 100px;
+        margin: clamp(10px, 5vw, 100px);
         margin-top: 20px;
         background-color: rgba(0, 0, 0, 0.5);
-        border-radius: 50px;
+        border-radius: clamp(10px, 3vw, 50px);
         padding: 10px;
     }
 
@@ -163,16 +164,16 @@ body {
 
             text-align: center;
             font-family: 'Crimson Text', serif;
-            font-size: 3em;
+            font-size: clamp(2.5rem, 3.5vw, 4rem);
             font-weight: bold;
             text-transform: uppercase;
         }
 
-        .txtTraj p {
+        .txtTraj p, .txtTraj a, .txtTraj button, .txtTraj samp {
             color: #ffffff;
 
             text-align: center;
-            font-size: 1.5em;
+            font-size: clamp(1.5rem, 2vw, 2rem);
         }
 
     .Logos {
@@ -187,9 +188,9 @@ body {
 
         .Logos img {
             max-height: 100%;
-            width: 25%;
+            width: clamp(120px, 40%, 500px);
             background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 50px;
+            border-radius: clamp(10px, 3vw, 50px);
             padding: 10px;
         }
 
@@ -204,7 +205,8 @@ body {
     position: fixed;
     bottom: 0px;
     right: 25px;
-    color: rgba(255, 255, 255, 0.2)
+    color: rgba(255, 255, 255, 0.2);
+    font-size: clamp(0.5rem, 1vw, 1rem);
 }
 
 @keyframes fallIn {
@@ -226,5 +228,22 @@ body {
     100% {
         transform: scaleX(0.5) translateX(-1%);
         opacity: 1;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .grilleCorps {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "titre"
+            "Logo"
+            "txtUniv"
+            "txtTraj"
+            "Logos";
+    }
+
+    .Logo img {
+        max-width: 50%;
+        height: auto;
     }
 }
