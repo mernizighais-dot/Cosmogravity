@@ -8,10 +8,10 @@
     gap: 5px;
     padding: 0;
     margin: 0;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     box-sizing: border-box;
-    position: absolute;
+    position: relative;
 }
 
 #PanneauCentral {
@@ -119,8 +119,34 @@
     animation: spin 1s linear infinite;
 }
 
+.petitBoutton.boutonLateral {
+    display:block;
+}
+
 /* Animation de rotation */
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+@media screen and (max-width: 1200px) {
+    .grillePrincipale {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+            "Nav"
+            "Entree"
+            "Graphe"
+            "Sortie";
+    }
+
+    #conteneurCanvas {
+        width: clamp(200px, 80%, 800px);
+        height: clamp(200px, 80%, 800px);
+    }
+
+    .petitBoutton.boutonLateral {
+        display: none;
+    }
+
 }

@@ -29,8 +29,8 @@
 <div class="grillePrincipale" style="align-items: start;gap: 2px;">
     <div id="positionNav" class="Nav"></div>
     <!--Fenêtre entrée-->
-    <button onclick="toggleEntreeSortie('panneauEntree')" class="petitBoutton"
-            style="background-color: rgba(188,167,220,0.6); display:block; top: 60px; left:10px; position: absolute">
+    <button onclick="toggleEntreeSortie('panneauEntree')" class="petitBoutton boutonLateral"
+            style="background-color: rgba(188,167,220,0.6); top: 60px; left:10px; position: absolute">
         <img id="flecheGauche" class="flècheMenu"
              src="./Images/fleche_menu.png"
              alt="">
@@ -356,8 +356,8 @@
     </div>
 
     <!--Fenêtre sortie-->
-    <button onclick="toggleEntreeSortie('panneauSortie')" class="petitBoutton"
-            style="background-color: rgba(188,167,220,0.6); display:block; top: 60px; right:10px; position: absolute">
+    <button onclick="toggleEntreeSortie('panneauSortie')" class="petitBoutton boutonLateral"
+            style="background-color: rgba(188,167,220,0.6); top: 60px; right:10px; position: absolute">
         <img id="flecheDroite" class="flècheMenu tournee"
              src="./Images/fleche_menu.png"
              alt="">
@@ -665,6 +665,10 @@
     window.addEventListener("resize", resize_graphs);
 
     updateCalculette()
+
+    window.addEventListener("resize", update_toggleEntreeSortie);
+    window.addEventListener("resize", update_point);
+    window.addEventListener("resize", update_graphe_interactif);
 
 </script> 
 </body>
