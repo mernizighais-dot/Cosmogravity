@@ -57,8 +57,23 @@ body {
     grid-template-rows: 1fr 1fr;
     background-color: white;
     padding: 10px;
+    padding-bottom: 40px;
     border-radius: 10px;
     align-content: center;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.37);
+}
+
+@media screen and (max-width: 1200px) {
+    .grillePrincipale {
+        grid-template-rows: auto 1fr;
+    }
+
+    .grilleActeurs {
+        grid-template-columns: 1fr;
+    }
+
+    .boite .boite {
+        grid-template-rows: auto auto;
+    }
 }
