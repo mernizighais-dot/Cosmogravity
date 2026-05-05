@@ -10,32 +10,98 @@ function toggleEntreeSortie (IDpanel) {
     let entreeCachee = document.getElementById("panneauEntree").classList.contains("cache")
     let sortieCachee = document.getElementById("panneauSortie").classList.contains("cache")
 
-    if (entreeCachee && sortieCachee) {
+    if (window.innerWidth > 1200) {
+        if (entreeCachee && sortieCachee) {
+            grillePrincipale.style.gridTemplateColumns = '1fr';
+            grillePrincipale.style.gridTemplateAreas = '' +
+                '"Nav"' +
+                '"Graphe"';
+        } else if (entreeCachee) {
+            grillePrincipale.style.gridTemplateColumns = '4fr 1fr';
+            grillePrincipale.style.gridTemplateAreas = '' +
+                '"Nav Nav"' +
+                '"Graphe Sortie"';
+        } else if (sortieCachee) {
+            grillePrincipale.style.gridTemplateColumns = '1fr 4fr';
+            grillePrincipale.style.gridTemplateAreas = '' +
+                '"Nav Nav"' +
+                '"Entree Graphe"';
+        } else {
+            grillePrincipale.style.gridTemplateColumns = '1fr 3fr 1fr';
+            grillePrincipale.style.gridTemplateAreas = '' +
+                '"Nav Nav Nav"' +
+                '"Entree Graphe Sortie"';
+        }
+    }
+    else {
+        if (entreeCachee) {
+            document.getElementById("panneauEntree").classList.toggle("cache");
+        }
+        if (sortieCachee) {
+            document.getElementById("panneauSortie").classList.toggle("cache");
+        }
         grillePrincipale.style.gridTemplateColumns = '1fr';
         grillePrincipale.style.gridTemplateAreas = '' +
-            '"Nav"' +
-            '"Graphe"';
-    } else if (entreeCachee) {
-        grillePrincipale.style.gridTemplateColumns = '4fr 1fr';
-        grillePrincipale.style.gridTemplateAreas = '' +
-            '"Nav Nav"' +
-            '"Graphe Sortie"';
-    } else if (sortieCachee) {
-        grillePrincipale.style.gridTemplateColumns = '1fr 4fr';
-        grillePrincipale.style.gridTemplateAreas = '' +
-            '"Nav Nav"' +
-            '"Entree Graphe"';
-    } else {
-        grillePrincipale.style.gridTemplateColumns = '1fr 3fr 1fr';
-        grillePrincipale.style.gridTemplateAreas = '' +
-            '"Nav Nav Nav"' +
-            '"Entree Graphe Sortie"';
+                '"Nav"' +
+                '"Entree"' +
+                '"Graphe"' +
+                '"Sortie"';
     }
 
     if (IDpanel === "panneauEntree") {
         document.getElementById("flecheGauche").classList.toggle("tournee");
     } else {
         document.getElementById("flecheDroite").classList.toggle("tournee");
+    }
+
+    ajustementGraphique()
+    if (typeof resize_graphs === 'function') {
+        requestAnimationFrame(resize_graphs);
+    }
+}
+
+function update_toggleEntreeSortie () {
+
+    const grillePrincipale = document.querySelector(".grillePrincipale")
+    let entreeCachee = document.getElementById("panneauEntree").classList.contains("cache")
+    let sortieCachee = document.getElementById("panneauSortie").classList.contains("cache")
+
+    if (window.innerWidth > 1200) {
+        if (entreeCachee && sortieCachee) {
+            grillePrincipale.style.gridTemplateColumns = '1fr';
+            grillePrincipale.style.gridTemplateAreas = '' +
+                '"Nav"' +
+                '"Graphe"';
+        } else if (entreeCachee) {
+            grillePrincipale.style.gridTemplateColumns = '4fr 1fr';
+            grillePrincipale.style.gridTemplateAreas = '' +
+                '"Nav Nav"' +
+                '"Graphe Sortie"';
+        } else if (sortieCachee) {
+            grillePrincipale.style.gridTemplateColumns = '1fr 4fr';
+            grillePrincipale.style.gridTemplateAreas = '' +
+                '"Nav Nav"' +
+                '"Entree Graphe"';
+        } else {
+            grillePrincipale.style.gridTemplateColumns = '1fr 3fr 1fr';
+            grillePrincipale.style.gridTemplateAreas = '' +
+                '"Nav Nav Nav"' +
+                '"Entree Graphe Sortie"';
+        }
+    }
+    else {
+        if (entreeCachee) {
+            document.getElementById("panneauEntree").classList.toggle("cache");
+        }
+        if (sortieCachee) {
+            document.getElementById("panneauSortie").classList.toggle("cache");
+        }
+        grillePrincipale.style.gridTemplateColumns = '1fr';
+        grillePrincipale.style.gridTemplateAreas = '' +
+                '"Nav"' +
+                '"Entree"' +
+                '"Graphe"' +
+                '"Sortie"';
     }
 
     ajustementGraphique()
