@@ -970,7 +970,6 @@ function trajectoire(compteur,mobile) {
 		document.getElementById("tg2").style.display = "table"; //Fait apparaître le tableau des résultats.
 		document.getElementById("indic_calculs").innerHTML = texte.pages_trajectoire.calcul_encours; //Affiche que le calcul est en cours.
 
-		SurTelephone(); //Affichage de l'information sur les touches claviers en fonction de la taille de l'écran.
 
 		//Interdiction de changer les valeurs de M, r_phy et le nombre de fusées une fois la simulation lancée : 
 		document.getElementById('M').disabled = true; 
@@ -1368,7 +1367,6 @@ function animate(compteur,mobile,mobilefactor)
 
 	mobilefactor[compteur] = factGlobalAvecClef //facteur pour l'echelle
 
-	SurTelephone(); //on verifie si on est sur telephone ou ordinateur
 	choixTrajectoire(context,mobilefactor,rmaxjson,maximum); // on vérifie le type de trajectoire sélectionné
 	
 	/*----------------------------------------------------------{{{{  CAS_OBSERVATEUR  }}}-----------------------------------------------------------*/

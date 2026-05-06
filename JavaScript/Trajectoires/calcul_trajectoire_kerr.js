@@ -308,8 +308,6 @@ function trajectoire() {
 		document.getElementById("indic_calculs").innerHTML = texte.pages_trajectoire.calcul_encours; //Affiche que le calcul est en cours.
 		$("#grsvg_2").empty(); //Je vide le contenue du canvas du potentiel.  
 
-		SurTelephone(); //Affichage de l'information sur les touches claviers en fonction de la taille de l'écran.
-
 		//Interdiction de changer les valeurs de M, r0, J, teta, phi0 une fois la simulation lancée : 
 		document.getElementById('M').disabled = true;
 		document.getElementById('r0').disabled = true;
@@ -670,7 +668,6 @@ function animate() {
 	onestarrete=0; // condition pour arreter le mobile
 	element = document.getElementById('traject_type'); // on recupere le boutton de type de trajectoire
 	element2=document.getElementById('traject_type2');//on recupere le boutton de observateur ou mobile
-	SurTelephone();//on verifie si on est sur telephone ou ordinateur
 	choixTrajectoire(context);// on vérifie le type de trajectoire sélectionné
 
 	var temps_acceleration = 50e-3; //Temps d'accélération imposé à 50ms.
