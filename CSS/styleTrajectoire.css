@@ -130,7 +130,7 @@ body {
 /*Pour la grille principale*/
 .grillePrincipale {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 3fr 1fr;
     grid-template-rows: 38px 1fr;
     grid-template-areas:
             "Nav Nav Nav"
@@ -138,10 +138,10 @@ body {
     gap: 10px;
     padding: 0;
     margin: 0;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     box-sizing: border-box;
-    position: absolute;
+    position: relative;
 }
 
 
@@ -171,7 +171,7 @@ body {
     grid-area: Entree;
     display: grid;
     grid-auto-columns: 1fr;
-    grid-template-rows: 0.2fr 1fr;
+    grid-template-rows: auto 1fr;
     background-color: rgb(0, 0, 0);
     padding: 1px;
     gap: 3px;
@@ -190,13 +190,10 @@ body {
         background-color: rgb(255, 255, 255);
         gap: 1px;
         padding: 1px;
+        padding-bottom: 15px;
         border-radius: 15px;
     }
 
-    .boiteEntree input,   
-    .boiteEntree textarea {
-    font-family: 'Courier New', Courier, monospace;
-}
 
     
     
@@ -269,7 +266,7 @@ body {
     grid-area: Sortie;
     display: grid;
     grid-auto-columns: 1fr;
-    grid-template-rows: 0.2fr 1fr;
+    grid-template-rows: auto 1fr;
     background-color: rgb(0, 0, 0);
     padding: 1px;
     gap: 3px;
@@ -328,7 +325,6 @@ body {
     align-items: center;
     width: 100%;
     max-width: 400px;
-    position: absolute;
     top: 70px;
     
 }
@@ -336,13 +332,12 @@ body {
 .input-wrapper {
     display: flex;
     align-items: center;
+    justify-content: center;
+    white-space: nowrap;
     width: 100%;
-    margin-bottom: 10px;
-    margin-left: 30%;
 }
 
 .input-wrapper label {
-    width: 100px; /* Largeur fixe du label */
     margin-right: 10px;
     font-size: 15;
     color: #333;
@@ -382,22 +377,6 @@ body {
     opacity: 0.5;
 }
 
-@media (max-width: 600px) {
-    .input-wrapper {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .input-wrapper label {
-        width: 100%;
-        margin-bottom: 5px;
-        text-align: left;
-    }
-
-    .input-wrapper input {
-        width: 100%;
-    }
-}
 
 .bouton_mobile {
     width: 30px;
@@ -418,23 +397,29 @@ body {
 
 /* Pour avoir des input à 4 dans les entrees */
 .form-container {
-    display: flex;
-    flex-wrap: wrap;
-    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-content: center;
     max-width: 600px;
-    margin: 0 auto;
+    margin: 0 10%;
     background: #fff;
-    padding: 15px;
+    padding: 10px;
     border-radius: 10px;
     box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.1);
     background-color: rgba(179, 221, 223, 0.85);
+    gap: 20px;
+    box-sizing: border-box;
+    justify-items: center;
 }
 
 .input-group {
-    display: flex;
+    display: block;
+    justify-self: center;
     align-items: center;
-    width: calc(50% - 20px);
-    margin: 10px;
+    margin: 0;
+    box-sizing: border-box;
+    min-width: 0;
 }
 .input-block {
     display: block;
@@ -442,19 +427,22 @@ body {
     margin-bottom: 8px; /* Espace entre les champs */
   }
 .input-group label {
-    width: 100px; /* Largeur fixe du label */
+    width: 100%;
     font-size: 15;
     color: #333;
     text-align: center;
     white-space: nowrap; /* Empêche le texte de passer à la ligne */
     overflow: hidden; /* Cache le texte qui dépasse */
+    box-sizing: border-box;
 }
 
 /* Cibler tous les inputs */
 .input-group input {
     flex: 1;
     height: 40px;
+    width: 100%;
     padding: 10px;
+    text-align: center;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 5px;
@@ -470,21 +458,6 @@ body {
     outline: none;
 }
 
-@media (max-width: 600px) {
-    .input-group {
-        width: 100%;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .input-group label {
-        margin-bottom: 5px;
-    }
-
-    .input-group input {
-        width: 100%;
-    }
-}
 
 
 /* Pour les tableaux */
@@ -553,12 +526,6 @@ tbody td {
     color: #333333;
 }
 
-@media screen and (max-width: 600px) {
-    .table-container {
-        width: 100%;
-        border-radius: 0;
-    }
-}
 
 
   
@@ -619,7 +586,8 @@ tbody td {
 .info-icon {
     width: 60px;
     height: 60px;
-    position: absolute;
+    position: relative;
+    grid-area: info;
     left: 10px;
     background-color: rgba(39, 121, 124, 0.85); /* Bleu clair agréable */
     color: white; /* Texte blanc pour contraste */
@@ -653,6 +621,7 @@ tbody td {
     height: fit-content;
     z-index: 300;
     position: relative;
+    grid-area: avertissement;
 }
 
     .avertissement_style:active {
@@ -665,7 +634,26 @@ tbody td {
 font-size: 20px;
 position: relative;
 margin-right: 20px;   
-text-align: center; 
+text-align: center;
+grid-area: titre;
+display: grid; 
+position: relative;
+}
+
+#entete {
+    width: 100%;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 8fr 2fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "info titre avertissement"
+        "texte texte texte";
+}
+
+#txt_avertissement_trajectoire{
+    grid-area: texte;
+    display: grid; 
 }
 
 /*Pour le div du graphe de simulation*/
@@ -821,4 +809,29 @@ background-color: #4FA7AD; /* Couleur bleue au survol */
 /* Placeholder style */
 option[disabled]:first-child {
     color: #aaaaaa;
+}
+
+.petitBoutton.boutonLateral {
+    display:block;
+}
+
+@media screen and (max-width: 1200px) {
+    .grillePrincipale {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+            "Nav"
+            "Entree"
+            "Graphe"
+            "Sortie";
+    }
+
+    #conteneurCanvas {
+        width: clamp(200px, 80%, 800px);
+        height: clamp(200px, 80%, 800px);
+    }
+
+    .petitBoutton.boutonLateral {
+        display: none;
+    }
 }

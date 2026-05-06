@@ -312,7 +312,7 @@ function genereHtml()
 		newlabel.setAttribute("id","label"+count.toString()+"");
 		newlabel.innerHTML = "Mobile "+count.toString();
 		newlabel.style.position = 'relative';
-		newlabel.style.left = '40px'; 
+		newlabel.style.left = '10%'; 
 		divchamp_a_remplir.appendChild(newlabel);
 
 		var	divchampsr = document.createElement("div");

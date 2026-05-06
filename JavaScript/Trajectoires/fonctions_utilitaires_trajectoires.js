@@ -39,22 +39,6 @@ function traceEstAbsent(){
 	document.getElementById('trace_present').value=false;
 }
 
-//----------------------------------------------------{surTelephone}----------------------------------------------------
-
-/**
- * Fonction qui vérifie si la largeur de l'écran est inférieure ou égale à 960 pixels et ajuste la visibilité (cachée ou non) d'un élément HTML avec l'ID "bouton_info" en conséquence. 
- * Si l'écran fait moins ou égal à 960 pixels alors l'élement sera caché et sinon il sera visible.
- */
-
-function SurTelephone(){
-	var x = window.matchMedia("(max-width: 960px)")
-	if(x.matches){
-		document.getElementById("bouton_info").style.visibility='hidden';
-	}
-	else{
-		document.getElementById("bouton_info").style.visibility='visible';
-	}
-}
 
 //----------------------------------------------------{generateurCouleur}----------------------------------------------------
 
