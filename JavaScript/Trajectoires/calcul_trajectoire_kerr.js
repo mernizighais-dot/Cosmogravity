@@ -437,12 +437,13 @@ function trajectoire() {
 
 		//--------------------------------Gestion du pilotage--------------------------------
 		
-		var X = Number(document.getElementById("pourcentage_vphi_pilotage").value); //Récupération du pourcentage dont on veut modifier vphi à chaque clic.
 		var temps_acceleration = 50e-3; //Le temps d'accélération est imposé et fixé à 50ms. 
 
 
 		if (element2.value=="mobile"){//Dans le cas spationaute
 			setInterval(function(){ //J'effectue les actions suivantes toutes les 50 ms. 
+
+				var X = Number(document.getElementById("pourcentage_vphi_pilotage").value); //Récupération du pourcentage dont on veut modifier vphi à chaque clic.
 
 				if (isNaN(vtot) || vtot >=c){ //Si jamais la vitesse du mobile a déja atteint la vitesse de la lumière ou que la vitesse n'est pas définie, on ne peut pas piloter. 
 					pilotage_possible = false;
