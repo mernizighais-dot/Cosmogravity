@@ -1298,33 +1298,33 @@ function majFondFixe()
 	context.fillRect(0, 0, canvas.width, canvas.height);
 	context.font = "15pt bold";
 	context.fillStyle = "black";
-	//on met le text (titre et entrées)
-	/*TITRE*/
-	context.fillText(texte.page_trajectoire_massive_kerr.titre,5,40);
-	context.font = "13pt bold";
-	/*ENTREES*/
-	context.fillText(texte.pages_trajectoire.entrees,5,70);
-	context.font = "11pt normal";
-	/*MASSE*/
-	context.fillText("M = "+M.toExponential(3)+" kg",5,90);
-	/*MOMENT CINÉTIQUE*/
-	context.fillText("J = "+J.toExponential(3)+" kg.m\u00B2.s\u207B\u00B9",5,110);
-	/*CHARGE(A)*/
-	context.fillText("a = "+a.toExponential(3)+" m",5,130);
-	/*ENTREES MOBILE*/
-	context.fillText("r\u2080 = "+r0.toExponential(3)+" m",5,150);//r0
-	context.fillText("V\u2080 = "+v0.toExponential(3)+" m.s\u207B\u00B9",5,170); //v0
-	context.fillText("\u03C6\u2080 = "+phi_degres.toExponential(3)+" °",5,190);//phi0
-	/*POUR LE MODE */
-	if(document.getElementById('traject_type2').value=="observateur")
-	{
-		context.fillText(texte.pages_trajectoire.observateur,5,210);
-	} 
-	else 
-	{
-		context.fillText(texte.pages_trajectoire.mobile,5,210); 
+	// //on met le text (titre et entrées)
+	// /*TITRE*/
+	// context.fillText(texte.page_trajectoire_massive_kerr.titre,5,40);
+	// context.font = "13pt bold";
+	// /*ENTREES*/
+	// context.fillText(texte.pages_trajectoire.entrees,5,70);
+	// context.font = "11pt normal";
+	// /*MASSE*/
+	// context.fillText("M = "+M.toExponential(3)+" kg",5,90);
+	// /*MOMENT CINÉTIQUE*/
+	// context.fillText("J = "+J.toExponential(3)+" kg.m\u00B2.s\u207B\u00B9",5,110);
+	// /*CHARGE(A)*/
+	// context.fillText("a = "+a.toExponential(3)+" m",5,130);
+	// /*ENTREES MOBILE*/
+	// context.fillText("r\u2080 = "+r0.toExponential(3)+" m",5,150);//r0
+	// context.fillText("V\u2080 = "+v0.toExponential(3)+" m.s\u207B\u00B9",5,170); //v0
+	// context.fillText("\u03C6\u2080 = "+phi_degres.toExponential(3)+" °",5,190);//phi0
+	// /*POUR LE MODE */
+	// if(document.getElementById('traject_type2').value=="observateur")
+	// {
+	// 	context.fillText(texte.pages_trajectoire.observateur,5,210);
+	// } 
+	// else 
+	// {
+	// 	context.fillText(texte.pages_trajectoire.mobile,5,210); 
 
-	}
+	// }
 
 }
 // -------------------------------------{fonction majFondFixe22}--------------------------------------------

@@ -2059,45 +2059,45 @@ function majFondFixe()
 	context.fillStyle = 'white';
 	context.fillRect(0, 0, canvas.width, canvas.height);
 	context.font = "15pt bold";
-	//on met le text (titre et entrées)
-	/*TITRE*/
-	context.fillStyle = "black";
-	context.fillText(texte.page_trajectoire_massive.non_baryonique,5,40);
-	context.font = "13pt bold";
-	/*ENTREES*/
-	context.fillText(texte.pages_trajectoire.entrees,5,70);
-	context.font = "11pt normal";
-	/*MASSE*/
-	context.fillText("M = "+M.toExponential(3)+" kg",5,90);
-	/*RAYON PHYSIQUE*/
-	context.fillText("r\u209A\u2095\u1D67 = "+r_phy.toExponential(3)+" m",5,110);
+	// //on met le text (titre et entrées)
+	// /*TITRE*/
+	// context.fillStyle = "black";
+	// context.fillText(texte.page_trajectoire_massive.non_baryonique,5,40);
+	// context.font = "13pt bold";
+	// /*ENTREES*/
+	// context.fillText(texte.pages_trajectoire.entrees,5,70);
+	// context.font = "11pt normal";
+	// /*MASSE*/
+	// context.fillText("M = "+M.toExponential(3)+" kg",5,90);
+	// /*RAYON PHYSIQUE*/
+	// context.fillText("r\u209A\u2095\u1D67 = "+r_phy.toExponential(3)+" m",5,110);
 
-	/*POUR LE MODE */
-	if(document.getElementById('traject_type2').value=="observateur")
-	{
-		context.fillText(texte.pages_trajectoire.observateur,5,130);
-	}
-	else 
-	{ context.fillText(texte.pages_trajectoire.mobile,5,130); 
+	// /*POUR LE MODE */
+	// if(document.getElementById('traject_type2').value=="observateur")
+	// {
+	// 	context.fillText(texte.pages_trajectoire.observateur,5,130);
+	// }
+	// else 
+	// { context.fillText(texte.pages_trajectoire.mobile,5,130); 
 
-	}
+	// }
 
-	/*ENTREES MOBILE*/
-	context.fillText("mobile1:",5,150);//mobile1
-	context.fillText("r\u2080 = "+(r0o2[1]).toExponential(3)+" m",5,170);//r0
-	context.fillText("V\u2080 = "+vphiblab.toExponential(3)+" m.s\u207B\u00B9",5,190);//v0
-	context.fillText("\u03C6\u2080 = "+vrblab.toExponential(3)+" °",5,210);//phi0
+	// /*ENTREES MOBILE*/
+	// context.fillText("mobile1:",5,150);//mobile1
+	// context.fillText("r\u2080 = "+(r0o2[1]).toExponential(3)+" m",5,170);//r0
+	// context.fillText("V\u2080 = "+vphiblab.toExponential(3)+" m.s\u207B\u00B9",5,190);//v0
+	// context.fillText("\u03C6\u2080 = "+vrblab.toExponential(3)+" °",5,210);//phi0
 	
-	//on met au max 2 mobiles avec les memes etaps
-	nombeuhreudefusees = Number(document.getElementById("nombredefusees").value);
+	// //on met au max 2 mobiles avec les memes etaps
+	// nombeuhreudefusees = Number(document.getElementById("nombredefusees").value);
 
-	if (nombeuhreudefusees>=2)
-	{
-		context.fillText("mobile2:",5,230);//mobile2
-		context.fillText("r\u2080 = "+r0o2[2].toExponential(3)+" m",5,250);
-		context.fillText("V\u2080 = "+vphi2i.toExponential(3)+" m.s\u207B\u00B9",5,290);
-		context.fillText("\u03C6\u2080= "+vr2i.toExponential(3)+" °",5,310);
-	}
+	// if (nombeuhreudefusees>=2)
+	// {
+	// 	context.fillText("mobile2:",5,230);//mobile2
+	// 	context.fillText("r\u2080 = "+r0o2[2].toExponential(3)+" m",5,250);
+	// 	context.fillText("V\u2080 = "+vphi2i.toExponential(3)+" m.s\u207B\u00B9",5,290);
+	// 	context.fillText("\u03C6\u2080= "+vr2i.toExponential(3)+" °",5,310);
+	// }
  
 }
 // -------------------------------------{fonction majFondFixe22}--------------------------------------------
@@ -2219,11 +2219,11 @@ function creation_blocs(context,mobilefactor,rmaxjson,r0ou2){
 	context.fillStyle = 'white'; //Ajout d'un fond blanc pour l'exportation.
 
 	//--------------------Dessin du texte du titre et des entrées--------------------
-	context.font = "15pt bold";
-	context.fillStyle = "black"; 
-	context.fillText(texte.page_trajectoire_massive.non_baryonique,5,40);
-	context.font = "13pt bold";
-	context.fillText(texte.pages_trajectoire.entrees,5,70);
+	// context.font = "15pt bold";
+	// context.fillStyle = "black"; 
+	// context.fillText(texte.page_trajectoire_massive.non_baryonique,5,40);
+	// context.font = "13pt bold";
+	// context.fillText(texte.pages_trajectoire.entrees,5,70);
 
 	//--------------------calculs pour la barre d'échelle--------------------
 	r2bis=(80*r0ou2)/(factGlobalAvecClef);
