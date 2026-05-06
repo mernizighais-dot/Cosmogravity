@@ -102,8 +102,8 @@
   <div id="positionNav" class="Nav"></div>
 
   <div class="grillePrincipale">
-	<button onclick="toggleEntreeSortie('panneauEntree')" class="petitBoutton"
-		style=" display:block; top: 60px; left:10px; position: absolute">
+	<button onclick="toggleEntreeSortie('panneauEntree')" class="petitBoutton boutonLateral"
+		style="top: 60px; left:10px; position: absolute">
 	<img id="flecheGauche" class="flècheMenu"
 		src="./Images/fleche_menu.png"
 		alt="">
@@ -126,12 +126,12 @@
 			<div id="champs_a_remplir_haut" class="pls-inputs-container">
 
 				<span id="masse" class="input-wrapper">
-					<label id= "massetxt"for="M">M (kg) =</label>
+					<label id= "massetxt"for="M" style="width: 100px;">M (kg) =</label>
 					<input id="M" value="2e30" type="text" maxlength="13" onchange="verifnbr();initialisation()" oninput="resizeInput(this); initialisation()" autocomplete="off">
 				</span>
 
 				<span id="momentcinetique" class="input-wrapper" >
-					<label id="moment"for="J">J (kg.m<sup>2</sup>.s<sup>-1</sup>) =</label>
+					<label id="moment"for="J" style="width: 100px;">J (kg.m<sup>2</sup>.s<sup>-1</sup>) =</label>
 					<input id="J" value="8.5e41" maxlength="13" type="text" size="15" onchange="verifnbr();initialisation()" oninput="resizeInput(this); initialisation()" autocomplete="off">
 				</span>
 		
@@ -144,20 +144,20 @@
 				<label  id="labelgp" for="vr"></label>
 				<input id="toggle" type="checkbox"  checked autocomplete="off" >
 			</span>  
-			<div id="mobile_inputs" class="form-container" style="width: 250px">
+			<div id="mobile_inputs" class="form-container" style="width: 250px; display: flex; flex-wrap: wrap;">
 				
-				<span id="rayon" class="input-wrapper" style="position: relative; right:60px">
-					<label  id="ctreastre" for="r0">r<sub>0</sub> (m) =</label>
+				<span id="rayon" class="input-wrapper" style="position: relative;">
+					<label  id="ctreastre" for="r0" style="width: 100px;">r<sub>0</sub> (m) =</label>
 					<input id="r0" value="4455" maxlength="13" type="text" onchange="verifnbr();initialisation()" oninput="resizeInput(this)" autocomplete="off">
 				</span>
 
-				<span id="vitesse1" class="input-wrapper" style="position: relative; right:60px">
-					<label id="philabel" title=""  for="phi0">&phi;<sub>0</sub>°=</label>
+				<span id="vitesse1" class="input-wrapper" style="position: relative;">
+					<label id="philabel" title=""  for="phi0" style="width: 100px;";>&phi;<sub>0</sub>°=</label>
 					<input id="phi0" value="0" maxlength="13" type="text" onchange="verifnbr();initialisation()" oninput="resizeInput(this)" autocomplete="off">
 				</span>
 		
-				<span id="vitesse2" class="input-wrapper" style="position: relative; right:60px">
-					<label  id="theta_label" title="" for="teta">&#632;<sub>0</sub>°=</label>
+				<span id="vitesse2" class="input-wrapper" style="position: relative;">
+					<label  id="theta_label" title="" for="teta" style="width: 100px;">&#632;<sub>0</sub>°=</label>
 					<input id="teta" value="128" maxlength="13" type="text" onchange="verifnbr();initialisation()" oninput="resizeInput(this)" autocomplete="off" >
 				</span>		   
 			</div>	
@@ -165,19 +165,19 @@
 	</div>
 
     <div id="panneauGraphe" class="Graphe" style="position: relative;">
-		
-		<button style="position: absolute; top: 20px; right: 10px; cursor: pointer;" class="avertissement_style" onclick=avertissement_trajectoire(typePage);>
-            <img id="panneauAvertissement"
-                 style="width: 25px; height: 25px"
-                 src="./Images/panneau_avertissement.png"
-                 alt="avertissement">
-                 <span id="txt_trajectoire" style=" top: 30px; right: 50px; cursor: pointer; color: black;"></span>
-                <br/>
-                <span id="txt_avertissement_trajectoire"></span>
-        </button>
         <div class="boiteGraphe">
-			<button id="bouton_info" onclick="commandes();"  class="info-icon"></button>
-			<p id="txt_titre" class="titre_style"></p>
+			<div id="entete">
+				<button id="bouton_info" onclick="commandes();"  class="info-icon"></button>
+				<p id="txt_titre" class="titre_style"></p>
+				<button style="cursor: pointer;" class="avertissement_style" onclick=avertissement_trajectoire(typePage);>
+					<img id="panneauAvertissement"
+					style="width: 25px; height: 25px"
+					src="./Images/panneau_avertissement.png"
+					alt="avertissement">
+					<span id="txt_trajectoire" style=" top: 30px; right: 50px; cursor: pointer; color: black;"></span>
+				</button>
+				<span id="txt_avertissement_trajectoire"></span>
+			</div>
 			<div id="radio_button">
 				<button id="r1" type="button" name="traj" class="bouttonChoix" value="complete" onclick="document.getElementById('traject_type').value = this.value;pressionBouttonTrajectoireComplete()"></button>
 				<button id="r2" type="button" name="traj2" class="bouttonChoix-inverse" value="simple" onclick="document.getElementById('traject_type').value = this.value;pressionBouttonTrajectoireSimple()"></button>
@@ -288,8 +288,8 @@
 
 	</div>
 
-	<button onclick="toggleEntreeSortie('panneauSortie')" class="petitBoutton"
-	style=" display:block; top: 60px; right:10px; position: absolute">
+	<button onclick="toggleEntreeSortie('panneauSortie')" class="petitBoutton boutonLateral"
+	style="top: 60px; right:10px; position: absolute">
 	<img id="flecheDroite" class="flècheMenu tournee"
 		src="./Images/fleche_menu.png"
 		alt="">
@@ -396,6 +396,7 @@
 		notationvitesseree1kerr();
 		infobulleobservateurdistant();
 		peuxonrelancer=true;
+		window.addEventListener("resize", update_toggleEntreeSortie);
 	</script>
 </body>
 

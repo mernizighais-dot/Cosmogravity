@@ -99,8 +99,8 @@
 	<div id="positionNav" class="Nav"></div>
 
 	<div class="grillePrincipale">
-		<button onclick="toggleEntreeSortie('panneauEntree')" class="petitBoutton"
-		style=" display:block; top: 60px; left:10px; position: absolute">
+		<button onclick="toggleEntreeSortie('panneauEntree')" class="petitBoutton boutonLateral"
+		style="top: 60px; left:10px; position: absolute">
 		<img id="flecheGauche" class="flècheMenu"
 		src="./Images/fleche_menu.png"
 		alt="">
@@ -121,12 +121,12 @@
 				<div id="champs_a_remplir_haut" class="pls-inputs-container">
 
 					<div id="masse_div" class="input-wrapper">
-						<label id="massetxt" title= ""  for="M">M (kg) =</label>
+						<label id="massetxt" title= ""  for="M" style="width: 100px;">M (kg) =</label>
 						<input id="M" value="2e39" maxlength="13" type="text" onchange="verifnbr();initialisationGenerale(lenbdefusees)" oninput="resizeInput(this);initialisationGenerale(lenbdefusees)" autocomplete="off">
 					</div>
 	
 					<div id="rayon_phy_div" class="input-wrapper">
-						<label title="" for="r_phy" id="txt_rphysique"></label>
+						<label title="" for="r_phy" id="txt_rphysique" style="width: 100px;"></label>
 						<input id="r_phy" value="1e18" maxlength="13" type="text" onchange="verifnbr();initialisationGenerale(lenbdefusees)" oninput="resizeInput(this);initialisationGenerale(lenbdefusees)" autocomplete="off">
 					</div>
 				</div>
@@ -134,7 +134,7 @@
 			
 			<div class="boiteEntree">
 				<label id="Entree_mobile_label" style="font-size: 20px;margin-bottom: 20px;margin-top: 20px;">Entrées Mobiles</label> 
-				<div id="nombre_de_fusees_div" class="input-wrapper" style="display: inline;">
+				<div id="nombre_de_fusees_div" class="input-wrapper">
 					<label id="labelnumberfusees" for="nombredefusees" ></label> 
 					<input id="nombredefusees" value="1" type="text" size="5" onchange="supprHtml();genereHtml();save_nbfusees();updatenbredefusees();" autocomplete="off">
 				</div>
@@ -161,20 +161,19 @@
 
 
 		<div id="panneauGraphe" class="Graphe" style="position: relative;">
-	
-			<button style="position: absolute; top: 20px; right: 10px; cursor: pointer;" class="avertissement_style" onclick=avertissement_trajectoire(typePage);>
-				<img id="panneauAvertissement"
-						style="width: 25px; height: 25px"
-						src="./Images/panneau_avertissement.png"
-						alt="avertissement">
-						<span id="txt_trajectoire" style=" top: 30px; right: 50px; cursor: pointer; color: black;"></span>
-					<br/>
-					<span id="txt_avertissement_trajectoire"></span>
-			</button>
 			<div class="boiteGraphe">
-				<button id="bouton_info" onclick="commandes();"  class="info-icon"></button>
-				<p id="txt_titre" class="titre_style"></p>
-
+				<div id="entete">
+					<button id="bouton_info" onclick="commandes();"  class="info-icon"></button>
+					<p id="txt_titre" class="titre_style"></p>	
+					<button style="cursor: pointer;" class="avertissement_style" onclick=avertissement_trajectoire(typePage);>
+							<img id="panneauAvertissement"
+							style="width: 25px; height: 25px"
+							src="./Images/panneau_avertissement.png"
+							alt="avertissement">
+							<span id="txt_trajectoire" style=" top: 30px; right: 50px; cursor: pointer; color: black;"></span>
+					</button>
+					<span id="txt_avertissement_trajectoire"></span>
+				</div>
 				<div id="radio_button">
 					<button id="r1" type="button" name="traj" class="bouttonChoix" value="complete" onclick="document.getElementById('traject_type').value = this.value;pressionBouttonTrajectoireComplete()"></button>
 					<button id="r2" type="button" name="traj2" class="bouttonChoix-inverse" value="simple" onclick="document.getElementById('traject_type').value = this.value;pressionBouttonTrajectoireSimple()"></button>
@@ -258,8 +257,8 @@
 		</div>
 
 
-		<button onclick="toggleEntreeSortie('panneauSortie')" class="petitBoutton"
-		style=" display:block; top: 60px; right:10px; position: absolute">
+		<button onclick="toggleEntreeSortie('panneauSortie')" class="petitBoutton boutonLateral"
+		style="top: 60px; right:10px; position: absolute">
 		<img id="flecheDroite" class="flècheMenu tournee"
 			src="./Images/fleche_menu.png"
 			alt="">
@@ -398,6 +397,7 @@
 	//joystick
 	// Create JoyStick object into the DIV 'joyDiv'
 	var joy = new Pilotage('joyDiv');
+	window.addEventListener("resize", update_toggleEntreeSortie);
 	</script>
 
 	<span id="enregistrer2"></span>
