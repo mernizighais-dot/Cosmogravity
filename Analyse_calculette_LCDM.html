@@ -286,31 +286,31 @@
                         <div class="grille_graph">
                             <div class="fonction_t" display="flex">
                                 <div>
-                                    <input type="button" id="fonction_dit" class="petitBoutton" name="dependance" value="plot" onclick="generer_graphique_distance(fonction_E,1)">
+                                    <input type="button" id="fonction_dit" class="petitBoutton" name="dependance" value="plot" onclick="resultatCalculette(fonction_E,1,'distance')">
                                     <label id="label_button_dit" class="infobullable" for="fonction_dit">d<sub>i</sub>(t)</label>
                                 </div>
                                
                                 <div>
-                                    <input type="button" id="fonction_omegait" class="petitBoutton" name="dependance" value="plot" onclick="generer_graphique_Omega(fonction_E,1)">
+                                    <input type="button" id="fonction_omegait" class="petitBoutton" name="dependance" value="plot" onclick="resultatCalculette(fonction_E,1,'omega')">
                                     <label id="label_button_omegait" class="infobullable" for="fonction_omegait">&Omega;<sub>i</sub>(t)</label>
                                 </div>
                                  <div>
-                                    <input type="button" id="fonction_zt" class="petitBoutton" name="dependance" value="plot" onclick="generer_graphique_TempsDecalage(fonction_E,1)">
+                                    <input type="button" id="fonction_zt" class="petitBoutton" name="dependance" value="plot" onclick="resultatCalculette(fonction_E,1,'temps')">
                                     <label id="label_button_zt" class="infobullable" for="fonction_zt">z(t)</label>
                                 </div>
                             </div>
                             <div class="fonction_z">
                                 <div>
-                                    <input type="button" id="fonction_diz" class="petitBoutton" name="dependance" value="plot" onclick="generer_graphique_distance(fonction_E,0)">
+                                    <input type="button" id="fonction_diz" class="petitBoutton" name="dependance" value="plot" onclick="resultatCalculette(fonction_E,0,'distance')">
                                     <label id="label_button_diz" class="infobullable" for="fonction_diz">d<sub>i</sub>(z)</label>
                                 </div>
                                 <div>
-                                    <input type="button" id="fonction_omegaiz" class="petitBoutton" name="dependance" value="plot" onclick="generer_graphique_Omega(fonction_E,0)">
+                                    <input type="button" id="fonction_omegaiz" class="petitBoutton" name="dependance" value="plot" onclick="resultatCalculette(fonction_E,0,'omega')">
                                     <label id="label_button_omegaiz" class="infobullable" for="fonction_omegaiz">&Omega;<sub>i</sub>(z)</label>
                                 </div>
                                 
                                 <div>
-                                    <input type="button" id="fonction_tz" class="petitBoutton" name="dependance" value="plot" onclick="generer_graphique_TempsDecalage(fonction_E,0)">
+                                    <input type="button" id="fonction_tz" class="petitBoutton" name="dependance" value="plot" onclick="resultatCalculette(fonction_E,0,'temps')">
                                     <label id="label_button_tz" class="infobullable" for="fonction_tz">t(z)</label>
                                 </div>
                             </div>
