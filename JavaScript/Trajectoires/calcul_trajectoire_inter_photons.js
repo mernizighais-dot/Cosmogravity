@@ -1764,6 +1764,31 @@ function enregistrer_trajectoires() {
 				var y = canvas3.height - hauteurLogo; // Position en y pour le coin inférieur droit du logo.
 				context3.drawImage(logo,x,y, largeurLogo, hauteurLogo); //Je dessine le logo sur context3.
 
+				context3.font = "15px Arial";
+				context3.fillStyle = "black";
+				context3.textAlign = "left";
+				context3.textBaseline = "top"; // Aide à positionner le texte par le haut
+
+				// 2. Récupérer les valeurs
+				var masse = document.getElementById('M').value;
+				var rayon = document.getElementById('r_phy').value;
+				var nbFusees = document.getElementById('nombredefusees').value;
+
+				// 3. Préparer les lignes (le Canvas ne gère pas le \n)
+				var ligne1 = "M = " + Number(masse).toExponential(3) + " kg";
+				var ligne2 = "r_phy = " + Number(rayon).toExponential(3) + " m";
+				var ligne3 = "Nombre de mobiles : " + nbFusees;
+
+				// 4. Dessiner chaque ligne avec un décalage vertical (ici 20 pixels d'écart)
+				var x = 10; // Marge gauche
+				var y = 10; // Marge haute
+
+				context3.fillText(ligne1, x, y);
+				context3.fillText(ligne2, x, y + 20); // y + 20 pixels
+				context3.fillText(ligne3, x, y + 40); // y + 40 pixels
+			
+		
+
 			document.getElementById("enregistrer2").click(); //Je dessine la boule sur context3. 
 			canvasToImage(canvas3, { //Je transforme le canvas en image :
 				name: nomFichier.trim(),
@@ -1772,11 +1797,13 @@ function enregistrer_trajectoires() {
 
 			//J'efface tout le contenu du context3 une fois le canvas enregistrer en tant qu'image : 
 			majFondFixe3();
-		};
-		} else { //Si il n'y a pas de nom de renseigné alors j'ai un message d'alerte. 
+			}
+		}
+		else { //Si il n'y a pas de nom de renseigné alors j'ai un message d'alerte. 
 			alert(texte.pages_trajectoire.alerte_nomFichier);
 		}
-	} else { //Si il n'y a pas de tracé de simulation alors message d'alerte. 
+	} 
+	else { //Si il n'y a pas de tracé de simulation alors message d'alerte. 
 		alert(texte.pages_trajectoire.message_enregistrer);
 	}
 }
