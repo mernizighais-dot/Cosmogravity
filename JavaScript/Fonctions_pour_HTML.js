@@ -355,7 +355,7 @@ if (window.location.pathname==="/Calculette_cosomologique_LCDM.html"){
  * Fonction qui permet de rafraîchir les éléments importants de la page univers
  */
 function updateUnivers() {
-    document.getElementById("loading").style.display="block";
+    document.getElementById("loading").style.display="inline";
     setTimeout(() => {
     document.getElementById("Omégak0").value = Omega_k(0).toExponential(4)
     document.getElementById("Ok_enregistrer").innerHTML = "&Omega;<sub>k<sub>0</sub></sub> = " + Omega_k(0).toExponential(4)

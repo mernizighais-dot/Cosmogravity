@@ -20,6 +20,7 @@
 }
 
 .parametreGraphique{
+    grid-area: plot;
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -50,8 +51,38 @@
     display: flex;
     justify-content:center;
     align-items: center;
-
+    justify-self: center;
+    align-self: center;
+    grid-area: loading;
     height: 3em;
+    position: relative;
+}
+
+#generateur_graphique{
+    grid-area: titre;
+    justify-self: center;
+    align-self: center;
+    left: -5%;
+    position: relative;
+}
+
+#txt_info_univers{
+    grid-area: texte;
+    align-self: center;
+    justify-self: center; 
+    text-align: center;
+}
+
+#boite_calculette_centrale {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 60px 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+        "info titre"
+        "texte texte"
+        "plot plot"
+        "loading laoding";
 }
 
 .boite_calculette{
@@ -109,7 +140,7 @@
 }
 
 .roue_chargement {
-    display: block;
+    display: inline;
     border: 2px solid transparent;
     border-top: 2px solid black;
     border-bottom: 2px solid black;
@@ -117,10 +148,18 @@
     height: 20px;
     width: 20px;
     animation: spin 1s linear infinite;
+    justify-self: center;
+    align-self: center;
+    position: relative;
 }
 
 .petitBoutton.boutonLateral {
     display:block;
+}
+
+#label_zmin, #label_zmax, #label_pas {
+    display: inline-block !important;
+    width: 60px !important;
 }
 
 /* Animation de rotation */

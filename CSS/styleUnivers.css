@@ -169,6 +169,7 @@ body {
     grid-area: texte;
     align-self: center;
     justify-self: center; 
+    text-align: center;
 }
 
 #resteDuGraphe {
@@ -201,7 +202,6 @@ body {
     grid-area: info;
     align-self: center;
     justify-self: center;
-    left: 10px;
     background-color: rgb(104, 45, 104); /* Bleu clair agréable */
     color: white; /* Texte blanc pour contraste */
     border-radius: 50%; /* Cercle parfait */
