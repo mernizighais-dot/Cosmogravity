@@ -818,6 +818,36 @@ option[disabled]:first-child {
     display:block;
 }
 
+/*Croix de fermeture de la boite d'avertissement*/
+.close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  display: none;
+}
+
+.close::before,
+.close::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 2px;
+  background-color: black;
+}
+
+.close::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
 @media screen and (max-width: 1200px) {
     .grillePrincipale {
         grid-template-columns: 1fr;

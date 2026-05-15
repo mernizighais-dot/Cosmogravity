@@ -16,6 +16,7 @@ function avertissement_trajectoire(typePage) {
   //Je récupère l'élément span d'ID "txt_avertissement_trajectoire" qui est l'espace pour l'avertissement :
   var span = document.getElementById("txt_avertissement_trajectoire"); 
   var bouton = document.getElementById("bouton_avertissement");
+  var croix = document.getElementById("croix");
 
   //Remplit l'espace avec le texte de l'avertissement :
   if (typePage == 1)
@@ -40,6 +41,7 @@ function avertissement_trajectoire(typePage) {
     bouton.style.position = "absolute";
     bouton.style.gridArea = "auto";
     bouton.style.top = "0px";
+    croix.style.display = "inline";
   } else { //Alors qu'il tait visible :
 
     //Il devient caché :
@@ -47,6 +49,7 @@ function avertissement_trajectoire(typePage) {
     bouton.style.position = "relative";
     bouton.style.gridArea = "avertissement";
     bouton.style.removeProperty("top");
+    croix.style.display = "none";
   }
 }
 
