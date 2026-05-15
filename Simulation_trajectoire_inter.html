@@ -163,16 +163,17 @@
 		<div id="panneauGraphe" class="Graphe" style="position: relative;">
 			<div class="boiteGraphe">
 				<div id="entete">
-					<button id="bouton_info" onclick="commandes();"  class="info-icon"></button>
-					<p id="txt_titre" class="titre_style"></p>	
-					<button style="cursor: pointer;" class="avertissement_style" onclick=avertissement_trajectoire(typePage);>
-							<img id="panneauAvertissement"
-							style="width: 25px; height: 25px"
-							src="./Images/panneau_avertissement.png"
-							alt="avertissement">
-							<span id="txt_trajectoire" style=" top: 30px; right: 50px; cursor: pointer; color: black;"></span>
-					</button>
+				<p id="txt_titre" class="titre_style"></p>
+				<button id="bouton_info" onclick="info_trajectoire(typePage);"  class="info-icon"></button>
+				<span id="txt_info_trajectoire"></span>
+				<button id="bouton_avertissement" style="cursor: pointer;" class="avertissement_style" onclick=avertissement_trajectoire(typePage);>
+					<img id="panneauAvertissement"
+					style="width: 25px; height: 25px"
+					src="./Images/panneau_avertissement.png"
+					alt="avertissement">
+					<span id="txt_trajectoire" style=" top: 30px; right: 50px; cursor: pointer; color: black;"></span>
 					<span id="txt_avertissement_trajectoire"></span>
+				</button>
 				</div>
 				<div id="radio_button">
 					<button id="r1" type="button" name="traj" class="bouttonChoix" value="complete" onclick="document.getElementById('traject_type').value = this.value;pressionBouttonTrajectoireComplete()"></button>
@@ -398,6 +399,15 @@
 	// Create JoyStick object into the DIV 'joyDiv'
 	var joy = new Pilotage('joyDiv');
 	window.addEventListener("resize", update_toggleEntreeSortie);
+
+	
+//Affichage par défaut des infos des pages trajectoires pour les "nouveaux utilisateurs" (première fois que la page est chargé dans l'onglet du navigateur)
+const key = "dejaVisite_" + window.location.pathname; //permet de différencier la page, sinon le sessionStorage est pour tout le site
+if (!sessionStorage.getItem(key)) {
+  info_trajectoire(typePage);
+  sessionStorage.setItem(key, "true");
+}
+
 	</script>
 
 	<span id="enregistrer2"></span>

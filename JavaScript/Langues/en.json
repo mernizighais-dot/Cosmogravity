@@ -432,7 +432,13 @@
 		"sortie_mobile": "Mobile Outputs",
 		"potentiel_option":"Potential",
 		"label_choix_potentiel":"Choose an option:",
-		"label_choix_potentiel_infobulle":"Allows real-time selection of the potential graph to display"
+		"label_choix_potentiel_infobulle":"Allows real-time selection of the potential graph to display",
+		"info":"This page simulates the trajectory of a baryonic particle around a baryonic mass using the Schwarzschild metric",
+		"infoSCH2":"This page simulates the trajectory of a photon around a baryonic mass using the Schwarzschild metric",
+		"infoSCH3":"This page simulates the trajectory of a non-baryonic particle around a non-baryonic mass using the Schwarzschild metric",
+		"infoSCH4":"This page simulates the trajectory of a photon around a non-baryonic mass using the Schwarzschild metric",
+		"infoKERR":"This page simulates the trajectory of a baryonic particle around a baryonic mass using the Kerr metric",
+		"infoKERR2":"This page simulates the trajectory of a photon around a baryonic mass using the Kerr metric"
 	},
 
 	"page_trajectoire_massive": {

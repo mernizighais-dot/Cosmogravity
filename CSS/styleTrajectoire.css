@@ -622,6 +622,9 @@ tbody td {
     z-index: 300;
     position: relative;
     grid-area: avertissement;
+    justify-content: center; /* horizontal */
+    align-items: center;     /* vertical */
+    text-align: center;
 }
 
     .avertissement_style:active {
@@ -651,7 +654,7 @@ position: relative;
         "texte texte texte";
 }
 
-#txt_avertissement_trajectoire{
+#txt_info_trajectoire{
     grid-area: texte;
     display: grid; 
 }

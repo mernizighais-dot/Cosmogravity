@@ -15,6 +15,7 @@ function avertissement_trajectoire(typePage) {
   var texte = o_recupereJson(); //Je récupère les textes du json.
   //Je récupère l'élément span d'ID "txt_avertissement_trajectoire" qui est l'espace pour l'avertissement :
   var span = document.getElementById("txt_avertissement_trajectoire"); 
+  var bouton = document.getElementById("bouton_avertissement");
 
   //Remplit l'espace avec le texte de l'avertissement :
   if (typePage == 1)
@@ -36,10 +37,16 @@ function avertissement_trajectoire(typePage) {
 
     //Il devient visible :
     span.style.display = "inline";
+    bouton.style.position = "absolute";
+    bouton.style.gridArea = "auto";
+    bouton.style.top = "0px";
   } else { //Alors qu'il tait visible :
 
     //Il devient caché :
     span.style.display = "none";
+    bouton.style.position = "relative";
+    bouton.style.gridArea = "avertissement";
+    bouton.style.removeProperty("top");
   }
 }
 
@@ -67,5 +74,46 @@ function avertissement_univers() {
 
     //Il devient caché :
     span.style.display = "none";
+  }
+}
+
+//---------------------------------{info_trajectoire}---------------------------------
+
+/**
+ * Fonction qui fait apparaître ou disparaître le message d'information de Trajectoires en fonction de si il
+ * était visible ou non.
+ */
+function info_trajectoire(typePage) {
+
+  var texte = o_recupereJson(); //Je récupère les textes du json.
+  //Je récupère l'élément span d'ID "txt_avertissement_trajectoire" qui est l'espace pour l'avertissement :
+  var span = document.getElementById("txt_info_trajectoire"); 
+
+  //Remplit l'espace avec le texte de l'avertissement :
+  if (typePage == 1)
+    span.innerHTML = texte.pages_trajectoire.info;
+  else if (typePage == 2)
+    span.innerHTML = texte.pages_trajectoire.infoSCH2;
+  else if (typePage == 3)
+    span.innerHTML = texte.pages_trajectoire.infoSCH3;
+  else if (typePage == 4)
+    span.innerHTML = texte.pages_trajectoire.infoSCH4;
+  else if (typePage == 5)
+    span.innerHTML = texte.pages_trajectoire.infoKERR;
+  else if (typePage == 6)
+    span.innerHTML = texte.pages_trajectoire.infoKERR2;
+
+
+  //Si on appuie dessus :
+  if(span.style.display == "none" || span.style.display == "") { //Alors qu'il était caché :
+
+    //Il devient visible :
+    span.style.display = "inline";
+
+  } else { //Alors qu'il tait visible :
+
+    //Il devient caché :
+    span.style.display = "none";
+
   }
 }

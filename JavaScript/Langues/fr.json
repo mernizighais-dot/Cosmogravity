@@ -442,7 +442,13 @@
 		"sortie_mobile":"Sorties Mobile",
 		"potentiel_option":"Potentiel",
 		"label_choix_potentiel":"Choisissez une option :",
-		"label_choix_potentiel_infobulle":"Permet de choisir en temps réel le graphe de potentiel à afficher"
+		"label_choix_potentiel_infobulle":"Permet de choisir en temps réel le graphe de potentiel à afficher",
+		"info":"Cette page simule la trajectoire d'un mobile baryonique autours d'une masse baryonique avec la métrique de Schwarzschild",
+		"infoSCH2":"Cette page simule la trajectoire d'un photon autours d'une masse baryonique avec la métrique de Schwarzschild",
+		"infoSCH3":"Cette page simule la trajectoire d'un mobile non baryonique autours d'une masse non baryonique avec la métrique de Schwarzschild",
+		"infoSCH4":"Cette page simule la trajectoire d'un photon autours d'une masse non baryonique avec la métrique de Schwarzschild",
+		"infoKERR":"Cette page simule la trajectoire d'un mobile baryonique autours d'une masse baryonique avec la métrique de Kerr",
+		"infoKERR2":"Cette page simule la trajectoire d'un photon autours d'une masse baryonique avec la métrique de Kerr"
 	},
 
 	"page_trajectoire_massive":{
