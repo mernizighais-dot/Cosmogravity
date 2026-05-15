@@ -150,21 +150,26 @@
     <!--Fenêtre graphe-->
     <div id="panneauGraphe" class="Graphe" style="position: relative;">
         <div class="boiteGraphe">
+            
+            <button id="bouton_info" onclick="info_univers('LCDM');"  class="info-icon"></button>
+			<span id="txt_info_univers"></span>
             <div id="headGraphiqueLCDM"></div>
 
-            <button style="background-color: rgba(188,167,220,0.6); position: absolute; top: 50px; right: 50px; cursor: pointer;" class="petitBoutton" onclick=avertissement()>
+            <button id="bouton_avertissement" style="background-color: rgba(188,167,220,0.6); cursor: pointer;" class="petitBoutton" onclick=avertissement()>
                 <img id="panneauAvertissement"
                      style="width: 25px; height: 25px"
                     src="./Images/panneau_avertissement.png"
                     alt="avertissement">
+                <span id="croix" class="close"></span>
+                <div style="text-align: justify; padding: 15px" class="avertissement" id="avertissementUnivers"></div>
             </button>
 
-            <div style="text-align: justify; padding: 15px" class="avertissement" id="avertissementUnivers"></div>
-
-            <div id="graphique_LCDM"></div>
-            <a id="png" download="Graphique.png" style="display:none"></a>
-
-            <div style="display: flex; gap: 10px">
+            <div id="resteDuGraphe">
+            <div id="leGraphique">
+                <div id="graphique_LCDM"></div>
+                <a id="png" download="Graphique.png" style="display:none"></a>
+            </div>
+            <div id="infoGraphe"style="display: flex; gap: 10px">
                 <div style="justify-self: left">
                     <h3 id="entreeEnregistrer" style="text-align: center"></h3>
                     <div id="Om_enregistrer"></div>
@@ -180,6 +185,9 @@
                     <div id="he_enregistrer"></div>
                 </div>
             </div>
+
+            </div>
+
         </div>
     </div>
 
@@ -304,13 +312,20 @@
 
     window.onload = loadvalues();
     updateUnivers()
-    document.getElementById("graphique_LCDM").style = 'height:50%' 
     affichage_site_LCDM()
     update_point()
 
     window.addEventListener("resize", update_toggleEntreeSortie);
     window.addEventListener("resize", update_point);
     window.addEventListener("resize", update_graphe_interactif);
+    window.addEventListener("resize", ajustementGraphique);
+
+        //Affichage par défaut des infos de la page pour les "nouveaux utilisateurs" (première fois que la page est chargé dans l'onglet du navigateur)
+const key = "dejaVisite_" + window.location.pathname; //permet de différencier la page, sinon le sessionStorage est pour tout le site
+if (!sessionStorage.getItem(key)) {
+  info_univers('LCDM');
+  sessionStorage.setItem(key, "true");
+}
 </script>
 </body>
 </html>

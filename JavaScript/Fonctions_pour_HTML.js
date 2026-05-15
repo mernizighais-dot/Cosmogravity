@@ -534,16 +534,69 @@ window.addEventListener('resize', resize_graphs);
 document.addEventListener('DOMContentLoaded', resize_graphs);
 
 /**
- * Fonction qui permet de détecter un click sur le panneau d'avertissement
+ * Fonction qui permet de détecter un click sur le panneau d'avertissement dans univers
  */
 function avertissement() {
     let message = document.getElementById('avertissementUnivers');
-    if (message.style.display === 'none') {
+    var bouton = document.getElementById("bouton_avertissement");
+    var croix = document.getElementById("croix");
+    if (message.style.display === 'none' || message.style.display == "") {
         message.style.display = 'block';
+        bouton.style.position = "absolute";
+        bouton.style.gridArea = "auto";
+        bouton.style.top = "0px";
+        croix.style.display = "inline";
+        bouton.style.color = 'black';
+        bouton.style.backgroundColor = 'white';
+        bouton.style.border = '2px solid black';
     } else {
         message.style.display = 'none';
+        bouton.style.position = "relative";
+        bouton.style.gridArea = "avertissement";
+        bouton.style.removeProperty("top");
+        croix.style.display = "none";
+        bouton.style.backgroundColor = 'rgba(188, 167, 220, 0.6)';
+        bouton.style.border = 'none';
     }
     ajustementGraphique()
+}
+
+//---------------------------------{info_univers}---------------------------------
+
+/**
+ * Fonction qui fait apparaître ou disparaître le message d'information de Univers en fonction de si il
+ * était visible ou non.
+ */
+function info_univers(typePage) {
+
+  var texte = o_recupereJson(); //Je récupère les textes du json.
+  //Je récupère l'élément span d'ID "txt_avertissement_trajectoire" qui est l'espace pour l'avertissement :
+  var span = document.getElementById("txt_info_univers"); 
+
+  //Remplit l'espace avec le texte de l'avertissement :
+  if (typePage == 'LCDM')
+    span.innerHTML = texte.univers.infoLCDM;
+  else if (typePage == 'DE')
+    span.innerHTML = texte.univers.infoDE;
+  else if (typePage == 'calculette_LCDM')
+    span.innerHTML = texte.calculette.infoLCDM;
+  else if (typePage == 'calculette_DE')
+    span.innerHTML = texte.calculette.infoDE;
+
+
+  //Si on appuie dessus :
+  if(span.style.display == "none" || span.style.display == "") { //Alors qu'il était caché :
+
+    //Il devient visible :
+    span.style.display = "inline";
+
+  } else { //Alors qu'il tait visible :
+
+    //Il devient caché :
+    span.style.display = "none";
+
+  }
+  ajustementGraphique()
 }
 
 /**

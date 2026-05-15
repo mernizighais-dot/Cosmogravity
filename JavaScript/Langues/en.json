@@ -98,7 +98,9 @@
 		"nomDéfautDE": "scale_DE",
 		"bouttonEnregistrer": "Save",
 
-		"load_msg": "<h3>Loading</h3>"
+		"load_msg": "<h3>Loading</h3>",
+		"infoLCDM": "This page displays the graph of the reduced scale factor as a function of time within the framework of the ΛCDM theory",
+  		"infoDE": "This page displays the graph of the reduced scale factor as a function of time within the framework of the dark energy theory"
 	},
 
 	"calculette" : {
@@ -220,7 +222,9 @@
 		"bouttonEnregistrer": "Save",
 		"labelSelectionGraphe":"Graph :",
 
-		"load_msg": "<h3>Loading</h3>"
+		"load_msg": "<h3>Loading</h3>",
+		"infoLCDM": "This page displays graphs related to metric distances, density parameters, and redshift as functions of time (or vice versa) within the framework of the ΛCDM theory",
+  		"infoDE": "This page displays graphs related to metric distances, density parameters, and redshift as functions of time (or vice versa) within the framework of the dark energy theory"
 	},
 
 	"constante": {
