@@ -264,11 +264,10 @@
     
     <!--Fenêtre graphe-->
     <div id="PanneauCentral" class="fenetre_calculette" >
-        <div class="boite_calculette">
+        <div id="boite_calculette_centrale" class="boite_calculette">
+            <button id="bouton_info" onclick="info_univers('calculette_DE');"  class="info-icon"></button>
+			<span id="txt_info_univers"></span>
             <h3 id="generateur_graphique" style="text-align: center;"></h3>
-           <div id="loading" class="load_bar_calc" style="display:none"> 
-                <span id="roue" class="roue_chargement"></span>
-            </div>
             <span id="avertissement_nbb" class="cache" style="text-align: center;color: red;">Error</span>
             <div class="parametreGraphique">
                 <div style="display: flex;gap: 10px;margin-bottom: 1rem;">
@@ -342,6 +341,9 @@
                 <br>
                 <div>
                     <span id="temps_calcul_graph" style="color:blue"></span>
+                </div>
+                <div id="loading" class="load_bar_calc" style="display:none"> 
+                    <span id="roue" class="roue_chargement"></span>
                 </div>
             </div>
         </div>
@@ -669,6 +671,13 @@
     window.addEventListener("resize", update_toggleEntreeSortie);
     window.addEventListener("resize", update_point);
     window.addEventListener("resize", update_graphe_interactif);
+
+        //Affichage par défaut des infos de la page pour les "nouveaux utilisateurs" (première fois que la page est chargé dans l'onglet du navigateur)
+const key = "dejaVisite_" + window.location.pathname; //permet de différencier la page, sinon le sessionStorage est pour tout le site
+if (!sessionStorage.getItem(key)) {
+  info_univers('calculette_DE');
+  sessionStorage.setItem(key, "true");
+}
 
 </script> 
 </body>

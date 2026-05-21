@@ -101,7 +101,9 @@
 			"nomDéfautDE": "échelle_DE",
 			"bouttonEnregistrer": "Enregistrer",
 
-		"load_msg": "<h3>Chargement</h3>"
+		"load_msg": "<h3>Chargement</h3>",
+		"infoLCDM": "Cette page affiche le graphe du facteur d'échelle réduit en fonction du temps dans le cadre de la théorie ΛCDM",
+		"infoDE": "Cette page affiche le graphe du facteur d'échelle réduit en fonction du temps dans le cadre de la théorie d'énergie sombre"
 	},
 
 
@@ -225,7 +227,9 @@
 			"bouttonEnregistrer": "Enregistrer",
 			"labelSelectionGraphe":"Graphe :",
 		
-		"load_msg": "<h3>Chargement</h3>"
+		"load_msg": "<h3>Chargement</h3>",
+		"infoLCDM": "Cette page affiche les graphiques relatifs aux distances métriques, aux paramètres de densité et au décalage spectrale en fonction du temps (ou inversement) dans le cadre de la théorie ΛCDM",
+		"infoDE": "Cette page affiche les graphiques relatifs aux distances métriques, aux paramètres de densité et au décalage spectrale en fonction du temps (ou inversement) dans le cadre de la théorie d'énergie sombre"
 	},
 
 	"constante": {
