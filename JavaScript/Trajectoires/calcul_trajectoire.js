@@ -1031,7 +1031,7 @@ function trajectoire(compteur,mobile) {
 			if(ifUneFois){ //On ne passe dans cette condition que une fois.
 				maximum=0; //Stockera le maximum des distances initiales. 
 				cle=0; //Stockera l'indice de r0o2 du maximum des distances initiales. 
-				for (key = 1; key <= nbredefusees; key += 1) { //Je parcours toute la liste r0o2. 
+				for (let key = 1; key <= nbredefusees; key += 1) { //Je parcours toute la liste r0o2. 
 					if(r0o2[key]>=maximum){ //Je trouve ensuite la valeur de r0 maximum dans r0o2.
 						maximum=r0o2[key]; //Je stocke cette valeur dans maximum.
 						cle=key; //Je stocke l'indice de cette valeur dans cle. 
@@ -2018,7 +2018,7 @@ function enregistrer_trajectoires() {
 				var largeurLogo = 100; //largeur de l'image du logo
 				var hauteurLogo = (logo.height / logo.width) * largeurLogo; //hauteur de l'image du logo
 				var x = canvas3.width - largeurLogo; // Position en x pour le coin inférieur droit du logo.
-				var y = canvas3.height - hauteurLogo; // Position en y pour le coin inférieur droit du logo. 
+				var y = canvas3.height - hauteurLogo; // Position en y pour le coin inférieur droit du logo.
 				context3.drawImage(logo,x,y, largeurLogo, hauteurLogo); //Je dessine le logo sur context3.
 
 				context3.font = "15px Arial";
@@ -2041,18 +2041,42 @@ function enregistrer_trajectoires() {
 				var y = 10; // Marge haute
 
 				context3.fillText(ligne1, x, y);
-				context3.fillText(ligne2, x, y + 20); // y + 20 pixels
-				context3.fillText(ligne3, x, y + 40); // y + 40 pixels
+				context3.fillText(ligne2, x, y + 20);
+				context3.fillText(ligne3, x, y + 40);
 
-			document.getElementById("enregistrer2").click(); //Je dessine la boule sur context3. 
-			canvasToImage(canvas3, { //Je transforme le canvas en image :
-				name: nomFichier.trim(),
-				type: 'png'
-			});
+				for (let i = 1; i <= nbFusees; i++) {
+					let r0 = document.getElementById('r0' + i).value;
+					let v0 = document.getElementById('v0' + i).value;
+					let phi0 = document.getElementById('phi0' + i).value;
+					let teta = document.getElementById('teta' + i).value;
 
-			//J'efface tout le contenu du context3 une fois le canvas enregistrer en tant qu'image : 
-			majFondFixe3();
-		};
+					// 3. Préparation des textes
+					let ligne_mobile = "Mobile " + i + " :";
+					let ligne_r0 = "r0 = " + Number(r0).toExponential(3) + " m";
+					let ligne_v0 = "v0 = " + Number(v0).toExponential(3) + " m/s";
+					let ligne_phi0 = "φ0 = " + Number(phi0).toExponential(3) + " °";
+					let ligne_teta = "θ = " + Number(teta).toExponential(3) + " °";
+
+					// 4. Calcul de l'espacement vertical (i-1) * 110
+					let offset = (i - 1) * 110; 
+
+					context3.fillText(ligne_mobile, x, y + 70 + offset);
+					context3.fillText(ligne_r0, x, y + 90 + offset);
+					context3.fillText(ligne_v0, x, y + 110 + offset);
+					context3.fillText(ligne_phi0, x, y + 130 + offset);
+					context3.fillText(ligne_teta, x, y + 150 + offset);
+					
+				}
+
+				document.getElementById("enregistrer2").click(); //Je dessine la boule sur context3. 
+				canvasToImage(canvas3, { //Je transforme le canvas en image :
+					name: nomFichier.trim(),
+					type: 'png'
+				});
+
+				//J'efface tout le contenu du context3 une fois le canvas enregistrer en tant qu'image : 
+				majFondFixe3();
+			}
 		} else { //Si il n'y a pas de nom de renseigné alors j'ai un message d'alerte. 
 			alert(texte.pages_trajectoire.alerte_nomFichier);
 		}
