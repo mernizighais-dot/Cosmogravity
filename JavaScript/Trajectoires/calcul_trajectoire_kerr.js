@@ -1274,10 +1274,18 @@ function enregistrer_trajectoires(){
 				// 2. Récupérer les valeurs
 				var masse = document.getElementById('M').value;
 				var rayon = document.getElementById('moment').value;
+				var r0 = document.getElementById('r0').value;
+				var v0 = document.getElementById('v0').value;
+				var phi0 = document.getElementById('phi0').value;
+				var teta = document.getElementById('teta').value;
 
 				// 3. Préparer les lignes (le Canvas ne gère pas le \n)
 				var ligne1 = "M = " + Number(masse).toExponential(3) + " kg";
 				var ligne2 = "J = " + Number(rayon).toExponential(3) + " kg.m2.s-1";
+				var ligne3 = "r0 = " + Number(r0).toExponential(3) + " m";
+				var ligne4 = "v0 = " + Number(v0).toExponential(3) + " m.s-1";
+				var ligne5 = "φ0 = " + Number(phi0).toExponential(3) + " °";
+				var ligne6 = "θ = " + Number(teta).toExponential(3) + " °";
 
 				// 4. Dessiner chaque ligne avec un décalage vertical (ici 20 pixels d'écart)
 				var x = 10; // Marge gauche
@@ -1285,7 +1293,10 @@ function enregistrer_trajectoires(){
 
 				context3.fillText(ligne1, x, y);
 				context3.fillText(ligne2, x, y + 20); // y + 20 pixels
-				
+				context3.fillText(ligne3, x, y + 40); // y + 40 pixels
+				context3.fillText(ligne4, x, y + 60); // y + 60 pixels
+				context3.fillText(ligne5, x, y + 80); // y + 80 pixels
+				context3.fillText(ligne6, x, y + 100); // y + 100 pixels
 
 			canvasToImage(canvas3, { //Je transforme le canvas en image :
 				name: nomFichier.trim(),
