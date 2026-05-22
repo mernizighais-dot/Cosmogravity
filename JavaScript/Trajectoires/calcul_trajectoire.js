@@ -1559,7 +1559,7 @@ function animate(compteur,mobile,mobilefactor)
 			//-----------------------------------------------------PARTIE CALCULE-------------------------------------------------
 
 			if (joy.GetPhi()!=0 && pilotage_possible==true){
-				val = rungekutta_general(temps_acceleration, mobile.A_part, mobile.r_part, null, mobile.L, derivee_seconde_Schwarzschild_massif);
+				val = rungekutta_general(mobile.dtau, mobile.A_part, mobile.r_part, null, mobile.L, derivee_seconde_Schwarzschild_massif);
 			}else{
 				val = rungekutta_general(mobile.dtau, mobile.A_part, mobile.r_part, null, mobile.L, derivee_seconde_Schwarzschild_massif); //calcul avec RK4 avec le dtau par defaut lorsque pas de pilotage
 			}
