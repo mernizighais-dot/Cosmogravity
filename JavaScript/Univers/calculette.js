@@ -420,10 +420,34 @@ function generer_graphique_distance(fonction_EouF, is_t, is_test = 0) {
     ];
 
     if (is_test == 1){
-        downloadCSV(data[0].x,data[0].y,"distance_metrique.csv");
-        downloadCSV(data[1].x,data[1].y,"distance_diametre_apparent.csv");
-        downloadCSV(data[2].x,data[2].y,"distance_luminosite.csv");
-        downloadCSV(data[3].x,data[3].y,"distance_temps_lumiere.csv");
+
+        // 1. Préparer l'en-tête du fichier (les noms des colonnes)
+        let csvContent = "Z (ou X);Distance Metrique;Distance Diametre;Distance Luminosite;Distance Temps Lumiere\n";
+
+        // 2. Parcourir les données (on suppose que data[0], [1], etc. ont la même longueur)
+        for (let i = 0; i < data[0].x.length; i++) {
+            let xValue = data[0].x[i];
+            let y0 = data[0].y[i];
+            let y1 = data[1].y[i];
+            let y2 = data[2].y[i];
+            let y3 = data[3].y[i];
+
+            // Ajouter une ligne avec les valeurs séparées par des points-virgules
+            csvContent += `${xValue};${y0};${y1};${y2};${y3}\n`;
+        }
+        
+        // 3. Créer le fichier et déclencher le téléchargement
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+    
+        link.setAttribute("href", url);
+        link.setAttribute("download", "toutes_les_distances.csv");
+        link.style.visibility = 'hidden';
+    
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     }
 
     //configuration de la fenetre plotly
@@ -662,10 +686,34 @@ function generer_graphique_Omega(fonction_EouF,is_t ,is_test = 0) {
 
 
     if (is_test == 1){
-        downloadCSV(data[0].x,data[0].y,"distance_metrique.csv");
-        downloadCSV(data[1].x,data[1].y,"distance_diametre_apparent.csv");
-        downloadCSV(data[2].x,data[2].y,"distance_luminosite.csv");
-        downloadCSV(data[3].x,data[3].y,"distance_temps_lumiere.csv");
+
+        // 1. Préparer l'en-tête du fichier (les noms des colonnes)
+        let csvContent = "Z (ou X);Paramètre de densité de rayonement;Paramètre de densite de matière;Paramètre de densite de courbure;Paramètre de densite lambda ou DE\n";
+
+        // 2. Parcourir les données (on suppose que data[0], [1], etc. ont la même longueur)
+        for (let i = 0; i < data[0].x.length; i++) {
+            let xValue = data[0].x[i];
+            let y0 = data[0].y[i];
+            let y1 = data[1].y[i];
+            let y2 = data[2].y[i];
+            let y3 = data[3].y[i];
+
+            // Ajouter une ligne avec les valeurs séparées par des points-virgules
+            csvContent += `${xValue};${y0};${y1};${y2};${y3}\n`;
+        }
+        
+        // 3. Créer le fichier et déclencher le téléchargement
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+    
+        link.setAttribute("href", url);
+        link.setAttribute("download", "toutes_les_distances.csv");
+        link.style.visibility = 'hidden';
+    
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     }
 
     //configuration de la fenetre plotly
@@ -845,7 +893,31 @@ function generer_graphique_TempsDecalage(fonction_EouF, is_t, is_test = 0) {
     ];
 
     if (is_test == 1){
-        downloadCSV(data[0].x,data[0].y,"distance_metrique.csv");
+
+        // 1. Préparer l'en-tête du fichier (les noms des colonnes)
+        let csvContent = "Z (ou X);Paramètre de densité de rayonement\n";
+
+        // 2. Parcourir les données (on suppose que data[0], [1], etc. ont la même longueur)
+        for (let i = 0; i < data[0].x.length; i++) {
+            let xValue = data[0].x[i];
+            let y0 = data[0].y[i];
+
+            // Ajouter une ligne avec les valeurs séparées par des points-virgules
+            csvContent += `${xValue};${y0}\n`;
+        }
+        
+        // 3. Créer le fichier et déclencher le téléchargement
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+    
+        link.setAttribute("href", url);
+        link.setAttribute("download", "toutes_les_distances.csv");
+        link.style.visibility = 'hidden';
+    
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     }
 
     //configuration de la fenetre plotly
