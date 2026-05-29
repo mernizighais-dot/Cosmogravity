@@ -435,19 +435,8 @@ function generer_graphique_distance(fonction_EouF, is_t, is_test = 0) {
             // Ajouter une ligne avec les valeurs séparées par des points-virgules
             csvContent += `${xValue};${y0};${y1};${y2};${y3}\n`;
         }
-        
-        // 3. Créer le fichier et déclencher le téléchargement
-        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement("a");
-    
-        link.setAttribute("href", url);
-        link.setAttribute("download", "toutes_les_distances.csv");
-        link.style.visibility = 'hidden';
-    
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+
+        return csvContent;
     }
 
     //configuration de la fenetre plotly
