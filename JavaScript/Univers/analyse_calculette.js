@@ -27,8 +27,9 @@ async function Analyse_avec_parametre_choisis(fonction_EouF, is_t, distanceOuOme
     if (T0) {
         for (let i=parametre_val_min; i<=parametre_val_max; i+=parametre_pas) {
             document.getElementById("T0").value=Number(i);
-            let resultats = resultatCalculette(fonction_EouF,is_t,distanceOuOmegaOuTemps);
+            let resultats = String(resultatCalculette(fonction_EouF,is_t,distanceOuOmegaOuTemps));
             await attendre(1000);
+            console.log("T0="+i);
             console.log(resultats);
             download_csv(resultats,"T0_"+i+".csv");
         }
@@ -36,35 +37,35 @@ async function Analyse_avec_parametre_choisis(fonction_EouF, is_t, distanceOuOme
     else if (H0) {
         for (let i=parametre_val_min; i<=parametre_val_max; i+=parametre_pas) {
             document.getElementById("H0").value=i;
-            let resultats = resultatCalculette(fonction_EouF,is_t,distanceOuOmegaOuTemps);
+            let resultats = String(resultatCalculette(fonction_EouF,is_t,distanceOuOmegaOuTemps));
             download_csv(resultats,"H0_"+i+".csv");
         }
     }
     else if (Omegam0) {
         for (let i=parametre_val_min; i<=parametre_val_max; i+=parametre_pas) {
             document.getElementById("Omegam0").value=i;
-            let resultats = resultatCalculette(fonction_EouF,is_t,distanceOuOmegaOuTemps);
+            let resultats = String(resultatCalculette(fonction_EouF,is_t,distanceOuOmegaOuTemps));
             download_csv(resultats,"Omegam0_"+i+".csv");
         }    
     }
     else if (OmegaLambda0) {
         for (let i=parametre_val_min; i<=parametre_val_max; i+=parametre_pas) {
             document.getElementById("OmegaLambda0").value=i;
-            let resultats = resultatCalculette(fonction_EouF,is_t,distanceOuOmegaOuTemps);
+            let resultats = String(resultatCalculette(fonction_EouF,is_t,distanceOuOmegaOuTemps));
             download_csv(resultats,"OmegaLambda0_"+i+".csv");
         }
     }
     else if (Omegar0) {
         for (let i=parametre_val_min; i<=parametre_val_max; i+=parametre_pas) {
             document.getElementById("Omegar0").value=i;
-            let resultats = resultatCalculette(fonction_EouF,is_t,distanceOuOmegaOuTemps);
+            let resultats = String(resultatCalculette(fonction_EouF,is_t,distanceOuOmegaOuTemps));
             download_csv(resultats,"Omegar0_"+i+".csv");
         }
     }
     else if (Omegak0) {
         for (let i=parametre_val_min; i<=parametre_val_max; i+=parametre_pas) {
             document.getElementById("Omegak0").value=i;
-            let resultats = resultatCalculette(fonction_EouF,is_t,distanceOuOmegaOuTemps);
+            let resultats = String(resultatCalculette(fonction_EouF,is_t,distanceOuOmegaOuTemps));
             download_csv(resultats,"Omegak0_"+i+".csv");
         }
     }
@@ -72,15 +73,15 @@ async function Analyse_avec_parametre_choisis(fonction_EouF, is_t, distanceOuOme
 
 function resultatCalculette(fonction_EouF, is_t, distanceOuOmegaOuTemps) { 
     if (distanceOuOmegaOuTemps=="distance") {
-        let resultats = generer_graphique_distance(fonction_EouF,is_t,1); 
+        let resultats = String(generer_graphique_distance(fonction_EouF,is_t,1)); 
         return resultats;
     }
     else if (distanceOuOmegaOuTemps=="omega") {
-        let resultats = generer_graphique_Omega(fonction_EouF,is_t,1);
+        let resultats = String(generer_graphique_Omega(fonction_EouF,is_t,1));
         return resultats;
     }
     else if (distanceOuOmegaOuTemps=="temps") {
-        let resultats = generer_graphique_TempsDecalage(fonction_EouF,is_t,1); 
+        let resultats = String(generer_graphique_TempsDecalage(fonction_EouF,is_t,1)); 
         return resultats;
     }
     else {
@@ -102,89 +103,3 @@ function download_csv(data, filename) {
     link.click();
     document.body.removeChild(link);
 }
-
-async function comparaison(url1,url2) {
-    /*Fonction prenant en entrée deux csv de même structure et calcul l'erreur relative entre chaque valeur
-    ainsi de la moyenne et l'écart type de l'erreur relative de tout l'échantillon.
-    Renvoie un csv avec tous les résultats*/ 
-
-    let donnees1 = await extraction_csv(url1);
-    let donnees2 = await extraction_csv(url2);
-    let resultat=[donnees1[0]];
-    
-    for (let i = 1; i < donnees1.length; i++) { //on commence à 1 pour enlever l'entête
-        var ligne_resultat=[];
-        for (let j = 0; j < donnees1[1].length; j++) {
-            if (Number(donnees2[i][j]) === 0) {
-                ligne_resultat.push(0);
-            }
-            else {
-                ligne_resultat.push(Math.abs(Number(donnees1[i][j])-Number(donnees2[i][j]))/Math.abs(Number(donnees2[i][j])));
-            }
-        }
-        resultat.push(ligne_resultat);
-    }
-
-
-    return [stats(resultat),resultat];
-}
-
-async function extraction_csv(url) {
-    /*Extrait les données d'un csv*/
-
-    const response = await fetch(url);
-    const contenu = await response.text();
-
-    const lignes = contenu.split('\n');
-    return lignes.map(ligne =>
-        ligne.split(';').map(val => val.trim())
-    );
-}
-
-function stats(data) { // data = tableau de lignes (CSV déjà parsé)
-    /*Renvoie la moyenne et l'écart type de chaque colonne d'un tableau*/
-    if (data.length === 0) return [];
-
-    let nbColonnes = data[0].length;
-
-    let resultats = [];
-
-    for (let j = 0; j < nbColonnes; j++) {
-
-        let colonne = [];
-
-        // 1. extraire la colonne
-        for (let i = 1; i < data.length; i++) { 
-            // on saute l'entête (ligne 0)
-            let val = Number(data[i][j]);
-
-            if (!isNaN(val)) {
-                colonne.push(val);
-            }
-        }
-
-        // 2. moyenne
-        let moyenne =
-            colonne.reduce((a, b) => a + b, 0) / colonne.length;
-
-        // 3. écart-type
-        let variance =
-            colonne.reduce((a, b) => a + (b - moyenne) ** 2, 0) /
-            colonne.length;
-
-        let ecartType = Math.sqrt(variance);
-
-        // 4. stocker résultat
-        resultats.push({
-            colonne: data[0][j], // nom de la colonne
-            moyenne: moyenne,
-            ecartType: ecartType
-        });
-    }
-
-    return resultats;
-}
-
-comparaison('JavaScript/Univers/echelle_LCDM.csv','JavaScript/Univers/echelle_LCDM2.csv').then(data => {
-    console.log(data);
-});

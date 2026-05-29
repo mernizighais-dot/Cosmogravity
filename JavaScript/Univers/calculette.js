@@ -435,7 +435,7 @@ function generer_graphique_distance(fonction_EouF, is_t, is_test = 0) {
             // Ajouter une ligne avec les valeurs séparées par des points-virgules
             csvContent += `${xValue};${y0};${y1};${y2};${y3}\n`;
         }
-
+        
         return csvContent;
     }
 
