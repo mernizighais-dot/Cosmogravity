@@ -258,709 +258,710 @@ function array_lerp(zmin=-1,zmax=5,pas) {
 }
 
 function generer_graphique_distance(fonction_EouF, is_t, is_test = 0) {
-    document.getElementById("loading").style.display = "flex";
-    setTimeout(() => {
-    if (sessionStorage.getItem("affichage_d_t")=="True" && is_t == 1) {
-        document.getElementById('graphique_d_t').classList.add('cache')
-        sessionStorage.setItem("affichage_d_t","False")
-        document.getElementById("fonction_dit").value = "plot"; 
-    } else if (sessionStorage.getItem("affichage_d_z")=="True" && is_t == 0) {
-        document.getElementById('graphique_d_z').classList.add('cache')
-        sessionStorage.setItem("affichage_d_z","False")
-        document.getElementById("fonction_diz").value = "plot";
-    } else {
-    let start_temps=Date.now();
-    log_abs=document.getElementById('check_log_abs').checked;
-    log_ord=document.getElementById('check_log_ord').checked;
-    //on récupère les variables utiles pour les calcules
-    let T0 = Number(document.getElementById("T0").value);
-    let H0 = Number(document.getElementById("H0").value);
-    let Omega_r0 = Number(document.getElementById("Omégar0").value);//changer
-    let Omega_m0 = Number(document.getElementById("Omégam0").value);
-    let Omega_k0 = Number(document.getElementById("Omégak0").value);
+    return new Promise((resolve) => { 
+        document.getElementById("loading").style.display = "flex";
+        setTimeout(() => {
+            let resultatsCSV = "";
 
-    if (fonction_EouF.name==="fonction_E"){
-        let Omega_l0 = Number(document.getElementById("Omégal0").value);
-        text_omegal0_graph ='   \Ω<sub>Λ0</sub>:  '+Omega_l0;
-        w0w1="";
-        equa_diff_2=equa_diff_2_LCDM;
-    }else if (fonction_EouF.name==="fonction_F"){
-        let Omega_DE0 = Number(document.getElementById('OmégaDE0').value);
-        text_omegal0_graph ='   \Ω<sub>DE0</sub>:  '+Omega_DE0;
-        w0w1="  w<sub>0</sub>: "+document.getElementById("w0").value+"  w<sub>1</sub>: "+document.getElementById("w1").value;
-        equa_diff_2=equa_diff_2_DE;
-    }
+            if (sessionStorage.getItem("affichage_d_t")=="True" && is_t == 1 && is_test == 0) {
+                document.getElementById('graphique_d_t').classList.add('cache')
+                sessionStorage.setItem("affichage_d_t","False")
+                document.getElementById("fonction_dit").value = "plot";
+                resolve(null); 
+            } else if (sessionStorage.getItem("affichage_d_z")=="True" && is_t == 0 && is_test == 0) {
+                document.getElementById('graphique_d_z').classList.add('cache')
+                sessionStorage.setItem("affichage_d_z","False")
+                document.getElementById("fonction_diz").value = "plot";
+                resolve(null);
+            } else {
+                let start_temps=Date.now();
+                log_abs=document.getElementById('check_log_abs').checked;
+                log_ord=document.getElementById('check_log_ord').checked;
+                //on récupère les variables utiles pour les calcules
+                let T0 = Number(document.getElementById("T0").value);
+                let H0 = Number(document.getElementById("H0").value);
+                let Omega_r0 = Number(document.getElementById("Omégar0").value);//changer
+                let Omega_m0 = Number(document.getElementById("Omégam0").value);
+                let Omega_k0 = Number(document.getElementById("Omégak0").value);
 
-    //Si il n'y a pas de big bang impossible a calculer
-    if (!debut_fin_univers(equa_diff_2, T0)[5]){
-        console.log("ERREUR")
-    }
-    //paramètre pour le tracer
-    let zmin = Number(document.getElementById("graphique_z_min").value);
-	let zmax = Number(document.getElementById("graphique_z_max").value);
-	let pas = Number(document.getElementById("graphique_pas").value);
-    // valeur des abscisses
-    let plot_title, xaxis_title, graphdivid, abscisse_calcul, abscisse_display
+                if (fonction_EouF.name==="fonction_E"){
+                    let Omega_l0 = Number(document.getElementById("Omégal0").value);
+                    text_omegal0_graph ='   \Ω<sub>Λ0</sub>:  '+Omega_l0;
+                    w0w1="";
+                    equa_diff_2=equa_diff_2_LCDM;
+                }else if (fonction_EouF.name==="fonction_F"){
+                    let Omega_DE0 = Number(document.getElementById('OmégaDE0').value);
+                    text_omegal0_graph ='   \Ω<sub>DE0</sub>:  '+Omega_DE0;
+                    w0w1="  w<sub>0</sub>: "+document.getElementById("w0").value+"  w<sub>1</sub>: "+document.getElementById("w1").value;
+                    equa_diff_2=equa_diff_2_DE;
+                }
 
-    if (log_abs){
-        fonction_log_lin=log_scale;
-    }else if (is_t==0) {
-        fonction_log_lin = array_lerp;
-    } else {
-        fonction_log_lin=linear_scale;
-    }
+                //Si il n'y a pas de big bang impossible a calculer
+                if (!debut_fin_univers(equa_diff_2, T0)[5]){
+                    console.log("ERREUR")
+                }
+                //paramètre pour le tracer
+                let zmin = Number(document.getElementById("graphique_z_min").value);
+                let zmax = Number(document.getElementById("graphique_z_max").value);
+                let pas = Number(document.getElementById("graphique_pas").value);
+                // valeur des abscisses
+                let plot_title, xaxis_title, graphdivid, abscisse_calcul, abscisse_display
 
-
-    if (is_t==1){
-        sessionStorage.setItem("affichage_d_t","True") 
-        plot_title = "d<sub>i</sub>(t)";
-        xaxis_title=xaxis_temps;
-        graphdivid="graphique_d_t"
-        
-        if (log_abs){
-            abscisse_calcul=fonction_log_lin(zmin,zmax,pas);
-            abscisse_display=[];
-            abscisse_calcul.forEach(i=>{
-                abscisse_display.push(calcul_ages(fonction_EouF,H0_parAnnees(H0),1e-30,1/(1+i)))
-            })
-        }else{
-            let sortieabscisse=abscisse_t(fonction_EouF,zmin,zmax,pas);
-            abscisse_calcul=sortieabscisse[0];
-            abscisse_display=sortieabscisse[1];
-        }
-        document.getElementById('graphique_d_t').classList.remove('cache');
-    }else{
-        sessionStorage.setItem("affichage_d_z","True") 
-        plot_title = "d<sub>i</sub>(z)";
-        abscisse_calcul = fonction_log_lin(zmin,zmax,pas);
-        if (log_abs && zmin < 0) {
-            xaxis_title="z+1"
-            abscisse_display = []
-            abscisse_calcul.forEach(i => {
-                abscisse_display.push(i+1)
-            })
-        } else {
-            xaxis_title = "z";
-            abscisse_display=abscisse_calcul;
-        }    
-        graphdivid="graphique_d_z"
-        // document.getElementById('check_distance_z').checked=true;
-        document.getElementById('graphique_d_z').classList.remove('cache');
-    }
+                if (log_abs){
+                    fonction_log_lin=log_scale;
+                }else if (is_t==0) {
+                    fonction_log_lin = array_lerp;
+                } else {
+                    fonction_log_lin=linear_scale;
+                }
 
 
+                if (is_t==1){
+                    sessionStorage.setItem("affichage_d_t","True") 
+                    plot_title = "d<sub>i</sub>(t)";
+                    xaxis_title=xaxis_temps;
+                    graphdivid="graphique_d_t"
+                    
+                    if (log_abs){
+                        abscisse_calcul=fonction_log_lin(zmin,zmax,pas);
+                        abscisse_display=[];
+                        abscisse_calcul.forEach(i=>{
+                            abscisse_display.push(calcul_ages(fonction_EouF,H0_parAnnees(H0),1e-30,1/(1+i)))
+                        })
+                    }else{
+                        let sortieabscisse=abscisse_t(fonction_EouF,zmin,zmax,pas);
+                        abscisse_calcul=sortieabscisse[0];
+                        abscisse_display=sortieabscisse[1];
+                    }
+                    document.getElementById('graphique_d_t').classList.remove('cache');
+                }else{
+                    sessionStorage.setItem("affichage_d_z","True") 
+                    plot_title = "d<sub>i</sub>(z)";
+                    abscisse_calcul = fonction_log_lin(zmin,zmax,pas);
+                    if (log_abs && zmin < 0) {
+                        xaxis_title="z+1"
+                        abscisse_display = []
+                        abscisse_calcul.forEach(i => {
+                            abscisse_display.push(i+1)
+                        })
+                    } else {
+                        xaxis_title = "z";
+                        abscisse_display=abscisse_calcul;
+                    }    
+                    graphdivid="graphique_d_z"
+                    // document.getElementById('check_distance_z').checked=true;
+                    document.getElementById('graphique_d_z').classList.remove('cache');
+                }
 
-    // valeurs des ordonnées
-    let dmArr = [];    //distance metrique
-    let daArr = [];   //distance diamètre apparent
-    let dlArr = [];    //distance luminosité
-    let dltArr = [];   //distance temps lumière
 
-    //calculs des longueurs
-    abscisse_calcul.forEach(i => {
-        let dm
-        if (i<0){
-            dm=DistanceMetrique(fonction_EouF,i,0,true,1e2);
-        }else{
-            dm=DistanceMetrique(fonction_EouF,1/(i+1),1,false,1e2);
-        }
-        let da=dm/(1+i);
-        let dl=dm*(1+i);
-        let temps = calcul_ages(fonction_EouF,H0_parSecondes(H0),1e-15,1/(1+i));
-        let dlt = temps * c;
-        dmArr.push(m_vers_AL(dm));
-        daArr.push(m_vers_AL(da));
-        dlArr.push(m_vers_AL(dl));
-        dltArr.push(m_vers_AL(dlt));
-    });
 
-    //affichage des omega0 sous le titre
-    let annots = [{xref: 'paper',
-		yref: 'paper',
-		x: 0.95,
-		xanchor: 'right',
-		y: 1,
-		yanchor: 'bottom',
-		text:'T<sub>0</sub>: '+T0.toExponential(3)+'   H<sub>0</sub>:'+H0.toExponential(3)+ '   \Ω<sub>m0</sub>: '+Omega_m0.toExponential(3)+text_omegal0_graph+'   \Ω<sub>r0</sub>: ' +Omega_r0+'  \Ω<sub>k0</sub>:   '+Omega_k0.toExponential(3)+w0w1,
-		showarrow: false}];
+                // valeurs des ordonnées
+                let dmArr = [];    //distance metrique
+                let daArr = [];   //distance diamètre apparent
+                let dlArr = [];    //distance luminosité
+                let dltArr = [];   //distance temps lumière
 
-    if (log_abs){
-        plot_type_abs="log"
-    }else{
-        plot_type_abs="scatter"
-    }
-    if (log_ord){
-        plot_type_ord="log"
-    }else{
-        plot_type_ord="scatter"
-    }
+                //calculs des longueurs
+                for (let i of abscisse_calcul){
+                    let dm
+                    if (i<0){
+                        dm=DistanceMetrique(fonction_EouF,i,0,true,1e2);
+                    }else{
+                        dm=DistanceMetrique(fonction_EouF,1/(i+1),1,false,1e2);
+                    }
+                    let da=dm/(1+i);
+                    let dl=dm*(1+i);
+                    let temps = calcul_ages(fonction_EouF,H0_parSecondes(H0),1e-15,1/(1+i));
+                    let dlt = temps * c;
+                    dmArr.push(m_vers_AL(dm));
+                    daArr.push(m_vers_AL(da));
+                    dlArr.push(m_vers_AL(dl));
+                    dltArr.push(m_vers_AL(dlt));
+                }
 
-    //tracer des 4 courbes 
-    let data = [
-        {
-            x : abscisse_display,
-            y : dmArr,
-            name :'<b>d<sub>m</sub><b>',type:'scatter'
-        },
-        {
-            x : abscisse_display,
-            y : daArr,
-            name :'<b>d<sub>a</sub><b>',type:'scatter'
-        },
-        {
-            x : abscisse_display,
-            y : dlArr,
-            name :'<b>d<sub>L</sub><b>',type:'scatter'
-        },
-        {
-            x : abscisse_display,
-            y : dltArr,
-            name :'<b>d<sub>LT</sub><b>',type:'scatter'
-        }
-    ];
+                //affichage des omega0 sous le titre
+                let annots = [{xref: 'paper',
+                    yref: 'paper',
+                    x: 0.95,
+                    xanchor: 'right',
+                    y: 1,
+                    yanchor: 'bottom',
+                    text:'T<sub>0</sub>: '+T0.toExponential(3)+'   H<sub>0</sub>:'+H0.toExponential(3)+ '   \Ω<sub>m0</sub>: '+Omega_m0.toExponential(3)+text_omegal0_graph+'   \Ω<sub>r0</sub>: ' +Omega_r0+'  \Ω<sub>k0</sub>:   '+Omega_k0.toExponential(3)+w0w1,
+                    showarrow: false}];
 
-    if (is_test == 1){
+                if (log_abs){
+                    plot_type_abs="log"
+                }else{
+                    plot_type_abs="scatter"
+                }
+                if (log_ord){
+                    plot_type_ord="log"
+                }else{
+                    plot_type_ord="scatter"
+                }
 
-        // 1. Préparer l'en-tête du fichier (les noms des colonnes)
-        let csvContent = "Z (ou X);Distance Metrique;Distance Diametre;Distance Luminosite;Distance Temps Lumiere\n";
+                //tracer des 4 courbes 
+                let data = [
+                    {
+                        x : abscisse_display,
+                        y : dmArr,
+                        name :'<b>d<sub>m</sub><b>',type:'scatter'
+                    },
+                    {
+                        x : abscisse_display,
+                        y : daArr,
+                        name :'<b>d<sub>a</sub><b>',type:'scatter'
+                    },
+                    {
+                        x : abscisse_display,
+                        y : dlArr,
+                        name :'<b>d<sub>L</sub><b>',type:'scatter'
+                    },
+                    {
+                        x : abscisse_display,
+                        y : dltArr,
+                        name :'<b>d<sub>LT</sub><b>',type:'scatter'
+                    }
+                ];
 
-        // 2. Parcourir les données (on suppose que data[0], [1], etc. ont la même longueur)
-        for (let i = 0; i < data[0].x.length; i++) {
-            let xValue = data[0].x[i];
-            let y0 = data[0].y[i];
-            let y1 = data[1].y[i];
-            let y2 = data[2].y[i];
-            let y3 = data[3].y[i];
+                if (is_test == 1){
+                    // 1. Préparer l'en-tête du fichier (les noms des colonnes)
+                    let csvContent = "Temps;Distance Metrique;Distance Diametre;Distance Luminosite;Distance Temps Lumiere\n";
+                    // 2. Parcourir les données (on suppose que data[0], [1], etc. ont la même longueur)
+                    for (let i = 0; i < data[0].x.length; i++) {
+                        let xValue = data[0].x[i];
+                        let y0 = data[0].y[i];
+                        let y1 = data[1].y[i];
+                        let y2 = data[2].y[i];
+                        let y3 = data[3].y[i];
 
-            // Ajouter une ligne avec les valeurs séparées par des points-virgules
-            csvContent += `${xValue};${y0};${y1};${y2};${y3}\n`;
-        }
-        
-        return csvContent;
-    }
+                        // Ajouter une ligne avec les valeurs séparées par des points-virgules
+                        csvContent += `${xValue};${y0};${y1};${y2};${y3}\n`;
+                    }
 
-    //configuration de la fenetre plotly
-    let layout = { width:get_plot_width(), height:450, 
-        title: plot_title,
-        titlefont:{family:"Time New Roman, sans-serif",size:20,color:"#111111"},
-        xaxis: {
-            autorange: true,
-            type : plot_type_abs,
-            title: xaxis_title,
-            titlefont:{family:"Time New Roman, sans-serif",size:16,color:"#111111"},
-            showline: true
+                    resultatsCSV = csvContent;
+                    console.log(resultatsCSV);
+                } 
+
+                
+                //configuration de la fenetre plotly
+                let layout = { width:get_plot_width(), height:450, 
+                    title: plot_title,
+                    titlefont:{family:"Time New Roman, sans-serif",size:20,color:"#111111"},
+                    xaxis: {
+                        autorange: true,
+                        type : plot_type_abs,
+                        title: xaxis_title,
+                        titlefont:{family:"Time New Roman, sans-serif",size:16,color:"#111111"},
+                        showline: true
+                        
+                    },
+
+                    yaxis: {
+                        rangemode: 'tozero',
+                        autorange: true,
+                        type : plot_type_ord,
+                        title: yaxis_distance,
+                        titlefont:{family:"Time New Roman, sans-serif",size:16,color:"#111111"},
+                        showline: true
+                    },
+                    annotations: annots,
+
+                };
+
+                graph = $('#'+graphdivid);
+                Plotly.purge(graph);
+                graph.empty();
+                Plotly.newPlot(graphdivid,data,layout,{displaylogo: false});
+
+                document.getElementById("temps_calcul_graph").innerHTML = "Le calcul a duré : " + (Date.now()-start_temps) + " millisecondes !";
+                
+                if (is_t==1){
+                    if (s_testLangue() === "fr") {
+                        document.getElementById("fonction_dit").value = "effacer";
+                    }
+                    else if (s_testLangue() === "en") {
+                        document.getElementById("fonction_dit").value = "erase";
+                    }    
+                }
+                else {
+                    if (s_testLangue() === "fr") {
+                        document.getElementById("fonction_diz").value = "effacer";
+                    }
+                    else if (s_testLangue() === "en") {
+                        document.getElementById("fonction_diz").value = "erase";
+                    } 
+                }
+
+            }
+            document.getElementById("loading").style.display = "none";
+            resize_graphs();
             
-        },
-
-        yaxis: {
-            rangemode: 'tozero',
-            autorange: true,
-            type : plot_type_ord,
-            title: yaxis_distance,
-            titlefont:{family:"Time New Roman, sans-serif",size:16,color:"#111111"},
-            showline: true
-        },
-        annotations: annots,
-
-    };
-
-    graph = $('#'+graphdivid);
-    Plotly.purge(graph);
-    graph.empty();
-    Plotly.newPlot(graphdivid,data,layout,{displaylogo: false});
-
-    document.getElementById("temps_calcul_graph").innerHTML = "Le calcul a duré : " + (Date.now()-start_temps) + " millisecondes !";
-    }
-    document.getElementById("loading").style.display = "none";
-    resize_graphs();
-    },5);
-
-    if (is_t==1){
-        if (s_testLangue() === "fr") {
-            document.getElementById("fonction_dit").value = "effacer";
-        }
-        else if (s_testLangue() === "en") {
-            document.getElementById("fonction_dit").value = "erase";
-        }    
-    }
-    else {
-        if (s_testLangue() === "fr") {
-            document.getElementById("fonction_diz").value = "effacer";
-        }
-        else if (s_testLangue() === "en") {
-            document.getElementById("fonction_diz").value = "erase";
-        } 
-    }
+            resolve(resultatsCSV);
+        },5);
+    });  
 }
 
 function generer_graphique_Omega(fonction_EouF,is_t ,is_test = 0) {
-    document.getElementById("loading").style="flex";
-    setTimeout(() => {
-    if (sessionStorage.getItem("affichage_omega_t")=="True" && is_t == 1) {
-        document.getElementById('graphique_omega_t').classList.add('cache')
-        sessionStorage.setItem("affichage_omega_t","False")
-        document.getElementById("fonction_omegait").value = "plot"; 
-    } else if (sessionStorage.getItem("affichage_omega_z")=="True" && is_t == 0) {
-        document.getElementById('graphique_omega_z').classList.add('cache')
-        sessionStorage.setItem("affichage_omega_z","False")
-        document.getElementById("fonction_omegaiz").value = "plot";
-    } else {
-    let start_temps=Date.now();
-    log_abs=document.getElementById('check_log_abs').checked;
-    log_ord=document.getElementById('check_log_ord').checked;
+    return new Promise((resolve) => {
+        document.getElementById("loading").style="flex";
+        setTimeout(() => {
+            let resultatsCSV = "";
 
-    //paramètre pour le tracer
-    let zmin = Number(document.getElementById("graphique_z_min").value);
-	let zmax = Number(document.getElementById("graphique_z_max").value);
-	let pas = Number(document.getElementById("graphique_pas").value);
-    
-    // valeur des abscisses
-    let abscisse;
+            if (sessionStorage.getItem("affichage_omega_t")=="True" && is_t == 1 && is_test == 0) {
+                document.getElementById('graphique_omega_t').classList.add('cache')
+                sessionStorage.setItem("affichage_omega_t","False")
+                document.getElementById("fonction_omegait").value = "plot";
+                resolve(null); 
+            } else if (sessionStorage.getItem("affichage_omega_z")=="True" && is_t == 0 && is_test == 0) {
+                document.getElementById('graphique_omega_z').classList.add('cache')
+                sessionStorage.setItem("affichage_omega_z","False")
+                document.getElementById("fonction_omegaiz").value = "plot";
+                resolve(null);
+            } else {
+                let start_temps=Date.now();
+                log_abs=document.getElementById('check_log_abs').checked;
+                log_ord=document.getElementById('check_log_ord').checked;
 
-    if (log_abs){
-        fonction_log_lin=log_scale;
-    // }else if (is_t == 0){
-    //     fonction_log_lin=array_non_lin;
-    } else {
-        fonction_log_lin=linear_scale;
-    }
+                //paramètre pour le tracer
+                let zmin = Number(document.getElementById("graphique_z_min").value);
+                let zmax = Number(document.getElementById("graphique_z_max").value);
+                let pas = Number(document.getElementById("graphique_pas").value);
+                
+                // valeur des abscisses
+                let abscisse;
 
-
-    if (is_t==1){
-        plot_title = "&#x3A9;<sub>i</sub>(t)";
-        xaxis_title=xaxis_temps;
-        graphdivid="graphique_omega_t"
-
-        if (log_abs){
-            abscisse_calcul=fonction_log_lin(zmin,zmax,pas);
-            abscisse_display=[];
-            abscisse_calcul.forEach(i=>{
-                abscisse_display.push(calcul_ages(fonction_EouF,H0_parAnnees(H0),1e-30,1/(1+i)))
-            })
-        }else{
-            let sortieabscisse=abscisse_t(fonction_EouF,zmin,zmax,pas);
-            abscisse_calcul=sortieabscisse[0];
-            abscisse_display=sortieabscisse[1];
-        }
-        
-
-        document.getElementById('graphique_omega_t').classList.remove('cache');
-        sessionStorage.setItem("affichage_omega_t","True")
-    }else{
-        plot_title = "&#x3A9;<sub>i</sub>(z)";
-        xaxis_title = "z";
-        graphdivid="graphique_omega_z"
-        abscisse_calcul = fonction_log_lin(zmin,zmax,pas);
-        abscisse_display=abscisse_calcul;
-        document.getElementById('graphique_omega_z').classList.remove('cache');
-        sessionStorage.setItem("affichage_omega_z","True")
-    }
+                if (log_abs){
+                    fonction_log_lin=log_scale;
+                // }else if (is_t == 0){
+                //     fonction_log_lin=array_non_lin;
+                } else {
+                    fonction_log_lin=linear_scale;
+                }
 
 
-    if (fonction_EouF.name==="fonction_E"){
-        //Si il n'y a pas de big bang impossible a calculer
-        let T0 = Number(document.getElementById("T0").value);
-        if (isNaN(debut_fin_univers(equa_diff_2_LCDM, T0)[2])){
+                if (is_t==1){
+                    plot_title = "&#x3A9;<sub>i</sub>(t)";
+                    xaxis_title=xaxis_temps;
+                    graphdivid="graphique_omega_t"
+
+                    if (log_abs){
+                        abscisse_calcul=fonction_log_lin(zmin,zmax,pas);
+                        abscisse_display=[];
+                        abscisse_calcul.forEach(i=>{
+                            abscisse_display.push(calcul_ages(fonction_EouF,H0_parAnnees(H0),1e-30,1/(1+i)))
+                        })
+                    }else{
+                        let sortieabscisse=abscisse_t(fonction_EouF,zmin,zmax,pas);
+                        abscisse_calcul=sortieabscisse[0];
+                        abscisse_display=sortieabscisse[1];
+                    }
+                    
+
+                    document.getElementById('graphique_omega_t').classList.remove('cache');
+                    sessionStorage.setItem("affichage_omega_t","True")
+                }else{
+                    plot_title = "&#x3A9;<sub>i</sub>(z)";
+                    xaxis_title = "z";
+                    graphdivid="graphique_omega_z"
+                    abscisse_calcul = fonction_log_lin(zmin,zmax,pas);
+                    abscisse_display=abscisse_calcul;
+                    document.getElementById('graphique_omega_z').classList.remove('cache');
+                    sessionStorage.setItem("affichage_omega_z","True")
+                }
+
+
+                if (fonction_EouF.name==="fonction_E"){
+                    //Si il n'y a pas de big bang impossible a calculer
+                    let T0 = Number(document.getElementById("T0").value);
+                    if (isNaN(debut_fin_univers(equa_diff_2_LCDM, T0)[2])){
+                        document.getElementById("loading").style.display = "none";
+                        return;
+                    }
+                    text_omegal0_graph ='   \Ω<sub>Λ0</sub>:  '+Omega_l(0); //texte et titre dans lequel omegalambda ou omegaDE apparait
+                    titre_omegal='<b>&#x3A9;<sub>&#x39B;</sub><b>';
+                    w0w1="";
+                    // valeurs des ordonnées
+                    OrArr = [];    //Paramètre de densité de rayonement
+                    OmArr = [];    //Paramètre de densite de matière
+                    OkArr = [];    //Paramètre de densite de courbure
+                    OlArr = [];    //Paramètre de densite lambda ou DE
+
+                    //calculs des omegas
+                    abscisse_calcul.forEach(i => {
+                        Or = Omega_r(0)*Math.pow((1+i),4)/fonction_EouF(i,true);
+                        Om = Omega_m(0)*Math.pow((1+i),3)/fonction_EouF(i,true);
+                        Ol = Omega_l(0)/fonction_E(i,true); 
+                        Ok = 1-Or-Om-Ol;    
+
+                        OrArr.push(Or);
+                        OmArr.push(Om);
+                        OkArr.push(Ok);
+                        OlArr.push(Ol);
+                    });
+
+
+                }else if (fonction_EouF.name==="fonction_F"){
+                    //Si il n'y a pas de big bang impossible a calculer
+                    let T0 = Number(document.getElementById("T0").value);
+                    if (isNaN(debut_fin_univers(equa_diff_2_DE, T0)[2])){
+                        document.getElementById("loading").style.display = "none";
+                        return;
+                    }
+                    text_omegal0_graph ='   \Ω<sub>DE0</sub>:  '+Omega_DE(0); //texte et titre dans lequel omegalambda ou omegaDE apparait
+                    titre_omegal='<b>&#x3A9;<sub>DE</sub><b>';
+                    w0w1="  w<sub>0</sub>: "+document.getElementById("w0").value+"  w<sub>1</sub>: "+document.getElementById("w1").value;
+
+                    // valeurs des ordonnées
+                    OrArr = [];    //Paramètre de densité de rayonement
+                    OmArr = [];    //Paramètre de densite de matière
+                    OkArr = [];    //Paramètre de densite de courbure
+                    OlArr = [];    //Paramètre de densite lambda ou DE
+
+                    //calculs des omegas
+                    abscisse_calcul.forEach(i => {
+                        Or = Omega_r(0)*Math.pow((1+i),4)/fonction_EouF(i,true);
+                        Om = Omega_m(0)*Math.pow((1+i),3)/fonction_EouF(i,true);
+                        Ol= Omega_DE(0) / fonction_F(i,true);
+                        Ok = 1-Or-Om-Ol;    
+
+                        OrArr.push(Or);
+                        OmArr.push(Om);
+                        OkArr.push(Ok);
+                        OlArr.push(Ol);
+                    });
+                }
+
+                //affichage des omega0 sous le titre
+                let annots = [{xref: 'paper',
+                    yref: 'paper',
+                    x: 0.95,
+                    xanchor: 'right',
+                    y: 1,
+                    yanchor: 'bottom',
+                    text:'T<sub>0</sub>: '+T0.toExponential(3)+'   H<sub>0</sub>:'+H0.toExponential(3)+ '   \Ω<sub>m0</sub>: '+Omega_m(0).toExponential(3)+text_omegal0_graph+'   \Ω<sub>r0</sub>: ' +Omega_r(0).toExponential(3)+'  \Ω<sub>k0</sub>:   '+Omega_k(0).toExponential(3)+w0w1,
+                    showarrow: false}];
+
+
+
+                if (log_abs){
+                    plot_type_abs="log"
+                    // Si zmin < 0 on graphe selon z+1
+                    if (is_t == 0 && zmin < 0) {
+                        xaxis_title="z+1"
+                        abscisse_display = []
+                        abscisse_calcul.forEach(i => {
+                            abscisse_display.push(i+1)
+                        })
+                    }
+                }else{
+                    plot_type_abs="scatter"
+                }
+                if (log_ord){
+                    plot_type_ord="log"
+                }else{
+                    plot_type_ord="scatter"
+                }
+
+                //tracer des 4 courbes 
+                let data = [
+                    {
+                        x : abscisse_display,
+                        y : OrArr,
+                        name :'<b>&#x3A9;<sub>R</sub><b>',type:'scatter'
+                    },
+                    {
+                        x : abscisse_display,
+                        y : OmArr,
+                        name :'<b>&#x3A9;<sub>M</sub><b>',type:'scatter'
+                    },
+                    {
+                        x : abscisse_display,
+                        y : OkArr,
+                        name :'<b>&#x3A9;<sub>K</sub><b>',type:'scatter'
+                    },
+                    {
+                        x : abscisse_display,
+                        y : OlArr,
+                        name :titre_omegal,type:'scatter'
+                    }
+                ];
+
+
+                if (is_test == 1){
+
+                    // 1. Préparer l'en-tête du fichier (les noms des colonnes)
+                    let csvContent = "Temps;Paramètre de densité de rayonement;Paramètre de densite de matière;Paramètre de densite de courbure;Paramètre de densite lambda ou DE\n";
+
+                    // 2. Parcourir les données (on suppose que data[0], [1], etc. ont la même longueur)
+                    for (let i = 0; i < data[0].x.length; i++) {
+                        let xValue = data[0].x[i];
+                        let y0 = data[0].y[i];
+                        let y1 = data[1].y[i];
+                        let y2 = data[2].y[i];
+                        let y3 = data[3].y[i];
+
+                        // Ajouter une ligne avec les valeurs séparées par des points-virgules
+                        csvContent += `${xValue};${y0};${y1};${y2};${y3}\n`;
+                    }
+                    
+                    resultatsCSV = csvContent;
+                }
+
+                //configuration de la fenetre plotly
+                let layout = {  width:get_plot_width(), height:450,  
+                    title: plot_title,
+                    titlefont:{family:"Time New Roman, sans-serif",size:20,color:"#111111"},
+                    xaxis: {
+                        autorange: true,
+                        type : plot_type_abs,
+                        title: xaxis_title,
+                        titlefont:{family:"Time New Roman, sans-serif",size:16,color:"#111111"},
+                        showline: true
+                    },
+
+                    yaxis: {
+                        rangemode: 'tozero',
+                        autorange: true,
+                        type : plot_type_ord,
+                        title: yaxis_omega,
+                        titlefont:{family:"Time New Roman, sans-serif",size:16,color:"#111111"},
+                        showline: true
+                    },
+                    annotations: annots,
+                };
+
+                graph = $('#'+graphdivid);
+                Plotly.purge(graph);
+                graph.empty();
+                Plotly.newPlot(graphdivid,data,layout,{displaylogo: false});
+
+                document.getElementById("temps_calcul_graph").innerHTML = "Le calcul a duré : " + (Date.now()-start_temps) + " millisecondes !";
+            
+                if (is_t==1){
+                    if (s_testLangue() === "fr") {
+                        document.getElementById("fonction_omegait").value = "effacer";
+                    }
+                    else if (s_testLangue() === "en") {
+                        document.getElementById("fonction_omegait").value = "erase";
+                    }
+                }
+                else {
+                    if (s_testLangue() === "fr") {
+                        document.getElementById("fonction_omegaiz").value = "effacer";
+                    }
+                    else if (s_testLangue() === "en") {
+                        document.getElementById("fonction_omegaiz").value = "erase";
+                    }
+                }
+            }
             document.getElementById("loading").style.display = "none";
-            return;
-        }
-        text_omegal0_graph ='   \Ω<sub>Λ0</sub>:  '+Omega_l(0); //texte et titre dans lequel omegalambda ou omegaDE apparait
-        titre_omegal='<b>&#x3A9;<sub>&#x39B;</sub><b>';
-        w0w1="";
-        // valeurs des ordonnées
-        OrArr = [];    //Paramètre de densité de rayonement
-        OmArr = [];    //Paramètre de densite de matière
-        OkArr = [];    //Paramètre de densite de courbure
-        OlArr = [];    //Paramètre de densite lambda ou DE
+            resize_graphs();
 
-        //calculs des omegas
-        abscisse_calcul.forEach(i => {
-            Or = Omega_r(0)*Math.pow((1+i),4)/fonction_EouF(i,true);
-            Om = Omega_m(0)*Math.pow((1+i),3)/fonction_EouF(i,true);
-            Ol = Omega_l(0)/fonction_E(i,true); 
-            Ok = 1-Or-Om-Ol;    
-
-            OrArr.push(Or);
-            OmArr.push(Om);
-            OkArr.push(Ok);
-            OlArr.push(Ol);
-        });
-
-
-    }else if (fonction_EouF.name==="fonction_F"){
-        //Si il n'y a pas de big bang impossible a calculer
-        let T0 = Number(document.getElementById("T0").value);
-        if (isNaN(debut_fin_univers(equa_diff_2_DE, T0)[2])){
-            document.getElementById("loading").style.display = "none";
-            return;
-        }
-        text_omegal0_graph ='   \Ω<sub>DE0</sub>:  '+Omega_DE(0); //texte et titre dans lequel omegalambda ou omegaDE apparait
-        titre_omegal='<b>&#x3A9;<sub>DE</sub><b>';
-        w0w1="  w<sub>0</sub>: "+document.getElementById("w0").value+"  w<sub>1</sub>: "+document.getElementById("w1").value;
-
-        // valeurs des ordonnées
-        OrArr = [];    //Paramètre de densité de rayonement
-        OmArr = [];    //Paramètre de densite de matière
-        OkArr = [];    //Paramètre de densite de courbure
-        OlArr = [];    //Paramètre de densite lambda ou DE
-
-        //calculs des omegas
-        abscisse_calcul.forEach(i => {
-            Or = Omega_r(0)*Math.pow((1+i),4)/fonction_EouF(i,true);
-            Om = Omega_m(0)*Math.pow((1+i),3)/fonction_EouF(i,true);
-            Ol= Omega_DE(0) / fonction_F(i,true);
-            Ok = 1-Or-Om-Ol;    
-
-            OrArr.push(Or);
-            OmArr.push(Om);
-            OkArr.push(Ok);
-            OlArr.push(Ol);
-        });
-    }
-
-    //affichage des omega0 sous le titre
-    let annots = [{xref: 'paper',
-		yref: 'paper',
-		x: 0.95,
-		xanchor: 'right',
-		y: 1,
-		yanchor: 'bottom',
-		text:'T<sub>0</sub>: '+T0.toExponential(3)+'   H<sub>0</sub>:'+H0.toExponential(3)+ '   \Ω<sub>m0</sub>: '+Omega_m(0).toExponential(3)+text_omegal0_graph+'   \Ω<sub>r0</sub>: ' +Omega_r(0).toExponential(3)+'  \Ω<sub>k0</sub>:   '+Omega_k(0).toExponential(3)+w0w1,
-		showarrow: false}];
-
-
-
-    if (log_abs){
-        plot_type_abs="log"
-        // Si zmin < 0 on graphe selon z+1
-        if (is_t == 0 && zmin < 0) {
-            xaxis_title="z+1"
-            abscisse_display = []
-            abscisse_calcul.forEach(i => {
-                abscisse_display.push(i+1)
-            })
-        }
-    }else{
-        plot_type_abs="scatter"
-    }
-    if (log_ord){
-        plot_type_ord="log"
-    }else{
-        plot_type_ord="scatter"
-    }
-
-    //tracer des 4 courbes 
-    let data = [
-        {
-            x : abscisse_display,
-            y : OrArr,
-            name :'<b>&#x3A9;<sub>R</sub><b>',type:'scatter'
-        },
-        {
-            x : abscisse_display,
-            y : OmArr,
-            name :'<b>&#x3A9;<sub>M</sub><b>',type:'scatter'
-        },
-        {
-            x : abscisse_display,
-            y : OkArr,
-            name :'<b>&#x3A9;<sub>K</sub><b>',type:'scatter'
-        },
-        {
-            x : abscisse_display,
-            y : OlArr,
-            name :titre_omegal,type:'scatter'
-        }
-    ];
-
-
-    if (is_test == 1){
-
-        // 1. Préparer l'en-tête du fichier (les noms des colonnes)
-        let csvContent = "Z (ou X);Paramètre de densité de rayonement;Paramètre de densite de matière;Paramètre de densite de courbure;Paramètre de densite lambda ou DE\n";
-
-        // 2. Parcourir les données (on suppose que data[0], [1], etc. ont la même longueur)
-        for (let i = 0; i < data[0].x.length; i++) {
-            let xValue = data[0].x[i];
-            let y0 = data[0].y[i];
-            let y1 = data[1].y[i];
-            let y2 = data[2].y[i];
-            let y3 = data[3].y[i];
-
-            // Ajouter une ligne avec les valeurs séparées par des points-virgules
-            csvContent += `${xValue};${y0};${y1};${y2};${y3}\n`;
-        }
-        
-        // 3. Créer le fichier et déclencher le téléchargement
-        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement("a");
-    
-        link.setAttribute("href", url);
-        link.setAttribute("download", "toutes_les_distances.csv");
-        link.style.visibility = 'hidden';
-    
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    }
-
-    //configuration de la fenetre plotly
-    let layout = {  width:get_plot_width(), height:450,  
-        title: plot_title,
-        titlefont:{family:"Time New Roman, sans-serif",size:20,color:"#111111"},
-        xaxis: {
-            autorange: true,
-            type : plot_type_abs,
-            title: xaxis_title,
-            titlefont:{family:"Time New Roman, sans-serif",size:16,color:"#111111"},
-            showline: true
-        },
-
-        yaxis: {
-            rangemode: 'tozero',
-            autorange: true,
-            type : plot_type_ord,
-            title: yaxis_omega,
-            titlefont:{family:"Time New Roman, sans-serif",size:16,color:"#111111"},
-            showline: true
-        },
-        annotations: annots,
-    };
-
-    graph = $('#'+graphdivid);
-    Plotly.purge(graph);
-    graph.empty();
-    Plotly.newPlot(graphdivid,data,layout,{displaylogo: false});
-
-    document.getElementById("temps_calcul_graph").innerHTML = "Le calcul a duré : " + (Date.now()-start_temps) + " millisecondes !";
-    }
-    document.getElementById("loading").style.display = "none";
-    resize_graphs();
-    }, 5);
-
-    if (is_t==1){
-        if (s_testLangue() === "fr") {
-            document.getElementById("fonction_omegait").value = "effacer";
-        }
-        else if (s_testLangue() === "en") {
-            document.getElementById("fonction_omegait").value = "erase";
-        }
-    }
-    else {
-        if (s_testLangue() === "fr") {
-            document.getElementById("fonction_omegaiz").value = "effacer";
-        }
-        else if (s_testLangue() === "en") {
-            document.getElementById("fonction_omegaiz").value = "erase";
-        }
-    }
-    
+            resolve(resultatsCSV);
+        }, 5);
+    });
 }
 
 function generer_graphique_TempsDecalage(fonction_EouF, is_t, is_test = 0) {
-    document.getElementById("loading").style.display = "flex";
-    setTimeout(() => {
-    if (sessionStorage.getItem("affichage_z_t")=="True" && is_t == 1) {
-        document.getElementById('graphique_z_t').classList.add('cache')
-        sessionStorage.setItem("affichage_z_t","False")
-        document.getElementById("fonction_zt").value = "plot"; 
-    } else if (sessionStorage.getItem("affichage_t_z")=="True" && is_t == 0) {
-        document.getElementById('graphique_t_z').classList.add('cache')
-        sessionStorage.setItem("affichage_t_z","False")
-        document.getElementById("fonction_tz").value = "plot" ;
-    } else {
-    let start_temps=Date.now();
-    log_abs=document.getElementById('check_log_abs').checked;
-    log_ord=document.getElementById('check_log_ord').checked;
+    return new Promise((resolve) => {
+        document.getElementById("loading").style.display = "flex";
+        setTimeout(() => {
+            let resultatsCSV = "";
 
-    if (fonction_EouF.name==="fonction_E"){
-        text_omegal0_graph ='   \Ω<sub>Λ0</sub>:  '+Omega_l(0);
-        equa_diff_2=equa_diff_2_LCDM;
-        w0w1="";
-    }else if (fonction_EouF.name==="fonction_F"){
-        text_omegal0_graph ='   \Ω<sub>DE0</sub>:  '+Omega_DE(0);
-        w0w1="  w<sub>0</sub>: "+document.getElementById("w0").value+"  w<sub>1</sub>: "+document.getElementById("w1").value;
-        equa_diff_2=equa_diff_2_DE;
-    }
+        if (sessionStorage.getItem("affichage_z_t")=="True" && is_t == 1 && is_test == 0) {
+            document.getElementById('graphique_z_t').classList.add('cache')
+            sessionStorage.setItem("affichage_z_t","False")
+            document.getElementById("fonction_zt").value = "plot"; 
+            resolve(null);
+        } else if (sessionStorage.getItem("affichage_t_z")=="True" && is_t == 0 && is_test == 0) {
+            document.getElementById('graphique_t_z').classList.add('cache')
+            sessionStorage.setItem("affichage_t_z","False")
+            document.getElementById("fonction_tz").value = "plot" ;
+            resolve(null);
+        } else {
+            let start_temps=Date.now();
+            log_abs=document.getElementById('check_log_abs').checked;
+            log_ord=document.getElementById('check_log_ord').checked;
+
+            if (fonction_EouF.name==="fonction_E"){
+                text_omegal0_graph ='   \Ω<sub>Λ0</sub>:  '+Omega_l(0);
+                equa_diff_2=equa_diff_2_LCDM;
+                w0w1="";
+            }else if (fonction_EouF.name==="fonction_F"){
+                text_omegal0_graph ='   \Ω<sub>DE0</sub>:  '+Omega_DE(0);
+                w0w1="  w<sub>0</sub>: "+document.getElementById("w0").value+"  w<sub>1</sub>: "+document.getElementById("w1").value;
+                equa_diff_2=equa_diff_2_DE;
+            }
 
 
-    //Si il n'y a pas de big bang impossible a calculer
-    let T0 = Number(document.getElementById("T0").value);
-    if (isNaN(debut_fin_univers(equa_diff_2, T0)[2])){
-        document.getElementById("loading").style.display = "none";
-        return;
-    }
-    //paramètre pour le tracer
-    let zmin = Number(document.getElementById("graphique_z_min").value);
-	let zmax = Number(document.getElementById("graphique_z_max").value);
-	let pas = Number(document.getElementById("graphique_pas").value);
-    let abscisse;
-    // valeur des abscisses
-    if (is_t == 0) {
-        abscisse = array_lerp(zmin,zmax,pas);
-    } else {
-        abscisse = linear_scale(zmin,zmax,pas);
-    }
-    // valeurs des ordonnées
-    let zArr = [];
+            //Si il n'y a pas de big bang impossible a calculer
+            let T0 = Number(document.getElementById("T0").value);
+            if (isNaN(debut_fin_univers(equa_diff_2, T0)[2])){
+                document.getElementById("loading").style.display = "none";
+                return;
+            }
+            //paramètre pour le tracer
+            let zmin = Number(document.getElementById("graphique_z_min").value);
+            let zmax = Number(document.getElementById("graphique_z_max").value);
+            let pas = Number(document.getElementById("graphique_pas").value);
+            let abscisse;
+            // valeur des abscisses
+            if (is_t == 0) {
+                abscisse = array_lerp(zmin,zmax,pas);
+            } else {
+                abscisse = linear_scale(zmin,zmax,pas);
+            }
+            // valeurs des ordonnées
+            let zArr = [];
 
-    //calculs des longueurs
-    abscisse.forEach(i => {
-        let zdet
-        zdet = calcul_ages(fonction_EouF,H0_parAnnees(H0),1e-15,1/(1+i));
-
-        zArr.push(zdet);
-    });
-
-    //affichage des omega0 sous le titre
-    let annots = [{xref: 'paper',
-		yref: 'paper',
-		x: .95,
-		xanchor: 'right',
-		y: 1,
-		yanchor: 'bottom',
-		text:'T<sub>0</sub>: '+T0.toExponential(3)+'   H<sub>0</sub>:'+H0.toExponential(3)+ '   \Ω<sub>m0</sub>: '+Omega_m(0).toExponential(3)+text_omegal0_graph+'   \Ω<sub>r0</sub>: ' +Omega_r(0)+'  \Ω<sub>k0</sub>:   '+Omega_k(0).toExponential(3)+w0w1,
-		showarrow: false}];
-
-    
-    if (is_t == 1){
-        yaxis_TempsDecalage=yaxis_decalage;
-        plot_title = "z(t)";
-        xaxis_title=xaxis_temps;
-        graphdivid="graphique_z_t"
-        let abscisse_temp=zArr; //inverser les deux axes
-        zArr=abscisse;
-        abscisse=abscisse_temp;
-        document.getElementById('graphique_z_t').classList.remove('cache');
-        sessionStorage.setItem("affichage_z_t","True")
-    }else{
-        yaxis_TempsDecalage=yaxis_temps;
-        plot_title = "t(z)";
-        xaxis_title = "z";
-        graphdivid="graphique_t_z"
-        document.getElementById('graphique_t_z').classList.remove('cache');
-        sessionStorage.setItem("affichage_t_z","True")
-    }
-
-    if (log_abs){
-        plot_type_abs="log"
-        // Si zmin est plus petit que 0 on graphe z+1 pour avoir que des z pos
-        if (is_t == 0 && zmin < 0) {
-            xaxis_title="z+1"
-            let abscisse_temp = []
+            //calculs des longueurs
             abscisse.forEach(i => {
-                abscisse_temp.push(i+1)
-            })
-            abscisse = abscisse_temp
+                let zdet
+                zdet = calcul_ages(fonction_EouF,H0_parAnnees(H0),1e-15,1/(1+i));
+
+                zArr.push(zdet);
+            });
+
+            //affichage des omega0 sous le titre
+            let annots = [{xref: 'paper',
+                yref: 'paper',
+                x: .95,
+                xanchor: 'right',
+                y: 1,
+                yanchor: 'bottom',
+                text:'T<sub>0</sub>: '+T0.toExponential(3)+'   H<sub>0</sub>:'+H0.toExponential(3)+ '   \Ω<sub>m0</sub>: '+Omega_m(0).toExponential(3)+text_omegal0_graph+'   \Ω<sub>r0</sub>: ' +Omega_r(0)+'  \Ω<sub>k0</sub>:   '+Omega_k(0).toExponential(3)+w0w1,
+                showarrow: false}];
+
+            
+            if (is_t == 1){
+                yaxis_TempsDecalage=yaxis_decalage;
+                plot_title = "z(t)";
+                xaxis_title=xaxis_temps;
+                graphdivid="graphique_z_t"
+                let abscisse_temp=zArr; //inverser les deux axes
+                zArr=abscisse;
+                abscisse=abscisse_temp;
+                document.getElementById('graphique_z_t').classList.remove('cache');
+                sessionStorage.setItem("affichage_z_t","True")
+            }else{
+                yaxis_TempsDecalage=yaxis_temps;
+                plot_title = "t(z)";
+                xaxis_title = "z";
+                graphdivid="graphique_t_z"
+                document.getElementById('graphique_t_z').classList.remove('cache');
+                sessionStorage.setItem("affichage_t_z","True")
+            }
+
+            if (log_abs){
+                plot_type_abs="log"
+                // Si zmin est plus petit que 0 on graphe z+1 pour avoir que des z pos
+                if (is_t == 0 && zmin < 0) {
+                    xaxis_title="z+1"
+                    let abscisse_temp = []
+                    abscisse.forEach(i => {
+                        abscisse_temp.push(i+1)
+                    })
+                    abscisse = abscisse_temp
+                }
+            }else{
+                plot_type_abs="scatter"
+            }
+            if (log_ord){
+                plot_type_ord="log"
+                // Si zmin est plus petit que 0 on graphe z+1 pour avoir que des z pos
+                if (is_t == 1 && zmin < 0) { 
+                    yaxis_TempsDecalage="z+1"
+                    let ord_temp = []
+                    zArr.forEach(i => {
+                        ord_temp.push(i+1)
+                    })
+                    zArr = ord_temp
+                }
+            }else{
+                plot_type_ord="scatter"
+            }
+
+            //tracer des 4 courbes 
+            let data = [
+                {
+                    x : abscisse,
+                    y : zArr,
+                    name :'<b>&#x3A9;<sub>R</sub><b>',type:'scatter'
+                }
+            ];
+
+            if (is_test == 1){
+
+                // 1. Préparer l'en-tête du fichier (les noms des colonnes)
+                let csvContent = "Z (ou X);Paramètre de densité de rayonement\n";
+
+                // 2. Parcourir les données (on suppose que data[0], [1], etc. ont la même longueur)
+                for (let i = 0; i < data[0].x.length; i++) {
+                    let xValue = data[0].x[i];
+                    let y0 = data[0].y[i];
+
+                    // Ajouter une ligne avec les valeurs séparées par des points-virgules
+                    csvContent += `${xValue};${y0}\n`;
+                }
+                
+                resultatsCSV = csvContent;
+            }
+
+            //configuration de la fenetre plotly
+            let layout = {  width:get_plot_width(), height:450, 
+                title: plot_title,
+                titlefont:{family:"Time New Roman, sans-serif",size:20,color:"#111111"},
+                xaxis: {
+                    autorange: true,
+                    type : plot_type_abs,
+                    title: xaxis_title,
+                    titlefont:{family:"Time New Roman, sans-serif",size:16,color:"#111111"},
+                    showline: true
+                },
+
+                yaxis: {
+                    rangemode: 'tozero',
+                    autorange: true,
+                    type : plot_type_ord,
+                    title: yaxis_TempsDecalage,
+                    titlefont:{family:"Time New Roman, sans-serif",size:16,color:"#111111"},
+                    showline: true
+                },
+                annotations: annots,
+            };
+
+            graph = $('#'+graphdivid);
+            Plotly.purge(graph);
+            graph.empty();
+            Plotly.newPlot(graphdivid,data,layout,{displaylogo: false});
+
+            document.getElementById("temps_calcul_graph").innerHTML = "Le calcul a duré : " + (Date.now()-start_temps) + " millisecondes !";
+            
+            if (is_t==1){
+                if (s_testLangue() === "fr") {
+                    document.getElementById("fonction_zt").value = "effacer";
+                }
+                else if (s_testLangue() === "en") {
+                    document.getElementById("fonction_zt").value = "erase";
+                }
+            }
+            else {
+                if (s_testLangue() === "fr") {
+                    document.getElementById("fonction_tz").value = "effacer";
+                }
+                else if (s_testLangue() === "en") {
+                    document.getElementById("fonction_tz").value = "erase";
+                }
+            }
+
         }
-    }else{
-        plot_type_abs="scatter"
-    }
-    if (log_ord){
-        plot_type_ord="log"
-        // Si zmin est plus petit que 0 on graphe z+1 pour avoir que des z pos
-        if (is_t == 1 && zmin < 0) { 
-            yaxis_TempsDecalage="z+1"
-            let ord_temp = []
-            zArr.forEach(i => {
-                ord_temp.push(i+1)
-            })
-            zArr = ord_temp
-        }
-    }else{
-        plot_type_ord="scatter"
-    }
+        document.getElementById("loading").style.display = "none";
+        resize_graphs();
 
-    //tracer des 4 courbes 
-    let data = [
-        {
-            x : abscisse,
-            y : zArr,
-            name :'<b>&#x3A9;<sub>R</sub><b>',type:'scatter'
-        }
-    ];
-
-    if (is_test == 1){
-
-        // 1. Préparer l'en-tête du fichier (les noms des colonnes)
-        let csvContent = "Z (ou X);Paramètre de densité de rayonement\n";
-
-        // 2. Parcourir les données (on suppose que data[0], [1], etc. ont la même longueur)
-        for (let i = 0; i < data[0].x.length; i++) {
-            let xValue = data[0].x[i];
-            let y0 = data[0].y[i];
-
-            // Ajouter une ligne avec les valeurs séparées par des points-virgules
-            csvContent += `${xValue};${y0}\n`;
-        }
-        
-        // 3. Créer le fichier et déclencher le téléchargement
-        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement("a");
-    
-        link.setAttribute("href", url);
-        link.setAttribute("download", "toutes_les_distances.csv");
-        link.style.visibility = 'hidden';
-    
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    }
-
-    //configuration de la fenetre plotly
-    let layout = {  width:get_plot_width(), height:450, 
-        title: plot_title,
-        titlefont:{family:"Time New Roman, sans-serif",size:20,color:"#111111"},
-        xaxis: {
-            autorange: true,
-            type : plot_type_abs,
-            title: xaxis_title,
-            titlefont:{family:"Time New Roman, sans-serif",size:16,color:"#111111"},
-            showline: true
-        },
-
-        yaxis: {
-            rangemode: 'tozero',
-            autorange: true,
-            type : plot_type_ord,
-            title: yaxis_TempsDecalage,
-            titlefont:{family:"Time New Roman, sans-serif",size:16,color:"#111111"},
-            showline: true
-        },
-        annotations: annots,
-    };
-
-    graph = $('#'+graphdivid);
-    Plotly.purge(graph);
-    graph.empty();
-    Plotly.newPlot(graphdivid,data,layout,{displaylogo: false});
-
-    document.getElementById("temps_calcul_graph").innerHTML = "Le calcul a duré : " + (Date.now()-start_temps) + " millisecondes !";
-    
-    }
-    document.getElementById("loading").style.display = "none";
-    resize_graphs();
-    }, 5); 
-
-    if (is_t==1){
-        if (s_testLangue() === "fr") {
-            document.getElementById("fonction_zt").value = "effacer";
-        }
-        else if (s_testLangue() === "en") {
-            document.getElementById("fonction_zt").value = "erase";
-        }
-    }
-    else {
-        if (s_testLangue() === "fr") {
-            document.getElementById("fonction_tz").value = "effacer";
-        }
-        else if (s_testLangue() === "en") {
-            document.getElementById("fonction_tz").value = "erase";
-        }
-    }
-
+        resolve(resultatsCSV);
+        }, 5); 
+    });
 }
 
 //-----------------Calcul diamètre---------
