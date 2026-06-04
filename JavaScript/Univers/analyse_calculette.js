@@ -18,6 +18,13 @@ async function Analyse_avec_parametre_choisis(fonction_EouF, is_t, distanceOuOme
     let H0=document.getElementById("check_H0").checked;
     let Omegam0=document.getElementById("check_Omegam0").checked;
     let OmegaLambda0=document.getElementById("check_OmegaLambda0").checked;
+    let w0=false;
+    let w1=false;
+
+    if (fonction_EouF==fonction_F) {
+        w0=document.getElementById("check_W0").checked;
+        w1=document.getElementById("check_W1").checked;
+    }
 
     let parametre_val_min=Number(document.getElementById("parametre_val_min").value);
     let parametre_val_max=Number(document.getElementById("parametre_val_max").value);
@@ -106,7 +113,47 @@ async function Analyse_avec_parametre_choisis(fonction_EouF, is_t, distanceOuOme
                 download_csv(resultats,"OmegaLambda0_"+i+".csv");
             }
         }
-    }  
+    }
+    else if (fonction_EouF==fonction_F && w0) { 
+        for (let i=parametre_val_min; i<=parametre_val_max; i+=parametre_pas) {
+            document.getElementById("w0").value=i;
+
+             if (distanceOuOmegaOuTemps=="distance") {
+                const resultats = await generer_graphique_distance(fonction_EouF,is_t,1);
+                download_csv(resultats,"W0_"+i+".csv");
+            }
+
+            else if (distanceOuOmegaOuTemps=="omega") {
+                const resultats = await generer_graphique_Omega(fonction_EouF,is_t,1);
+                download_csv(resultats,"W0_"+i+".csv");
+            }
+
+            else if (distanceOuOmegaOuTemps=="temps") {
+                const resultats = await generer_graphique_TempsDecalage(fonction_EouF,is_t,1);
+                download_csv(resultats,"W0_"+i+".csv");
+            }
+        }
+    }
+    else if (fonction_EouF==fonction_F && w1) { 
+        for (let i=parametre_val_min; i<=parametre_val_max; i+=parametre_pas) {
+            document.getElementById("w1").value=i;
+
+             if (distanceOuOmegaOuTemps=="distance") {
+                const resultats = await generer_graphique_distance(fonction_EouF,is_t,1);
+                download_csv(resultats,"W1_"+i+".csv");
+            }
+
+            else if (distanceOuOmegaOuTemps=="omega") {
+                const resultats = await generer_graphique_Omega(fonction_EouF,is_t,1);
+                download_csv(resultats,"W1_"+i+".csv");
+            }
+
+            else if (distanceOuOmegaOuTemps=="temps") {
+                const resultats = await generer_graphique_TempsDecalage(fonction_EouF,is_t,1);
+                download_csv(resultats,"W1_"+i+".csv");
+            }
+        }
+     }
 }
 
 function download_csv(data, filename) {
