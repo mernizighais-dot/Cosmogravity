@@ -270,7 +270,7 @@
     <!--Fenêtre graphe-->
     <div id="PanneauCentral" class="fenetre_calculette" >
         <div class="boite_calculette">
-            <h3 id="generateur_graphique" style="text-align: center;"></h3>
+        <h3 id="generateur_graphique" style="text-align: center;"></h3>
            <div id="loading" class="load_bar_calc" style="display:none"> 
                 <span id="roue" class="roue_chargement"></span>
             </div>
@@ -303,31 +303,31 @@
                         <div class="grille_graph">
                             <div class="fonction_t">
                                 <div>
-                                    <input type="button" id="fonction_dit" class="petitBoutton" name="dependance" value="plot" onclick="resultatCalculette(fonction_F,1, 'distance')">
+                                    <input type="button" id="fonction_dit" class="petitBoutton" name="dependance" value="plot" onclick="Analyse_avec_parametre_choisis(fonction_F,1, 'distance')">
                                     <label id="label_button_dit" class="infobullable" for="fonction_dit">d<sub>i</sub>(t)</label>
                                 </div>
                                
                                 <div>
-                                    <input type="button" id="fonction_omegait" class="petitBoutton" name="dependance" value="plot" onclick="resultatCalculette(fonction_F,1, 'omega')">
+                                    <input type="button" id="fonction_omegait" class="petitBoutton" name="dependance" value="plot" onclick="Analyse_avec_parametre_choisis(fonction_F,1, 'omega')">
                                     <label id="label_button_omegait" class="infobullable" for="fonction_omegait">&Omega;<sub>i</sub>(t)</label>
                                 </div>
                                  <div>
-                                    <input type="button" id="fonction_zt" class="petitBoutton" name="dependance" value="plot" onclick="resultatCalculette(fonction_F,1, 'temps')">
+                                    <input type="button" id="fonction_zt" class="petitBoutton" name="dependance" value="plot" onclick="Analyse_avec_parametre_choisis(fonction_F,1, 'temps')">
                                     <label id="label_button_zt" class="infobullable" for="fonction_zt">z(t)</label>
                                 </div>
                             </div>
                             <div class="fonction_z">
                                 <div>
-                                    <input type="button" id="fonction_diz" class="petitBoutton" name="dependance" value="plot" onclick="resultatCalculette(fonction_F,0, 'distance')">
+                                    <input type="button" id="fonction_diz" class="petitBoutton" name="dependance" value="plot" onclick="Analyse_avec_parametre_choisis(fonction_F,0, 'distance')">
                                     <label id="label_button_diz" class="infobullable" for="fonction_diz">d<sub>i</sub>(z)</label>
                                 </div>
                                 <div>
-                                    <input type="button" id="fonction_omegaiz" class="petitBoutton" name="dependance" value="plot" onclick="resultatCalculette(fonction_F,0, 'omega')">
+                                    <input type="button" id="fonction_omegaiz" class="petitBoutton" name="dependance" value="plot" onclick="Analyse_avec_parametre_choisis(fonction_F,0, 'omega')">
                                     <label id="label_button_omegaiz" class="infobullable" for="fonction_omegaiz">&Omega;<sub>i</sub>(z)</label>
                                 </div>
                                 
                                 <div>
-                                    <input type="button" id="fonction_tz" class="petitBoutton" name="dependance" value="plot" onclick="resultatCalculette(fonction_F,0, 'temps')">
+                                    <input type="button" id="fonction_tz" class="petitBoutton" name="dependance" value="plot" onclick="Analyse_avec_parametre_choisis(fonction_F,0, 'temps')">
                                     <label id="label_button_tz" class="infobullable" for="fonction_tz">t(z)</label>
                                 </div>
                             </div>
@@ -347,6 +347,67 @@
                 <br>
                 <div>
                     <span id="temps_calcul_graph" style="color:blue"></span>
+                </div>
+            </div>
+            <div id="panneauAnalyse" class="boite_calculette" style="position: relative;background-color: white; border-radius: 3px;flex-grow: 1;display: flex;flex-direction: column;">
+                <div style="font-weight: bold; text-align: center;">Paramètres d'analyse : </div>
+                <div>paramètre à faire varier : </div>
+                <div style="display: flex;gap: 10px;margin-bottom: 1rem;">
+                    <fieldset>
+                        <div class="grille_graph">
+                            <div class="fonction_t" display="flex">
+                                <div>
+                                    <input type="checkbox" id="check_T0">
+                                    <label id="label_check_T0" class="infobullable" for="check_T0">T<sub>0</sub></label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="check_H0">
+                                    <label id="label_check_H0" class="infobullable" for="check_H0">H<sub>0</sub></label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="check_Omegam0">
+                                    <label id="label_check_Omegam0" class="infobullable" for="check_Omegam0">&Omega;<sub>m<sub>0</sub></sub></label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="check_OmegaLambda0">
+                                    <label id="label_check_OmegaLambda0" class="infobullable" for="check_OmegaLambda0">&Omega;<sub>&Lambda;<sub>0</sub></sub></label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="check_W0">
+                                    <label id="label_check_W0" class="infobullable" for="check_W0">w<sub>0</sub></label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="check_W1">
+                                    <label id="label_check_W1" class="infobullable" for="check_W1">w<sub>1</sub></label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div>Variation du paramètre : </div>
+                <div style="display: flex;gap: 10px;margin-bottom: 1rem;">
+                    <fieldset>
+                        <div class="paramètre">
+                            <label id="label_valMin" class="infobullable" for="parametre_val_min">
+                                Valeur min =
+                            </label>
+                            <input id="parametre_val_min" type="number" value="0" step="0.0001" min="-.9999" max="1000">
+                        </div>
+                
+                        <div class="paramètre">
+                            <label id="label_valMax" class="infobullable" for ="parametre_val_max">
+                                Valeur max =
+                            </label>
+                            <input id="parametre_val_max" type="number" value="5" step="0.0001" min="-.9999" max="1000">
+                        </div>
+
+                        <div class="paramètre">
+                            <label id="label_pas" class="infobullable" for="parametre_pas">
+                                pas =
+                            </label>
+                            <input id="parametre_pas" type="number" value="1" step="0.001" min="0.001" max="10000">
+                        </div>
+                    </fieldset>
                 </div>
             </div>
         </div>

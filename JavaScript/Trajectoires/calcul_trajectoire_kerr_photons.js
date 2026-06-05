@@ -965,7 +965,7 @@ function enregistrer_trajectoires(){
 
 				// 2. Récupérer les valeurs
 				var masse = document.getElementById('M').value;
-				var rayon = document.getElementById('moment').value;
+				var rayon = document.getElementById('J').value;
 				var r0 = document.getElementById('r0').value;
 				var phi0 = document.getElementById('phi0').value;
 				var teta = document.getElementById('teta').value;
