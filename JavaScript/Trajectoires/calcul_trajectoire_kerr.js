@@ -784,7 +784,7 @@ function animate() {
 		{
 
 			if (joy.GetPhi()!=0 && pilotage_possible==true){
-				val = rungekutta_general(temps_acceleration, A_part, r_part, null, null, derivee_seconde_Kerr_massif); //Si un pilotage est détecté, calcul avec RK4 avec le temps d'accélération.
+				val = rungekutta_general(dtau, A_part, r_part, null, null, derivee_seconde_Kerr_massif); //Si un pilotage est détecté, calcul avec RK4 avec le temps d'accélération.
 			}else{
 				val = rungekutta_general(dtau, A_part, r_part, null, null, derivee_seconde_Kerr_massif);//Autrement, calcul avec RK4 avec le dtau par défaut.
 			}

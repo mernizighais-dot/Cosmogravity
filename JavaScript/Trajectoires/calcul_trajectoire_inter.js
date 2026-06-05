@@ -1479,7 +1479,7 @@ function animate(compteur,mobile,mobilefactor) {
 		{ 	
 
 			if (joy.GetPhi()!=0 && pilotage_possible==true){
-				val = rungekutta_general(temps_acceleration, mobile.A_part, mobile.r_part, null, mobile.L, derivee_seconde_externe_massif);//Si un pilotage est détecté, calcul avec RK4 avec le temps d'accélération.
+				val = rungekutta_general(mobile.dtau, mobile.A_part, mobile.r_part, null, mobile.L, derivee_seconde_externe_massif);//Si un pilotage est détecté, calcul avec RK4 avec le temps d'accélération.
 			}else{
 				val = rungekutta_general(mobile.dtau, mobile.A_part, mobile.r_part, null, mobile.L, derivee_seconde_externe_massif); //Autrement, calcul avec RK4 avec le dtau par défaut.
 			}
