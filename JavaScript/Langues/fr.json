@@ -26,8 +26,8 @@
 	
 	"index":
 	{
-		"txtUnivers": "Modèles LCDM et Energie Sombre <br>Calculette Cosmologique",
-		"txtTrajectoires": "Trajectoires dans les métriques de Schwarzschild et de Kerr",
+		"txtUnivers": "Évolution de l'Univers et ses conséquences observationnelles avec le modèle cosmologique standard ΛCDM ou avec l'option énergie sombre au lieu de Λ.",
+		"txtTrajectoires": "Trajectoires dynamiques (balistiques ou pilotées) au voisinage d'un objet massif (trou noir compris) avec la métrique de Schwarzschild et avec celle de Kerr.",
 		"version": "Version bêta 2.6.0 (27/04/2026)",
 		"facteur_echelle": "Facteur d'échelle",
 		"calculette": "Calculette cosmologique"

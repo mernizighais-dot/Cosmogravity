@@ -39,11 +39,11 @@ body {
         
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: auto 1fr auto;
+        grid-template-rows: auto auto 20%;
         grid-template-areas:
                 "titre titre titre"
                 "txtUniv Logo txtTraj"
-                "Logos Logos Logos";
+                "txtUniv Logos txtTraj";
         gap: 5px;
 
     }
@@ -106,6 +106,7 @@ body {
         grid-area: txtUniv;
         margin: clamp(10px, 5vw, 100px);
         margin-top: 20px;
+        margin-bottom: 40px;
         background-color: rgba(0, 0, 0, 0.5);
         border-radius: clamp(10px, 3vw, 50px);
         padding: 10px;
@@ -151,6 +152,7 @@ body {
         grid-area: txtTraj;
         margin: clamp(10px, 5vw, 100px);
         margin-top: 20px;
+        margin-bottom: 40px;
         background-color: rgba(0, 0, 0, 0.5);
         border-radius: clamp(10px, 3vw, 50px);
         padding: 10px;
@@ -181,17 +183,18 @@ body {
         display: flex;
         flex-direction: column;
         gap: 15px;
-        justify-content: center;
+        justify-content: end;
         align-items: center;
         width: 100%;
     }
 
         .Logos img {
             max-height: 100%;
-            width: clamp(120px, 40%, 500px);
+            width: clamp(10px, 100%, 1000px);
             background-color: rgba(255, 255, 255, 0.8);
             border-radius: clamp(10px, 3vw, 50px);
             padding: 10px;
+            margin-bottom: 40px;
         }
 
         .Logos #version {
@@ -234,6 +237,7 @@ body {
 @media screen and (max-width: 1200px) {
     .grilleCorps {
         grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto auto;
         grid-template-areas:
             "titre"
             "Logo"
@@ -245,5 +249,9 @@ body {
     .Logo img {
         max-width: 50%;
         height: auto;
+    }
+    
+    .Logos img {
+        width: clamp(10px, 80%, 1000px);
     }
 }

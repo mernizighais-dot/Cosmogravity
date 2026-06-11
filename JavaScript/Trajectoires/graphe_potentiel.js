@@ -41,9 +41,16 @@ function graphique_creation_pot(Onresize=0,data1,data2,compteur,mobile)
 
     taille_carac = 14; //taille des caracteres
 
-  
-    width = 370 ; // on definit la largeur
-    height = 300 ; // on definit la hauteur
+    var containerSCH = document.getElementById("wrapper2");
+    var containerKerr = document.getElementById("wrapper2_kerr");
+
+    if (containerSCH){
+      var width = Math.min(370, containerSCH.clientWidth - margin.left - margin.right);
+    }
+    if (containerKerr){
+      var width = Math.min(370, containerKerr.clientWidth - margin.left - margin.right);
+    }
+    var height = Math.min(300, width * 0.75);
 
     /* DÉFINITION DES ÉCHELLES POUR L'AXE X ET L'AXE Y */
 

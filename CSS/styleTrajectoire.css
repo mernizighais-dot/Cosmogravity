@@ -555,7 +555,7 @@ tbody td {
   left:8%;
   width:110px;
   bottom:10px;
-  margin-left: 57%;
+  margin-left: 60vw;
   padding:6px;
   visibility:hidden;
 }
@@ -573,7 +573,7 @@ tbody td {
   left:0;
   width:110px;
   bottom:10px;
-  margin-right: 60%;
+  margin-right: 62vw;
   padding:6px;
   visibility:hidden;
 }
@@ -686,14 +686,12 @@ position: relative;
     
 /*Pour le div du graphe de potentiel */   
 #wrapper2 {
-    height: 400px;
-    width: 600px;
     display: flex; /* Utilisation du modèle flexbox */
     justify-content: center; /* Centrage horizontal des éléments enfants */
     align-items: center; /* Centrage vertical des éléments enfants */
     box-sizing: border-box; /* Assure que le padding et la bordure sont inclus dans les dimensions */
     flex: 1; /* Pour que le wrapper2 prenne toute la hauteur disponible */
-    margin-right: 60px;
+    transition: width 0.3s ease, height 0.3s ease;
 }
 /*Pour le graphe svg du potentiel*/   
 #grsvg_2 {
@@ -727,13 +725,12 @@ position: relative;
 }
 
 /*Pour le div du graphe de potentiel pour Kerr*/   
-.wrapper2_kerr{
+#wrapper2_kerr{
     display: flex; /* Utilisation du modèle flexbox */
     justify-content: center; /* Centrage horizontal des éléments enfants */
     align-items: center; /* Centrage vertical des éléments enfants */
     box-sizing: border-box; /* Assure que le padding et la bordure sont inclus dans les dimensions */
     flex: 1; /* Pour que le wrapper2 prenne toute la hauteur disponible */
-    margin-right: 60px; /* Décalage vers la gauche */
   }
 
 /*Pour les canva utilisées*/   
@@ -867,4 +864,13 @@ option[disabled]:first-child {
     .petitBoutton.boutonLateral {
         display: none;
     }
+
+    #panneau_mobile {
+       margin-left: 45vw; 
+    }
+
+    #panneau_mobile2 {
+       margin-right: 56vw; 
+    }
+    
 }
