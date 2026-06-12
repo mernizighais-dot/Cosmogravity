@@ -108,7 +108,7 @@ async function Analyse_avec_parametre_choisis(fonction_EouF, is_t, distanceOuOme
             }
         }    
     }
-    else if (fonction_Eouf==fonction_E && OmegaLambda0) {
+    else if (fonction_EouF==fonction_E && OmegaLambda0) {
         for (let i=parametre_val_min; i<=parametre_val_max; i+=parametre_pas) {
             document.getElementById("Omégal0").value=i;
             
