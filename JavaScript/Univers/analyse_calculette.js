@@ -17,12 +17,13 @@ async function Analyse_avec_parametre_choisis(fonction_EouF, is_t, distanceOuOme
     let T0=document.getElementById("check_T0").checked;
     let H0=document.getElementById("check_H0").checked;
     let Omegam0=document.getElementById("check_Omegam0").checked;
-    let OmegaLambda0=document.getElementById("check_OmegaLambda0").checked;
+    let OmegaLambda0=false;
     let w0=false;
     let w1=false;
+    let OmegaDE0=false;
     let DE_ouLCDM="LCDM";
     let t_ou_z="t";
-    let zt_ou_tz="t(z)";
+    let zt_ou_tz="z(t)";
 
     if (is_t == 0) {
         t_ou_z="z";
@@ -32,7 +33,11 @@ async function Analyse_avec_parametre_choisis(fonction_EouF, is_t, distanceOuOme
     if (fonction_EouF==fonction_F) {
         w0=document.getElementById("check_W0").checked;
         w1=document.getElementById("check_W1").checked;
+        OmegaDE0=document.getElementById("check_OmegaDE0").checked;
         DE_ouLCDM="DE";
+    }
+    else {
+        OmegaLambda0=document.getElementById("check_OmegaLambda0").checked;
     }
 
     let parametre_val_min=Number(document.getElementById("parametre_val_min").value);
@@ -103,7 +108,7 @@ async function Analyse_avec_parametre_choisis(fonction_EouF, is_t, distanceOuOme
             }
         }    
     }
-    else if (OmegaLambda0) {
+    else if (fonction_Eouf==fonction_E && OmegaLambda0) {
         for (let i=parametre_val_min; i<=parametre_val_max; i+=parametre_pas) {
             document.getElementById("Omégal0").value=i;
             
@@ -120,6 +125,26 @@ async function Analyse_avec_parametre_choisis(fonction_EouF, is_t, distanceOuOme
             else if (distanceOuOmegaOuTemps=="temps") {
                 const resultats = await generer_graphique_TempsDecalage(fonction_EouF,is_t,1);
                 download_csv(resultats,"OmegaLambda0_"+i+"_"+zt_ou_tz+"_"+DE_ouLCDM+".csv");
+            }
+        }
+    }
+    else if (fonction_EouF==fonction_F && OmegaDE0) {
+        for (let i=parametre_val_min; i<=parametre_val_max; i+=parametre_pas) {
+            document.getElementById("OmégaDE0").value=i;
+            
+             if (distanceOuOmegaOuTemps=="distance") {
+                const resultats = await generer_graphique_distance(fonction_EouF,is_t,1);
+                download_csv(resultats,"OmegaDE0_"+i+"_d("+t_ou_z+")_DE.csv");
+            }
+
+            else if (distanceOuOmegaOuTemps=="omega") {
+                const resultats = await generer_graphique_Omega(fonction_EouF,is_t,1);
+                download_csv(resultats,"OmegaDE0_"+i+"_Omega("+t_ou_z+")_DE.csv");
+            }
+
+            else if (distanceOuOmegaOuTemps=="temps") {
+                const resultats = await generer_graphique_TempsDecalage(fonction_EouF,is_t,1);
+                download_csv(resultats,"OmegaDE0_"+i+"_"+zt_ou_tz+"_DE.csv");
             }
         }
     }
