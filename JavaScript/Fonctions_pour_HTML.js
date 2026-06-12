@@ -516,7 +516,9 @@ function resize_graphs() {
     if (!graphePanel) return;
     var wrapperSchw = document.getElementById('wrapper');
     var wrapperKerr = document.querySelector('.wrapper_kerr');
-    if (!wrapperSchw && !wrapperKerr) return;
+    var wrapperPotentiel = document.getElementById('wrapper2');
+    var wrapperPotentielKerr = document.getElementById('wrapper2_kerr');
+    if (!wrapperSchw && !wrapperKerr && !wrapperPotentiel && !wrapperPotentielKerr) return;
 
     var size = Math.max(200, Math.min(graphePanel.clientWidth - 20, 1400));
 
@@ -527,6 +529,26 @@ function resize_graphs() {
     if (wrapperKerr) {
         wrapperKerr.style.width  = size + 'px';
         wrapperKerr.style.height = size + 'px';
+    }
+    if (wrapperPotentiel) {
+        if (window.innerWidth <= 1200) {
+            wrapperPotentiel.style.width  = size + 'px';
+            wrapperPotentiel.style.height = size + 'px';
+        }
+        else {
+            wrapperPotentiel.style.width  = 400 + 'px';
+            wrapperPotentiel.style.height = 400 + 'px';
+        }
+    }
+    if (wrapperPotentielKerr) {
+        if (window.innerWidth <= 1200) {
+            wrapperPotentielKerr.style.width  = size + 'px';
+            wrapperPotentielKerr.style.height = size + 'px';
+        }
+        else {
+            wrapperPotentielKerr.style.width  = 400 + 'px';
+            wrapperPotentielKerr.style.height = 400 + 'px';
+        }
     }
 }
 

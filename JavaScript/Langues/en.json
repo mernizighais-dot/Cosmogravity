@@ -26,8 +26,8 @@
 	
 	"index":
 	{
-		"txtUnivers":"LCDM and Dark Energy Models<br>Cosmological Calculator",
-		"txtTrajectoires":"Trajectories in the metrics of Schwarzschild and of Kerr",
+		"txtUnivers":"Evolution of the Universe and its observational consequences with the standard cosmological model ΛCDM and with the dark energy option instead of Λ.",
+		"txtTrajectoires":"Dynamic trajectories (ballistic or driven) in the vicinity of a massive object (including a black hole) using the Schwarzschild metric and the Kerr metric.",
 		"version": "Version beta 2.6.0 (27/04/2026)",
 		"facteur_echelle": "Scale factor",
 		"calculette": "Cosmological calculator"

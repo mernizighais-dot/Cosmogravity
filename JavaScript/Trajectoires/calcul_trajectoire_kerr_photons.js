@@ -667,7 +667,7 @@ function animate() {
 
 		//-----------------------------------------------------NE PAS DEPASSER RH+ -------------------------------------------------
 
-		if(r_part<=rhp)
+		if(r_part<=rhp && ! document.getElementById("depasser").checked)
 		{
 			r_part=rhp ; // le rayon est egale à RH+
 			document.getElementById("r_par").innerHTML = r_part.toExponential(3); // on l'affiche
