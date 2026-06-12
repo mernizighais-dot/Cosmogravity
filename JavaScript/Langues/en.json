@@ -76,6 +76,8 @@
 		"headGraphiqueDE": "<h2>Scale Factor Plot <br /> Dark Energy</h2>",
 		"axeX" : "Time in billion years",
 		"axeY" : "Reduced scale factor",
+  		"avertissement": "The Universe simulation and its cosmological calculator allow users to choose the values of about ten parameters (including those of the fundamental constants). The current code is obviously not robust across the entire accessible domain of this 10-dimensional parameter space. We hope that the results are accurate within a 'safe' neighborhood of the standard model, the usual values of observables (z, theta), and the fundamental constants. We believe they remain accurate even for universes very different from our own, but it is clear that the risk of simulation failure (excessive computation time on the user's processor) or, worse, inaccurate results increases as one ventures far from the standard model. The 'single-fluid' option, with its analytical formalism, allows for a more reliable exploration of extreme cases. Near the 'separatrices' between different types of universes (with or without a Big Bang, with or without a Big Crunch), an automatic warning is normally displayed.",
+		
 		"Sorties": "Outputs",
 		"Omégas": "<h3>The Omegas</h3>",
 		"infoOmégaR0Sortie": "Calculated radiation density parameter.",
