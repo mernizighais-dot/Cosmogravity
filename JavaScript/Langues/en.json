@@ -101,8 +101,8 @@
 		"bouttonEnregistrer": "Save",
 
 		"load_msg": "<h3>Loading</h3>",
-		"infoLCDM": "This page displays the graph of the reduced scale factor as a function of time within the framework of the ΛCDM theory",
-  		"infoDE": "This page displays the graph of the reduced scale factor as a function of time within the framework of the dark energy theory"
+		"infoLCDM": "This page displays the graph of the reduced scale factor as a function of time within the framework of the ΛCDM theory. This graph allows us to observe the expansion (or contraction) of the universe. The default values ​​on this page correspond to those of our own universe.",
+  		"infoDE": "This page displays the graph of the reduced scale factor as a function of time within the framework of the dark energy theory. This graph allows us to observe the expansion (or contraction) of the universe. The default values ​​on this page correspond to those of our own universe."
 	},
 
 	"calculette" : {
@@ -225,8 +225,8 @@
 		"labelSelectionGraphe":"Graph :",
 
 		"load_msg": "<h3>Loading</h3>",
-		"infoLCDM": "This page displays graphs related to metric distances, density parameters, and redshift as functions of time (or vice versa) within the framework of the ΛCDM theory",
-  		"infoDE": "This page displays graphs related to metric distances, density parameters, and redshift as functions of time (or vice versa) within the framework of the dark energy theory"
+		"infoLCDM": "This page displays graphs related to metric distances, density parameters, and redshift as functions of time (or vice versa) within the framework of the ΛCDM theory. The page also contains modules allowing the calculation of several quantities and obtaining results for a precise spectral shift z.",
+  		"infoDE": "This page displays graphs related to metric distances, density parameters, and redshift as functions of time (or vice versa) within the framework of the dark energy theory. The page also contains modules allowing the calculation of several quantities and obtaining results for a precise spectral shift z."
 	},
 
 	"constante": {
@@ -439,12 +439,12 @@
 		"potentiel_option":"Potential",
 		"label_choix_potentiel":"Choose an option:",
 		"label_choix_potentiel_infobulle":"Allows real-time selection of the potential graph to display",
-		"info":"This page simulates the trajectory of a baryonic particle around a baryonic mass using the Schwarzschild metric",
-		"infoSCH2":"This page simulates the trajectory of a photon around a baryonic mass using the Schwarzschild metric",
-		"infoSCH3":"This page simulates the trajectory of a non-baryonic particle around a non-baryonic mass using the Schwarzschild metric",
-		"infoSCH4":"This page simulates the trajectory of a photon around a non-baryonic mass using the Schwarzschild metric",
-		"infoKERR":"This page simulates the trajectory of a baryonic particle around a baryonic mass using the Kerr metric",
-		"infoKERR2":"This page simulates the trajectory of a photon around a baryonic mass using the Kerr metric"
+  		"info": "This page simulates the trajectory of a baryonic object around a baryonic mass using the Schwarzschild metric. It is possible to visualize either the complete trajectory or only the motion of the object. The frame of reference can be either that of the observer or that of the astronaut. In the latter case, it is possible to control it by changing its tangential velocity.",
+		"infoSCH2": "This page simulates the trajectory of a photon around a baryonic mass using the Schwarzschild metric. It is possible to visualize either the complete trajectory or only the motion of the object. The frame of reference can be either that of the observer or that of the photon.",
+  		"infoSCH3": "This page simulates the trajectory of a non-baryonic object around a non-baryonic mass using the Schwarzschild metric. It is possible to visualize either the complete trajectory or only the motion of the object. The frame of reference can be either that of the observer or that of the astronaut. In the latter case, it is possible to control it by changing its tangential velocity.",
+  		"infoSCH4": "This page simulates the trajectory of a photon around a non-baryonic mass using the Schwarzschild metric. It is possible to visualize either the complete trajectory or only the motion of the object. The frame of reference can be either that of the observer or that of the photon.",
+  		"infoKERR": "This page simulates the trajectory of a baryonic object around a baryonic mass using the Kerr metric. It is possible to visualize either the complete trajectory or only the motion of the object. The frame of reference can be either that of the observer or that of the astronaut. In the latter case, it is possible to control it by changing its tangential velocity and also to cross the outer horizon.",
+  		"infoKERR2": "This page simulates the trajectory of a photon around a baryonic mass using the Kerr metric. It is possible to visualize either the complete trajectory or only the motion of the object. The frame of reference can be either that of the observer or that of the photon. In the latter case, it is possible to cross the outer horizon."
 	},
 
 	"page_trajectoire_massive": {

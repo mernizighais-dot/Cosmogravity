@@ -102,8 +102,8 @@
 			"bouttonEnregistrer": "Enregistrer",
 
 		"load_msg": "<h3>Chargement</h3>",
-		"infoLCDM": "Cette page affiche le graphe du facteur d'échelle réduit en fonction du temps dans le cadre de la théorie ΛCDM",
-		"infoDE": "Cette page affiche le graphe du facteur d'échelle réduit en fonction du temps dans le cadre de la théorie d'énergie sombre"
+		"infoLCDM": "Cette page affiche le graphe du facteur d'échelle réduit en fonction du temps dans le cadre de la théorie ΛCDM. Ce graphe permet d'observer l'expansion (ou la contraction) de l'univers. Les valeurs par défaut de la page correspondent à celles de notre propre univers.",
+		"infoDE": "Cette page affiche le graphe du facteur d'échelle réduit en fonction du temps dans le cadre de la théorie d'énergie sombre. Ce graphe permet d'observer l'expansion (ou la contraction) de l'univers. Les valeurs par défaut de la page correspondent à celles de notre propre univers."
 	},
 
 
@@ -228,8 +228,8 @@
 			"labelSelectionGraphe":"Graphe :",
 		
 		"load_msg": "<h3>Chargement</h3>",
-		"infoLCDM": "Cette page affiche les graphiques relatifs aux distances métriques, aux paramètres de densité et au décalage spectrale en fonction du temps (ou inversement) dans le cadre de la théorie ΛCDM",
-		"infoDE": "Cette page affiche les graphiques relatifs aux distances métriques, aux paramètres de densité et au décalage spectrale en fonction du temps (ou inversement) dans le cadre de la théorie d'énergie sombre"
+		"infoLCDM": "Cette page affiche les graphiques relatifs aux distances métriques, aux paramètres de densité et au décalage spectrale en fonction du temps (ou inversement) dans le cadre de la théorie ΛCDM. La page contient également des modules permettant de calculer plusieurs grandeurs et d'obtenir des résultats pour un décalage spectral z précis.",
+		"infoDE": "Cette page affiche les graphiques relatifs aux distances métriques, aux paramètres de densité et au décalage spectrale en fonction du temps (ou inversement) dans le cadre de la théorie d'énergie sombre. La page contient également des modules permettant de calculer plusieurs grandeurs et d'obtenir des résultats pour un décalage spectral z précis."
 	},
 
 	"constante": {
@@ -447,12 +447,12 @@
 		"potentiel_option":"Potentiel",
 		"label_choix_potentiel":"Choisissez une option :",
 		"label_choix_potentiel_infobulle":"Permet de choisir en temps réel le graphe de potentiel à afficher",
-		"info":"Cette page simule la trajectoire d'un mobile baryonique autours d'une masse baryonique avec la métrique de Schwarzschild",
-		"infoSCH2":"Cette page simule la trajectoire d'un photon autours d'une masse baryonique avec la métrique de Schwarzschild",
-		"infoSCH3":"Cette page simule la trajectoire d'un mobile non baryonique autours d'une masse non baryonique avec la métrique de Schwarzschild",
-		"infoSCH4":"Cette page simule la trajectoire d'un photon autours d'une masse non baryonique avec la métrique de Schwarzschild",
-		"infoKERR":"Cette page simule la trajectoire d'un mobile baryonique autours d'une masse baryonique avec la métrique de Kerr",
-		"infoKERR2":"Cette page simule la trajectoire d'un photon autours d'une masse baryonique avec la métrique de Kerr"
+		"info":"Cette page simule la trajectoire d'un mobile baryonique autours d'une masse baryonique avec la métrique de Schwarzschild. Il est possible de visualiser la trajectoire complète ou seulement le déplacement du mobile. Le référentiel est soit celui de l'observateur soit celui du spationaute. Pour ce dernier, il est alors possible de le piloter en changeant sa vitesse tangentielle.",
+		"infoSCH2":"Cette page simule la trajectoire d'un photon autours d'une masse baryonique avec la métrique de Schwarzschild.Il est possible de visualiser la trajectoire complète ou seulement le déplacement du mobile. Le référentiel est soit celui de l'observateur soit celui du photon.",
+		"infoSCH3":"Cette page simule la trajectoire d'un mobile non baryonique autours d'une masse non baryonique avec la métrique de Schwarzschild. Il est possible de visualiser la trajectoire complète ou seulement le déplacement du mobile. Le référentiel est soit celui de l'observateur soit celui du spationaute. Pour ce dernier, il est alors possible de le piloter en changeant sa vitesse tangentielle.",
+		"infoSCH4":"Cette page simule la trajectoire d'un photon autours d'une masse non baryonique avec la métrique de Schwarzschild. Il est possible de visualiser la trajectoire complète ou seulement le déplacement du mobile. Le référentiel est soit celui de l'observateur soit celui du photon.",
+		"infoKERR":"Cette page simule la trajectoire d'un mobile baryonique autours d'une masse baryonique avec la métrique de Kerr. Il est possible de visualiser la trajectoire complète ou seulement le déplacement du mobile. Le référentiel est soit celui de l'observateur soit celui du spationaute. Pour ce dernier, il est alors possible de le piloter en changeant sa vitesse tangentielle ainsi que de dépasser l'horizon extérieur.",
+		"infoKERR2":"Cette page simule la trajectoire d'un photon autours d'une masse baryonique avec la métrique de Kerr. Il est possible de visualiser la trajectoire complète ou seulement le déplacement du mobile. Le référentiel est soit celui de l'observateur soit celui du photon. Pour ce dernier, il est alors possible de dépasser l'horizon extérieur."
 	},
 
 	"page_trajectoire_massive":{
