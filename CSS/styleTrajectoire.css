@@ -656,7 +656,10 @@ position: relative;
 
 #txt_info_trajectoire{
     grid-area: texte;
-    display: grid; 
+    align-self: center;
+    justify-self: center; 
+    text-align: center;
+    margin: 1%;
 }
 
 /*Pour le div du graphe de simulation*/
