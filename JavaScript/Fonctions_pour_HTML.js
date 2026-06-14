@@ -708,6 +708,8 @@ function downloadCSV(array1, array2, filename = "data.csv") {
 
 function exemples(exemple) {
 
+    //PARTIE UNIVERS
+
     if (exemple == "ex1UnivLCDM") {
         document.getElementById("T0").value = "2.7255";
         document.getElementById("H0").value = "67.74";
@@ -886,5 +888,535 @@ function exemples(exemple) {
         document.getElementById("graphique_z_max").value = "67";
         document.getElementById("graphique_pas").value = "67";
         updateCalculette();
+    }
+
+
+
+    //PARTIE TRAJECTOIRE
+
+    if (exemple == "ex1SCH1") {
+        document.getElementById("M").value = "2e39";
+        document.getElementById("r_phy").value = "0";
+        document.getElementById("nombredefusees").value = "1";
+
+        document.getElementById("r01").value = "2e13";
+        document.getElementById("v01").value = "7.75e7";
+        document.getElementById("phi01").value = "0";
+        document.getElementById("teta1").value = "90";
+
+        document.getElementById("pourcentage_vphi_pilotage").value = "0.003";
+        document.getElementById("traject_type").value = "complete";
+        document.getElementById("traject_type2").value = "observateur";
+
+        pressionBouttonTrajectoireComplete();
+        pressionBouttonObservateur(false);
+        notationvitesseree2();
+
+
+        // Équivalent de l'écouteur d'évènement de btnObservateur :
+       
+        inputNbfusees_div.style.display="flex";
+		labelPourcentageVphiPilotage.style.display = "none";
+		inputPourcentageVphiPilotage.style.display = "none";
+
+        initialisationGenerale(1);
+    }
+
+    if (exemple == "ex2SCH1") {
+        document.getElementById("M").value = "2e39";
+        document.getElementById("r_phy").value = "0";
+        document.getElementById("nombredefusees").value = "1";
+
+        document.getElementById("r01").value = "2e13";
+        document.getElementById("v01").value = "7.75e7";
+        document.getElementById("phi01").value = "0";
+        document.getElementById("teta1").value = "90";
+
+        document.getElementById("pourcentage_vphi_pilotage").value = "0.003";
+        document.getElementById("traject_type").value = "complete";
+        document.getElementById("traject_type2").value = "observateur";
+
+        pressionBouttonTrajectoireComplete();
+        pressionBouttonObservateur(false);
+        notationvitesseree2();
+
+
+        // Équivalent de l'écouteur d'évènement de btnObservateur :
+       
+        inputNbfusees_div.style.display="flex";
+		labelPourcentageVphiPilotage.style.display = "none";
+		inputPourcentageVphiPilotage.style.display = "none";
+
+        initialisationGenerale(1);
+    }
+
+    if (exemple == "ex3SCH1") {
+        document.getElementById("M").value = "67";
+        document.getElementById("r_phy").value = "67";
+        document.getElementById("nombredefusees").value = "1";
+
+        document.getElementById("r01").value = "67";
+        document.getElementById("v01").value = "67";
+        document.getElementById("phi01").value = "67";
+        document.getElementById("teta1").value = "67";
+
+        document.getElementById("pourcentage_vphi_pilotage").value = "67";
+        document.getElementById("traject_type").value = "simple";
+        document.getElementById("traject_type2").value = "mobile";
+
+        pressionBouttonTrajectoireSimple();
+        pressionBouttonMobile(false);
+        notationvitesseree2();
+
+
+        // Équivalent de l'écouteur d'évènement de btnSpationaute :
+
+        /*Juste pour avoir les valeurs rentrées avant de cliquer sur spationaute*/
+		const r01 = document.getElementById("r01").value;
+		const v01 = document.getElementById("v01").value;
+		const phi01 = document.getElementById("phi01").value;
+		const teta1 = document.getElementById("teta1").value;
+
+		inputNbfusees.value='1'; // on met un seul mobile
+		const event = new Event('change');//on met à jour tout le changement en appelant la sa fonctionnalité de changement
+		inputNbfusees.dispatchEvent(event);
+		document.getElementById("r01").value=r01;
+		document.getElementById("v01").value=v01;
+		document.getElementById("phi01").value=phi01;
+		document.getElementById("teta1").value=teta1;
+		
+		initialisationGenerale(1);//on actualise les valeurs de simulation
+
+
+		inputNbfusees_div.style.display ="none";
+		labelPourcentageVphiPilotage.style.display = "inline";
+		inputPourcentageVphiPilotage.style.display = "inline";
+    }
+
+
+
+
+    if (exemple == "ex1SCH2") {
+        document.getElementById("M").value = "8e36";
+        document.getElementById("r_phy").value = "0";
+        document.getElementById("nombredefusees").value = "1";
+
+        document.getElementById("r01").value = "1.7685e11";
+        document.getElementById("phi01").value = "-10";
+        document.getElementById("teta1").value = "190";
+
+        document.getElementById("traject_type").value = "complete";
+        document.getElementById("traject_type2").value = "observateur";
+
+        pressionBouttonTrajectoireComplete();
+        pressionBouttonObservateur(false);
+        notationvitesseree1();
+
+
+        // Équivalent de l'écouteur d'évènement de btnObservateur :
+       
+        inputNbfusees.style.display = "inline"; // Afficher le input et le label de nbfusees si button observateur est cliqué 
+		labelNbfusees.style.display = "inline"; 
+
+        initialisationGenerale(1);
+    }
+
+    if (exemple == "ex2SCH2") {
+        document.getElementById("M").value = "2e39";
+        document.getElementById("r_phy").value = "0";
+        document.getElementById("nombredefusees").value = "1";
+
+        document.getElementById("r01").value = "2e13";
+        document.getElementById("phi01").value = "0";
+        document.getElementById("teta1").value = "90";
+
+        document.getElementById("traject_type").value = "complete";
+        document.getElementById("traject_type2").value = "observateur";
+
+        pressionBouttonTrajectoireComplete();
+        pressionBouttonObservateur(false);
+        notationvitesseree1();
+
+
+        // Équivalent de l'écouteur d'évènement de btnObservateur :
+       
+        inputNbfusees.style.display = "inline"; // Afficher le input et le label de nbfusees si button observateur est cliqué 
+		labelNbfusees.style.display = "inline"; 
+
+        initialisationGenerale(1);
+    }
+
+    if (exemple == "ex3SCH2") {
+        document.getElementById("M").value = "67";
+        document.getElementById("r_phy").value = "67";
+        document.getElementById("nombredefusees").value = "1";
+
+        document.getElementById("r01").value = "67";
+        document.getElementById("phi01").value = "67";
+        document.getElementById("teta1").value = "67";
+
+        document.getElementById("traject_type").value = "simple";
+        document.getElementById("traject_type2").value = "mobile";
+
+        pressionBouttonTrajectoireSimple();
+        pressionBouttonMobile(false);
+        notationvitesseree1();
+
+
+        // Équivalent de l'écouteur d'évènement de btnSpationaute :
+
+        /*Juste pour avoir les valeurs rentrées avant de cliquer sur spationaute*/
+		const r01 = document.getElementById("r01").value;
+		const phi01 = document.getElementById("phi01").value;
+		const teta1 = document.getElementById("teta1").value;
+
+		inputNbfusees.value='1'; // on met un seul mobile
+		const event = new Event('change');//on met à jour tout le changement en appelant la sa fonctionnalité de changement
+		inputNbfusees.dispatchEvent(event);
+		document.getElementById("r01").value=r01;
+		document.getElementById("phi01").value=phi01;
+		document.getElementById("teta1").value=teta1;
+		
+		initialisationGenerale(1);//on actualise les valeurs de simulation
+
+		inputNbfusees.style.display ="none";
+		labelNbfusees.style.display = "none";
+    }
+
+
+
+
+
+    if (exemple == "ex1SCH3") {
+        document.getElementById("M").value = "2e39";
+        document.getElementById("r_phy").value = "1e18";
+        document.getElementById("nombredefusees").value = "1";
+
+        document.getElementById("r01").value = "2e18";
+        document.getElementById("v01").value = "2.5e4";
+        document.getElementById("phi01").value = "0";
+        document.getElementById("teta1").value = "110";
+
+        document.getElementById("pourcentage_vphi_pilotage").value = "0.003";
+        document.getElementById("traject_type").value = "complete";
+        document.getElementById("traject_type2").value = "observateur";
+
+        pressionBouttonTrajectoireComplete();
+        pressionBouttonObservateur(false);
+        notationvitesseree2();
+
+
+        // Équivalent de l'écouteur d'évènement de btnObservateur :
+       
+        inputNbfusees.style.display = "inline"; // Afficher le input et le label de nbfusees si button observateur est cliqué 
+		labelNbfusees.style.display = "inline";
+		labelPourcentageVphiPilotage.style.display = "none";
+		inputPourcentageVphiPilotage.style.display = "none";
+
+        initialisationGenerale(1);
+    }
+
+    if (exemple == "ex2SCH3") {
+        document.getElementById("M").value = "2e39";
+        document.getElementById("r_phy").value = "0";
+        document.getElementById("nombredefusees").value = "1";
+
+        document.getElementById("r01").value = "2e13";
+        document.getElementById("v01").value = "7.75e7";
+        document.getElementById("phi01").value = "0";
+        document.getElementById("teta1").value = "90";
+
+        document.getElementById("pourcentage_vphi_pilotage").value = "0.003";
+        document.getElementById("traject_type").value = "complete";
+        document.getElementById("traject_type2").value = "observateur";
+
+        pressionBouttonTrajectoireComplete();
+        pressionBouttonObservateur(false);
+        notationvitesseree2();
+
+
+        // Équivalent de l'écouteur d'évènement de btnObservateur :
+       
+        inputNbfusees.style.display = "inline"; // Afficher le input et le label de nbfusees si button observateur est cliqué 
+		labelNbfusees.style.display = "inline";
+		labelPourcentageVphiPilotage.style.display = "none";
+		inputPourcentageVphiPilotage.style.display = "none";
+
+        initialisationGenerale(1);
+    }
+
+    if (exemple == "ex3SCH3") {
+        document.getElementById("M").value = "67";
+        document.getElementById("r_phy").value = "67";
+        document.getElementById("nombredefusees").value = "1";
+
+        document.getElementById("r01").value = "67";
+        document.getElementById("v01").value = "67";
+        document.getElementById("phi01").value = "67";
+        document.getElementById("teta1").value = "67";
+
+        document.getElementById("pourcentage_vphi_pilotage").value = "67";
+        document.getElementById("traject_type").value = "simple";
+        document.getElementById("traject_type2").value = "mobile";
+
+        pressionBouttonTrajectoireSimple();
+        pressionBouttonMobile(false);
+        notationvitesseree2();
+
+
+        // Équivalent de l'écouteur d'évènement de btnSpationaute :
+
+        /*Juste pour avoir les valeurs rentrées avant de cliquer sur spationaute*/
+		const r01 = document.getElementById("r01").value;
+		const v01 = document.getElementById("v01").value;
+		const phi01 = document.getElementById("phi01").value;
+		const teta1 = document.getElementById("teta1").value;
+
+		inputNbfusees.value='1'; // on met un seul mobile
+		const event = new Event('change');//on met à jour tout le changement en appelant la sa fonctionnalité de changement
+		inputNbfusees.dispatchEvent(event);
+		document.getElementById("r01").value=r01;
+		document.getElementById("v01").value=v01;
+		document.getElementById("phi01").value=phi01;
+		document.getElementById("teta1").value=teta1;
+		
+		initialisationGenerale(1);//on actualise les valeurs de simulation
+
+
+		inputNbfusees.style.display = "none"; // Masquer le input et le label de nbfusees si button spationaute est cliqué 
+		labelNbfusees.style.display = "none";
+		labelPourcentageVphiPilotage.style.display = "inline";
+		inputPourcentageVphiPilotage.style.display = "inline";
+    }
+
+
+
+
+    if (exemple == "ex1SCH4") {
+        document.getElementById("M").value = "2e30";
+        document.getElementById("r_phy").value = "3.5e3";
+        document.getElementById("nombredefusees").value = "1";
+
+        document.getElementById("r01").value = "5e3";
+        document.getElementById("phi01").value = "0";
+        document.getElementById("teta1").value = "120";
+
+        document.getElementById("traject_type").value = "complete";
+        document.getElementById("traject_type2").value = "observateur";
+
+        pressionBouttonTrajectoireComplete();
+        pressionBouttonObservateur(false);
+        notationvitesseree1();
+
+
+        // Équivalent de l'écouteur d'évènement de btnObservateur :
+       
+        inputNbfusees.style.display = "inline"; // Afficher le input et le label de nbfusees si button observateur est cliqué 
+		labelNbfusees.style.display = "inline"; 
+
+        initialisationGenerale(1);
+    }
+
+    if (exemple == "ex2SCH4") {
+        document.getElementById("M").value = "2e39";
+        document.getElementById("r_phy").value = "0";
+        document.getElementById("nombredefusees").value = "1";
+
+        document.getElementById("r01").value = "2e13";
+        document.getElementById("phi01").value = "0";
+        document.getElementById("teta1").value = "90";
+
+        document.getElementById("traject_type").value = "complete";
+        document.getElementById("traject_type2").value = "observateur";
+
+        pressionBouttonTrajectoireComplete();
+        pressionBouttonObservateur(false);
+        notationvitesseree1();
+
+
+        // Équivalent de l'écouteur d'évènement de btnObservateur :
+       
+        inputNbfusees.style.display = "inline"; // Afficher le input et le label de nbfusees si button observateur est cliqué 
+		labelNbfusees.style.display = "inline"; 
+
+        initialisationGenerale(1);
+    }
+
+    if (exemple == "ex3SCH4") {
+        document.getElementById("M").value = "67";
+        document.getElementById("r_phy").value = "67";
+        document.getElementById("nombredefusees").value = "1";
+
+        document.getElementById("r01").value = "67";
+        document.getElementById("phi01").value = "67";
+        document.getElementById("teta1").value = "67";
+
+        document.getElementById("traject_type").value = "simple";
+        document.getElementById("traject_type2").value = "mobile";
+
+        pressionBouttonTrajectoireSimple();
+        pressionBouttonMobile(false);
+        notationvitesseree1();
+
+
+        // Équivalent de l'écouteur d'évènement de btnSpationaute :
+
+        /*Juste pour avoir les valeurs rentrées avant de cliquer sur spationaute*/
+		const r01 = document.getElementById("r01").value;
+		const phi01 = document.getElementById("phi01").value;
+		const teta1 = document.getElementById("teta1").value;
+
+		inputNbfusees.value='1'; // on met un seul mobile
+		const event = new Event('change');//on met à jour tout le changement en appelant la sa fonctionnalité de changement
+		inputNbfusees.dispatchEvent(event);
+		document.getElementById("r01").value=r01;
+		document.getElementById("phi01").value=phi01;
+		document.getElementById("teta1").value=teta1;
+		
+		initialisationGenerale(1);//on actualise les valeurs de simulation
+
+		inputNbfusees.style.display ="none";
+		labelNbfusees.style.display = "none";
+    }
+
+
+
+
+
+
+     if (exemple == "ex1Kerr1") {
+        document.getElementById("M").value = "1.9e38";
+        document.getElementById("J").value = "8.033e57";
+
+        document.getElementById("r0").value = "5e11";
+        document.getElementById("v0").value = "1.75e8";
+        document.getElementById("phi0").value = "0";
+        document.getElementById("teta").value = "90";
+
+        document.getElementById("pourcentage_vphi_pilotage").value = "0.003";
+        document.getElementById("traject_type").value = "complete";
+        document.getElementById("traject_type2").value = "observateur";
+        document.getElementById("depasser").checked = false;
+
+        pressionBouttonTrajectoireComplete();
+        pressionBouttonObservateur(true);
+        notationvitesseree2kerr();
+        initialisation();
+
+
+        // Équivalent de l'écouteur d'évènement de btnObservateur :
+       
+		labelPourcentageVphiPilotage.style.display = "none";
+		inputPourcentageVphiPilotage.style.display = "none";
+    }
+
+    if (exemple == "ex2Kerr1") {
+        document.getElementById("M").value = "2e39";
+        document.getElementById("J").value = "0";
+
+        document.getElementById("r0").value = "2e13";
+        document.getElementById("v0").value = "7.75e7";
+        document.getElementById("phi0").value = "0";
+        document.getElementById("teta").value = "90";
+
+        document.getElementById("pourcentage_vphi_pilotage").value = "0.003";
+        document.getElementById("traject_type").value = "complete";
+        document.getElementById("traject_type2").value = "observateur";
+        document.getElementById("depasser").checked = false;
+
+        pressionBouttonTrajectoireComplete();
+        pressionBouttonObservateur(true);
+        notationvitesseree2kerr();
+        initialisation();
+
+
+        // Équivalent de l'écouteur d'évènement de btnObservateur :
+       
+		labelPourcentageVphiPilotage.style.display = "none";
+		inputPourcentageVphiPilotage.style.display = "none";
+    }
+
+    if (exemple == "ex3Kerr1") {
+        document.getElementById("M").value = "67";
+        document.getElementById("J").value = "67";
+
+        document.getElementById("r0").value = "67";
+        document.getElementById("v0").value = "67";
+        document.getElementById("phi0").value = "67";
+        document.getElementById("teta").value = "67";
+
+        document.getElementById("pourcentage_vphi_pilotage").value = "67";
+        document.getElementById("traject_type").value = "simple";
+        document.getElementById("traject_type2").value = "mobile";
+        document.getElementById("depasser").checked = true;
+
+        pressionBouttonTrajectoireSimple();
+        pressionBouttonMobile(true);
+        notationvitesseree2kerr();
+        initialisation();
+
+
+        // Équivalent de l'écouteur d'évènement de btnSpationaute :
+
+		labelPourcentageVphiPilotage.style.display = "inline";
+		inputPourcentageVphiPilotage.style.display = "inline";
+    }
+
+
+
+
+
+    if (exemple == "ex1Kerr2") {
+        document.getElementById("M").value = "2e30";
+        document.getElementById("J").value = "8.5e41";
+
+        document.getElementById("r0").value = "4455";
+        document.getElementById("phi0").value = "0";
+        document.getElementById("teta").value = "128";
+
+        document.getElementById("traject_type").value = "complete";
+        document.getElementById("traject_type2").value = "observateur";
+        document.getElementById("depasser").checked = false;
+
+        pressionBouttonTrajectoireComplete();
+        pressionBouttonObservateur(true);
+        notationvitesseree1kerr();
+        initialisation();
+    }
+
+    if (exemple == "ex2Kerr2") {
+        document.getElementById("M").value = "2e39";
+        document.getElementById("J").value = "0";
+
+        document.getElementById("r0").value = "2e13";
+        document.getElementById("phi0").value = "0";
+        document.getElementById("teta").value = "90";
+
+        document.getElementById("traject_type").value = "complete";
+        document.getElementById("traject_type2").value = "observateur";
+        document.getElementById("depasser").checked = false;
+
+        pressionBouttonTrajectoireComplete();
+        pressionBouttonObservateur(true);
+        notationvitesseree1kerr();
+        initialisation();
+    }
+
+    if (exemple == "ex3Kerr2") {
+        document.getElementById("M").value = "67";
+        document.getElementById("J").value = "67";
+
+        document.getElementById("r0").value = "67";
+        document.getElementById("phi0").value = "67";
+        document.getElementById("teta").value = "67";
+
+        document.getElementById("traject_type").value = "simple";
+        document.getElementById("traject_type2").value = "mobile";
+        document.getElementById("depasser").checked = true;
+
+        pressionBouttonTrajectoireSimple();
+        pressionBouttonMobile(true);
+        notationvitesseree1kerr();
+        initialisation();
     }
 }

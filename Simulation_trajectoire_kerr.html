@@ -190,16 +190,24 @@
 				</button>
 			</div>
 			<div id="radio_button">
+				<span>
 				<button id="r1" type="button" name="traj" class="bouttonChoix" value="complete" onclick="document.getElementById('traject_type').value = this.value;pressionBouttonTrajectoireComplete()"></button>
+				</span>
+				<span>
 				<button id="r2" type="button" name="traj2" class="bouttonChoix-inverse" value="simple" onclick="document.getElementById('traject_type').value = this.value;pressionBouttonTrajectoireSimple()"></button>
-				<button id="r3" type="button" name="observateur" class="bouttonChoix" value="observateur" onclick="document.getElementById('traject_type2').value = this.value;pressionBouttonObservateur(true);notationvitesseree2kerr();"></button>
-				<button id="r4" type="button" name="mobile" class="bouttonChoix-inverse" value="mobile" onclick="document.getElementById('traject_type2').value = this.value;pressionBouttonMobile(true);notationvitesseree2kerr();"></button>					
+				</span>
+				<span>
+				<button id="r3" type="button" name="observateur" class="bouttonChoix" title="" value="observateur" onclick="document.getElementById('traject_type2').value = this.value;pressionBouttonObservateur(true);notationvitesseree2kerr();"></button>
+				</span>
+				<span>
+				<button id="r4" type="button" name="mobile" class="bouttonChoix-inverse" value="mobile" onclick="document.getElementById('traject_type2').value = this.value;pressionBouttonMobile(true);notationvitesseree2kerr();"></button>  
+				</span>
 				<div style="display: inline-block;">
 					<span id="case_depasser"style="display:none">
 						<label id="label_depasser" for="vr" ></label>
 						<input id="depasser" type="checkbox" autocomplete="off">
 					</span>
-			</div> 
+				</div> 
 			</div>
 	
 	
@@ -222,6 +230,14 @@
 						<button id="boutton_recup" type="button" class="grosBoutton" onclick="load_kerr_massif();initialisation();"></button>
 				</span>
 			</div>
+
+				<div id="BoiteExemple">
+                    <span id="titreExemple"></span>
+                    <button id="ex1Kerr1" class="grosBoutton" onclick="exemples('ex1Kerr1');"></button>
+                    <button id="ex2Kerr1" class="grosBoutton" onclick="exemples('ex2Kerr1');"></button>
+                    <button id="ex3Kerr1" class="grosBoutton" onclick="exemples('ex3Kerr1');"></button>
+                </div>
+
 		</div>
 
 		<div class="boiteGraphe">

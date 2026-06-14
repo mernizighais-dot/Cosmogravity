@@ -193,14 +193,24 @@ ga('send', 'pageview');
 				</button>
 			</div>
 			<div id="radio_button">
+				<span>
 				<button id="r1" type="button" name="traj" class="bouttonChoix" value="complete" onclick="document.getElementById('traject_type').value = this.value;pressionBouttonTrajectoireComplete()"></button>
+				</span>
+				<span>
 				<button id="r2" type="button" name="traj2" class="bouttonChoix-inverse" value="simple" onclick="document.getElementById('traject_type').value = this.value;pressionBouttonTrajectoireSimple()"></button>
+				</span>
+				<span>
 				<button id="r3" type="button" name="observateur" class="bouttonChoix" title="" value="observateur" onclick="document.getElementById('traject_type2').value = this.value;pressionBouttonObservateur(false);notationvitesseree2()"></button>
+				</span>
+				<span>
 				<button id="r4" type="button" name="mobile" class="bouttonChoix-inverse" value="mobile" onclick="document.getElementById('traject_type2').value = this.value;pressionBouttonMobile(false);notationvitesseree2()"></button>  
-				
-				<span id="sp_reb"></span>
+				</span>				
+				<span id="sp_reb" style="display: none;">
 				<button id="rebondd" type="button" name="reb" class="bouttonChoix-inverse" style="display: none;" onclick="ammort();changerBouttonRebond()"></button>
-			</div>
+				</span>
+			</div>	
+
+
 			<div id="barre_reb" style="display: none;">
                 <span id="amortissement">Coefficient </span>
                 <input type="range" id="reb" max="100" min="0" value="0" name="rebond" oninput="ammortUpdate(value)" autocomplete="off" />&nbsp;
@@ -224,6 +234,13 @@ ga('send', 'pageview');
                     <button id="boutton_recup" type="button" class="grosBoutton" onclick="recuperation();">Last Values</button>
                 </span> 
             </div>
+			    
+				<div id="BoiteExemple">
+                    <span id="titreExemple"></span>
+                    <button id="ex1SCH1" class="grosBoutton" onclick="exemples('ex1SCH1');"></button>
+                    <button id="ex2SCH1" class="grosBoutton" onclick="exemples('ex2SCH1');"></button>
+                    <button id="ex3SCH1" class="grosBoutton" onclick="exemples('ex3SCH1');"></button>
+                </div>
 		</div>
 
 
@@ -404,12 +421,18 @@ ga('send', 'pageview');
     });
 
 	inputRphysique.addEventListener("input", function() {
-		if(inputRphysique.value==="0" || inputRphysique.value==="")
+		if(inputRphysique.value=="0" || inputRphysique.value==="")
 		{
 			btnrebond.style.display="none"; 
 			document.getElementById("barre_reb").style.display="none";
+			document.getElementById("sp_reb").style.display="none";
+			update_toggleEntreeSortie();
 		}
-		else{btnrebond.style.display="inline";}
+		else {
+			btnrebond.style.display="inline";
+			document.getElementById("sp_reb").style.display="flex";
+			update_toggleEntreeSortie();
+		}
 
     });
 

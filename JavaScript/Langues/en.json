@@ -377,7 +377,6 @@
 		"bouton_resume": "Resume",
 		"bouton_lecture": "Play",
 		"bouton_start": "Start",
-		"boutton_prézoom": "Pre-zoom",
 		"bouton_reset": "Reset",
 		"bouton_enregistrer": "Save",
 		"trajectoire_complete": "Full Trajectory",
@@ -454,12 +453,33 @@
 		"potentiel_option":"Potential",
 		"label_choix_potentiel":"Choose an option:",
 		"label_choix_potentiel_infobulle":"Allows real-time selection of the potential graph to display",
+
   		"info": "This page simulates the trajectory of a baryonic object around a baryonic mass using the Schwarzschild metric. It is possible to visualize either the complete trajectory or only the motion of the object. The frame of reference can be either that of the observer or that of the astronaut. In the latter case, it is possible to control it by changing its tangential velocity.",
 		"infoSCH2": "This page simulates the trajectory of a photon around a baryonic mass using the Schwarzschild metric. It is possible to visualize either the complete trajectory or only the motion of the object. The frame of reference can be either that of the observer or that of the photon.",
   		"infoSCH3": "This page simulates the trajectory of a non-baryonic object around a non-baryonic mass using the Schwarzschild metric. It is possible to visualize either the complete trajectory or only the motion of the object. The frame of reference can be either that of the observer or that of the astronaut. In the latter case, it is possible to control it by changing its tangential velocity.",
   		"infoSCH4": "This page simulates the trajectory of a photon around a non-baryonic mass using the Schwarzschild metric. It is possible to visualize either the complete trajectory or only the motion of the object. The frame of reference can be either that of the observer or that of the photon.",
   		"infoKERR": "This page simulates the trajectory of a baryonic object around a baryonic mass using the Kerr metric. It is possible to visualize either the complete trajectory or only the motion of the object. The frame of reference can be either that of the observer or that of the astronaut. In the latter case, it is possible to control it by changing its tangential velocity and also to cross the outer horizon.",
-  		"infoKERR2": "This page simulates the trajectory of a photon around a baryonic mass using the Kerr metric. It is possible to visualize either the complete trajectory or only the motion of the object. The frame of reference can be either that of the observer or that of the photon. In the latter case, it is possible to cross the outer horizon."
+  		"infoKERR2": "This page simulates the trajectory of a photon around a baryonic mass using the Kerr metric. It is possible to visualize either the complete trajectory or only the motion of the object. The frame of reference can be either that of the observer or that of the photon. In the latter case, it is possible to cross the outer horizon.",
+
+		"titreExemple": "Examples:",
+		"ex1SCH1": "Example 1",
+		"ex2SCH1": "Example 2",
+		"ex3SCH1": "Example 3",
+		"ex1SCH2": "Example 1",
+		"ex2SCH2": "Example 2",
+		"ex3SCH2": "Example 3",
+		"ex1SCH3": "Example 1",
+		"ex2SCH3": "Example 2",
+		"ex3SCH3": "Example 3",
+		"ex1SCH4": "Example 1",
+		"ex2SCH4": "Example 2",
+		"ex3SCH4": "Example 3",
+		"ex1Kerr1": "Example 1",
+		"ex2Kerr1": "Example 2",
+		"ex3Kerr1": "Example 3",
+		"ex1Kerr2": "Example 1",
+		"ex2Kerr2": "Example 2",
+		"ex3Kerr2": "Example 3"
 	},
 
 	"page_trajectoire_massive": {

@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    font-size: 15;
+    font-size: clamp(14px, 1.4vw, 20px);
     background-color: rgba(212, 215, 228, 0.85);
 }
 
@@ -9,14 +9,9 @@ body {
 .grosBoutton {
     background-color: rgba(39, 121, 124, 0.85);
     color: white;
-    font-size: 15px;
     font-style: bold;
     border-radius: 15px;
     cursor: pointer;
-    margin-top: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    min-width: 130px; /* Utilisez min-width au lieu de width */
     height: 40px;
 }
 
@@ -31,10 +26,7 @@ body {
     position: relative;
     display: inline-block;
     height: 50px;
-    padding:10px 20px;
-    font-size: 15;
     margin-top: 5px;
-    margin-right: 10px;
     font-weight: bold;
     text-align: center;
     text-decoration: none;
@@ -53,8 +45,6 @@ body {
     position: relative;
     display: inline-block;
     height: 50px;
-    padding: 20px 20px;
-    font-size: 15;
     font-weight: bold;
     text-align: center;
     text-decoration: none;
@@ -103,7 +93,6 @@ body {
 .petitBoutton {
     background-color: rgba(179, 221, 223, 0.85);
     color: white;
-    font-size: 15;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -221,7 +210,6 @@ body {
                 border-radius: 5px;
                 height: 1.5rem;
                 width: 7rem;
-                font-size: 15;
             }
 
             .paramètre img {
@@ -301,7 +289,6 @@ body {
                 border-radius: 5px;
                 height: 1.5rem;
                 width: 7rem;
-                font-size: 15;
             }
 
             .résultats img {
@@ -339,7 +326,6 @@ body {
 
 .input-wrapper label {
     margin-right: 10px;
-    font-size: 15;
     color: #333;
     text-align: center;
     white-space: nowrap; /* Empêche le texte de passer à la ligne */
@@ -356,7 +342,6 @@ body {
     border-radius: 8px;
     background-color: #fff;
     text-align: center;
-    font-size: 15;
     color: #333;
     transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
@@ -428,7 +413,6 @@ body {
   }
 .input-group label {
     width: 100%;
-    font-size: 15;
     color: #333;
     text-align: center;
     white-space: nowrap; /* Empêche le texte de passer à la ligne */
@@ -447,7 +431,6 @@ body {
     border: 2px solid #ccc;
     border-radius: 5px;
     background-color: #fff;
-    font-size: 15;
     color: #333;
     transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
@@ -464,7 +447,7 @@ body {
 .table-container {
     width: 100%;
     margin: 20px auto; /* Centre horizontalement avec des marges automatiques */
-    overflow: hidden;
+    overflow-x: auto;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 
@@ -473,16 +456,15 @@ body {
 table {
     width: 100%;
     border-collapse: collapse;
+    overflow-x: auto;
     
 }
 
 th {
-    padding: 8px 10px; /* Augmenté de 5px 5px à 8px 10px */
     text-align: center;
     border: 1px solid black;
 }
 th.tg-6l4m {
-    padding: 8px 17px; /* Plus d'espace horizontal pour 1-2 caractères en plus */
     background-color: rgba(39, 121, 124, 0.85);
     color: #ffffff;
     font-weight: bold;
@@ -522,7 +504,6 @@ tbody tr:hover {
 }
 
 tbody td {
-    font-size: 13;
     color: #333333;
 }
 
@@ -588,7 +569,6 @@ tbody td {
     height: 60px;
     position: relative;
     grid-area: info;
-    left: 10px;
     background-color: rgba(39, 121, 124, 0.85); /* Bleu clair agréable */
     color: white; /* Texte blanc pour contraste */
     border-radius: 50%; /* Cercle parfait */
@@ -636,7 +616,7 @@ tbody td {
 .titre_style{
 font-size: 20px;
 position: relative;
-margin-right: 20px;   
+margin: 1%;  
 text-align: center;
 grid-area: titre;
 display: grid; 
@@ -846,6 +826,70 @@ option[disabled]:first-child {
 
 .close::after {
   transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+
+#BoiteExemple {
+    grid-area: exemples;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 90%;
+    gap: 2%;
+    margin: 5%;
+}
+
+#BoiteExemple > * {
+    flex: 2;
+}
+
+#titreExemple {
+    text-align: center;
+    color: rgba(39, 121, 124, 0.85);
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    flex: 1;
+}
+
+#radio_button {
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 80%;
+    gap: 2%;
+    margin: 1%;
+}
+
+#boutons_actions {
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 70%;
+    gap: 2%;
+    margin: 1%;
+}
+
+#radio_button span, #boutons_actions span {
+    display: flex;
+    flex: 1;
+}
+
+#radio_button button {
+    flex: 1;
+    font-size: clamp(10px, 1.4vw, 15px);
+}
+
+#boutons_actions button {
+    flex: 1;
+}
+
+#txt_trajectoire {
+    top: -3px !important;
+    right: 0px !important;
+    position: relative !important;
 }
 
 @media screen and (max-width: 1200px) {

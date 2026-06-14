@@ -952,6 +952,11 @@ function texteTrajectoireMassive(nbrderockets) {
     document.getElementById("label-choix-potentiel").innerHTML = texte.pages_trajectoire.label_choix_potentiel;
     document.getElementById("label-choix-potentiel").title = texte.pages_trajectoire.label_choix_potentiel_infobulle;
 
+    document.getElementById("titreExemple").innerHTML = texte.pages_trajectoire.titreExemple;
+    document.getElementById("ex1SCH1").innerHTML = texte.pages_trajectoire.ex1SCH1;
+    document.getElementById("ex2SCH1").innerHTML = texte.pages_trajectoire.ex2SCH1;
+    document.getElementById("ex3SCH1").innerHTML = texte.pages_trajectoire.ex3SCH1;
+
     for (count = 1; count <= nbrderockets; count += 1) {
         document.getElementById("temps_ecoule"+count.toString()+"").innerHTML = texte.pages_trajectoire.temps_ecoule;
         document.getElementById("acceleration"+count.toString()+"").innerHTML = "Gradient &nbsp;<span id='DivClignotante"+count.toString()+"'></span>";
@@ -1007,6 +1012,11 @@ function texteTrajectoirePhoton(nbrderockets) {
     
     document.getElementById("label-choix-potentiel").innerHTML = texte.pages_trajectoire.label_choix_potentiel;
     document.getElementById("label-choix-potentiel").title = texte.pages_trajectoire.label_choix_potentiel_infobulle;
+
+    document.getElementById("titreExemple").innerHTML = texte.pages_trajectoire.titreExemple;
+    document.getElementById("ex1SCH2").innerHTML = texte.pages_trajectoire.ex1SCH2;
+    document.getElementById("ex2SCH2").innerHTML = texte.pages_trajectoire.ex2SCH2;
+    document.getElementById("ex3SCH2").innerHTML = texte.pages_trajectoire.ex3SCH2;
     
     for (count = 1; count <= nbrderockets; count += 1) {
         document.getElementById("temps_ecoule"+count.toString()+"").innerHTML = texte.pages_trajectoire.temps_ecoule;
@@ -1048,6 +1058,11 @@ function texteTrajectoireMassiveNonBar(nbrderockets) {
 
     document.getElementById("label-choix-potentiel").innerHTML = texte.pages_trajectoire.label_choix_potentiel;
     document.getElementById("label-choix-potentiel").title = texte.pages_trajectoire.label_choix_potentiel_infobulle;
+
+    document.getElementById("titreExemple").innerHTML = texte.pages_trajectoire.titreExemple;
+    document.getElementById("ex1SCH3").innerHTML = texte.pages_trajectoire.ex1SCH3;
+    document.getElementById("ex2SCH3").innerHTML = texte.pages_trajectoire.ex2SCH3;
+    document.getElementById("ex3SCH3").innerHTML = texte.pages_trajectoire.ex3SCH3;
 
     for (count = 1; count <= nbrderockets; count += 1) {
         document.getElementById("temps_ecoule"+count.toString()+"").innerHTML = texte.pages_trajectoire.temps_ecoule;
@@ -1100,6 +1115,11 @@ function texteTrajectoirePhotonNonBar(nbrderockets) {
     
     document.getElementById("label-choix-potentiel").innerHTML = texte.pages_trajectoire.label_choix_potentiel;
     document.getElementById("label-choix-potentiel").title = texte.pages_trajectoire.label_choix_potentiel_infobulle;
+
+    document.getElementById("titreExemple").innerHTML = texte.pages_trajectoire.titreExemple;
+    document.getElementById("ex1SCH4").innerHTML = texte.pages_trajectoire.ex1SCH4;
+    document.getElementById("ex2SCH4").innerHTML = texte.pages_trajectoire.ex2SCH4;
+    document.getElementById("ex3SCH4").innerHTML = texte.pages_trajectoire.ex3SCH4;
 
     var canvaswidthheightt = '750';
     if(canvaswidthheightt=="750"){
@@ -1157,6 +1177,11 @@ function texteTrajectoireMassiveKerr() {
 
     document.getElementById("Sortie_astre_label").innerHTML = texte.pages_trajectoire.sortie_astre;
     document.getElementById("Sortie_mobile_label").innerHTML = texte.pages_trajectoire.sortie_mobile;
+
+    document.getElementById("titreExemple").innerHTML = texte.pages_trajectoire.titreExemple;
+    document.getElementById("ex1Kerr1").innerHTML = texte.pages_trajectoire.ex1Kerr1;
+    document.getElementById("ex2Kerr1").innerHTML = texte.pages_trajectoire.ex2Kerr1;
+    document.getElementById("ex3Kerr1").innerHTML = texte.pages_trajectoire.ex3Kerr1;
     
 }
 
@@ -1177,7 +1202,6 @@ function texteTrajectoirePhotonKerr() {
     document.getElementById("r2").innerHTML = texte.pages_trajectoire.trajectoire_simple;
     document.getElementById("r3").innerHTML = texte.pages_trajectoire.observateur;
     document.getElementById("r4").innerHTML = texte.pages_trajectoire.photon;
-    document.getElementById("boutton_prézoom").innerHTML = texte.pages_trajectoire.boutton_prézoom;
     //document.getElementById("acceleration").innerHTML = texte.pages_trajectoire.acceleration;
     document.getElementById("temps_ecoule").innerHTML = texte.pages_trajectoire.temps_ecoule;
     document.getElementById("temps_obs").innerHTML = texte.pages_trajectoire.temps_obs;
@@ -1195,7 +1219,10 @@ function texteTrajectoirePhotonKerr() {
     document.getElementById("Sortie_astre_label").innerHTML = texte.pages_trajectoire.sortie_astre;
     document.getElementById("Sortie_mobile_label").innerHTML = texte.pages_trajectoire.sortie_mobile;
 
-
+    document.getElementById("titreExemple").innerHTML = texte.pages_trajectoire.titreExemple;
+    document.getElementById("ex1Kerr2").innerHTML = texte.pages_trajectoire.ex1Kerr2;
+    document.getElementById("ex2Kerr2").innerHTML = texte.pages_trajectoire.ex2Kerr2;
+    document.getElementById("ex3Kerr2").innerHTML = texte.pages_trajectoire.ex3Kerr2;
 
 
 }

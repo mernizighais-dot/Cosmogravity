@@ -105,7 +105,7 @@
 		"infoLCDM": "Cette page affiche le graphe du facteur d'échelle réduit en fonction du temps dans le cadre de la théorie ΛCDM. Ce graphe permet d'observer l'expansion (ou la contraction) de l'univers. Les valeurs par défaut de la page correspondent à celles de notre propre univers.",
 		"infoDE": "Cette page affiche le graphe du facteur d'échelle réduit en fonction du temps dans le cadre de la théorie d'énergie sombre. Ce graphe permet d'observer l'expansion (ou la contraction) de l'univers. Les valeurs par défaut de la page correspondent à celles de notre propre univers.",
 
-		"titreExemple": "Exemples :",
+		"titreExemple": "Exemples\u00A0:",
 		"ex1UnivLCDM": "Notre Univers",
 		"ex2UnivLCDM": "Exemple 2",
 		"ex3UnivLCDM": "Exemple 3",
@@ -385,7 +385,6 @@
 		"bouton_resume":"Reprendre",
 		"bouton_lecture":"Lecture",
 		"bouton_start":"Débuter",
-		"boutton_prézoom":"Pré-zoom",
 		"bouton_reset":"Réinitialiser",
 		"bouton_enregistrer":"Enregistrer",
 		"trajectoire_complete":"Trajectoire complète",
@@ -462,12 +461,33 @@
 		"potentiel_option":"Potentiel",
 		"label_choix_potentiel":"Choisissez une option :",
 		"label_choix_potentiel_infobulle":"Permet de choisir en temps réel le graphe de potentiel à afficher",
+
 		"info":"Cette page simule la trajectoire d'un mobile baryonique autours d'une masse baryonique avec la métrique de Schwarzschild. Il est possible de visualiser la trajectoire complète ou seulement le déplacement du mobile. Le référentiel est soit celui de l'observateur soit celui du spationaute. Pour ce dernier, il est alors possible de le piloter en changeant sa vitesse tangentielle.",
 		"infoSCH2":"Cette page simule la trajectoire d'un photon autours d'une masse baryonique avec la métrique de Schwarzschild.Il est possible de visualiser la trajectoire complète ou seulement le déplacement du mobile. Le référentiel est soit celui de l'observateur soit celui du photon.",
 		"infoSCH3":"Cette page simule la trajectoire d'un mobile non baryonique autours d'une masse non baryonique avec la métrique de Schwarzschild. Il est possible de visualiser la trajectoire complète ou seulement le déplacement du mobile. Le référentiel est soit celui de l'observateur soit celui du spationaute. Pour ce dernier, il est alors possible de le piloter en changeant sa vitesse tangentielle.",
 		"infoSCH4":"Cette page simule la trajectoire d'un photon autours d'une masse non baryonique avec la métrique de Schwarzschild. Il est possible de visualiser la trajectoire complète ou seulement le déplacement du mobile. Le référentiel est soit celui de l'observateur soit celui du photon.",
 		"infoKERR":"Cette page simule la trajectoire d'un mobile baryonique autours d'une masse baryonique avec la métrique de Kerr. Il est possible de visualiser la trajectoire complète ou seulement le déplacement du mobile. Le référentiel est soit celui de l'observateur soit celui du spationaute. Pour ce dernier, il est alors possible de le piloter en changeant sa vitesse tangentielle ainsi que de dépasser l'horizon extérieur.",
-		"infoKERR2":"Cette page simule la trajectoire d'un photon autours d'une masse baryonique avec la métrique de Kerr. Il est possible de visualiser la trajectoire complète ou seulement le déplacement du mobile. Le référentiel est soit celui de l'observateur soit celui du photon. Pour ce dernier, il est alors possible de dépasser l'horizon extérieur."
+		"infoKERR2":"Cette page simule la trajectoire d'un photon autours d'une masse baryonique avec la métrique de Kerr. Il est possible de visualiser la trajectoire complète ou seulement le déplacement du mobile. Le référentiel est soit celui de l'observateur soit celui du photon. Pour ce dernier, il est alors possible de dépasser l'horizon extérieur.",
+
+		"titreExemple": "Exemples\u00A0:",
+		"ex1SCH1": "Exemple 1",
+		"ex2SCH1": "Exemple 2",
+		"ex3SCH1": "Exemple 3",
+		"ex1SCH2": "Exemple 1",
+		"ex2SCH2": "Exemple 2",
+		"ex3SCH2": "Exemple 3",
+		"ex1SCH3": "Exemple 1",
+		"ex2SCH3": "Exemple 2",
+		"ex3SCH3": "Exemple 3",
+		"ex1SCH4": "Exemple 1",
+		"ex2SCH4": "Exemple 2",
+		"ex3SCH4": "Exemple 3",
+		"ex1Kerr1": "Exemple 1",
+		"ex2Kerr1": "Exemple 2",
+		"ex3Kerr1": "Exemple 3",
+		"ex1Kerr2": "Exemple 1",
+		"ex2Kerr2": "Exemple 2",
+		"ex3Kerr2": "Exemple 3"
 	},
 
 	"page_trajectoire_massive":{

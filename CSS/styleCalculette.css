@@ -91,7 +91,7 @@
     grid-area: exemples;
     justify-self: center;
     display: flex;
-    width: 100%;
+    width: 95%;
     gap: 10px;
     margin: 1%;
 }
