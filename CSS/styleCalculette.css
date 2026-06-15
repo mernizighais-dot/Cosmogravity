@@ -71,18 +71,37 @@
     align-self: center;
     justify-self: center; 
     text-align: center;
+    margin: 1%;
 }
 
 #boite_calculette_centrale {
     display: grid;
     justify-content: center;
     grid-template-columns: 60px 1fr;
-    grid-template-rows: auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto;
     grid-template-areas:
         "info titre"
         "texte texte"
         "plot plot"
+        "exemples exemples"
         "loading laoding";
+}
+
+#BoiteExemple {
+    grid-area: exemples;
+    justify-self: center;
+    display: flex;
+    width: 95%;
+    gap: 10px;
+    margin: 1%;
+}
+
+#BoiteExemple > * {
+    flex: 2;
+}
+
+#titreExemple {
+    flex: 1;
 }
 
 .boite_calculette{

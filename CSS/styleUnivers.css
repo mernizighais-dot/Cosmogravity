@@ -170,17 +170,35 @@ body {
     align-self: center;
     justify-self: center; 
     text-align: center;
+    margin: 1%;
 }
 
 #resteDuGraphe {
     grid-area: resteGraphe;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 3fr 2fr;
+    grid-template-rows: 0.2fr 3fr 2fr;
     grid-template-areas:
+        "exemples"
         "graphique"
         "infoSousGraphe";
 
+}
+
+#BoiteExemple {
+    grid-area: exemples;
+    justify-self: center;
+    display: flex;
+    width: 95%;
+    gap: 10px;
+}
+
+#BoiteExemple > * {
+    flex: 2;
+}
+
+#titreExemple {
+    flex: 1;
 }
 
 #leGraphique {

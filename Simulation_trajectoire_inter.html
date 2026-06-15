@@ -176,12 +176,20 @@
 					<span id="txt_avertissement_trajectoire"></span>
 				</button>
 				</div>
-				<div id="radio_button">
-					<button id="r1" type="button" name="traj" class="bouttonChoix" value="complete" onclick="document.getElementById('traject_type').value = this.value;pressionBouttonTrajectoireComplete()"></button>
-					<button id="r2" type="button" name="traj2" class="bouttonChoix-inverse" value="simple" onclick="document.getElementById('traject_type').value = this.value;pressionBouttonTrajectoireSimple()"></button>
-					<button id="r3" type="button" name="observateur" class="bouttonChoix" value="observateur" onclick="document.getElementById('traject_type2').value = this.value;pressionBouttonObservateur(false);notationvitesseree2()"></button>
-					<button id="r4" type="button" name="mobile" class="bouttonChoix-inverse" value="mobile" onclick="document.getElementById('traject_type2').value = this.value;pressionBouttonMobile(false);notationvitesseree2()"></button> 
-				</div>
+			<div id="radio_button">
+				<span>
+				<button id="r1" type="button" name="traj" class="bouttonChoix" value="complete" onclick="document.getElementById('traject_type').value = this.value;pressionBouttonTrajectoireComplete()"></button>
+				</span>
+				<span>
+				<button id="r2" type="button" name="traj2" class="bouttonChoix-inverse" value="simple" onclick="document.getElementById('traject_type').value = this.value;pressionBouttonTrajectoireSimple()"></button>
+				</span>
+				<span>
+				<button id="r3" type="button" name="observateur" class="bouttonChoix" title="" value="observateur" onclick="document.getElementById('traject_type2').value = this.value;pressionBouttonObservateur(false);notationvitesseree2()"></button>
+				</span>
+				<span>
+				<button id="r4" type="button" name="mobile" class="bouttonChoix-inverse" value="mobile" onclick="document.getElementById('traject_type2').value = this.value;pressionBouttonMobile(false);notationvitesseree2()"></button>  
+				</span>				
+			</div>
 		
 				<div id="boutons_actions">
 					<span id="buts">
@@ -201,6 +209,14 @@
 						<button id="boutton_recup" type="button" class="grosBoutton" onclick="recuperation();"></button>
 					</span>
 				</div>
+
+				<div id="BoiteExemple">
+                    <span id="titreExemple"></span>
+                    <button id="ex1SCH3" class="grosBoutton" onclick="exemples('ex1SCH3');"></button>
+                    <button id="ex2SCH3" class="grosBoutton" onclick="exemples('ex2SCH3');"></button>
+                    <button id="ex3SCH3" class="grosBoutton" onclick="exemples('ex3SCH3');"></button>
+                </div>
+
 			</div>
 
 			<div class="boiteGraphe">

@@ -290,7 +290,10 @@ function texte_univers_LCDM() {
 
     document.getElementById("load_msg").innerHTML = texte.univers.load_msg
 
-
+    document.getElementById("titreExemple").innerHTML = texte.univers.titreExemple
+    document.getElementById("ex1UnivLCDM").innerHTML = texte.univers.ex1UnivLCDM
+    document.getElementById("ex2UnivLCDM").innerHTML = texte.univers.ex2UnivLCDM
+    document.getElementById("ex3UnivLCDM").innerHTML = texte.univers.ex3UnivLCDM
 }
 
 function texte_univers_DE() {
@@ -345,6 +348,11 @@ function texte_univers_DE() {
     document.getElementById("bouttonEnregistrer").innerHTML = texte.univers.bouttonEnregistrer
 
     document.getElementById("load_msg").innerHTML = texte.univers.load_msg
+
+    document.getElementById("titreExemple").innerHTML = texte.univers.titreExemple
+    document.getElementById("ex1UnivDE").innerHTML = texte.univers.ex1UnivDE
+    document.getElementById("ex2UnivDE").innerHTML = texte.univers.ex2UnivDE
+    document.getElementById("ex3UnivDE").innerHTML = texte.univers.ex3UnivDE
 };
 
 function texte_univers_calculette() {
@@ -457,12 +465,19 @@ function texte_univers_calculette() {
         document.getElementById("label_deven").title = texte.calculette.infobulle_deven;
         document.getElementById("label_dpart").title = texte.calculette.infobulle_dpart;
 
+        document.getElementById("ex1CalcLCDM").innerHTML = texte.calculette.ex1CalcLCDM
+        document.getElementById("ex2CalcLCDM").innerHTML = texte.calculette.ex2CalcLCDM
+        document.getElementById("ex3CalcLCDM").innerHTML = texte.calculette.ex3CalcLCDM
     }else{
         document.getElementById("label_rho_de").title = texte.calculette.infobulle_rho_DE
         document.getElementById("label_omegaDE_z1").title = texte.calculette.infobulle_odez1;
         document.getElementById("label_omegaDE_z2").title = texte.calculette.infobulle_odez2;
         document.getElementById("label_omegaDEN_z1").title = texte.calculette.infobulle_odenz1;
         document.getElementById("label_omegaDEN_z2").title = texte.calculette.infobulle_odenz2;
+        
+        document.getElementById("ex1CalcDE").innerHTML = texte.calculette.ex1CalcDE
+        document.getElementById("ex2CalcDE").innerHTML = texte.calculette.ex2CalcDE
+        document.getElementById("ex3CalcDE").innerHTML = texte.calculette.ex3CalcDE
     }
     document.getElementById("label_Tz2").title = texte.calculette.infobulle_Tz2;
     document.getElementById("label_Hz2").title = texte.calculette.infobulle_Hz2;
@@ -497,6 +512,8 @@ function texte_univers_calculette() {
     document.getElementById("bouttonEnregistrer").innerHTML = texte.calculette.bouttonEnregistrer
     document.getElementById("avertissement_nbb").innerHTML = texte.calculette.avertissement_nbb
     document.getElementById("avertissement_nbb2").innerHTML = texte.calculette.avertissement_nbb
+
+    document.getElementById("titreExemple").innerHTML = texte.univers.titreExemple
 
     // document.getElementById('texte_avertissement_z_-1').innerHTML = texte.calculette.avertissement_z_grand;
 };
@@ -935,6 +952,11 @@ function texteTrajectoireMassive(nbrderockets) {
     document.getElementById("label-choix-potentiel").innerHTML = texte.pages_trajectoire.label_choix_potentiel;
     document.getElementById("label-choix-potentiel").title = texte.pages_trajectoire.label_choix_potentiel_infobulle;
 
+    document.getElementById("titreExemple").innerHTML = texte.pages_trajectoire.titreExemple;
+    document.getElementById("ex1SCH1").innerHTML = texte.pages_trajectoire.ex1SCH1;
+    document.getElementById("ex2SCH1").innerHTML = texte.pages_trajectoire.ex2SCH1;
+    document.getElementById("ex3SCH1").innerHTML = texte.pages_trajectoire.ex3SCH1;
+
     for (count = 1; count <= nbrderockets; count += 1) {
         document.getElementById("temps_ecoule"+count.toString()+"").innerHTML = texte.pages_trajectoire.temps_ecoule;
         document.getElementById("acceleration"+count.toString()+"").innerHTML = "Gradient &nbsp;<span id='DivClignotante"+count.toString()+"'></span>";
@@ -990,6 +1012,11 @@ function texteTrajectoirePhoton(nbrderockets) {
     
     document.getElementById("label-choix-potentiel").innerHTML = texte.pages_trajectoire.label_choix_potentiel;
     document.getElementById("label-choix-potentiel").title = texte.pages_trajectoire.label_choix_potentiel_infobulle;
+
+    document.getElementById("titreExemple").innerHTML = texte.pages_trajectoire.titreExemple;
+    document.getElementById("ex1SCH2").innerHTML = texte.pages_trajectoire.ex1SCH2;
+    document.getElementById("ex2SCH2").innerHTML = texte.pages_trajectoire.ex2SCH2;
+    document.getElementById("ex3SCH2").innerHTML = texte.pages_trajectoire.ex3SCH2;
     
     for (count = 1; count <= nbrderockets; count += 1) {
         document.getElementById("temps_ecoule"+count.toString()+"").innerHTML = texte.pages_trajectoire.temps_ecoule;
@@ -1031,6 +1058,11 @@ function texteTrajectoireMassiveNonBar(nbrderockets) {
 
     document.getElementById("label-choix-potentiel").innerHTML = texte.pages_trajectoire.label_choix_potentiel;
     document.getElementById("label-choix-potentiel").title = texte.pages_trajectoire.label_choix_potentiel_infobulle;
+
+    document.getElementById("titreExemple").innerHTML = texte.pages_trajectoire.titreExemple;
+    document.getElementById("ex1SCH3").innerHTML = texte.pages_trajectoire.ex1SCH3;
+    document.getElementById("ex2SCH3").innerHTML = texte.pages_trajectoire.ex2SCH3;
+    document.getElementById("ex3SCH3").innerHTML = texte.pages_trajectoire.ex3SCH3;
 
     for (count = 1; count <= nbrderockets; count += 1) {
         document.getElementById("temps_ecoule"+count.toString()+"").innerHTML = texte.pages_trajectoire.temps_ecoule;
@@ -1083,6 +1115,11 @@ function texteTrajectoirePhotonNonBar(nbrderockets) {
     
     document.getElementById("label-choix-potentiel").innerHTML = texte.pages_trajectoire.label_choix_potentiel;
     document.getElementById("label-choix-potentiel").title = texte.pages_trajectoire.label_choix_potentiel_infobulle;
+
+    document.getElementById("titreExemple").innerHTML = texte.pages_trajectoire.titreExemple;
+    document.getElementById("ex1SCH4").innerHTML = texte.pages_trajectoire.ex1SCH4;
+    document.getElementById("ex2SCH4").innerHTML = texte.pages_trajectoire.ex2SCH4;
+    document.getElementById("ex3SCH4").innerHTML = texte.pages_trajectoire.ex3SCH4;
 
     var canvaswidthheightt = '750';
     if(canvaswidthheightt=="750"){
@@ -1140,6 +1177,11 @@ function texteTrajectoireMassiveKerr() {
 
     document.getElementById("Sortie_astre_label").innerHTML = texte.pages_trajectoire.sortie_astre;
     document.getElementById("Sortie_mobile_label").innerHTML = texte.pages_trajectoire.sortie_mobile;
+
+    document.getElementById("titreExemple").innerHTML = texte.pages_trajectoire.titreExemple;
+    document.getElementById("ex1Kerr1").innerHTML = texte.pages_trajectoire.ex1Kerr1;
+    document.getElementById("ex2Kerr1").innerHTML = texte.pages_trajectoire.ex2Kerr1;
+    document.getElementById("ex3Kerr1").innerHTML = texte.pages_trajectoire.ex3Kerr1;
     
 }
 
@@ -1160,7 +1202,6 @@ function texteTrajectoirePhotonKerr() {
     document.getElementById("r2").innerHTML = texte.pages_trajectoire.trajectoire_simple;
     document.getElementById("r3").innerHTML = texte.pages_trajectoire.observateur;
     document.getElementById("r4").innerHTML = texte.pages_trajectoire.photon;
-    document.getElementById("boutton_prézoom").innerHTML = texte.pages_trajectoire.boutton_prézoom;
     //document.getElementById("acceleration").innerHTML = texte.pages_trajectoire.acceleration;
     document.getElementById("temps_ecoule").innerHTML = texte.pages_trajectoire.temps_ecoule;
     document.getElementById("temps_obs").innerHTML = texte.pages_trajectoire.temps_obs;
@@ -1178,7 +1219,10 @@ function texteTrajectoirePhotonKerr() {
     document.getElementById("Sortie_astre_label").innerHTML = texte.pages_trajectoire.sortie_astre;
     document.getElementById("Sortie_mobile_label").innerHTML = texte.pages_trajectoire.sortie_mobile;
 
-
+    document.getElementById("titreExemple").innerHTML = texte.pages_trajectoire.titreExemple;
+    document.getElementById("ex1Kerr2").innerHTML = texte.pages_trajectoire.ex1Kerr2;
+    document.getElementById("ex2Kerr2").innerHTML = texte.pages_trajectoire.ex2Kerr2;
+    document.getElementById("ex3Kerr2").innerHTML = texte.pages_trajectoire.ex3Kerr2;
 
 
 }

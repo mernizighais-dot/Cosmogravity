@@ -181,14 +181,23 @@
 					<span id="txt_avertissement_trajectoire"></span>
 				</button>
         </div>
-        <div id="radio_button">
-          <button id="r1" type="button" name="traj" class="bouttonChoix" value="complete" onclick="document.getElementById('traject_type').value = this.value;pressionBouttonTrajectoireComplete()"></button>
-          <button id="r2" type="button" name="traj2" class="bouttonChoix-inverse" value="simple" onclick="document.getElementById('traject_type').value = this.value;pressionBouttonTrajectoireSimple()"></button>
-          <button id="r3" type="button" name="observateur" class="bouttonChoix" value="observateur" onclick="document.getElementById('traject_type2').value = this.value;pressionBouttonObservateur(false);notationvitesseree1()"></button>
-          <button id="r4" type="button" name="mobile" class="bouttonChoix-inverse" value="mobile" onclick="document.getElementById('traject_type2').value = this.value;pressionBouttonMobile(false);notationvitesseree1()"></button> 
-          <span id="sp_reb"> </span>
-          <button id="rebondd" type="button" style="display: none;" name="reb" class="bouttonChoix-inverse" onclick="ammort_photon();changerBouttonRebond()"></button>
-        </div>
+			<div id="radio_button">
+				<span>
+				<button id="r1" type="button" name="traj" class="bouttonChoix" value="complete" onclick="document.getElementById('traject_type').value = this.value;pressionBouttonTrajectoireComplete()"></button>
+				</span>
+				<span>
+				<button id="r2" type="button" name="traj2" class="bouttonChoix-inverse" value="simple" onclick="document.getElementById('traject_type').value = this.value;pressionBouttonTrajectoireSimple()"></button>
+				</span>
+				<span>
+				<button id="r3" type="button" name="observateur" class="bouttonChoix" title="" value="observateur" onclick="document.getElementById('traject_type2').value = this.value;pressionBouttonObservateur(false);notationvitesseree1()"></button>
+				</span>
+				<span>
+				<button id="r4" type="button" name="mobile" class="bouttonChoix-inverse" value="mobile" onclick="document.getElementById('traject_type2').value = this.value;pressionBouttonMobile(false);notationvitesseree1()"></button>  
+				</span>				
+				<span id="sp_reb" style="display: none;">
+				<button id="rebondd" type="button" name="reb" class="bouttonChoix-inverse" style="display: none;" onclick="ammort_photon();changerBouttonRebond()"></button>
+				</span>
+			</div>	
     
         <div id="boutons_actions">
           <span id="buts">
@@ -207,6 +216,14 @@
             <button id="boutton_recup" type="button" class="grosBoutton" onclick="recuperation();"></button>
           </span>
         </div>
+
+                <div id="BoiteExemple">
+                    <span id="titreExemple"></span>
+                    <button id="ex1SCH2" class="grosBoutton" onclick="exemples('ex1SCH2');"></button>
+                    <button id="ex2SCH2" class="grosBoutton" onclick="exemples('ex2SCH2');"></button>
+                    <button id="ex3SCH2" class="grosBoutton" onclick="exemples('ex3SCH2');"></button>
+                </div>
+
       </div>
 
       <div class="boiteGraphe">
@@ -368,8 +385,18 @@
         });
 
         inputRphysique.addEventListener("input", function() {
-        if(inputRphysique.value=="0" || inputRphysique.value==""){btnrebond.style.display="none";} 
-        else{btnrebond.style.display="inline";}
+        if(inputRphysique.value==="0" || inputRphysique.value===""){
+          btnrebond.style.display="none";
+			    document.getElementById("sp_reb").style.display="none";
+			    document.getElementById("rebondd").className = "bouttonChoix-inverse";
+			    update_toggleEntreeSortie();
+        } 
+        else {
+          btnrebond.style.display="inline";
+          document.getElementById("sp_reb").style.display="flex";
+          document.getElementById("rebondd").className = "bouttonChoix-inverse";
+			    update_toggleEntreeSortie();
+        }
         });
 
         selectElement.addEventListener('click', function() 
