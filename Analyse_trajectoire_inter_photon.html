@@ -156,44 +156,6 @@
           <span id="txt_info_trajectoire"></span>
         </div>
 
-        <div style="font-weight: bold; text-align: center;">choix du mode de trajectoire :</div>
-        <div style="display: flex;gap: 10px;margin-bottom: 1rem;">
-          <fieldset>
-            <div class="grille_mode">
-              <div>
-                <div>
-                  <input type="checkbox" id="check_traj_inter_photon">
-                  <label id="label_check_traj_inter_photon" class="infobullable" for="check_traj_inter_photon">Trajectoire Inter Photon</label>
-                </div>
-                <div>
-                  <input type="checkbox" id="check_traj_inter">
-                  <label id="label_check_traj_inter" class="infobullable" for="check_traj_inter">Trajectoire Inter</label>
-                </div>
-              </div>
-              <div>
-                <div>
-                  <input type="checkbox" id="check_traj_photon">
-                  <label id="label_check_traj_photon" class="infobullable" for="check_traj_photon">Trajectoire Photon</label>
-                </div>
-                <div>
-                  <input type="checkbox" id="check_traj">
-                  <label id="label_check_traj" class="infobullable" for="check_traj">Trajectoire</label>
-                </div>
-              </div>
-              <div>
-                <div>
-                  <input type="checkbox" id="check_traj_kerr_photon">
-                  <label id="label_check_traj_kerr_photon" class="infobullable" for="check_traj_kerr_photon">Trajectoire Kerr Photon</label>
-                </div>
-                <div>
-                  <input type="checkbox" id="check_traj_kerr">
-                  <label id="label_check_traj_kerr" class="infobullable" for="check_traj_kerr">Trajectoire Kerr</label>
-                </div>
-              </div>
-            </div>
-          </fieldset>
-        </div>
-
         <div id="radio_button">
           <button id="r1" type="button" name="traj" class="bouttonChoix" value="complete" onclick="document.getElementById('traject_type').value = this.value;pressionBouttonTrajectoireComplete()"></button>
           <button id="r2" type="button" name="traj2" class="bouttonChoix-inverse" value="simple" onclick="document.getElementById('traject_type').value = this.value;pressionBouttonTrajectoireSimple()"></button>
@@ -247,7 +209,7 @@
 
         <div id="boutons_actions"> 
           <span id="buts">
-            <button type="button" class="grosBoutton" id="start" onclick="lancement_analyse()"></button>
+            <button type="button" class="grosBoutton" id="start" onclick="analyse_parametre();lancement();"></button>
             <button type="button" class="grosBoutton" id="pause/resume" style="display: none;" >Pause</button>
           </span>
 
@@ -455,7 +417,22 @@ if (!sessionStorage.getItem(key)) {
 <span id="enregistrer2"></span>
 
   <!-- Script pour l'analyse de trajectoire -->
-  <script type="module" src="JavaScript/Trajectoires/analyse_trajectoire.js"></script>
+  <script src="JavaScript/Trajectoires/analyse_trajectoire_inter_photon.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      // On vérifie si l'indicateur est présent dans la session
+      if (sessionStorage.getItem("cliquerSurStart") === "true") {
+          const bouton = document.getElementById("start");
+          
+          if (bouton) {
+              bouton.click();
+          }
+          
+          // Supprimer l'indicateur pour éviter une boucle infinie de clics/rechargements
+          sessionStorage.removeItem("cliquerSurStart");
+      }
+    });
+  </script>
 
 </body>
 
