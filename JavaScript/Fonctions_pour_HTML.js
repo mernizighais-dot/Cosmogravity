@@ -908,10 +908,21 @@ function exemples(exemple) {
         document.getElementById("traject_type").value = "complete";
         document.getElementById("traject_type2").value = "observateur";
 
+        document.getElementById("rebondd").className = "bouttonChoix-inverse";
+        document.getElementById("reb").value = "0";
+        ammortUpdate(0);
+        document.getElementById("boutton_ammorti").value = "0";//on stocke la valeur à 0 pour savoir que ce n'est pas affiché à present
+        document.getElementById("barre_reb").style.display = "none"; //on le cache
+
         pressionBouttonTrajectoireComplete();
         pressionBouttonObservateur(false);
         notationvitesseree2();
 
+        // Équivalent de l'écouteur d'évènement de inputRphysique :
+		document.getElementById("rebondd").style.display="none"; 
+		document.getElementById("barre_reb").style.display="none";
+		document.getElementById("sp_reb").style.display="none";
+		update_toggleEntreeSortie();
 
         // Équivalent de l'écouteur d'évènement de btnObservateur :
        
@@ -923,11 +934,11 @@ function exemples(exemple) {
     }
 
     if (exemple == "ex2SCH1") {
-        document.getElementById("M").value = "2e39";
+        document.getElementById("M").value = "2e40";
         document.getElementById("r_phy").value = "0";
         document.getElementById("nombredefusees").value = "1";
 
-        document.getElementById("r01").value = "2e13";
+        document.getElementById("r01").value = "2e14";
         document.getElementById("v01").value = "7.75e7";
         document.getElementById("phi01").value = "0";
         document.getElementById("teta1").value = "90";
@@ -936,10 +947,21 @@ function exemples(exemple) {
         document.getElementById("traject_type").value = "complete";
         document.getElementById("traject_type2").value = "observateur";
 
+        document.getElementById("rebondd").className = "bouttonChoix-inverse";
+        document.getElementById("reb").value = "0";
+        ammortUpdate(0);
+        document.getElementById("boutton_ammorti").value = "0";//on stocke la valeur à 0 pour savoir que ce n'est pas affiché à present
+        document.getElementById("barre_reb").style.display = "none"; //on le cache
+
         pressionBouttonTrajectoireComplete();
         pressionBouttonObservateur(false);
         notationvitesseree2();
 
+        // Équivalent de l'écouteur d'évènement de inputRphysique :
+		document.getElementById("rebondd").style.display="none"; 
+		document.getElementById("barre_reb").style.display="none";
+		document.getElementById("sp_reb").style.display="none";
+		update_toggleEntreeSortie();
 
         // Équivalent de l'écouteur d'évènement de btnObservateur :
        
@@ -963,11 +985,21 @@ function exemples(exemple) {
         document.getElementById("pourcentage_vphi_pilotage").value = "67";
         document.getElementById("traject_type").value = "simple";
         document.getElementById("traject_type2").value = "mobile";
+        
+        document.getElementById("rebondd").className = "bouttonChoix";
+        document.getElementById("reb").value = "50";
+        ammortUpdate(50);
+        document.getElementById("boutton_ammorti").value = "1"; //on stocke la valeur à 1 pour savoir que c'est affiché à present
+        document.getElementById("barre_reb").style.display = "block"; //on l'affiche
 
         pressionBouttonTrajectoireSimple();
         pressionBouttonMobile(false);
         notationvitesseree2();
 
+        // Équivalent de l'écouteur d'évènement de inputRphysique :
+        document.getElementById("rebondd").style.display="inline";
+		document.getElementById("sp_reb").style.display="flex";
+		update_toggleEntreeSortie();
 
         // Équivalent de l'écouteur d'évènement de btnSpationaute :
 
@@ -1008,10 +1040,17 @@ function exemples(exemple) {
         document.getElementById("traject_type").value = "complete";
         document.getElementById("traject_type2").value = "observateur";
 
+        document.getElementById("rebondd").className = "bouttonChoix-inverse";
+        document.getElementById("boutton_ammorti").value = "0";//on stocke la valeur à 0 pour savoir que ce n'est pas affiché à present
+
         pressionBouttonTrajectoireComplete();
         pressionBouttonObservateur(false);
         notationvitesseree1();
 
+        // Équivalent de l'écouteur d'évènement de inputRphysique :
+		document.getElementById("rebondd").style.display="none"; 
+		document.getElementById("sp_reb").style.display="none";
+		update_toggleEntreeSortie();
 
         // Équivalent de l'écouteur d'évènement de btnObservateur :
        
@@ -1033,9 +1072,17 @@ function exemples(exemple) {
         document.getElementById("traject_type").value = "complete";
         document.getElementById("traject_type2").value = "observateur";
 
+        document.getElementById("rebondd").className = "bouttonChoix-inverse";
+        document.getElementById("boutton_ammorti").value = "0";//on stocke la valeur à 0 pour savoir que ce n'est pas affiché à present
+
         pressionBouttonTrajectoireComplete();
         pressionBouttonObservateur(false);
         notationvitesseree1();
+
+        // Équivalent de l'écouteur d'évènement de inputRphysique :
+		document.getElementById("rebondd").style.display="none"; 
+		document.getElementById("sp_reb").style.display="none";
+		update_toggleEntreeSortie();
 
 
         // Équivalent de l'écouteur d'évènement de btnObservateur :
@@ -1058,10 +1105,17 @@ function exemples(exemple) {
         document.getElementById("traject_type").value = "simple";
         document.getElementById("traject_type2").value = "mobile";
 
+        document.getElementById("rebondd").className = "bouttonChoix";
+        document.getElementById("boutton_ammorti").value = "1"; //on stocke la valeur à 1 pour savoir que c'est affiché à present
+
         pressionBouttonTrajectoireSimple();
         pressionBouttonMobile(false);
         notationvitesseree1();
 
+        // Équivalent de l'écouteur d'évènement de inputRphysique :
+        document.getElementById("rebondd").style.display="inline";
+		document.getElementById("sp_reb").style.display="flex";
+		update_toggleEntreeSortie();
 
         // Équivalent de l'écouteur d'évènement de btnSpationaute :
 

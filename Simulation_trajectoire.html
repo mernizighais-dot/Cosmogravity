@@ -426,11 +426,13 @@ ga('send', 'pageview');
 			btnrebond.style.display="none"; 
 			document.getElementById("barre_reb").style.display="none";
 			document.getElementById("sp_reb").style.display="none";
+			document.getElementById("rebondd").className = "bouttonChoix-inverse";
 			update_toggleEntreeSortie();
 		}
 		else {
 			btnrebond.style.display="inline";
 			document.getElementById("sp_reb").style.display="flex";
+			document.getElementById("rebondd").className = "bouttonChoix-inverse";
 			update_toggleEntreeSortie();
 		}
 

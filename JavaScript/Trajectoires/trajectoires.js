@@ -111,19 +111,16 @@ function pressionBouttonMobile(Kerr) {
  */
 function ammort() 
 {
-  //verifier si la barre n'est pas affichée
-  if (document.getElementById("boutton_ammorti").value == "0") 
+    //on verifie d'abord le style du bouton puis on le change
+  if (document.getElementById("rebondd").className == "bouttonChoix-inverse") 
   {
-    document.getElementById("boutton_ammorti").value = "1"; //on stocke la valeur à 1 pour savoir que c'est affiché à present
     document.getElementById("barre_reb").style.display = "block"; //on l'affiche
-    document.getElementById('ammorti').innerHTML=document.getElementById("reb").value; //on met à jour la valeur
+    ammortUpdate(document.getElementById("reb").value); //on met à jour la valeur
 
   } 
-  //Si la barre est affichée
-  else {
-    document.getElementById("boutton_ammorti").value = "0";//on stocke la valeur à 0 pour savoir que ce n'est pas affiché à present
+  else 
+  {
     document.getElementById("barre_reb").style.display = "none"; //on le cache
-  
   }
 }
 
@@ -153,5 +150,5 @@ function ammort_photon() {
  */
 function ammortUpdate(val)
 {
-  document.getElementById('ammorti').innerHTML=val/100; //on met à jour la valeur
+  document.getElementById('ammorti').innerHTML= val + "%"; //on met à jour la valeur
 }
