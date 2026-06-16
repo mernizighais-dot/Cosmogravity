@@ -219,6 +219,11 @@ function trajectoire() {
 		document.getElementById('r3').disabled = true;
 		document.getElementById('r4').disabled = true;
 
+		//Interdiction de changer les boutons d'exemple une fois la simulation lancée :
+		document.getElementById('ex1Kerr2').disabled = true;
+		document.getElementById('ex2Kerr2').disabled = true;
+		document.getElementById('ex3Kerr2').disabled = true;
+
 		document.getElementById('trace_present').value="true"; //Permet de déclarer qu'il y a un tracé. 
 
 		pause = false; //Permet de dire que nous ne sommes pas en pause.

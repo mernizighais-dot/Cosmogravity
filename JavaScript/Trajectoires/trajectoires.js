@@ -114,13 +114,15 @@ function ammort()
     //on verifie d'abord le style du bouton puis on le change
   if (document.getElementById("rebondd").className == "bouttonChoix-inverse") 
   {
-    document.getElementById("barre_reb").style.display = "block"; //on l'affiche
+    document.getElementById("boutton_ammorti").value = "1";
+    document.getElementById("barre_reb").style.display = "flex"; //on l'affiche
     ammortUpdate(document.getElementById("reb").value); //on met à jour la valeur
 
   } 
   else 
   {
     document.getElementById("barre_reb").style.display = "none"; //on le cache
+    document.getElementById("boutton_ammorti").value = "0";
   }
 }
 

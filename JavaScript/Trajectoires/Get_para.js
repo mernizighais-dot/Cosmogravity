@@ -321,8 +321,16 @@ function load_generalise_SCH_bar(){
 		}
 
 		//Pour savoir si on affiche ou pas le bouton de rebond dans le cas d'un trou noir :
-		if (document.getElementById("r_phy").value == "0" || document.getElementById("r_phy").value == "" ) {document.getElementById("rebondd").style.display="none";} 
-		else{document.getElementById("rebondd").style.display="inline";}
+		if (document.getElementById("r_phy").value == "0" || document.getElementById("r_phy").value == "" ) {
+			document.getElementById("rebondd").style.display="none";
+			document.getElementById("barre_reb").style.display="none";
+			document.getElementById("sp_reb").style.display="none";
+		} 
+		else {
+			document.getElementById("rebondd").style.display="inline";
+			document.getElementById("sp_reb").style.display="flex";
+			document.getElementById("rebondd").className = "bouttonChoix-inverse";
+		}
 
 	}
 }
@@ -377,12 +385,12 @@ function load_schwarshild_massif() {
 
 		//Si on a appuyé sur le bouton rebond ou non, j'affiche ou non la barre pour choisir l'amortissement avec sa valeur précédente :
 		if (document.getElementById("boutton_ammorti").value == "1") {
-			document.getElementById("barre_reb").style.display = "block";
-			document.getElementById('ammorti').innerHTML = document.getElementById("reb").value / 100;
+			document.getElementById("barre_reb").style.display = "flex";
+			document.getElementById('ammorti').innerHTML = document.getElementById("reb").value + "%";
 		} 
 		else if (document.getElementById("boutton_ammorti").value == "0") {
 			document.getElementById("barre_reb").style.display = "none";
-			document.getElementById('ammorti').innerHTML = document.getElementById("reb").value / 100;
+			document.getElementById('ammorti').innerHTML = document.getElementById("reb").value + "%";
 		}
 		
   	}

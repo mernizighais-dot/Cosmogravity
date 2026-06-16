@@ -894,6 +894,7 @@ function exemples(exemple) {
 
     //PARTIE TRAJECTOIRE
 
+    /* Cas par défaut du site
     if (exemple == "ex1SCH1") {
         document.getElementById("M").value = "2e39";
         document.getElementById("r_phy").value = "0";
@@ -932,20 +933,21 @@ function exemples(exemple) {
 
         initialisationGenerale(1);
     }
+    */
 
-    if (exemple == "ex2SCH1") {
-        document.getElementById("M").value = "2e40";
+    if (exemple == "ex1SCH1") {
+        document.getElementById("M").value = "1.9884e30";
         document.getElementById("r_phy").value = "0";
         document.getElementById("nombredefusees").value = "1";
 
-        document.getElementById("r01").value = "2e14";
-        document.getElementById("v01").value = "7.75e7";
+        document.getElementById("r01").value = "12000";
+        document.getElementById("v01").value = "1.21112418e8";
         document.getElementById("phi01").value = "0";
         document.getElementById("teta1").value = "90";
 
         document.getElementById("pourcentage_vphi_pilotage").value = "0.003";
         document.getElementById("traject_type").value = "complete";
-        document.getElementById("traject_type2").value = "observateur";
+        document.getElementById("traject_type2").value = "mobile";
 
         document.getElementById("rebondd").className = "bouttonChoix-inverse";
         document.getElementById("reb").value = "0";
@@ -954,7 +956,7 @@ function exemples(exemple) {
         document.getElementById("barre_reb").style.display = "none"; //on le cache
 
         pressionBouttonTrajectoireComplete();
-        pressionBouttonObservateur(false);
+        pressionBouttonMobile(false);
         notationvitesseree2();
 
         // Équivalent de l'écouteur d'évènement de inputRphysique :
@@ -963,36 +965,98 @@ function exemples(exemple) {
 		document.getElementById("sp_reb").style.display="none";
 		update_toggleEntreeSortie();
 
+        // Équivalent de l'écouteur d'évènement de btnSpationaute :
+
+        /*Juste pour avoir les valeurs rentrées avant de cliquer sur spationaute*/
+		const r01 = document.getElementById("r01").value;
+		const v01 = document.getElementById("v01").value;
+		const phi01 = document.getElementById("phi01").value;
+		const teta1 = document.getElementById("teta1").value;
+
+		inputNbfusees.value='1'; // on met un seul mobile
+		const event = new Event('change');//on met à jour tout le changement en appelant la sa fonctionnalité de changement
+		inputNbfusees.dispatchEvent(event);
+		document.getElementById("r01").value=r01;
+		document.getElementById("v01").value=v01;
+		document.getElementById("phi01").value=phi01;
+		document.getElementById("teta1").value=teta1;
+		
+		initialisationGenerale(1);//on actualise les valeurs de simulation
+
+
+		inputNbfusees_div.style.display ="none";
+		labelPourcentageVphiPilotage.style.display = "inline";
+		inputPourcentageVphiPilotage.style.display = "inline";
+    }
+
+    if (exemple == "ex2SCH1") {
+        document.getElementById("M").value = "2e13";
+        document.getElementById("r_phy").value = "1000";
+        document.getElementById("nombredefusees").value = "2";
+        supprHtml();
+        genereHtml();
+        save_nbfusees();
+        updatenbredefusees();
+
+        document.getElementById("r01").value = "3000";
+        document.getElementById("v01").value = "0.4";
+        document.getElementById("phi01").value = "0";
+        document.getElementById("teta1").value = "65";
+
+        document.getElementById("r02").value = "5000";
+        document.getElementById("v02").value = "0.5";
+        document.getElementById("phi02").value = "0";
+        document.getElementById("teta2").value = "250";
+
+        document.getElementById("pourcentage_vphi_pilotage").value = "0.003";
+        document.getElementById("traject_type").value = "complete";
+        document.getElementById("traject_type2").value = "observateur";
+
+        document.getElementById("rebondd").className = "bouttonChoix";
+        document.getElementById("reb").value = "30";
+        ammortUpdate(30);
+        document.getElementById("boutton_ammorti").value = "1"; //on stocke la valeur à 1 pour savoir que c'est affiché à present
+        document.getElementById("barre_reb").style.display = "flex"; //on l'affiche
+
+        pressionBouttonTrajectoireComplete();
+        pressionBouttonObservateur(false);
+        notationvitesseree2();
+
+        // Équivalent de l'écouteur d'évènement de inputRphysique :
+        document.getElementById("rebondd").style.display="inline";
+		document.getElementById("sp_reb").style.display="flex";
+		update_toggleEntreeSortie();
+
         // Équivalent de l'écouteur d'évènement de btnObservateur :
        
         inputNbfusees_div.style.display="flex";
 		labelPourcentageVphiPilotage.style.display = "none";
 		inputPourcentageVphiPilotage.style.display = "none";
 
-        initialisationGenerale(1);
+        initialisationGenerale(2);
     }
 
     if (exemple == "ex3SCH1") {
-        document.getElementById("M").value = "67";
-        document.getElementById("r_phy").value = "67";
+        document.getElementById("M").value = "5.97e24";
+        document.getElementById("r_phy").value = "6.4e6";
         document.getElementById("nombredefusees").value = "1";
 
-        document.getElementById("r01").value = "67";
-        document.getElementById("v01").value = "67";
-        document.getElementById("phi01").value = "67";
-        document.getElementById("teta1").value = "67";
+        document.getElementById("r01").value = "6.9e6";
+        document.getElementById("v01").value = "7.5989e3";
+        document.getElementById("phi01").value = "0";
+        document.getElementById("teta1").value = "90";
 
-        document.getElementById("pourcentage_vphi_pilotage").value = "67";
-        document.getElementById("traject_type").value = "simple";
+        document.getElementById("pourcentage_vphi_pilotage").value = "0.003";
+        document.getElementById("traject_type").value = "complete";
         document.getElementById("traject_type2").value = "mobile";
         
-        document.getElementById("rebondd").className = "bouttonChoix";
-        document.getElementById("reb").value = "50";
-        ammortUpdate(50);
-        document.getElementById("boutton_ammorti").value = "1"; //on stocke la valeur à 1 pour savoir que c'est affiché à present
-        document.getElementById("barre_reb").style.display = "block"; //on l'affiche
+        document.getElementById("rebondd").className = "bouttonChoix-inverse";
+        document.getElementById("reb").value = "0";
+        ammortUpdate(0);
+        document.getElementById("boutton_ammorti").value = "0";//on stocke la valeur à 0 pour savoir que ce n'est pas affiché à present
+        document.getElementById("barre_reb").style.display = "none"; //on le cache
 
-        pressionBouttonTrajectoireSimple();
+        pressionBouttonTrajectoireComplete();
         pressionBouttonMobile(false);
         notationvitesseree2();
 
@@ -1027,7 +1091,7 @@ function exemples(exemple) {
 
 
 
-
+    /* Cas par défaut
     if (exemple == "ex1SCH2") {
         document.getElementById("M").value = "8e36";
         document.getElementById("r_phy").value = "0";
@@ -1059,15 +1123,68 @@ function exemples(exemple) {
 
         initialisationGenerale(1);
     }
+    */
 
-    if (exemple == "ex2SCH2") {
-        document.getElementById("M").value = "2e39";
+    if (exemple == "ex1SCH2") {
+        document.getElementById("M").value = "8e36";
         document.getElementById("r_phy").value = "0";
         document.getElementById("nombredefusees").value = "1";
 
-        document.getElementById("r01").value = "2e13";
-        document.getElementById("phi01").value = "0";
-        document.getElementById("teta1").value = "90";
+        document.getElementById("r01").value = "1.7685e11";
+        document.getElementById("phi01").value = "-10";
+        document.getElementById("teta1").value = "190";
+
+        document.getElementById("traject_type").value = "complete";
+        document.getElementById("traject_type2").value = "mobile";
+
+        document.getElementById("rebondd").className = "bouttonChoix-inverse";
+        document.getElementById("boutton_ammorti").value = "0";//on stocke la valeur à 0 pour savoir que ce n'est pas affiché à present
+
+        pressionBouttonTrajectoireComplete();
+        pressionBouttonMobile(false);
+        notationvitesseree1();
+
+        // Équivalent de l'écouteur d'évènement de inputRphysique :
+		document.getElementById("rebondd").style.display="none"; 
+		document.getElementById("sp_reb").style.display="none";
+		update_toggleEntreeSortie();
+
+        // Équivalent de l'écouteur d'évènement de btnSpationaute :
+
+        /*Juste pour avoir les valeurs rentrées avant de cliquer sur spationaute*/
+		const r01 = document.getElementById("r01").value;
+		const phi01 = document.getElementById("phi01").value;
+		const teta1 = document.getElementById("teta1").value;
+
+		inputNbfusees.value='1'; // on met un seul mobile
+		const event = new Event('change');//on met à jour tout le changement en appelant la sa fonctionnalité de changement
+		inputNbfusees.dispatchEvent(event);
+		document.getElementById("r01").value=r01;
+		document.getElementById("phi01").value=phi01;
+		document.getElementById("teta1").value=teta1;
+		
+		initialisationGenerale(1);//on actualise les valeurs de simulation
+
+		inputNbfusees.style.display ="none";
+		labelNbfusees.style.display = "none";
+    }
+
+    if (exemple == "ex2SCH2") {
+        document.getElementById("M").value = "2e30";
+        document.getElementById("r_phy").value = "0";
+        document.getElementById("nombredefusees").value = "2";
+        supprHtml();
+        genereHtml();
+        save_nbfusees();
+        updatenbredefusees();
+
+        document.getElementById("r01").value = "1e4";
+        document.getElementById("phi01").value = "120";
+        document.getElementById("teta1").value = "-135";
+
+        document.getElementById("r02").value = "1e4";
+        document.getElementById("phi02").value = "135";
+        document.getElementById("teta2").value = "210";
 
         document.getElementById("traject_type").value = "complete";
         document.getElementById("traject_type2").value = "observateur";
@@ -1090,19 +1207,19 @@ function exemples(exemple) {
         inputNbfusees.style.display = "inline"; // Afficher le input et le label de nbfusees si button observateur est cliqué 
 		labelNbfusees.style.display = "inline"; 
 
-        initialisationGenerale(1);
+        initialisationGenerale(2);
     }
 
     if (exemple == "ex3SCH2") {
-        document.getElementById("M").value = "67";
-        document.getElementById("r_phy").value = "67";
+        document.getElementById("M").value = "2e30";
+        document.getElementById("r_phy").value = "3e3";
         document.getElementById("nombredefusees").value = "1";
 
-        document.getElementById("r01").value = "67";
-        document.getElementById("phi01").value = "67";
-        document.getElementById("teta1").value = "67";
+        document.getElementById("r01").value = "1e4";
+        document.getElementById("phi01").value = "135";
+        document.getElementById("teta1").value = "210";
 
-        document.getElementById("traject_type").value = "simple";
+        document.getElementById("traject_type").value = "complete";
         document.getElementById("traject_type2").value = "mobile";
 
         document.getElementById("rebondd").className = "bouttonChoix";
@@ -1140,7 +1257,7 @@ function exemples(exemple) {
 
 
 
-
+    /* Cas par défaut
     if (exemple == "ex1SCH3") {
         document.getElementById("M").value = "2e39";
         document.getElementById("r_phy").value = "1e18";
@@ -1169,16 +1286,31 @@ function exemples(exemple) {
 
         initialisationGenerale(1);
     }
+    */
 
-    if (exemple == "ex2SCH3") {
-        document.getElementById("M").value = "2e39";
-        document.getElementById("r_phy").value = "0";
-        document.getElementById("nombredefusees").value = "1";
+    if (exemple == "ex1SCH3") {
+        document.getElementById("M").value = "2e30";
+        document.getElementById("r_phy").value = "7e8";
+        document.getElementById("nombredefusees").value = "3";
+        supprHtml();
+        genereHtml();
+        save_nbfusees();
+        updatenbredefusees();
 
-        document.getElementById("r01").value = "2e13";
-        document.getElementById("v01").value = "7.75e7";
+        document.getElementById("r01").value = "9e8";
+        document.getElementById("v01").value = "3e5";
         document.getElementById("phi01").value = "0";
         document.getElementById("teta1").value = "90";
+
+        document.getElementById("r02").value = "4e8";
+        document.getElementById("v02").value = "3e5";
+        document.getElementById("phi02").value = "90";
+        document.getElementById("teta2").value = "90";
+
+        document.getElementById("r03").value = "6e8";
+        document.getElementById("v03").value = "3e5";
+        document.getElementById("phi03").value = "180";
+        document.getElementById("teta3").value = "90";
 
         document.getElementById("pourcentage_vphi_pilotage").value = "0.003";
         document.getElementById("traject_type").value = "complete";
@@ -1196,24 +1328,62 @@ function exemples(exemple) {
 		labelPourcentageVphiPilotage.style.display = "none";
 		inputPourcentageVphiPilotage.style.display = "none";
 
-        initialisationGenerale(1);
+        initialisationGenerale(3);
+    }
+
+    if (exemple == "ex2SCH3") {
+        document.getElementById("M").value = "5.97e24";
+        document.getElementById("r_phy").value = "500";
+        document.getElementById("nombredefusees").value = "2";
+        supprHtml();
+        genereHtml();
+        save_nbfusees();
+        updatenbredefusees();
+
+        document.getElementById("r01").value = "2e3";
+        document.getElementById("v01").value = "4.46335e5";
+        document.getElementById("phi01").value = "20";
+        document.getElementById("teta1").value = "90";
+
+        document.getElementById("r02").value = "4e3";
+        document.getElementById("v02").value = "3.15606e5";
+        document.getElementById("phi02").value = "140";
+        document.getElementById("teta2").value = "-90";
+
+        document.getElementById("pourcentage_vphi_pilotage").value = "0.003";
+        document.getElementById("traject_type").value = "complete";
+        document.getElementById("traject_type2").value = "observateur";
+
+        pressionBouttonTrajectoireComplete();
+        pressionBouttonObservateur(false);
+        notationvitesseree2();
+
+
+        // Équivalent de l'écouteur d'évènement de btnObservateur :
+       
+        inputNbfusees.style.display = "inline"; // Afficher le input et le label de nbfusees si button observateur est cliqué 
+		labelNbfusees.style.display = "inline";
+		labelPourcentageVphiPilotage.style.display = "none";
+		inputPourcentageVphiPilotage.style.display = "none";
+
+        initialisationGenerale(2);
     }
 
     if (exemple == "ex3SCH3") {
-        document.getElementById("M").value = "67";
-        document.getElementById("r_phy").value = "67";
+        document.getElementById("M").value = "2e30";
+        document.getElementById("r_phy").value = "7e8";
         document.getElementById("nombredefusees").value = "1";
 
-        document.getElementById("r01").value = "67";
-        document.getElementById("v01").value = "67";
-        document.getElementById("phi01").value = "67";
-        document.getElementById("teta1").value = "67";
+        document.getElementById("r01").value = "1e9";
+        document.getElementById("v01").value = "5e4";
+        document.getElementById("phi01").value = "0";
+        document.getElementById("teta1").value = "120";
 
-        document.getElementById("pourcentage_vphi_pilotage").value = "67";
-        document.getElementById("traject_type").value = "simple";
+        document.getElementById("pourcentage_vphi_pilotage").value = "0.003";
+        document.getElementById("traject_type").value = "complete";
         document.getElementById("traject_type2").value = "mobile";
 
-        pressionBouttonTrajectoireSimple();
+        pressionBouttonTrajectoireComplete();
         pressionBouttonMobile(false);
         notationvitesseree2();
 
@@ -1245,7 +1415,7 @@ function exemples(exemple) {
 
 
 
-
+    /* Cas par défaut
     if (exemple == "ex1SCH4") {
         document.getElementById("M").value = "2e30";
         document.getElementById("r_phy").value = "3.5e3";
@@ -1270,15 +1440,24 @@ function exemples(exemple) {
 
         initialisationGenerale(1);
     }
+    */
 
-    if (exemple == "ex2SCH4") {
-        document.getElementById("M").value = "2e39";
-        document.getElementById("r_phy").value = "0";
-        document.getElementById("nombredefusees").value = "1";
+    if (exemple == "ex1SCH4") {
+        document.getElementById("M").value = "2e30";
+        document.getElementById("r_phy").value = "7e8";
+        document.getElementById("nombredefusees").value = "2";
+        supprHtml();
+        genereHtml();
+        save_nbfusees();
+        updatenbredefusees();
 
-        document.getElementById("r01").value = "2e13";
-        document.getElementById("phi01").value = "0";
+        document.getElementById("r01").value = "4.4554e3";
+        document.getElementById("phi01").value = "20";
         document.getElementById("teta1").value = "90";
+
+        document.getElementById("r02").value = "1.95907e3";
+        document.getElementById("phi02").value = "120";
+        document.getElementById("teta2").value = "-90";
 
         document.getElementById("traject_type").value = "complete";
         document.getElementById("traject_type2").value = "observateur";
@@ -1293,22 +1472,55 @@ function exemples(exemple) {
         inputNbfusees.style.display = "inline"; // Afficher le input et le label de nbfusees si button observateur est cliqué 
 		labelNbfusees.style.display = "inline"; 
 
-        initialisationGenerale(1);
+        initialisationGenerale(2);
+    }
+
+    if (exemple == "ex2SCH4") {
+        document.getElementById("M").value = "2e30";
+        document.getElementById("r_phy").value = "3.5e3";
+        document.getElementById("nombredefusees").value = "2";
+        supprHtml();
+        genereHtml();
+        save_nbfusees();
+        updatenbredefusees();
+
+        document.getElementById("r01").value = "5e3";
+        document.getElementById("phi01").value = "0";
+        document.getElementById("teta1").value = "120";
+
+        document.getElementById("r02").value = "2e3";
+        document.getElementById("phi02").value = "-50";
+        document.getElementById("teta2").value = "120";
+
+        document.getElementById("traject_type").value = "complete";
+        document.getElementById("traject_type2").value = "observateur";
+
+        pressionBouttonTrajectoireComplete();
+        pressionBouttonObservateur(false);
+        notationvitesseree1();
+
+
+        // Équivalent de l'écouteur d'évènement de btnObservateur :
+       
+        inputNbfusees.style.display = "inline"; // Afficher le input et le label de nbfusees si button observateur est cliqué 
+		labelNbfusees.style.display = "inline"; 
+
+        initialisationGenerale(2);
     }
 
     if (exemple == "ex3SCH4") {
-        document.getElementById("M").value = "67";
-        document.getElementById("r_phy").value = "67";
+        document.getElementById("M").value = "5.97e24";
+        document.getElementById("r_phy").value = "6.4e8";
         document.getElementById("nombredefusees").value = "1";
 
-        document.getElementById("r01").value = "67";
-        document.getElementById("phi01").value = "67";
-        document.getElementById("teta1").value = "67";
+        document.getElementById("r01").value = "1e9";
+        document.getElementById("phi01").value = "0";
+        document.getElementById("teta1").value = "160";
 
-        document.getElementById("traject_type").value = "simple";
+        document.getElementById("traject_type").value = "complete";
         document.getElementById("traject_type2").value = "mobile";
 
-        pressionBouttonTrajectoireSimple();
+        pressionBouttonTrajectoireComplete();
         pressionBouttonMobile(false);
         notationvitesseree1();
 
@@ -1365,11 +1577,11 @@ function exemples(exemple) {
     }
 
     if (exemple == "ex2Kerr1") {
-        document.getElementById("M").value = "2e39";
-        document.getElementById("J").value = "0";
+        document.getElementById("M").value = "1.9e38";
+        document.getElementById("J").value = "7.8e57";
 
-        document.getElementById("r0").value = "2e13";
-        document.getElementById("v0").value = "7.75e7";
+        document.getElementById("r0").value = "5e11";
+        document.getElementById("v0").value = "1e8";
         document.getElementById("phi0").value = "0";
         document.getElementById("teta").value = "90";
 
@@ -1391,20 +1603,20 @@ function exemples(exemple) {
     }
 
     if (exemple == "ex3Kerr1") {
-        document.getElementById("M").value = "67";
-        document.getElementById("J").value = "67";
+        document.getElementById("M").value = "2e30";
+        document.getElementById("J").value = "8.5e41";
 
-        document.getElementById("r0").value = "67";
-        document.getElementById("v0").value = "67";
-        document.getElementById("phi0").value = "67";
-        document.getElementById("teta").value = "67";
+        document.getElementById("r0").value = "5e3";
+        document.getElementById("v0").value = "5e7";
+        document.getElementById("phi0").value = "0";
+        document.getElementById("teta").value = "90";
 
-        document.getElementById("pourcentage_vphi_pilotage").value = "67";
-        document.getElementById("traject_type").value = "simple";
+        document.getElementById("pourcentage_vphi_pilotage").value = "0.003";
+        document.getElementById("traject_type").value = "complete";
         document.getElementById("traject_type2").value = "mobile";
         document.getElementById("depasser").checked = true;
 
-        pressionBouttonTrajectoireSimple();
+        pressionBouttonTrajectoireComplete();
         pressionBouttonMobile(true);
         notationvitesseree2kerr();
         initialisation();
@@ -1419,7 +1631,7 @@ function exemples(exemple) {
 
 
 
-
+    /* Cas par défaut
     if (exemple == "ex1Kerr2") {
         document.getElementById("M").value = "2e30";
         document.getElementById("J").value = "8.5e41";
@@ -1437,14 +1649,33 @@ function exemples(exemple) {
         notationvitesseree1kerr();
         initialisation();
     }
+    */
+
+    if (exemple == "ex1Kerr2") {
+        document.getElementById("M").value = "2e30";
+        document.getElementById("J").value = "8.5e41";
+
+        document.getElementById("r0").value = "5.88029e3";
+        document.getElementById("phi0").value = "50";
+        document.getElementById("teta").value = "-90";
+
+        document.getElementById("traject_type").value = "complete";
+        document.getElementById("traject_type2").value = "observateur";
+        document.getElementById("depasser").checked = false;
+
+        pressionBouttonTrajectoireComplete();
+        pressionBouttonObservateur(true);
+        notationvitesseree1kerr();
+        initialisation();
+    }
 
     if (exemple == "ex2Kerr2") {
-        document.getElementById("M").value = "2e39";
-        document.getElementById("J").value = "0";
+        document.getElementById("M").value = "2e30";
+        document.getElementById("J").value = "8.5e41";
 
-        document.getElementById("r0").value = "2e13";
+        document.getElementById("r0").value = "5e3";
         document.getElementById("phi0").value = "0";
-        document.getElementById("teta").value = "90";
+        document.getElementById("teta").value = "-90";
 
         document.getElementById("traject_type").value = "complete";
         document.getElementById("traject_type2").value = "observateur";
@@ -1457,19 +1688,19 @@ function exemples(exemple) {
     }
 
     if (exemple == "ex3Kerr2") {
-        document.getElementById("M").value = "67";
-        document.getElementById("J").value = "67";
+        document.getElementById("M").value = "2e30";
+        document.getElementById("J").value = "8.5e41";
 
-        document.getElementById("r0").value = "67";
-        document.getElementById("phi0").value = "67";
-        document.getElementById("teta").value = "67";
+        document.getElementById("r0").value = "4e3";
+        document.getElementById("phi0").value = "-30";
+        document.getElementById("teta").value = "120";
 
-        document.getElementById("traject_type").value = "simple";
-        document.getElementById("traject_type2").value = "mobile";
-        document.getElementById("depasser").checked = true;
+        document.getElementById("traject_type").value = "complete";
+        document.getElementById("traject_type2").value = "observateur";
+        document.getElementById("depasser").checked = false;
 
-        pressionBouttonTrajectoireSimple();
-        pressionBouttonMobile(true);
+        pressionBouttonTrajectoireComplete();
+        pressionBouttonObservateur(true);
         notationvitesseree1kerr();
         initialisation();
     }

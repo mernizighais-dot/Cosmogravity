@@ -880,6 +880,11 @@ function trajectoire(compteur,mobile) {
     	document.getElementById('r3').disabled = true; //Observateur.
     	document.getElementById('r4').disabled = true; //Photon.
 
+		//Interdiction de changer les boutons d'exemple une fois la simulation lancée :
+		document.getElementById('ex1SCH4').disabled = true;
+		document.getElementById('ex2SCH4').disabled = true;
+		document.getElementById('ex3SCH4').disabled = true;
+
 		element2=document.getElementById('traject_type2'); //Récupère la valeur de si on est en mode observateur ou en mode photon.
 
     	document.getElementById('trace_present').value="true"; //Permet de déclarer qu'il y a un tracé. 

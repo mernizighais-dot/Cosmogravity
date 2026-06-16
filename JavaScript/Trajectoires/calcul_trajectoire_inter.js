@@ -942,6 +942,11 @@ function trajectoire(compteur,mobile) {
 		document.getElementById('r3').disabled = true; //Observateur.
 		document.getElementById('r4').disabled = true; //Spationaute.
 
+		//Interdiction de changer les boutons d'exemple une fois la simulation lancée :
+		document.getElementById('ex1SCH3').disabled = true;
+		document.getElementById('ex2SCH3').disabled = true;
+		document.getElementById('ex3SCH3').disabled = true;
+
 		element2=document.getElementById('traject_type2'); //Récupère la valeur de si on est en mode observateur ou en mode spationaute.
 
 		rendreVisibleNbG() //Permet si on est en mode spationaute d'afficher les cases concernant le nombre de g ressenti. 

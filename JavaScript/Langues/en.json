@@ -413,7 +413,7 @@
 		"observateur": "Distant Observer",
 		"mobile": "Spationaut",
 		"temps_obs": "Distant Observer time",
-		"decal_spect": "Spectral shift / Energy consumed",
+		"decal_spect": "Spectral shift /<br>Energy consumed",
 		"r0egale0": "r0 is positive",
 		"commandes_horsSchwarMassif": "Keyboard Commands List: \n\n- Full Trajectory: key a \n- Simple Trajectory: key z\n- With or Without Bounce: key e \n- Reset: key s \n- Save: key d \n- Slow down simulation: key w \n- Pause / Play: key x \n- Speed up simulation: key c",
 		"theta_label": "Angle of initial speed of projectile",
@@ -454,13 +454,13 @@
 		"label_choix_potentiel":"Choose an option:",
 		"label_choix_potentiel_infobulle":"Allows real-time selection of the potential graph to display",
 
-  		"info": "This page simulates the trajectory of a baryonic object around a baryonic mass using the Schwarzschild metric. It is possible to visualize either the complete trajectory or only the motion of the object. The frame of reference can be either that of the observer or that of the astronaut. In the latter case, it is possible to control it by changing its tangential velocity.",
-		"infoSCH2": "This page simulates the trajectory of a photon around a baryonic mass using the Schwarzschild metric. It is possible to visualize either the complete trajectory or only the motion of the object. The frame of reference can be either that of the observer or that of the photon.",
-  		"infoSCH3": "This page simulates the trajectory of a non-baryonic object around a non-baryonic mass using the Schwarzschild metric. It is possible to visualize either the complete trajectory or only the motion of the object. The frame of reference can be either that of the observer or that of the astronaut. In the latter case, it is possible to control it by changing its tangential velocity.",
-  		"infoSCH4": "This page simulates the trajectory of a photon around a non-baryonic mass using the Schwarzschild metric. It is possible to visualize either the complete trajectory or only the motion of the object. The frame of reference can be either that of the observer or that of the photon.",
-  		"infoKERR": "This page simulates the trajectory of a baryonic object around a baryonic mass using the Kerr metric. It is possible to visualize either the complete trajectory or only the motion of the object. The frame of reference can be either that of the observer or that of the astronaut. In the latter case, it is possible to control it by changing its tangential velocity and also to cross the outer horizon.",
-  		"infoKERR2": "This page simulates the trajectory of a photon around a baryonic mass using the Kerr metric. It is possible to visualize either the complete trajectory or only the motion of the object. The frame of reference can be either that of the observer or that of the photon. In the latter case, it is possible to cross the outer horizon.",
-
+  		"info":"This page simulates the trajectory of a baryonic particle around a baryonic mass using the Schwarzschild metric. It is possible to visualize either the complete trajectory or only the motion of the particle. The frame of reference is either that of the observer or that of the astronaut. In the latter case, it is possible to control the particle by changing its tangential velocity.<br><br>The page provides three trajectory examples:<br>-Example 1: Controllable particle in a circular orbit around a radiusless celestial body.<br>-Example 2: 2 particles, one in an elliptical orbit and the other falling onto the celestial body and bouncing off it.<br>-Example 3: Controllable particle in a circular orbit around a celestial body with a radius.",
+		"infoSCH2":"This page simulates the trajectory of a photon around a baryonic mass using the Schwarzschild metric. It is possible to visualize either the complete trajectory or only the motion of the particle. The frame of reference is either that of the observer or that of the photon.<br><br>The page provides three trajectory examples:<br>-Example 1: Photon experiencing the gravitational attraction of a celestial body and then moving away.<br>-Example 2: 2 photons attracted by a black hole, one of which falls into it.<br>-Example 3: Photon bouncing off a celestial body before moving away.",
+		"infoSCH3":"This page simulates the trajectory of a non-baryonic particle around a non-baryonic mass using the Schwarzschild metric. It is possible to visualize either the complete trajectory or only the motion of the particle. The frame of reference is either that of the observer or that of the astronaut. In the latter case, it is possible to control the particle by changing its tangential velocity.<br><br>The page provides three trajectory examples:<br>-Example 1: 3 particles orbiting around a celestial body.<br>-Example 2: 2 particles in circular orbits rotating in opposite directions.<br>-Example 3: Controllable particle orbiting around a celestial body, with the orbit rotating over time.",
+		"infoSCH4":"This page simulates the trajectory of a photon around a non-baryonic mass using the Schwarzschild metric. It is possible to visualize either the complete trajectory or only the motion of the particle. The frame of reference is either that of the observer or that of the photon.<br><br>The page provides three trajectory examples:<br>-Example 1: Bugged, TO BE FIXED!<br>-Example 2: 2 photons, one in orbit and the other managing to escape the attraction of the celestial body.<br>-Example 3: Photon passing through the celestial body without being attracted.",
+		"infoKERR":"This page simulates the trajectory of a baryonic particle around a black hole using the Kerr metric. It is possible to visualize either the complete trajectory or only the motion of the particle. The frame of reference is either that of the observer or that of the astronaut. In the latter case, it is possible to control the particle by changing its tangential velocity and also to cross the outer horizon.<br><br>The page provides three trajectory examples:<br>-Example 1: Particle orbiting around a black hole.<br>-Example 2: Particle in a circular orbit at the level of the black hole's outer horizon.<br>-Example 3: Particle falling into the black hole by crossing its outer horizon.",
+		"infoKERR2":"This page simulates the trajectory of a photon around a black hole using the Kerr metric. It is possible to visualize either the complete trajectory or only the motion of the particle. The frame of reference is either that of the observer or that of the photon. In the latter case, it is possible to cross the outer horizon.<br><br>The page provides three trajectory examples:<br>-Example 1: Photon in a circular orbit around a black hole.<br>-Example 2: Photon in a circular orbit at the level of the black hole's outer horizon.<br>-Example 3: Photon experiencing the gravitational attraction of a black hole and then moving away.",
+		
 		"titreExemple": "Examples:",
 		"ex1SCH1": "Example 1",
 		"ex2SCH1": "Example 2",
@@ -489,7 +489,7 @@
 		"particule_ecrasee": "Projectile has crashed onto the surface of the celestial body.",
 		"particule_atteint_rh": "Projectile has reached Rh+.",
 		"rebond": "Rebound",
-		"amortissement": "Damping coefficient: Limited bounce at impact speed < 300 m/s",
+		"amortissement": "Damping coefficient (Limited bounce at impact speed < 300 m/s):",
 		"non_baryonique": "Mass and/or non-baryonic mobile(s)",
 		"titre2": "Baryonic Mass and Mobile",
 		"commandes": "Keyboard Commands List: \n\n- Full Trajectory: key a \n- Simple Trajectory: key z \n- With or Without Bounce: key e \n- Reset: key s \n- Save: key d \n- Slow down simulation: key w \n- Pause / Play: key x \n- Speed up simulation: key c"

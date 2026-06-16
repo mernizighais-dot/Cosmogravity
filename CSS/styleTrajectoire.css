@@ -638,7 +638,7 @@ position: relative;
     grid-area: texte;
     align-self: center;
     justify-self: center; 
-    text-align: center;
+    text-align: start;
     margin: 1%;
 }
 
@@ -890,6 +890,39 @@ option[disabled]:first-child {
     top: -3px !important;
     right: 0px !important;
     position: relative !important;
+}
+
+#barre_reb {
+    margin: 1%;
+    font-size: clamp(10px, 1.4vw, 15px);
+    width: 80%;
+    justify-content: center;
+    align-content: center;
+}
+
+
+#amortissement {
+    text-align: center;
+    color: rgba(39, 121, 124, 0.85);
+    font-family: Arial, Helvetica, sans-serif;
+    flex: 6; 
+}
+
+#reb {
+    flex: 5; 
+    text-align: center;
+}
+
+#ammorti {
+    text-align: center;
+    color: rgba(39, 121, 124, 0.85);
+    font-family: Arial, Helvetica, sans-serif;
+    flex: 1; 
+    align-self: center;
+}
+
+#table_principale tr, #table_principale th {
+    height: 85px !important;
 }
 
 @media screen and (max-width: 1200px) {
