@@ -894,11 +894,14 @@ function exemples(exemple) {
 
     //PARTIE TRAJECTOIRE
 
-    /* Cas par défaut du site
-    if (exemple == "ex1SCH1") {
+    if (exemple == "ex0SCH1") {
         document.getElementById("M").value = "2e39";
         document.getElementById("r_phy").value = "0";
         document.getElementById("nombredefusees").value = "1";
+        supprHtml();
+        genereHtml();
+        save_nbfusees();
+        updatenbredefusees();
 
         document.getElementById("r01").value = "2e13";
         document.getElementById("v01").value = "7.75e7";
@@ -933,12 +936,15 @@ function exemples(exemple) {
 
         initialisationGenerale(1);
     }
-    */
 
     if (exemple == "ex1SCH1") {
         document.getElementById("M").value = "1.9884e30";
         document.getElementById("r_phy").value = "0";
         document.getElementById("nombredefusees").value = "1";
+        supprHtml();
+        genereHtml();
+        save_nbfusees();
+        updatenbredefusees();
 
         document.getElementById("r01").value = "12000";
         document.getElementById("v01").value = "1.21112418e8";
@@ -1040,6 +1046,10 @@ function exemples(exemple) {
         document.getElementById("M").value = "5.97e24";
         document.getElementById("r_phy").value = "6.4e6";
         document.getElementById("nombredefusees").value = "1";
+        supprHtml();
+        genereHtml();
+        save_nbfusees();
+        updatenbredefusees();
 
         document.getElementById("r01").value = "6.9e6";
         document.getElementById("v01").value = "7.5989e3";
@@ -1091,11 +1101,14 @@ function exemples(exemple) {
 
 
 
-    /* Cas par défaut
-    if (exemple == "ex1SCH2") {
+    if (exemple == "ex0SCH2") {
         document.getElementById("M").value = "8e36";
         document.getElementById("r_phy").value = "0";
         document.getElementById("nombredefusees").value = "1";
+        supprHtml();
+        genereHtml();
+        save_nbfusees();
+        updatenbredefusees();
 
         document.getElementById("r01").value = "1.7685e11";
         document.getElementById("phi01").value = "-10";
@@ -1123,12 +1136,15 @@ function exemples(exemple) {
 
         initialisationGenerale(1);
     }
-    */
 
     if (exemple == "ex1SCH2") {
         document.getElementById("M").value = "8e36";
         document.getElementById("r_phy").value = "0";
         document.getElementById("nombredefusees").value = "1";
+        supprHtml();
+        genereHtml();
+        save_nbfusees();
+        updatenbredefusees();
 
         document.getElementById("r01").value = "1.7685e11";
         document.getElementById("phi01").value = "-10";
@@ -1214,6 +1230,10 @@ function exemples(exemple) {
         document.getElementById("M").value = "2e30";
         document.getElementById("r_phy").value = "3e3";
         document.getElementById("nombredefusees").value = "1";
+        supprHtml();
+        genereHtml();
+        save_nbfusees();
+        updatenbredefusees();
 
         document.getElementById("r01").value = "1e4";
         document.getElementById("phi01").value = "135";
@@ -1257,11 +1277,14 @@ function exemples(exemple) {
 
 
 
-    /* Cas par défaut
-    if (exemple == "ex1SCH3") {
+    if (exemple == "ex0SCH3") {
         document.getElementById("M").value = "2e39";
         document.getElementById("r_phy").value = "1e18";
         document.getElementById("nombredefusees").value = "1";
+        supprHtml();
+        genereHtml();
+        save_nbfusees();
+        updatenbredefusees();
 
         document.getElementById("r01").value = "2e18";
         document.getElementById("v01").value = "2.5e4";
@@ -1286,7 +1309,6 @@ function exemples(exemple) {
 
         initialisationGenerale(1);
     }
-    */
 
     if (exemple == "ex1SCH3") {
         document.getElementById("M").value = "2e30";
@@ -1373,6 +1395,10 @@ function exemples(exemple) {
         document.getElementById("M").value = "2e30";
         document.getElementById("r_phy").value = "7e8";
         document.getElementById("nombredefusees").value = "1";
+        supprHtml();
+        genereHtml();
+        save_nbfusees();
+        updatenbredefusees();
 
         document.getElementById("r01").value = "1e9";
         document.getElementById("v01").value = "5e4";
@@ -1415,11 +1441,14 @@ function exemples(exemple) {
 
 
 
-    /* Cas par défaut
-    if (exemple == "ex1SCH4") {
+    if (exemple == "ex0SCH4") {
         document.getElementById("M").value = "2e30";
         document.getElementById("r_phy").value = "3.5e3";
         document.getElementById("nombredefusees").value = "1";
+        supprHtml();
+        genereHtml();
+        save_nbfusees();
+        updatenbredefusees();
 
         document.getElementById("r01").value = "5e3";
         document.getElementById("phi01").value = "0";
@@ -1440,24 +1469,19 @@ function exemples(exemple) {
 
         initialisationGenerale(1);
     }
-    */
 
     if (exemple == "ex1SCH4") {
         document.getElementById("M").value = "2e30";
-        document.getElementById("r_phy").value = "7e8";
-        document.getElementById("nombredefusees").value = "2";
+        document.getElementById("r_phy").value = "3.5e3";
+        document.getElementById("nombredefusees").value = "1";
         supprHtml();
         genereHtml();
         save_nbfusees();
         updatenbredefusees();
 
-        document.getElementById("r01").value = "4.4554e3";
-        document.getElementById("phi01").value = "20";
-        document.getElementById("teta1").value = "90";
-
-        document.getElementById("r02").value = "1.95907e3";
-        document.getElementById("phi02").value = "120";
-        document.getElementById("teta2").value = "-90";
+        document.getElementById("r01").value = "1.95907e3";
+        document.getElementById("phi01").value = "200";
+        document.getElementById("teta1").value = "120";
 
         document.getElementById("traject_type").value = "complete";
         document.getElementById("traject_type2").value = "observateur";
@@ -1472,7 +1496,7 @@ function exemples(exemple) {
         inputNbfusees.style.display = "inline"; // Afficher le input et le label de nbfusees si button observateur est cliqué 
 		labelNbfusees.style.display = "inline"; 
 
-        initialisationGenerale(2);
+        initialisationGenerale(1);
     }
 
     if (exemple == "ex2SCH4") {
@@ -1512,6 +1536,10 @@ function exemples(exemple) {
         document.getElementById("M").value = "5.97e24";
         document.getElementById("r_phy").value = "6.4e8";
         document.getElementById("nombredefusees").value = "1";
+        supprHtml();
+        genereHtml();
+        save_nbfusees();
+        updatenbredefusees();
 
         document.getElementById("r01").value = "1e9";
         document.getElementById("phi01").value = "0";
@@ -1550,7 +1578,7 @@ function exemples(exemple) {
 
 
 
-     if (exemple == "ex1Kerr1") {
+    if (exemple == "ex0Kerr1") {
         document.getElementById("M").value = "1.9e38";
         document.getElementById("J").value = "8.033e57";
 
@@ -1574,6 +1602,32 @@ function exemples(exemple) {
        
 		labelPourcentageVphiPilotage.style.display = "none";
 		inputPourcentageVphiPilotage.style.display = "none";
+    }
+
+    if (exemple == "ex1Kerr1") {
+        document.getElementById("M").value = "1.9e38";
+        document.getElementById("J").value = "8.033e57";
+
+        document.getElementById("r0").value = "5e11";
+        document.getElementById("v0").value = "1.75e8";
+        document.getElementById("phi0").value = "0";
+        document.getElementById("teta").value = "90";
+
+        document.getElementById("pourcentage_vphi_pilotage").value = "0.003";
+        document.getElementById("traject_type").value = "complete";
+        document.getElementById("traject_type2").value = "mobile";
+        document.getElementById("depasser").checked = true;
+
+        pressionBouttonTrajectoireComplete();
+        pressionBouttonMobile(true);
+        notationvitesseree2kerr();
+        initialisation();
+
+
+        // Équivalent de l'écouteur d'évènement de btnSpationaute :
+
+		labelPourcentageVphiPilotage.style.display = "inline";
+		inputPourcentageVphiPilotage.style.display = "inline";
     }
 
     if (exemple == "ex2Kerr1") {
@@ -1631,8 +1685,7 @@ function exemples(exemple) {
 
 
 
-    /* Cas par défaut
-    if (exemple == "ex1Kerr2") {
+    if (exemple == "ex0Kerr2") {
         document.getElementById("M").value = "2e30";
         document.getElementById("J").value = "8.5e41";
 
@@ -1649,7 +1702,6 @@ function exemples(exemple) {
         notationvitesseree1kerr();
         initialisation();
     }
-    */
 
     if (exemple == "ex1Kerr2") {
         document.getElementById("M").value = "2e30";

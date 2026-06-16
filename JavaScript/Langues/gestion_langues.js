@@ -953,6 +953,7 @@ function texteTrajectoireMassive(nbrderockets) {
     document.getElementById("label-choix-potentiel").title = texte.pages_trajectoire.label_choix_potentiel_infobulle;
 
     document.getElementById("titreExemple").innerHTML = texte.pages_trajectoire.titreExemple;
+    document.getElementById("ex0SCH1").innerHTML = texte.pages_trajectoire.ex0SCH1;
     document.getElementById("ex1SCH1").innerHTML = texte.pages_trajectoire.ex1SCH1;
     document.getElementById("ex2SCH1").innerHTML = texte.pages_trajectoire.ex2SCH1;
     document.getElementById("ex3SCH1").innerHTML = texte.pages_trajectoire.ex3SCH1;
@@ -1014,6 +1015,7 @@ function texteTrajectoirePhoton(nbrderockets) {
     document.getElementById("label-choix-potentiel").title = texte.pages_trajectoire.label_choix_potentiel_infobulle;
 
     document.getElementById("titreExemple").innerHTML = texte.pages_trajectoire.titreExemple;
+    document.getElementById("ex0SCH2").innerHTML = texte.pages_trajectoire.ex0SCH2;
     document.getElementById("ex1SCH2").innerHTML = texte.pages_trajectoire.ex1SCH2;
     document.getElementById("ex2SCH2").innerHTML = texte.pages_trajectoire.ex2SCH2;
     document.getElementById("ex3SCH2").innerHTML = texte.pages_trajectoire.ex3SCH2;
@@ -1060,6 +1062,7 @@ function texteTrajectoireMassiveNonBar(nbrderockets) {
     document.getElementById("label-choix-potentiel").title = texte.pages_trajectoire.label_choix_potentiel_infobulle;
 
     document.getElementById("titreExemple").innerHTML = texte.pages_trajectoire.titreExemple;
+    document.getElementById("ex0SCH3").innerHTML = texte.pages_trajectoire.ex0SCH3;
     document.getElementById("ex1SCH3").innerHTML = texte.pages_trajectoire.ex1SCH3;
     document.getElementById("ex2SCH3").innerHTML = texte.pages_trajectoire.ex2SCH3;
     document.getElementById("ex3SCH3").innerHTML = texte.pages_trajectoire.ex3SCH3;
@@ -1117,6 +1120,7 @@ function texteTrajectoirePhotonNonBar(nbrderockets) {
     document.getElementById("label-choix-potentiel").title = texte.pages_trajectoire.label_choix_potentiel_infobulle;
 
     document.getElementById("titreExemple").innerHTML = texte.pages_trajectoire.titreExemple;
+    document.getElementById("ex0SCH4").innerHTML = texte.pages_trajectoire.ex0SCH4;
     document.getElementById("ex1SCH4").innerHTML = texte.pages_trajectoire.ex1SCH4;
     document.getElementById("ex2SCH4").innerHTML = texte.pages_trajectoire.ex2SCH4;
     document.getElementById("ex3SCH4").innerHTML = texte.pages_trajectoire.ex3SCH4;
@@ -1179,6 +1183,7 @@ function texteTrajectoireMassiveKerr() {
     document.getElementById("Sortie_mobile_label").innerHTML = texte.pages_trajectoire.sortie_mobile;
 
     document.getElementById("titreExemple").innerHTML = texte.pages_trajectoire.titreExemple;
+    document.getElementById("ex0Kerr1").innerHTML = texte.pages_trajectoire.ex0Kerr1;
     document.getElementById("ex1Kerr1").innerHTML = texte.pages_trajectoire.ex1Kerr1;
     document.getElementById("ex2Kerr1").innerHTML = texte.pages_trajectoire.ex2Kerr1;
     document.getElementById("ex3Kerr1").innerHTML = texte.pages_trajectoire.ex3Kerr1;
@@ -1220,6 +1225,7 @@ function texteTrajectoirePhotonKerr() {
     document.getElementById("Sortie_mobile_label").innerHTML = texte.pages_trajectoire.sortie_mobile;
 
     document.getElementById("titreExemple").innerHTML = texte.pages_trajectoire.titreExemple;
+    document.getElementById("ex0Kerr2").innerHTML = texte.pages_trajectoire.ex0Kerr2;
     document.getElementById("ex1Kerr2").innerHTML = texte.pages_trajectoire.ex1Kerr2;
     document.getElementById("ex2Kerr2").innerHTML = texte.pages_trajectoire.ex2Kerr2;
     document.getElementById("ex3Kerr2").innerHTML = texte.pages_trajectoire.ex3Kerr2;
