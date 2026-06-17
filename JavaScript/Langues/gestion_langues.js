@@ -291,6 +291,7 @@ function texte_univers_LCDM() {
     document.getElementById("load_msg").innerHTML = texte.univers.load_msg
 
     document.getElementById("titreExemple").innerHTML = texte.univers.titreExemple
+    document.getElementById("ex0UnivLCDM").innerHTML = texte.univers.ex0UnivLCDM
     document.getElementById("ex1UnivLCDM").innerHTML = texte.univers.ex1UnivLCDM
     document.getElementById("ex2UnivLCDM").innerHTML = texte.univers.ex2UnivLCDM
     document.getElementById("ex3UnivLCDM").innerHTML = texte.univers.ex3UnivLCDM
@@ -350,6 +351,7 @@ function texte_univers_DE() {
     document.getElementById("load_msg").innerHTML = texte.univers.load_msg
 
     document.getElementById("titreExemple").innerHTML = texte.univers.titreExemple
+    document.getElementById("ex0UnivDE").innerHTML = texte.univers.ex0UnivDE
     document.getElementById("ex1UnivDE").innerHTML = texte.univers.ex1UnivDE
     document.getElementById("ex2UnivDE").innerHTML = texte.univers.ex2UnivDE
     document.getElementById("ex3UnivDE").innerHTML = texte.univers.ex3UnivDE
@@ -465,6 +467,7 @@ function texte_univers_calculette() {
         document.getElementById("label_deven").title = texte.calculette.infobulle_deven;
         document.getElementById("label_dpart").title = texte.calculette.infobulle_dpart;
 
+        document.getElementById("ex0CalcLCDM").innerHTML = texte.calculette.ex0CalcLCDM
         document.getElementById("ex1CalcLCDM").innerHTML = texte.calculette.ex1CalcLCDM
         document.getElementById("ex2CalcLCDM").innerHTML = texte.calculette.ex2CalcLCDM
         document.getElementById("ex3CalcLCDM").innerHTML = texte.calculette.ex3CalcLCDM
@@ -475,6 +478,7 @@ function texte_univers_calculette() {
         document.getElementById("label_omegaDEN_z1").title = texte.calculette.infobulle_odenz1;
         document.getElementById("label_omegaDEN_z2").title = texte.calculette.infobulle_odenz2;
         
+        document.getElementById("ex0CalcDE").innerHTML = texte.calculette.ex0CalcDE
         document.getElementById("ex1CalcDE").innerHTML = texte.calculette.ex1CalcDE
         document.getElementById("ex2CalcDE").innerHTML = texte.calculette.ex2CalcDE
         document.getElementById("ex3CalcDE").innerHTML = texte.calculette.ex3CalcDE

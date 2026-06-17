@@ -236,10 +236,12 @@
 		"infoLCDM": "This page displays graphs related to metric distances, density parameters, and redshift as functions of time (or vice versa) within the framework of the ΛCDM theory. The page also contains modules allowing the calculation of several quantities and obtaining results for a precise spectral shift z.",
   		"infoDE": "This page displays graphs related to metric distances, density parameters, and redshift as functions of time (or vice versa) within the framework of the dark energy theory. The page also contains modules allowing the calculation of several quantities and obtaining results for a precise spectral shift z.",
 
-		"ex1CalcLCDM": "Our Universe",
+		"ex0CalcLCDM": "Our Universe",
+		"ex1CalcLCDM": "Example 1",
 		"ex2CalcLCDM": "Example 2",
 		"ex3CalcLCDM": "Example 3",
-		"ex1CalcDE": "Our Universe",
+		"ex0CalcDE": "Our Universe",
+		"ex1CalcDE": "Example 1",
 		"ex2CalcDE": "Example 2",
 		"ex3CalcDE": "Example 3"
 	},

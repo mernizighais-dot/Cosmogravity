@@ -1,13 +1,13 @@
 body {
     margin: 0;
-    font-size: 20px;
+    font-size: clamp(14px, 1.4vw, 20px);
     background-color: rgb(239, 239, 239);
 }
 
 .grosBoutton {
     background-color: rgb(104, 45, 104);
     color: white;
-    font-size: 20px;
+    font-size: clamp(14px, 1.4vw, 20px);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -24,7 +24,7 @@ body {
 .petitBoutton {
     background-color: rgb(104, 45, 104);
     color: white;
-    font-size: 18px;
+    font-size: clamp(14px, 1.4vw, 20px);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -169,7 +169,7 @@ body {
     grid-area: texte;
     align-self: center;
     justify-self: center; 
-    text-align: center;
+    text-align: start;
     margin: 1%;
 }
 
@@ -188,6 +188,8 @@ body {
 #BoiteExemple {
     grid-area: exemples;
     justify-self: center;
+    justify-content: center;
+    align-items: center;
     display: flex;
     width: 95%;
     gap: 10px;
@@ -198,6 +200,10 @@ body {
 }
 
 #titreExemple {
+    text-align: center;
+    color: rgb(104, 45, 104);
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
     flex: 1;
 }
 

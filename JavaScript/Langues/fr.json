@@ -102,14 +102,16 @@
 			"bouttonEnregistrer": "Enregistrer",
 
 		"load_msg": "<h3>Chargement</h3>",
-		"infoLCDM": "Cette page affiche le graphe du facteur d'échelle réduit en fonction du temps dans le cadre de la théorie ΛCDM. Ce graphe permet d'observer l'expansion (ou la contraction) de l'univers. Les valeurs par défaut de la page correspondent à celles de notre propre univers.",
-		"infoDE": "Cette page affiche le graphe du facteur d'échelle réduit en fonction du temps dans le cadre de la théorie d'énergie sombre. Ce graphe permet d'observer l'expansion (ou la contraction) de l'univers. Les valeurs par défaut de la page correspondent à celles de notre propre univers.",
+		"infoLCDM": "Cette page affiche le graphe du facteur d'échelle réduit en fonction du temps dans le cadre de la théorie ΛCDM. Ce graphe permet d'observer l'expansion (ou la contraction) de l'univers. Les valeurs par défaut de la page correspondent à celles de notre propre univers.<br><br>La page propose quatre exemples de trajectoire :<br>-Exemple par défaut : Notre propre univers (Big Bang et accélération de l'expansion).<br>-Exemple 1 :<br>-Exemple 2 :<br>-Exemple 3 :",
+		"infoDE": "Cette page affiche le graphe du facteur d'échelle réduit en fonction du temps dans le cadre de la théorie d'énergie sombre. Ce graphe permet d'observer l'expansion (ou la contraction) de l'univers. Les valeurs par défaut de la page correspondent à celles de notre propre univers.<br><br>La page propose quatre exemples de trajectoire :<br>-Exemple par défaut : Notre propre univers (Big Bang et accélération de l'expansion).<br>-Exemple 1 :<br>-Exemple 2 :<br>-Exemple 3 :",
 
 		"titreExemple": "Exemples\u00A0:",
-		"ex1UnivLCDM": "Notre Univers",
+		"ex0UnivLCDM": "Notre Univers",
+		"ex1UnivLCDM": "Exemple 1",
 		"ex2UnivLCDM": "Exemple 2",
 		"ex3UnivLCDM": "Exemple 3",
-		"ex1UnivDE": "Notre Univers",
+		"ex0UnivDE": "Notre Univers",
+		"ex1UnivDE": "Exemple 1",
 		"ex2UnivDE": "Exemple 2",
 		"ex3UnivDE": "Exemple 3"
 	},
@@ -236,13 +238,15 @@
 			"labelSelectionGraphe":"Graphe :",
 		
 		"load_msg": "<h3>Chargement</h3>",
-		"infoLCDM": "Cette page affiche les graphiques relatifs aux distances métriques, aux paramètres de densité et au décalage spectrale en fonction du temps (ou inversement) dans le cadre de la théorie ΛCDM. La page contient également des modules permettant de calculer plusieurs grandeurs et d'obtenir des résultats pour un décalage spectral z précis.",
-		"infoDE": "Cette page affiche les graphiques relatifs aux distances métriques, aux paramètres de densité et au décalage spectrale en fonction du temps (ou inversement) dans le cadre de la théorie d'énergie sombre. La page contient également des modules permettant de calculer plusieurs grandeurs et d'obtenir des résultats pour un décalage spectral z précis.",
+		"infoLCDM": "Cette page affiche les graphiques relatifs aux distances métriques, aux paramètres de densité et au décalage spectrale en fonction du temps (ou inversement) dans le cadre de la théorie ΛCDM. La page contient également des modules permettant de calculer plusieurs grandeurs et d'obtenir des résultats pour un décalage spectral z précis.<br><br>La page propose quatre exemples de trajectoire :<br>-Exemple par défaut : Notre propre univers (Big Bang et accélération de l'expansion).<br>-Exemple 1 :<br>-Exemple 2 :<br>-Exemple 3 :",
+		"infoDE": "Cette page affiche les graphiques relatifs aux distances métriques, aux paramètres de densité et au décalage spectrale en fonction du temps (ou inversement) dans le cadre de la théorie d'énergie sombre. La page contient également des modules permettant de calculer plusieurs grandeurs et d'obtenir des résultats pour un décalage spectral z précis.<br><br>La page propose quatre exemples de trajectoire :<br>-Exemple par défaut : Notre propre univers (Big Bang et accélération de l'expansion).<br>-Exemple 1 :<br>-Exemple 2 :<br>-Exemple 3 :",
 
-		"ex1CalcLCDM": "Notre Univers",
+		"ex0CalcLCDM": "Notre Univers",
+		"ex1CalcLCDM": "Exemple 1",
 		"ex2CalcLCDM": "Exemple 2",
 		"ex3CalcLCDM": "Exemple 3",
-		"ex1CalcDE": "Notre Univers",
+		"ex0CalcDE": "Notre Univers",
+		"ex1CalcDE": "Exemple 1",
 		"ex2CalcDE": "Exemple 2",
 		"ex3CalcDE": "Exemple 3"
 	},
