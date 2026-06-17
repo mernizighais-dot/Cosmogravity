@@ -70,7 +70,7 @@
     grid-area: texte;
     align-self: center;
     justify-self: center; 
-    text-align: center;
+    text-align: start;
     margin: 1%;
 }
 
@@ -84,7 +84,16 @@
         "texte texte"
         "plot plot"
         "exemples exemples"
+        "attention attention"
         "loading laoding";
+}
+
+#avertissement_nbb {
+    grid-area: attention;
+    align-self: center;
+    justify-self: center; 
+    text-align: center;
+    margin: 1%;
 }
 
 #BoiteExemple {

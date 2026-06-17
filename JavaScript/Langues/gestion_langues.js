@@ -392,7 +392,6 @@ function texte_univers_calculette() {
 
     document.getElementById("constantesUniverselles").innerHTML = texte.univers.constantes
     document.getElementById("facteurEchelle").innerHTML = texte.calculette.facteurechelle
-    document.getElementById("generateur_graphique").innerHTML = texte.calculette.generateur_graphique_titre;
     document.getElementById("diametre_apparent_titre").innerHTML = texte.calculette.diametre_apparent_titre;
     document.getElementById("calcul_inverse_titre").innerHTML = texte.calculette.calcul_inverse_titre;
     document.getElementById("calcul_z_titre").innerHTML = texte.calculette.calcul_z_titre;
@@ -471,7 +470,10 @@ function texte_univers_calculette() {
         document.getElementById("ex1CalcLCDM").innerHTML = texte.calculette.ex1CalcLCDM
         document.getElementById("ex2CalcLCDM").innerHTML = texte.calculette.ex2CalcLCDM
         document.getElementById("ex3CalcLCDM").innerHTML = texte.calculette.ex3CalcLCDM
-    }else{
+
+        document.getElementById("generateur_graphique").innerHTML = texte.calculette.generateur_graphique_titre_LCDM;
+    }
+    else{
         document.getElementById("label_rho_de").title = texte.calculette.infobulle_rho_DE
         document.getElementById("label_omegaDE_z1").title = texte.calculette.infobulle_odez1;
         document.getElementById("label_omegaDE_z2").title = texte.calculette.infobulle_odez2;
@@ -482,6 +484,8 @@ function texte_univers_calculette() {
         document.getElementById("ex1CalcDE").innerHTML = texte.calculette.ex1CalcDE
         document.getElementById("ex2CalcDE").innerHTML = texte.calculette.ex2CalcDE
         document.getElementById("ex3CalcDE").innerHTML = texte.calculette.ex3CalcDE
+
+        document.getElementById("generateur_graphique").innerHTML = texte.calculette.generateur_graphique_titre_DE;
     }
     document.getElementById("label_Tz2").title = texte.calculette.infobulle_Tz2;
     document.getElementById("label_Hz2").title = texte.calculette.infobulle_Hz2;

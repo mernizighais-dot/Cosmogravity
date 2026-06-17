@@ -73,7 +73,7 @@
 
 
 		"headGraphiqueLCDM": "<h2>Tracé du facteur d'échelle <br /> Constante cosmologique</h2>",
-		"headGraphiqueDE": "<h2>Tracé du facteur d'échelle <br /> Energie sombre</h2>",
+		"headGraphiqueDE": "<h2>Tracé du facteur d'échelle <br /> Énergie sombre</h2>",
 		"axeX" : "Temps en milliard d'années",
 		"axeY" : "Facteur d'échelle réduit",
 		"avertissement": "La simulation Univers avec sa calculette cosmologique permet de choisir les valeurs d'une dizaine de paramètres (en comptant celles des constantes fondamentales). Le code actuel n'est évidemment pas robuste sur tout le domaine accessible de cet espace à 10 dimensions. Nous espérons que les résultats sont exacts dans un voisinage 'prudent' du modèle standard, des valeurs usuelles des observables (z, thêta) et des constantes fondamentales. Nous pensons qu'ils le sont encore pour des univers très différents du nôtre mais il est évident que le risque d'échec de la simulation (temps de calcul excessif sur le processeur de l'utilisateur) ou, pire, de résultat inexact augmente lorsque l'on s'aventure très loin du modèle standard. L'option 'mono-fluides', avec son formalisme analytique, permet d'aller plus fiablement explorer les extrêmes. Près des 'séparatrices' entre types d'univers différents (avec ou sans Big Bang, avec ou sans Big Crunch), un avertissement automatique est normalement affiché.",
@@ -102,18 +102,18 @@
 			"bouttonEnregistrer": "Enregistrer",
 
 		"load_msg": "<h3>Chargement</h3>",
-		"infoLCDM": "Cette page affiche le graphe du facteur d'échelle réduit en fonction du temps dans le cadre de la théorie ΛCDM. Ce graphe permet d'observer l'expansion (ou la contraction) de l'univers. Les valeurs par défaut de la page correspondent à celles de notre propre univers.<br><br>La page propose quatre exemples de trajectoire :<br>-Exemple par défaut : Notre propre univers (Big Bang et accélération de l'expansion).<br>-Exemple 1 :<br>-Exemple 2 :<br>-Exemple 3 :",
-		"infoDE": "Cette page affiche le graphe du facteur d'échelle réduit en fonction du temps dans le cadre de la théorie d'énergie sombre. Ce graphe permet d'observer l'expansion (ou la contraction) de l'univers. Les valeurs par défaut de la page correspondent à celles de notre propre univers.<br><br>La page propose quatre exemples de trajectoire :<br>-Exemple par défaut : Notre propre univers (Big Bang et accélération de l'expansion).<br>-Exemple 1 :<br>-Exemple 2 :<br>-Exemple 3 :",
+		"infoLCDM": "Cette page affiche le graphe du facteur d'échelle réduit en fonction du temps dans le cadre de la théorie ΛCDM. Ce graphe permet d'observer l'expansion (ou la contraction) de l'univers.<br><br>La page propose quatre exemples d'univers :<br><br>-Exemple par défaut : Modèle standard ΛCDM<br>C'est le modèle cosmologique actuel dominé par une constante cosmologique (énergie noire) et de la matière noire froide. Il décrit un univers débutant par un Big Bang et en expansion accélérée compatible avec les observations modernes.<br><br>-Exemple 1 : Modèle d'Einstein-de Sitter (1932)<br>Univers composé uniquement de matière, spatialement plat et sans énergie noire ni courbure. L’expansion y est toujours décélérée et suit une loi simple en a(t) ∝ t<sup>2/3</sup>.<br><br>-Exemple 2 : Modèle de Lemaître ou modèle hésitant (1931)<br>Univers fermé avec constante cosmologique positive proche du point critique, conduisant à une phase de quasi-stagnation de l’expansion. Il illustre une transition lente entre ralentissement et ré-accélération.<br><br>-Exemple 3 : Modèle de Hoyle dit d'état stationnaire (1948)<br>Univers en expansion exponentielle où la densité reste constante grâce à une création continue de matière (non incluse dans cette simulation). Ce modèle est approché par cette simulation par un univers dominé par la constante cosmologique.",
+		"infoDE": "Cette page affiche le graphe du facteur d'échelle réduit en fonction du temps dans le cadre de la théorie d'énergie sombre. Ce graphe permet d'observer l'expansion (ou la contraction) de l'univers.<br><br>La page propose quatre exemples d'univers :<br><br>-Exemple par défaut : Modèle standard ΛCDM<br>C'est le modèle cosmologique actuel dominé par une constante cosmologique (énergie noire) et de la matière noire froide. Il décrit un univers débutant par un Big Bang et en expansion accélérée compatible avec les observations modernes.<br><br>-Exemple 1 : Modèle d'Einstein-de Sitter (1932)<br>Univers composé uniquement de matière, spatialement plat et sans énergie noire ni courbure. L’expansion y est toujours décélérée et suit une loi simple en a(t) ∝ t<sup>2/3</sup>.<br><br>-Exemple 2 : Modèle de Lemaître ou modèle hésitant (1931)<br>Univers fermé avec constante cosmologique positive proche du point critique, conduisant à une phase de quasi-stagnation de l’expansion. Il illustre une transition lente entre ralentissement et ré-accélération.<br><br>-Exemple 3 : Modèle de Hoyle dit d'état stationnaire (1948)<br>Univers en expansion exponentielle où la densité reste constante grâce à une création continue de matière (non incluse dans cette simulation). Ce modèle est approché par cette simulation par un univers dominé par la constante cosmologique.",
 
 		"titreExemple": "Exemples\u00A0:",
-		"ex0UnivLCDM": "Notre Univers",
-		"ex1UnivLCDM": "Exemple 1",
-		"ex2UnivLCDM": "Exemple 2",
-		"ex3UnivLCDM": "Exemple 3",
-		"ex0UnivDE": "Notre Univers",
-		"ex1UnivDE": "Exemple 1",
-		"ex2UnivDE": "Exemple 2",
-		"ex3UnivDE": "Exemple 3"
+		"ex0UnivLCDM": "Modèle<br>standard ΛCDM",
+		"ex1UnivLCDM": "Modèle<br>d'Einstein-de Sitter",
+		"ex2UnivLCDM": "Modèle<br>de Lemaître",
+		"ex3UnivLCDM": "Modèle<br>de Hoyle",
+		"ex0UnivDE": "Modèle<br>standard ΛCDM",
+		"ex1UnivDE": "Modèle<br>d'Einstein-de Sitter",
+		"ex2UnivDE": "Modèle<br>de Lemaître",
+		"ex3UnivDE": "Modèle<br>de Hoyle"
 	},
 
 
@@ -123,7 +123,8 @@
 		"unitéannee":"a",
 
 		"facteurechelle":"Facteur d'échelle",
-		"generateur_graphique_titre":"Générateur de graphiques",
+		"generateur_graphique_titre_LCDM":"Générateur de graphiques<br>Constante cosmologique",
+		"generateur_graphique_titre_DE":"Générateur de graphiques<br>Énergie sombre",
 		"diametre_apparent_titre":"Diamètre apparent",
 		"calcul_inverse_titre":"Calculs inverses",
 		"horizons_titre":"Horizons cosmologiques (t &#8800; 0)",
@@ -238,17 +239,17 @@
 			"labelSelectionGraphe":"Graphe :",
 		
 		"load_msg": "<h3>Chargement</h3>",
-		"infoLCDM": "Cette page affiche les graphiques relatifs aux distances métriques, aux paramètres de densité et au décalage spectrale en fonction du temps (ou inversement) dans le cadre de la théorie ΛCDM. La page contient également des modules permettant de calculer plusieurs grandeurs et d'obtenir des résultats pour un décalage spectral z précis.<br><br>La page propose quatre exemples de trajectoire :<br>-Exemple par défaut : Notre propre univers (Big Bang et accélération de l'expansion).<br>-Exemple 1 :<br>-Exemple 2 :<br>-Exemple 3 :",
-		"infoDE": "Cette page affiche les graphiques relatifs aux distances métriques, aux paramètres de densité et au décalage spectrale en fonction du temps (ou inversement) dans le cadre de la théorie d'énergie sombre. La page contient également des modules permettant de calculer plusieurs grandeurs et d'obtenir des résultats pour un décalage spectral z précis.<br><br>La page propose quatre exemples de trajectoire :<br>-Exemple par défaut : Notre propre univers (Big Bang et accélération de l'expansion).<br>-Exemple 1 :<br>-Exemple 2 :<br>-Exemple 3 :",
+		"infoLCDM": "Cette page affiche les graphiques relatifs aux distances métriques, aux paramètres de densité et au décalage spectrale en fonction du temps (ou inversement) dans le cadre de la théorie ΛCDM. La page contient également des modules permettant de calculer plusieurs grandeurs et d'obtenir des résultats pour un décalage spectral z précis.<br><br>La page propose quatre exemples d'univers :<br><br>-Exemple par défaut : Modèle standard ΛCDM<br>C'est le modèle cosmologique actuel dominé par une constante cosmologique (énergie noire) et de la matière noire froide. Il décrit un univers débutant par un Big Bang et en expansion accélérée compatible avec les observations modernes.<br><br>-Exemple 1 : Modèle d'Einstein-de Sitter (1932)<br>Univers composé uniquement de matière, spatialement plat et sans énergie noire ni courbure. L’expansion y est toujours décélérée et suit une loi simple en a(t) ∝ t<sup>2/3</sup>.<br><br>-Exemple 2 : Modèle de Lemaître ou modèle hésitant (1931)<br>Univers fermé avec constante cosmologique positive proche du point critique, conduisant à une phase de quasi-stagnation de l’expansion. Il illustre une transition lente entre ralentissement et ré-accélération.<br><br>-Exemple 3 : Modèle de Hoyle dit d'état stationnaire (1948)<br>Univers en expansion exponentielle où la densité reste constante grâce à une création continue de matière (non incluse dans cette simulation). Ce modèle est approché par cette simulation par un univers dominé par la constante cosmologique.",
+		"infoDE": "Cette page affiche les graphiques relatifs aux distances métriques, aux paramètres de densité et au décalage spectrale en fonction du temps (ou inversement) dans le cadre de la théorie d'énergie sombre. La page contient également des modules permettant de calculer plusieurs grandeurs et d'obtenir des résultats pour un décalage spectral z précis.<br><br>La page propose quatre exemples d'univers :<br><br>-Exemple par défaut : Modèle standard ΛCDM<br>C'est le modèle cosmologique actuel dominé par une constante cosmologique (énergie noire) et de la matière noire froide. Il décrit un univers débutant par un Big Bang et en expansion accélérée compatible avec les observations modernes.<br><br>-Exemple 1 : Modèle d'Einstein-de Sitter (1932)<br>Univers composé uniquement de matière, spatialement plat et sans énergie noire ni courbure. L’expansion y est toujours décélérée et suit une loi simple en a(t) ∝ t<sup>2/3</sup>.<br><br>-Exemple 2 : Modèle de Lemaître ou modèle hésitant (1931)<br>Univers fermé avec constante cosmologique positive proche du point critique, conduisant à une phase de quasi-stagnation de l’expansion. Il illustre une transition lente entre ralentissement et ré-accélération.<br><br>-Exemple 3 : Modèle de Hoyle dit d'état stationnaire (1948)<br>Univers en expansion exponentielle où la densité reste constante grâce à une création continue de matière (non incluse dans cette simulation). Ce modèle est approché par cette simulation par un univers dominé par la constante cosmologique.",
 
-		"ex0CalcLCDM": "Notre Univers",
-		"ex1CalcLCDM": "Exemple 1",
-		"ex2CalcLCDM": "Exemple 2",
-		"ex3CalcLCDM": "Exemple 3",
-		"ex0CalcDE": "Notre Univers",
-		"ex1CalcDE": "Exemple 1",
-		"ex2CalcDE": "Exemple 2",
-		"ex3CalcDE": "Exemple 3"
+		"ex0CalcLCDM": "Modèle<br>standard ΛCDM",
+		"ex1CalcLCDM": "Modèle<br>d'Einstein-de Sitter",
+		"ex2CalcLCDM": "Modèle<br>de Lemaître",
+		"ex3CalcLCDM": "Modèle<br>de Hoyle",
+		"ex0CalcDE": "Modèle<br>standard ΛCDM",
+		"ex1CalcDE": "Modèle<br>d'Einstein-de Sitter",
+		"ex2CalcDE": "Modèle<br>de Lemaître",
+		"ex3CalcDE": "Modèle<br>de Hoyle"
 	},
 
 	"constante": {

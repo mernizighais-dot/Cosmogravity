@@ -101,16 +101,18 @@
 		"bouttonEnregistrer": "Save",
 
 		"load_msg": "<h3>Loading</h3>",
-		"infoLCDM": "This page displays the graph of the reduced scale factor as a function of time within the framework of the ΛCDM theory. This graph allows us to observe the expansion (or contraction) of the universe. The default values ​​on this page correspond to those of our own universe.",
-  		"infoDE": "This page displays the graph of the reduced scale factor as a function of time within the framework of the dark energy theory. This graph allows us to observe the expansion (or contraction) of the universe. The default values ​​on this page correspond to those of our own universe.",
+		"infoLCDM": "This page displays the graph of the reduced scale factor as a function of time within the ΛCDM framework. This graph allows one to observe the expansion (or contraction) of the universe.<br><br>The page provides four universe examples:<br><br>-Default example: Standard ΛCDM model<br>This is the current cosmological model dominated by a cosmological constant (dark energy) and cold dark matter. It describes a universe beginning with a Big Bang and undergoing accelerated expansion consistent with modern observations.<br><br>-Example 1: Einstein–de Sitter model (1932)<br>A universe composed only of matter, spatially flat, and without dark energy or curvature. Its expansion is always decelerating and follows a simple law a(t) ∝ t<sup>2/3</sup>.<br><br>-Example 2: Lemaître model or “loitering” model (1931)<br>A closed universe with a positive cosmological constant close to the critical value, leading to a phase of near-stagnation in the expansion. It illustrates a slow transition between deceleration and re-acceleration.<br><br>-Example 3: Hoyle steady-state model (1948)<br>An exponentially expanding universe in which density remains constant through continuous matter creation (not included in this simulation). In this simulation, it is approximated by a universe dominated by the cosmological constant.",
+		"infoDE": "This page displays the graph of the reduced scale factor as a function of time within the framework of the dark energy theory. This graph allows us to observe the expansion (or contraction) of the universe.<br><br>The page provides four universe examples:<br><br>-Default example: Standard ΛCDM model<br>This is the current cosmological model dominated by a cosmological constant (dark energy) and cold dark matter. It describes a universe beginning with a Big Bang and undergoing accelerated expansion consistent with modern observations.<br><br>-Example 1: Einstein–de Sitter model (1932)<br>A universe composed only of matter, spatially flat, and without dark energy or curvature. Its expansion is always decelerating and follows a simple law a(t) ∝ t<sup>2/3</sup>.<br><br>-Example 2: Lemaître model or “loitering” model (1931)<br>A closed universe with a positive cosmological constant close to the critical value, leading to a phase of near-stagnation in the expansion. It illustrates a slow transition between deceleration and re-acceleration.<br><br>-Example 3: Hoyle steady-state model (1948)<br>An exponentially expanding universe in which density remains constant through continuous matter creation (not included in this simulation). In this simulation, it is approximated by a universe dominated by the cosmological constant.",
 
 		"titreExemple": "Examples:",
-		"ex1UnivLCDM": "Our Universe",
-		"ex2UnivLCDM": "Example 2",
-		"ex3UnivLCDM": "Example 3",
-		"ex1UnivDE": "Our Universe",
-		"ex2UnivDE": "Example 2",
-		"ex3UnivDE": "Example 3"
+		"ex0UnivLCDM": "Standard ΛCDM<br>model",
+		"ex1UnivLCDM": "Einstein-de Sitter<br>model",
+		"ex2UnivLCDM": "Lemaître<br>model",
+		"ex3UnivLCDM": "Hoyle<br>model",
+		"ex0UnivDE": "Standard ΛCDM<br>model",
+		"ex1UnivDE": "Einstein-de Sitter<br>model",
+		"ex2UnivDE": "Lemaître<br>model",
+		"ex3UnivDE": "Hoyle<br>model"
 	},
 
 	"calculette" : {
@@ -118,7 +120,8 @@
 		"unitéanneelumiere":"ly",
 		"unitéannee":"yr",
 		"facteurechelle":"Scale Factor",
-		"generateur_graphique_titre":"Graph Generator",
+		"generateur_graphique_titre_LCDM":"Graph Generator<br>Cosmological Constant",
+		"generateur_graphique_titre_DE":"Graph Generator<br>Dark Energy",
 		"diametre_apparent_titre":"Apparent Diameter",
 		"calcul_inverse_titre":"Inverse Calculations",
 		"horizons_titre":"Cosmological Horizons  (t &#8800; 0)",
@@ -233,17 +236,17 @@
 		"labelSelectionGraphe":"Graph :",
 
 		"load_msg": "<h3>Loading</h3>",
-		"infoLCDM": "This page displays graphs related to metric distances, density parameters, and redshift as functions of time (or vice versa) within the framework of the ΛCDM theory. The page also contains modules allowing the calculation of several quantities and obtaining results for a precise spectral shift z.",
-  		"infoDE": "This page displays graphs related to metric distances, density parameters, and redshift as functions of time (or vice versa) within the framework of the dark energy theory. The page also contains modules allowing the calculation of several quantities and obtaining results for a precise spectral shift z.",
+		"infoLCDM": "This page displays graphs related to metric distances, density parameters, and redshift as a function of time (or inversely) within the ΛCDM framework. The page also contains modules allowing the computation of several quantities and obtaining results for a specific redshift z.<br><br>The page provides four universe examples:<br><br>-Default example: Standard ΛCDM model<br>This is the current cosmological model dominated by a cosmological constant (dark energy) and cold dark matter. It describes a universe beginning with a Big Bang and undergoing accelerated expansion consistent with modern observations.<br><br>-Example 1: Einstein-de Sitter model (1932)<br>A universe composed only of matter, spatially flat, and without dark energy or curvature. Its expansion is always decelerating and follows a simple law a(t) ∝ t<sup>2/3</sup>.<br><br>-Example 2: Lemaître model or loitering model (1931)<br>A closed universe with a positive cosmological constant close to the critical value, leading to a phase of near-stagnation of expansion. It illustrates a slow transition between deceleration and re-acceleration.<br><br>-Example 3: Hoyle steady-state model (1948)<br>An exponentially expanding universe in which density remains constant through continuous matter creation (not included in this simulation). In this simulation, it is approximated by a universe dominated by the cosmological constant.",
+		"infoDE": "This page displays graphs related to metric distances, density parameters, and redshift as a function of time (or inversely) within the framework of dark energy theory. The page also contains modules allowing the computation of several quantities and obtaining results for a specific redshift z.<br><br>The page provides four universe examples:<br><br>-Default example: Standard ΛCDM model<br>This is the current cosmological model dominated by a cosmological constant (dark energy) and cold dark matter. It describes a universe beginning with a Big Bang and undergoing accelerated expansion consistent with modern observations.<br><br>-Example 1: Einstein-de Sitter model (1932)<br>A universe composed only of matter, spatially flat, and without dark energy or curvature. Its expansion is always decelerating and follows a simple law a(t) ∝ t<sup>2/3</sup>.<br><br>-Example 2: Lemaître model or loitering model (1931)<br>A closed universe with a positive cosmological constant close to the critical value, leading to a phase of near-stagnation of expansion. It illustrates a slow transition between deceleration and re-acceleration.<br><br>-Example 3: Hoyle steady-state model (1948)<br>An exponentially expanding universe in which density remains constant through continuous matter creation (not included in this simulation). In this simulation, it is approximated by a universe dominated by the cosmological constant.",
 
-		"ex0CalcLCDM": "Our Universe",
-		"ex1CalcLCDM": "Example 1",
-		"ex2CalcLCDM": "Example 2",
-		"ex3CalcLCDM": "Example 3",
-		"ex0CalcDE": "Our Universe",
-		"ex1CalcDE": "Example 1",
-		"ex2CalcDE": "Example 2",
-		"ex3CalcDE": "Example 3"
+		"ex0CalcLCDM": "Standard ΛCDM<br>model",
+		"ex1CalcLCDM": "Einstein-de Sitter<br>model",
+		"ex2CalcLCDM": "Lemaître<br>model",
+		"ex3CalcLCDM": "Hoyle<br>model",
+		"ex0CalcDE": "Standard ΛCDM<br>model",
+		"ex1CalcDE": "Einstein-de Sitter<br>model",
+		"ex2CalcDE": "Lemaître<br>model",
+		"ex3CalcDE": "Hoyle<br>model"
 	},
 
 	"constante": {
