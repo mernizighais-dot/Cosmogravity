@@ -740,10 +740,10 @@ function exemples(exemple) {
 
     if (exemple == "ex2UnivLCDM") {
         document.getElementById("T0").value = "2.7255";
-        document.getElementById("H0").value = "575";
+        document.getElementById("H0").value = "625";
         document.getElementById("optionsMonofluide").value = "optionNull";
-        document.getElementById("Omégam0").value = "0.3";
-        document.getElementById("Omégal0").value = "0.85";
+        document.getElementById("Omégam0").value = "0.05517";
+        document.getElementById("Omégal0").value = "1.239";
         document.getElementById("optionsOmégar0").value = "optionRFC";
         document.getElementById("OptionsOmégak0").checked = false;
         document.getElementById("a_min").value = "0";
@@ -805,12 +805,12 @@ function exemples(exemple) {
 
     if (exemple == "ex2UnivDE") {
         document.getElementById("T0").value = "2.7255";
-        document.getElementById("H0").value = "575";
+        document.getElementById("H0").value = "625";
         document.getElementById("optionsMonofluide").value = "optionNull";
-        document.getElementById("Omégam0").value = "0.3";
-        document.getElementById("OmégaDE0").value = "0.85";
+        document.getElementById("Omégam0").value = "0.05517";
+        document.getElementById("OmégaDE0").value = "1.239";
         document.getElementById("w0").value = "-1";
-        document.getElementById("w1").value = "0.2";
+        document.getElementById("w1").value = "0";
         document.getElementById("optionsOmégar0").value = "optionRFC";
         document.getElementById("OptionsOmégak0").checked = false;
         document.getElementById("a_min").value = "0";
@@ -868,10 +868,10 @@ function exemples(exemple) {
 
     if (exemple == "ex2CalcLCDM") {
         document.getElementById("T0").value = "2.7255";
-        document.getElementById("H0").value = "575";
+        document.getElementById("H0").value = "625";
         document.getElementById("optionsMonofluide").value = "optionNull";
-        document.getElementById("Omégam0").value = "0.3";
-        document.getElementById("Omégal0").value = "0.85";
+        document.getElementById("Omégam0").value = "0.05517";
+        document.getElementById("Omégal0").value = "1.239";
         document.getElementById("optionsOmégar0").value = "optionRFC";
         document.getElementById("OptionsOmégak0").checked = false;
         document.getElementById("graphique_z_min").value = "0";
@@ -932,12 +932,12 @@ function exemples(exemple) {
 
     if (exemple == "ex2CalcDE") {
         document.getElementById("T0").value = "2.7255";
-        document.getElementById("H0").value = "575";
+        document.getElementById("H0").value = "625";
         document.getElementById("optionsMonofluide").value = "optionNull";
-        document.getElementById("Omégam0").value = "0.3";
-        document.getElementById("OmégaDE0").value = "0.85";
+        document.getElementById("Omégam0").value = "0.05517";
+        document.getElementById("OmégaDE0").value = "01.239";
         document.getElementById("w0").value = "-1";
-        document.getElementById("w1").value = "0.2";
+        document.getElementById("w1").value = "0";
         document.getElementById("optionsOmégar0").value = "optionRFC";
         document.getElementById("OptionsOmégak0").checked = false;
         document.getElementById("graphique_z_min").value = "0";
