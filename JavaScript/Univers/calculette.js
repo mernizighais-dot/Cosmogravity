@@ -220,6 +220,7 @@ function affichage_des_z(fonction_EouF){
 
 
 function abscisse_t(fonction_EouF,zmin,zmax,pas){
+    let H0 = Number(document.getElementById("H0").value);
     age_univers=calcul_ages(fonction_EouF,H0_parAnnees(H0),1e-30,1);
     liste_z=[];
     let tmax=calcul_ages(fonction_EouF,H0_parAnnees(H0),1e-30,1/(1+zmin))
