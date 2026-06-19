@@ -62,7 +62,7 @@ async function analyse_facteur_echelle_LCDM(){
     }
     else if (OmegaLambda0) {
         for (let i=parametre_val_min; i<=parametre_val_max; i+=parametre_pas) {
-            document.getElementById("OmégaL0").value = Number(i);
+            document.getElementById("Omégal0").value = Number(i);
             await attendre(1000);
             updateUnivers();
             await attendre(1000);
