@@ -50,7 +50,7 @@ async function analyse_facteur_echelle_DE(){
     }
     else if (Omegam0) {
         for (let i=parametre_val_min; i<=parametre_val_max; i+=parametre_pas) {
-            document.getElementById("Omegam0").value = Number(i);
+            document.getElementById("Omégam0").value = Number(i);
             await attendre(1000);
             updateUnivers();
             await attendre(1000);
@@ -65,7 +65,7 @@ async function analyse_facteur_echelle_DE(){
     }
     else if (OmegaLambda0) {
         for (let i=parametre_val_min; i<=parametre_val_max; i+=parametre_pas) {
-            document.getElementById("OmegaLambda0").value = Number(i);
+            document.getElementById("OmégaDE0").value = Number(i);
             await attendre(1000);
             updateUnivers();
             await attendre(1000);
