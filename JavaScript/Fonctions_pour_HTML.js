@@ -1317,7 +1317,7 @@ function exemples(exemple) {
         document.getElementById("rebondd").className = "bouttonChoix";
         document.getElementById("boutton_ammorti").value = "1"; //on stocke la valeur à 1 pour savoir que c'est affiché à present
 
-        pressionBouttonTrajectoireSimple();
+        pressionBouttonTrajectoireComplete();
         pressionBouttonMobile(false);
         notationvitesseree1();
 
