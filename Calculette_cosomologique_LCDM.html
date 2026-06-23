@@ -251,7 +251,38 @@
     <div id="PanneauCentral" class="fenetre_calculette" >
         <div id="boite_calculette_centrale" class="boite_calculette">
             <button id="bouton_info" onclick="info_univers('calculette_LCDM');"  class="info-icon"></button>
-			<span id="txt_info_univers"></span>
+			<div id="txt_info_univers" style="display: none;">
+                <span id="description_univers"></span>
+
+                <span id="ex0Univ_titre"></span>
+                <button id="ex0Univ_bouton" onclick="info_univers_fleche('0');"  class="bouton_exemple">
+                    <img id="ex0Univ_fleche" class="fleche_exemple" src="./Images/fleche_menu.png" alt="flèche exemple">
+                </button>
+                <br>
+                <span id="ex0Univ_description" style="display: none;"></span>
+                <br><br>
+                <span id="ex1Univ_titre"></span>
+                <button id="ex1Univ_bouton" onclick="info_univers_fleche('1');"  class="bouton_exemple">
+                    <img id="ex1Univ_fleche" class="fleche_exemple" src="./Images/fleche_menu.png" alt="flèche exemple">
+                </button>
+                <br>
+                <span id="ex1Univ_description" style="display: none;"></span>
+                <br><br>
+                <span id="ex2Univ_titre"></span>
+                <button id="ex2Univ_bouton" onclick="info_univers_fleche('2');"  class="bouton_exemple">
+                    <img id="ex2Univ_fleche" class="fleche_exemple" src="./Images/fleche_menu.png" alt="flèche exemple">
+                </button>
+                <br>
+                <span id="ex2Univ_description" style="display: none;"></span>
+                <br><br>
+                <span id="ex3Univ_titre"></span>
+                <button id="ex3Univ_bouton" onclick="info_univers_fleche('3');"  class="bouton_exemple">
+                    <img id="ex3Univ_fleche" class="fleche_exemple" src="./Images/fleche_menu.png" alt="flèche exemple">
+                </button>
+                <br>
+                <span id="ex3Univ_description" style="display: none;"></span>
+            </div>
+
             <h3 id="generateur_graphique" style="text-align: center;"></h3>
             <span id="avertissement_nbb" class="" style="text-align: center;color: red;">Error</span>
             <div class="parametreGraphique">

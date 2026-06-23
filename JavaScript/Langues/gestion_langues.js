@@ -295,6 +295,15 @@ function texte_univers_LCDM() {
     document.getElementById("ex1UnivLCDM").innerHTML = texte.univers.ex1UnivLCDM
     document.getElementById("ex2UnivLCDM").innerHTML = texte.univers.ex2UnivLCDM
     document.getElementById("ex3UnivLCDM").innerHTML = texte.univers.ex3UnivLCDM
+
+    document.getElementById("ex0Univ_titre").innerHTML = texte.univers.ex0Univ_titre
+    document.getElementById("ex0Univ_description").innerHTML = texte.univers.ex0Univ_description
+    document.getElementById("ex1Univ_titre").innerHTML = texte.univers.ex1Univ_titre
+    document.getElementById("ex1Univ_description").innerHTML = texte.univers.ex1Univ_description
+    document.getElementById("ex2Univ_titre").innerHTML = texte.univers.ex2Univ_titre
+    document.getElementById("ex2Univ_description").innerHTML = texte.univers.ex2Univ_description
+    document.getElementById("ex3Univ_titre").innerHTML = texte.univers.ex3Univ_titre
+    document.getElementById("ex3Univ_description").innerHTML = texte.univers.ex3Univ_description
 }
 
 function texte_univers_DE() {
@@ -355,6 +364,15 @@ function texte_univers_DE() {
     document.getElementById("ex1UnivDE").innerHTML = texte.univers.ex1UnivDE
     document.getElementById("ex2UnivDE").innerHTML = texte.univers.ex2UnivDE
     document.getElementById("ex3UnivDE").innerHTML = texte.univers.ex3UnivDE
+
+    document.getElementById("ex0Univ_titre").innerHTML = texte.univers.ex0Univ_titre
+    document.getElementById("ex0Univ_description").innerHTML = texte.univers.ex0Univ_description
+    document.getElementById("ex1Univ_titre").innerHTML = texte.univers.ex1Univ_titre
+    document.getElementById("ex1Univ_description").innerHTML = texte.univers.ex1Univ_description
+    document.getElementById("ex2Univ_titre").innerHTML = texte.univers.ex2Univ_titre
+    document.getElementById("ex2Univ_description").innerHTML = texte.univers.ex2Univ_description
+    document.getElementById("ex3Univ_titre").innerHTML = texte.univers.ex3Univ_titre
+    document.getElementById("ex3Univ_description").innerHTML = texte.univers.ex3Univ_description
 };
 
 function texte_univers_calculette() {
@@ -522,6 +540,15 @@ function texte_univers_calculette() {
     document.getElementById("avertissement_nbb2").innerHTML = texte.calculette.avertissement_nbb
 
     document.getElementById("titreExemple").innerHTML = texte.univers.titreExemple
+
+    document.getElementById("ex0Univ_titre").innerHTML = texte.univers.ex0Univ_titre
+    document.getElementById("ex0Univ_description").innerHTML = texte.univers.ex0Univ_description
+    document.getElementById("ex1Univ_titre").innerHTML = texte.univers.ex1Univ_titre
+    document.getElementById("ex1Univ_description").innerHTML = texte.univers.ex1Univ_description
+    document.getElementById("ex2Univ_titre").innerHTML = texte.univers.ex2Univ_titre
+    document.getElementById("ex2Univ_description").innerHTML = texte.univers.ex2Univ_description
+    document.getElementById("ex3Univ_titre").innerHTML = texte.univers.ex3Univ_titre
+    document.getElementById("ex3Univ_description").innerHTML = texte.univers.ex3Univ_description
 
     // document.getElementById('texte_avertissement_z_-1').innerHTML = texte.calculette.avertissement_z_grand;
 };

@@ -597,13 +597,13 @@ function info_univers(typePage) {
 
   //Remplit l'espace avec le texte de l'avertissement :
   if (typePage == 'LCDM')
-    span.innerHTML = texte.univers.infoLCDM;
+    document.getElementById("description_univers").innerHTML = texte.univers.infoLCDM;
   else if (typePage == 'DE')
-    span.innerHTML = texte.univers.infoDE;
+    document.getElementById("description_univers").innerHTML = texte.univers.infoDE;
   else if (typePage == 'calculette_LCDM')
-    span.innerHTML = texte.calculette.infoLCDM;
+    document.getElementById("description_univers").innerHTML = texte.calculette.infoLCDM;
   else if (typePage == 'calculette_DE')
-    span.innerHTML = texte.calculette.infoDE;
+    document.getElementById("description_univers").innerHTML = texte.calculette.infoDE;
 
 
   //Si on appuie dessus :
@@ -619,6 +619,28 @@ function info_univers(typePage) {
 
   }
   ajustementGraphique()
+}
+
+function info_univers_fleche(exemple) {
+
+    var fleche = document.getElementById("ex"+exemple+"Univ_fleche");
+    var description = document.getElementById("ex"+exemple+"Univ_description"); 
+
+    if(description.style.display == "none" || description.style.display == "")
+    { 
+        description.style.display = "inline";
+        fleche.classList.toggle("tournee_exemple");
+
+    }
+
+    else
+    {
+        description.style.display = "none";
+        fleche.classList.toggle("tournee_exemple");
+    }
+
+    ajustementGraphique()
+
 }
 
 /**

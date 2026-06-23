@@ -44,6 +44,25 @@ body {
         transform: translateY(2px);
     }
 
+
+.bouton_exemple {
+    background-color: rgba(188, 167, 220, 0.6); 
+    border: none;
+    border-radius: 5px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.fleche_exemple {
+    display: flex;
+    width: 15px;
+    height: 15px;
+}
+
+.tournee_exemple {
+    transform: rotate(180deg);
+}
+
 .grillePrincipale {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
