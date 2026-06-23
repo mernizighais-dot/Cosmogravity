@@ -194,9 +194,6 @@
 				<span>
 				<button id="r4" type="button" name="mobile" class="bouttonChoix-inverse" value="mobile" onclick="document.getElementById('traject_type2').value = this.value;pressionBouttonMobile(false);notationvitesseree1()"></button>  
 				</span>				
-				<span id="sp_reb" style="display: none;">
-				<button id="rebondd" type="button" name="reb" class="bouttonChoix-inverse" style="display: none;" onclick="ammort_photon();changerBouttonRebond()"></button>
-				</span>
 			</div>	
     
         <div id="boutons_actions">
@@ -318,7 +315,6 @@
           $("#positionNav").load("Navigation.html");
       });
 
-    init_rebond();
     genereHtml();
     initialisationGenerale(1);
 
@@ -355,7 +351,6 @@
     var inputNbfusees = document.getElementById("nombredefusees");
 		var labelNbfusees = document.getElementById("labelnumberfusees")
 
-    var btnrebond = document.getElementById("rebondd");
 	  var inputRphysique = document.getElementById("r_phy");
     var selectElement = document.getElementById('potentiel-choix');
 	  var valeur_option_precedente
@@ -385,20 +380,6 @@
         labelNbfusees.style.display = "none";
         });
 
-        inputRphysique.addEventListener("input", function() {
-        if(inputRphysique.value==="0" || inputRphysique.value===""){
-          btnrebond.style.display="none";
-			    document.getElementById("sp_reb").style.display="none";
-			    document.getElementById("rebondd").className = "bouttonChoix-inverse";
-			    update_toggleEntreeSortie();
-        } 
-        else {
-          btnrebond.style.display="inline";
-          document.getElementById("sp_reb").style.display="flex";
-          document.getElementById("rebondd").className = "bouttonChoix-inverse";
-			    update_toggleEntreeSortie();
-        }
-        });
 
         selectElement.addEventListener('click', function() 
         {

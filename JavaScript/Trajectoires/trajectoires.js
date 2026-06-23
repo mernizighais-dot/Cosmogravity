@@ -126,22 +126,6 @@ function ammort()
   }
 }
 
-//-----------------------------------------------------------{ammort_photon}--------------------------------------------------
-
-/**
- * Fonction associée à rebond qui active le robond pour photon.
- */
-function ammort_photon() {
-  //verifier si la barre n'est pas affichée
-  if (document.getElementById("boutton_ammorti").value == "0") 
-  {
-    document.getElementById("boutton_ammorti").value = "1";//on met la valeur à 1 pour savoir que c'est affiché
-  } 
-  else 
-  {
-    document.getElementById("boutton_ammorti").value = "0"; //on stocke la valeur à 1 pour savoir que c'est affiché
-  }
-}
 
 //-----------------------------------------------------------{ammortUpdate}--------------------------------------------------
 

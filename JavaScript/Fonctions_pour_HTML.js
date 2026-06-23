@@ -1211,17 +1211,10 @@ function exemples(exemple) {
         document.getElementById("traject_type").value = "complete";
         document.getElementById("traject_type2").value = "observateur";
 
-        document.getElementById("rebondd").className = "bouttonChoix-inverse";
-        document.getElementById("boutton_ammorti").value = "0";//on stocke la valeur à 0 pour savoir que ce n'est pas affiché à present
 
         pressionBouttonTrajectoireComplete();
         pressionBouttonObservateur(false);
         notationvitesseree1();
-
-        // Équivalent de l'écouteur d'évènement de inputRphysique :
-		document.getElementById("rebondd").style.display="none"; 
-		document.getElementById("sp_reb").style.display="none";
-		update_toggleEntreeSortie();
 
         // Équivalent de l'écouteur d'évènement de btnObservateur :
        
@@ -1247,17 +1240,11 @@ function exemples(exemple) {
         document.getElementById("traject_type").value = "complete";
         document.getElementById("traject_type2").value = "mobile";
 
-        document.getElementById("rebondd").className = "bouttonChoix-inverse";
-        document.getElementById("boutton_ammorti").value = "0";//on stocke la valeur à 0 pour savoir que ce n'est pas affiché à present
 
         pressionBouttonTrajectoireComplete();
         pressionBouttonMobile(false);
         notationvitesseree1();
 
-        // Équivalent de l'écouteur d'évènement de inputRphysique :
-		document.getElementById("rebondd").style.display="none"; 
-		document.getElementById("sp_reb").style.display="none";
-		update_toggleEntreeSortie();
 
         // Équivalent de l'écouteur d'évènement de btnSpationaute :
 
@@ -1299,17 +1286,11 @@ function exemples(exemple) {
         document.getElementById("traject_type").value = "complete";
         document.getElementById("traject_type2").value = "observateur";
 
-        document.getElementById("rebondd").className = "bouttonChoix-inverse";
-        document.getElementById("boutton_ammorti").value = "0";//on stocke la valeur à 0 pour savoir que ce n'est pas affiché à present
 
         pressionBouttonTrajectoireComplete();
         pressionBouttonObservateur(false);
         notationvitesseree1();
 
-        // Équivalent de l'écouteur d'évènement de inputRphysique :
-		document.getElementById("rebondd").style.display="none"; 
-		document.getElementById("sp_reb").style.display="none";
-		update_toggleEntreeSortie();
 
 
         // Équivalent de l'écouteur d'évènement de btnObservateur :
@@ -1336,17 +1317,11 @@ function exemples(exemple) {
         document.getElementById("traject_type").value = "complete";
         document.getElementById("traject_type2").value = "mobile";
 
-        document.getElementById("rebondd").className = "bouttonChoix";
-        document.getElementById("boutton_ammorti").value = "1"; //on stocke la valeur à 1 pour savoir que c'est affiché à present
 
         pressionBouttonTrajectoireComplete();
         pressionBouttonMobile(false);
         notationvitesseree1();
 
-        // Équivalent de l'écouteur d'évènement de inputRphysique :
-        document.getElementById("rebondd").style.display="inline";
-		document.getElementById("sp_reb").style.display="flex";
-		update_toggleEntreeSortie();
 
         // Équivalent de l'écouteur d'évènement de btnSpationaute :
 

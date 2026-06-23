@@ -1175,8 +1175,7 @@ function trajectoire(compteur,mobile) {
  */
 function animate(compteur,mobile,mobilefactor) {
 
-	element = document.getElementById('traject_type'); // on recupere le boutton de type de trajectoire
-	var isrebond = document.getElementById("boutton_ammorti").value; // on recupere la valeur de la barre rebond		
+	element = document.getElementById('traject_type'); // on recupere le boutton de type de trajectoire	
 	element2=document.getElementById('traject_type2');		//on recupere le boutton de observateur ou mobile
 
 	mobilefactor[compteur] = factGlobalAvecClef //facteur pour l'echelle								 
@@ -1257,23 +1256,6 @@ function animate(compteur,mobile,mobilefactor) {
 			mobile["context22"].lineWidth = "1";
 			mobile["context22"].fill();
 
-			//-----------------------------------------------------GESTION REBOND-------------------------------------------------
-			
-			if (mobile.r_part_obs <= r_phy ) 
-			{
-				/*Si ya un rebond on change de sens pour la vitesse */
-				if (isrebond == 1 && r_phy > 0)
-				{
-					mobile.A_part_obs = -mobile.A_part_obs ;
-				} 
-				/*Si ya pas de rebond on stope le mobile sur l'astre*/
-				if(isrebond == 0 && r_phy!=0 && mobile.r_part_obs <= r_phy)
-				{
-					Timer.instances[compteur].stop(); //on stope le Timer du mobile concerné 	
-
-				}	
-				
-			}
 			
 		}
 
@@ -1380,20 +1362,6 @@ function animate(compteur,mobile,mobilefactor) {
 			
 		}  
 
-		if (mobile.r_part <= r_phy || mobile.r_part==0) 
-		{
-			/*Si ya un rebond on change de sens pour la vitesse */
-			if (isrebond == 1 && r_phy > 0) 
-			{
-				mobile.A_part = -mobile.A_part ;
-			}	
-			/*Si ya pas de rebond on stope le mobile sur l'astre*/
-			if(isrebond == 0 && r_phy!=0 && mobile.r_part <= r_phy)
-			{
-				Timer.instances[compteur].stop(); //on stope le Timer du mobile concerné 	
-
-			}	     
-		}
 
 	}
 	/*si tout les Timers relié aux mobiles sont supprimés on sait que ya plus de calculs en cours alors on met qu'on a fini la simulation*/

@@ -420,7 +420,6 @@ function load_schwarshild_massif_nonBar() {
  */
 function load_schwarshild_photon() {
 	load_generalise(true); //Gestion des paramètres communs.
-	load_generalise_SCH_bar(); //Gestion du rebond possible.
 }
 
 //-------------------{fonction load_schwarshild_photon_nonBar}-------------------

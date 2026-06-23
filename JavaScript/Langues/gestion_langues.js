@@ -1037,7 +1037,6 @@ function texteTrajectoirePhoton(nbrderockets) {
     document.getElementById("r3").innerHTML = texte.pages_trajectoire.observateur;
     document.getElementById("r4").innerHTML = texte.pages_trajectoire.photon;
     //document.getElementById("boutton_prézoom").innerHTML = texte.pages_trajectoire.boutton_prézoom;
-    document.getElementById("rebondd").innerHTML = texte.page_trajectoire_massive.rebond;
     document.getElementById("boutton_recup").innerHTML = texte.pages_trajectoire.boutton_recup;
 
     document.getElementById("Entree_astre_label").innerHTML = texte.pages_trajectoire.entree_astre;
