@@ -1256,6 +1256,16 @@ function animate(compteur,mobile,mobilefactor) {
 			mobile["context22"].lineWidth = "1";
 			mobile["context22"].fill();
 
+			if (mobile.r_part_obs <= r_phy ) 
+			{
+				
+				if(r_phy!=0 && mobile.r_part_obs <= r_phy)
+				{
+					Timer.instances[compteur].stop(); //on stope le Timer du mobile concerné 	
+
+				}	
+				
+			}
 			
 		}
 
@@ -1360,7 +1370,16 @@ function animate(compteur,mobile,mobilefactor) {
 			//on stop la simulation quand on arrive à r=0
 			Timer.instances[compteur].stop();
 			
-		}  
+		} 
+		
+		if (mobile.r_part <= r_phy || mobile.r_part==0) 
+		{
+			if(r_phy!=0 && mobile.r_part <= r_phy)
+			{
+				Timer.instances[compteur].stop(); //on stope le Timer du mobile concerné 	
+
+			}	     
+		}
 
 
 	}
