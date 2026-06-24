@@ -154,6 +154,15 @@
         <div id="entete">
           <p id="txt_titre" class="titre_style"></p>
           <span id="txt_info_trajectoire"></span>
+          <button id="bouton_avertissement" style="cursor: pointer;" class="avertissement_style" onclick=avertissement_trajectoire(typePage);>
+            <img id="panneauAvertissement"
+            style="width: 25px; height: 25px"
+            src="./Images/panneau_avertissement.png"
+            alt="avertissement">
+            <span id="txt_trajectoire" style=" top: 30px; right: 50px; cursor: pointer; color: black;"></span>
+            <span id="croix" class="close"></span>
+            <span id="txt_avertissement_trajectoire"></span>
+          </button>
         </div>
 
         <div id="radio_button">
@@ -188,28 +197,28 @@
                     <label id="label_valMin" class="infobullable" for="parametre_val_min">
                         Valeur min =
                     </label>
-                    <input id="parametre_val_min" type="number" value="0" step="0.0001" min="-.9999" max="1000">
+                    <input id="parametre_val_min" type="number" value="1e30" step="0.0001" min="-.9999" max="1e35">
                 </div>
         
                 <div class="paramètre">
                     <label id="label_valMax" class="infobullable" for ="parametre_val_max">
                         Valeur max =
                     </label>
-                    <input id="parametre_val_max" type="number" value="5" step="0.0001" min="-.9999" max="1000">
+                    <input id="parametre_val_max" type="number" value="5e30" step="0.0001" min="-.9999" max="1e35">
                 </div>
 
                 <div class="paramètre">
                     <label id="label_pas" class="infobullable" for="parametre_pas">
                         pas =
                     </label>
-                    <input id="parametre_pas" type="number" value="1" step="0.001" min="0.001" max="10000">
+                    <input id="parametre_pas" type="number" value="1e30" step="0.001" min="0.001" max="10000">
                 </div>
             </fieldset>
         </div>
 
         <div id="boutons_actions"> 
           <span id="buts">
-            <button type="button" class="grosBoutton" id="start" onclick="analyse_parametre();lancement();"></button>
+            <button type="button" class="grosBoutton" id="start" onclick="lancement(); analyse_parametre();"></button>
             <button type="button" class="grosBoutton" id="pause/resume" style="display: none;" >Pause</button>
           </span>
 
@@ -222,6 +231,14 @@
           <span id="recup">
             <button id="boutton_recup" type="button" class="grosBoutton" onclick="recuperation();"></button>
           </span>
+        </div>
+
+        <div id="BoiteExemple">
+          <span id="titreExemple"></span>
+          <button id="ex0SCH4" class="grosBoutton" onclick="exemples('ex0SCH4');"></button>
+          <button id="ex1SCH4" class="grosBoutton" onclick="exemples('ex1SCH4');"></button>
+          <button id="ex2SCH4" class="grosBoutton" onclick="exemples('ex2SCH4');"></button>
+          <button id="ex3SCH4" class="grosBoutton" onclick="exemples('ex3SCH4');"></button>
         </div>
 
       </div>
@@ -418,6 +435,7 @@ if (!sessionStorage.getItem(key)) {
 
   <!-- Script pour l'analyse de trajectoire -->
   <script src="JavaScript/Trajectoires/analyse_trajectoire_inter_photon.js"></script>
+  <script src="JavaScript/Trajectoires/calcul_trajectoire_inter_photons.js"></script>
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       // On vérifie si l'indicateur est présent dans la session

@@ -3,6 +3,18 @@ async function attendre(ms) {
 }
 
 async function lancement_analyse() {
+    let titre = "analyse_trajectoire_inter_photon_";
+    let M = document.getElementById("check_M").checked;
+    let r = document.getElementById("check_r_physique").checked;
+
+    if(M){
+        titre+="M_";
+        titre+=String(document.getElementById("M").value);
+    }
+    else{
+        titre+="r_phy_";
+        titre+=String(document.getElementById("r_phy").value);
+    }
 
     let rayon, vitesse_radiale, vitesse_tangentielle, L, E;
     let data = "rayon,vitesse_radiale,vitesse_tangentielle,L,E\n";
@@ -20,9 +32,9 @@ async function lancement_analyse() {
 
         data += `${rayon},${vitesse_radiale},${vitesse_tangentielle},${L},${E}\n`;
 
-        await attendre(10); //temps en ms entre chaque ligne de données (ici 100ms)
+        await attendre(10); //temps en ms entre chaque ligne de données (ici 10ms)
     }
-    download_csv(data, "analyse_trajectoire.csv");  
+    download_csv(data, titre+".csv");  
 }
 
 async function analyse_parametre(){
@@ -33,24 +45,36 @@ async function analyse_parametre(){
     let valmax_parametre = Number(document.getElementById("parametre_val_max").value);
     let pas = Number(document.getElementById("parametre_pas").value);
 
-    if ( valmin_parametre<=valmax_parametre) {
+
+    let numero_boucle = parseInt(sessionStorage.getItem("compteur")) || 1 ;
+        
+    sessionStorage.setItem("valmin"+numero_boucle, valmin_parametre);
+    sessionStorage.setItem("valmax"+numero_boucle, valmax_parametre);
+    sessionStorage.setItem("pas"+numero_boucle, pas);
+
+    let max_boucles = Math.trunc((Number(sessionStorage.getItem("valmax1")) - Number(sessionStorage.getItem("valmin1")))/Number(sessionStorage.getItem("pas1"))) + 1;
+    console.log(max_boucles);
+
+    if (numero_boucle <= max_boucles) {
         if (M) {
-            document.getElementById("M").value = valmin_parametre;
+            document.getElementById("M").value = numero_boucle*Number(sessionStorage.getItem("pas1"));
             await attendre(10);
             await lancement_analyse();
             await attendre(10);
-            document.getElementById("parametre_val_min").value = Number(valmin_parametre + pas);
+            numero_boucle++;
             await attendre(10);
+            sessionStorage.setItem("compteur", numero_boucle);
             sessionStorage.setItem("cliquerSurStart", "true");
             window.location.reload();
         }
         if (r) {
-            document.getElementById("r_phy").value = valmin_parametre
+            document.getElementById("r_phy").value = numero_boucle*pas;
             await attendre(10);
             await lancement_analyse();
             await attendre(10);
-            document.getElementById("parametre_val_min").value = Number(valmin_parametre + pas);
+            numero_boucle++;
             await attendre(10);
+            sessionStorage.setItem("compteur", numero_boucle);
             sessionStorage.setItem("cliquerSurStart", "true");
             window.location.reload();
         }
