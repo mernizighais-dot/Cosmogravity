@@ -3,7 +3,7 @@ async function attendre(ms) {
 }
 
 async function lancement_analyse() {
-    let titre = "analyse_trajectoire_inter_photon_";
+    let titre = "analyse_trajectoire_inter_";
     let M = document.getElementById("check_M").checked;
     let r = document.getElementById("check_r_physique").checked;
 
