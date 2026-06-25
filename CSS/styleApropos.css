@@ -5,7 +5,7 @@ h2, h3 {
 
 body {
     margin: 0;
-    font-size: 20px;
+    font-size: clamp(14px, 1.4vw, 20px);
     background-color: rgb(239, 239, 239);
 }
 
@@ -19,7 +19,6 @@ body {
     gap: 5px;
     padding: 0;
     margin: 0;
-    height: 100vh;
     width: 100%;
     box-sizing: border-box;
     position: absolute;
@@ -32,7 +31,26 @@ body {
 
 .corps {
     grid-area: corps;
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+        "description"
+        "acteur"
+        "version";
     column-span: all;
+}
+
+#boite_description {
+    grid-area: description;
+    text-align: justify;
+}
+
+#boite_acteur {
+    grid-area: acteur;
+}
+
+#boite_version {
+    grid-area: version;
 }
 
 .grilleActeurs {
@@ -65,6 +83,12 @@ body {
 }
 
 @media screen and (max-width: 1200px) {
+
+    body {
+    margin: 0;
+    font-size: 24px;
+}
+
     .grillePrincipale {
         grid-template-rows: auto 1fr;
     }
@@ -76,4 +100,5 @@ body {
     .boite .boite {
         grid-template-rows: auto auto;
     }
+
 }
