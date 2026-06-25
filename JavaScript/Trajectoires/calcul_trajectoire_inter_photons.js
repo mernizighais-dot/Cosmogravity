@@ -934,6 +934,10 @@ function trajectoire(compteur,mobile) {
     	mobile["r_part"]=r_part;  
 
     	if(mobile.r0 > r_phy){ //Quand on débute à l'extérieure de l'astre.
+
+			m = G * M / Math.pow(c, 2); 
+			rs=2*m;
+
 			r_init_obs = mobile.r0; 
 			r_part_obs=r_init_obs;
        		mobile["r_part_obs"]=r_part_obs; 
@@ -1219,7 +1223,8 @@ function animate(compteur,mobile,mobilefactor) {
 		//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>< METRIQUE EXTERIEURE ><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 		if(mobile.r_part_obs > r_phy) 
 		{   
-
+			m = G * M / Math.pow(c, 2); 
+			rs=2*m;
 			//calcul de l'equation differentielle avec RK4 ça donne le r et dr/dlamda
 			val = rungekutta_general(mobile.dtau, mobile.A_part_obs, mobile.r_part_obs, mobile.E, mobile.L, derivee_seconde_externe_photon_obs);
 			mobile.r_part_obs = val[0]; //valeur de r calculée par RK (Runge Kutta)
@@ -1530,6 +1535,9 @@ function Vr_obs(r,E,L) {
  * @returns {Number} : le résultat de alpha(r). 
  */
 function alpha(r){
+	m = G * M / Math.pow(c, 2); 
+	rs=2*m;
+
 	return 1-(Math.pow(r, 2)*rs) / Math.pow(r_phy, 3);
 }
 
@@ -1541,6 +1549,9 @@ function alpha(r){
  * @returns {Number} : le résultat de beta(r). 
  */
 function beta(r){
+	m = G * M / Math.pow(c, 2); 
+	rs=2*m;
+
 	return 1.5 * Math.sqrt(1-(rs/r_phy)) - 0.5 *Math.sqrt(1-(Math.pow(r, 2)*rs)/Math.pow(r_phy, 3));
 }
 
@@ -1555,6 +1566,9 @@ function beta(r){
  * @returns le résultat de la dérivée seconde. 
  */
 function derivee_seconde_externe_photon_obs(E,L,r) {
+	m = G * M / Math.pow(c, 2); 
+	rs=2*m;
+
 	return ((c*c)/(2*Math.pow(E,2)))*(2*(1-rs/r)*(rs/Math.pow(r,2))*(E*E - (1-rs/r)*Math.pow(L/r,2)) + Math.pow(1-rs/r,2)*((-rs*L*L)/(Math.pow(r,4)) + (1-rs/r)*((2*L*L)/(Math.pow(r,3)))));
 }
 
@@ -1568,6 +1582,8 @@ function derivee_seconde_externe_photon_obs(E,L,r) {
  * @returns le résultat de la dérivée seconde. 
  */
 function derivee_seconde_externe_photon(L, r) {
+	m = G * M / Math.pow(c, 2); 
+	rs=2*m;
 	return (Math.pow(c, 2)/(2*Math.pow(r, 4)))*Math.pow(L, 2)*(2*r-3*rs);
 }
 
@@ -1581,6 +1597,8 @@ function derivee_seconde_externe_photon(L, r) {
  * @returns le résultat de la dérivée seconde. 
  */
 function derivee_seconde_interne_photon(E,L,r) {
+	m = G * M / Math.pow(c, 2); 
+	rs=2*m;
 	return -((Math.pow(c,2)*r*rs)/(Math.pow(r_phy,3)))*(Math.pow(E/beta(r),2) - Math.pow(L/r,2)) 
 	+ ((Math.pow(c,2)*alpha(r))/(2))*((-Math.pow(E,2)*r*rs)/(Math.pow(beta(r),3)*Math.sqrt(alpha(r))*Math.pow(r_phy,3)) + 2*(Math.pow(L,2)/Math.pow(r,3)));
 }
@@ -1595,6 +1613,8 @@ function derivee_seconde_interne_photon(E,L,r) {
  * @returns le résultat de la dérivée seconde. 
  */
 function derivee_seconde_interne_photon_obs(E,L,r) {
+	m = G * M / Math.pow(c, 2); 
+	rs=2*m;
 
 	terme1 = Math.pow(E/beta(r),2) - Math.pow(L/r,2);
 	derivee_alpha = (-2*r*rs)/Math.pow(r_phy,3);
@@ -1904,6 +1924,8 @@ function majFondFixe3(){
 
 // Fonction de verification par rapport à R_phy r0 et rs avant lancement 
 function test_inte() {
+	m = G * M / Math.pow(c, 2); 
+	rs=2*m;
 
 	/*variables pours verifier 3 conditions differentes:*/
 	var onebol=false;

@@ -3,17 +3,16 @@ async function attendre(ms) {
 }
 
 async function lancement_analyse() {
-    let titre = "analyse_trajectoire_inter_photon_";
+    let titre = "analyse_trajectoire_kerr_photon_";
     let M = document.getElementById("check_M").checked;
-    let r = document.getElementById("check_r_physique").checked;
 
     if(M){
         titre+="M_";
         titre+=String(document.getElementById("M").value);
     }
     else{
-        titre+="r_phy_";
-        titre+=String(document.getElementById("r_phy").value);
+        titre+="J_";
+        titre+=String(document.getElementById("J").value);
     }
 
     let rayon, vitesse_radiale, vitesse_tangentielle, L, E;
@@ -24,11 +23,11 @@ async function lancement_analyse() {
 
         analyse_trajectoire_en_cours+=1;
 
-        rayon = document.getElementById("r_par1").innerHTML;
-        vitesse_radiale = document.getElementById("vr_sc_mas1").innerHTML;
-        vitesse_tangentielle = document.getElementById("vp_sc_mas1").innerHTML;
-        L = document.getElementById("L1").innerHTML;
-        E = document.getElementById("E1").innerHTML;
+        rayon = document.getElementById("r_par").innerHTML;
+        vitesse_radiale = document.getElementById("vrkp").innerHTML;
+        vitesse_tangentielle = document.getElementById("vpkp").innerHTML;
+        L = document.getElementById("L").innerHTML;
+        E = document.getElementById("E").innerHTML;
 
         data += `${rayon},${vitesse_radiale},${vitesse_tangentielle},${L},${E}\n`;
 
@@ -39,7 +38,7 @@ async function lancement_analyse() {
 
 async function analyse_parametre(){
     let M = document.getElementById("check_M").checked;
-    let r = document.getElementById("check_r_physique").checked;
+    let J = document.getElementById("check_J").checked;
 
     let valmin_parametre = Number(document.getElementById("parametre_val_min").value);
     let valmax_parametre = Number(document.getElementById("parametre_val_max").value);
@@ -67,8 +66,8 @@ async function analyse_parametre(){
             sessionStorage.setItem("cliquerSurStart", "true");
             window.location.reload();
         }
-        if (r) {
-            document.getElementById("r_phy").value = numero_boucle*pas;
+        if (J) {
+            document.getElementById("J").value = numero_boucle*pas;
             await attendre(10);
             await lancement_analyse();
             await attendre(10);
