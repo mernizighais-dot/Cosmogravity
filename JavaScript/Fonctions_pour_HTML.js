@@ -843,14 +843,14 @@ function exemples(exemple) {
 
     if (exemple == "ex3UnivDE") {
         document.getElementById("T0").value = "2.7255";
-        document.getElementById("H0").value = "70";
-        document.getElementById("optionsMonofluide").value = "optionLDE";
-        document.getElementById("Omégam0").value = "0";
-        document.getElementById("OmégaDE0").value = "1";
-        document.getElementById("w0").value = "-1";
-        document.getElementById("w1").value = "0";
-        document.getElementById("optionsOmégar0").value = "optionRien";
-        document.getElementById("OptionsOmégak0").checked = true;
+        document.getElementById("H0").value = "67.74";
+        document.getElementById("optionsMonofluide").value = "optionNull";
+        document.getElementById("Omégam0").value = "0.3089";
+        document.getElementById("OmégaDE0").value = "3";
+        document.getElementById("w0").value = "-1.2";
+        document.getElementById("w1").value = "0.2";
+        document.getElementById("optionsOmégar0").value = "optionRFC_et_Neutrinos";
+        document.getElementById("OptionsOmégak0").checked = false;
         document.getElementById("a_min").value = "0";
         document.getElementById("a_max").value = "5";
         updateUnivers();
@@ -970,14 +970,14 @@ function exemples(exemple) {
 
     if (exemple == "ex3CalcDE") {
         document.getElementById("T0").value = "2.7255";
-        document.getElementById("H0").value = "70";
-        document.getElementById("optionsMonofluide").value = "optionLDE";
-        document.getElementById("Omégam0").value = "0";
-        document.getElementById("OmégaDE0").value = "1";
-        document.getElementById("w0").value = "-1";
-        document.getElementById("w1").value = "0";
-        document.getElementById("optionsOmégar0").value = "optionRien";
-        document.getElementById("OptionsOmégak0").checked = true;
+        document.getElementById("H0").value = "67.74";
+        document.getElementById("optionsMonofluide").value = "optionNull";
+        document.getElementById("Omégam0").value = "0.3089";
+        document.getElementById("OmégaDE0").value = "3";
+        document.getElementById("w0").value = "-1.2";
+        document.getElementById("w1").value = "0.2";
+        document.getElementById("optionsOmégar0").value = "optionRFC_et_Neutrinos";
+        document.getElementById("OptionsOmégak0").checked = false;
         document.getElementById("graphique_z_min").value = "0";
         document.getElementById("graphique_z_max").value = "5";
         document.getElementById("graphique_pas").value = "300";

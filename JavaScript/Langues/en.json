@@ -117,7 +117,7 @@
 		"ex3Univ_description_LCDM": "<br>The de Sitter model describes a universe devoid of matter and radiation, whose expansion is entirely governed by a positive cosmological constant. It is the first cosmological solution of Einstein’s equations exhibiting accelerated expansion and leads to an exponential growth of the scale factor.",
 
 		"ex3Univ_titre_DE": "-Example 3: Universe with Big Fall and Big Rip",
-		"ex3Univ_description_DE": "<br>This example is a fictitious universe featuring both a Big Fall (initial contraction of the universe) and a Big Rip (infinite expansion of the universe in a finite time). Thus, this universe has a beginning, although not a Big Bang, and also a final state in which all structures are ultimately torn apart.",
+		"ex3Univ_description_DE": "<br>This example is a fictitious universe featuring both a Big Fall (initial contraction of the universe) and a Big Rip (infinite expansion of the universe in a finite time). Thus, this universe has a beginning, although not a Big Bang, and also a final state in which all structures are ultimately torn apart. Under such conditions, primordial nucleosynthesis is impossible; a universe like ours could therefore not exist in this case.",
 
 		"titreExemple": "Examples:",
 		"ex0UnivLCDM": "Standard ΛCDM<br>model",
