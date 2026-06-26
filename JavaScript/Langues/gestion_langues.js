@@ -302,8 +302,8 @@ function texte_univers_LCDM() {
     document.getElementById("ex1Univ_description").innerHTML = texte.univers.ex1Univ_description
     document.getElementById("ex2Univ_titre").innerHTML = texte.univers.ex2Univ_titre
     document.getElementById("ex2Univ_description").innerHTML = texte.univers.ex2Univ_description
-    document.getElementById("ex3Univ_titre").innerHTML = texte.univers.ex3Univ_titre
-    document.getElementById("ex3Univ_description").innerHTML = texte.univers.ex3Univ_description
+    document.getElementById("ex3Univ_titre").innerHTML = texte.univers.ex3Univ_titre_LCDM
+    document.getElementById("ex3Univ_description").innerHTML = texte.univers.ex3Univ_description_LCDM
 }
 
 function texte_univers_DE() {
@@ -371,8 +371,8 @@ function texte_univers_DE() {
     document.getElementById("ex1Univ_description").innerHTML = texte.univers.ex1Univ_description
     document.getElementById("ex2Univ_titre").innerHTML = texte.univers.ex2Univ_titre
     document.getElementById("ex2Univ_description").innerHTML = texte.univers.ex2Univ_description
-    document.getElementById("ex3Univ_titre").innerHTML = texte.univers.ex3Univ_titre
-    document.getElementById("ex3Univ_description").innerHTML = texte.univers.ex3Univ_description
+    document.getElementById("ex3Univ_titre").innerHTML = texte.univers.ex3Univ_titre_DE
+    document.getElementById("ex3Univ_description").innerHTML = texte.univers.ex3Univ_description_DE
 };
 
 function texte_univers_calculette() {
@@ -490,6 +490,8 @@ function texte_univers_calculette() {
         document.getElementById("ex3CalcLCDM").innerHTML = texte.calculette.ex3CalcLCDM
 
         document.getElementById("generateur_graphique").innerHTML = texte.calculette.generateur_graphique_titre_LCDM;
+        document.getElementById("ex3Univ_titre").innerHTML = texte.univers.ex3Univ_titre_LCDM
+        document.getElementById("ex3Univ_description").innerHTML = texte.univers.ex3Univ_description_LCDM
     }
     else{
         document.getElementById("label_rho_de").title = texte.calculette.infobulle_rho_DE
@@ -504,6 +506,8 @@ function texte_univers_calculette() {
         document.getElementById("ex3CalcDE").innerHTML = texte.calculette.ex3CalcDE
 
         document.getElementById("generateur_graphique").innerHTML = texte.calculette.generateur_graphique_titre_DE;
+        document.getElementById("ex3Univ_titre").innerHTML = texte.univers.ex3Univ_titre_DE
+        document.getElementById("ex3Univ_description").innerHTML = texte.univers.ex3Univ_description_DE
     }
     document.getElementById("label_Tz2").title = texte.calculette.infobulle_Tz2;
     document.getElementById("label_Hz2").title = texte.calculette.infobulle_Hz2;
@@ -547,8 +551,6 @@ function texte_univers_calculette() {
     document.getElementById("ex1Univ_description").innerHTML = texte.univers.ex1Univ_description
     document.getElementById("ex2Univ_titre").innerHTML = texte.univers.ex2Univ_titre
     document.getElementById("ex2Univ_description").innerHTML = texte.univers.ex2Univ_description
-    document.getElementById("ex3Univ_titre").innerHTML = texte.univers.ex3Univ_titre
-    document.getElementById("ex3Univ_description").innerHTML = texte.univers.ex3Univ_description
 
     // document.getElementById('texte_avertissement_z_-1').innerHTML = texte.calculette.avertissement_z_grand;
 };

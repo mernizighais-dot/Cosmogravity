@@ -111,19 +111,21 @@
 		"ex1Univ_description": "<br>Après s’y être opposé Einstein accepte en 1932 ce qu’on appellera plus tard le Big Bang dans un article avec de Sitter. Dans ce modèle le contenu de l’univers est uniquement de la matière non relativiste : il y renie sa constante cosmologique (qu’il avait introduite en 1917 pour avoir un univers statique mais cette solution se révèle mathématiquement instable).<br><br>Les premières mesures de H0 de Lemaître en 1927 (625 km s-1 à 1 Mpc) et de Hubble en 1929 (500 kms-1 Mpc-1) sont affectées de fortes erreurs sur les mesures des distances des galaxies (difficilement déduites à l’époque de l’observation d’étoiles standards de luminosité mais de ces étoiles ... dans d’autres galaxies. Cependant les décalages spectraux z des galaxies directement observables avec un spectrographe étaient bien mesurés. Comme démontré dans Théorie § 14.1, H0 = 2 / 3 t0. Ainsi un H0 n fois trop grand entraine un âge t0 n fois trop petit et l’âge de cet Univers de matière se retrouvait plus petit que celui de la Terre (même avec les connaissances géophysiques de l’époque).",
 		"ex2Univ_titre": "-Exemple 2 : Modèle de Lemaître ou modèle hésitant (1931)",
 		"ex2Univ_description": "<br>En 1931 Lemaître propose un univers dont le contenu est matière m et constante cosmologique lambda avec un ajustement très fin des données initiales des paramètres de densité oméga m0 et oméga lambda0 qui, entre une phase de Big Bang et une en exponentielle, rajoute, en continuité, une phase où le facteur d’échelle a(t) est presque constant mais « hésitant » (instable) entre un départ vers le haut ou vers le bas. Un ajustement de plus en plus fin des densités de matière et de lambda permet d’allonger cette phase.<br><br>La motivation principale de Lemaître pour cet ajout est de permettre une phase de structuration gravitationnelle (formation des astres) de l’univers durant la phase ou a est presque constant, avant que l’expansion redevienne trop forte et ceci malgré la trop forte estimation du H0 de l’époque.",
-		"ex3Univ_titre": "-Exemple 3 : Modèle de Hoyle dit d'état stationnaire (1948)",
-		"ex3Univ_description": "<br>Le modèle d'état stationnaire décrit un univers éternel en expansion dont la densité moyenne reste constante grâce à une création continue de matière. Ce mécanisme n'étant pas pris en compte par les équations de Friedmann standards, cette simulation ne reproduit pas exactement le modèle de Hoyle, mais en propose une approximation à l'aide d'un univers dominé par l'énergie sombre (ou la constante cosmologique).",
+		"ex3Univ_titre_LCDM": "-Exemple 3 : Modèle de de Sitter (1917)",
+		"ex3Univ_description_LCDM": "<br>Le modèle de de Sitter décrit un univers vide de matière et de rayonnement, dont l'expansion est entièrement gouvernée par une constante cosmologique positive. Il constitue la première solution cosmologique en expansion accélérée des équations d'Einstein et conduit à une croissance exponentielle du facteur d'échelle.",
+		"ex3Univ_titre_DE": "-Exemple 3 : Univers avec Big Fall et Big Rip",
+		"ex3Univ_description_DE": "<br>Cet exemple est un univers fictif comportant à la fois un Big Fall (contraction initiale de l'univers) et un Big Rip (expansion infini de l'univers en un temps fini). Ainsi cet univers a un commencement, bien que ce ne soit pas un Big Bang, mais aussi une fin où toute structure sera désagrégée.",
 
 		
 		"titreExemple": "Exemples\u00A0:",
 		"ex0UnivLCDM": "Modèle<br>standard ΛCDM",
 		"ex1UnivLCDM": "Modèle<br>d'Einstein-de Sitter",
 		"ex2UnivLCDM": "Modèle<br>de Lemaître",
-		"ex3UnivLCDM": "Modèle<br>de Hoyle",
+		"ex3UnivLCDM": "Modèle<br>de de Sitter",
 		"ex0UnivDE": "Modèle<br>standard ΛCDM",
 		"ex1UnivDE": "Modèle<br>d'Einstein-de Sitter",
 		"ex2UnivDE": "Modèle<br>de Lemaître",
-		"ex3UnivDE": "Modèle<br>de Hoyle"
+		"ex3UnivDE": "Big Fall<br>et Big Rip"
 	},
 
 
@@ -254,11 +256,11 @@
 		"ex0CalcLCDM": "Modèle<br>standard ΛCDM",
 		"ex1CalcLCDM": "Modèle<br>d'Einstein-de Sitter",
 		"ex2CalcLCDM": "Modèle<br>de Lemaître",
-		"ex3CalcLCDM": "Modèle<br>de Hoyle",
+		"ex3CalcLCDM": "Modèle<br>de de Sitter",
 		"ex0CalcDE": "Modèle<br>standard ΛCDM",
 		"ex1CalcDE": "Modèle<br>d'Einstein-de Sitter",
 		"ex2CalcDE": "Modèle<br>de Lemaître",
-		"ex3CalcDE": "Modèle<br>de Hoyle"
+		"ex3CalcDE": "Big Fall<br>et Big Rip"
 	},
 
 	"constante": {

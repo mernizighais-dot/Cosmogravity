@@ -113,18 +113,21 @@
 		"ex2Univ_titre": "-Example 2: Lemaître model or loitering model (1931)",
 		"ex2Univ_description": "<br>In 1931, Lemaître proposed a universe containing matter and a cosmological constant, with a very precise adjustment of the initial values of the density parameters Ωm0 and ΩΛ0. Between the Big Bang phase and the final exponential expansion, this model introduces a continuous phase during which the scale factor a(t) remains almost constant, hesitating in an unstable equilibrium between increasing and decreasing. An increasingly precise tuning of the matter and cosmological constant densities makes this loitering phase last longer.<br><br>Lemaître's main motivation for introducing this phase was to allow sufficient time for gravitational structure formation (the formation of stars and galaxies) while the scale factor remained nearly constant, before the expansion became too rapid again despite the greatly overestimated value of H0 available at the time.",
 
-		"ex3Univ_titre": "-Example 3: Hoyle steady-state model (1948)",
-		"ex3Univ_description": "<br>The steady-state model describes an eternal expanding universe whose average density remains constant through the continuous creation of matter. Since this matter creation mechanism is not included in the standard Friedmann equations, this simulation does not reproduce Hoyle's model exactly, but instead provides an approximation using a universe dominated by dark energy (or the cosmological constant).",
+		"ex3Univ_titre_LCDM": "-Example 3: de Sitter model (1917)",
+		"ex3Univ_description_LCDM": "<br>The de Sitter model describes a universe devoid of matter and radiation, whose expansion is entirely governed by a positive cosmological constant. It is the first cosmological solution of Einstein’s equations exhibiting accelerated expansion and leads to an exponential growth of the scale factor.",
+
+		"ex3Univ_titre_DE": "-Example 3: Universe with Big Fall and Big Rip",
+		"ex3Univ_description_DE": "<br>This example is a fictitious universe featuring both a Big Fall (initial contraction of the universe) and a Big Rip (infinite expansion of the universe in a finite time). Thus, this universe has a beginning, although not a Big Bang, and also a final state in which all structures are ultimately torn apart.",
 
 		"titreExemple": "Examples:",
 		"ex0UnivLCDM": "Standard ΛCDM<br>model",
 		"ex1UnivLCDM": "Einstein-de Sitter<br>model",
 		"ex2UnivLCDM": "Lemaître<br>model",
-		"ex3UnivLCDM": "Hoyle<br>model",
+		"ex3UnivLCDM": "de Sitter<br>model",
 		"ex0UnivDE": "Standard ΛCDM<br>model",
 		"ex1UnivDE": "Einstein-de Sitter<br>model",
 		"ex2UnivDE": "Lemaître<br>model",
-		"ex3UnivDE": "Hoyle<br>model"
+		"ex3UnivDE": "Big Fall<br>and Big Rip"
 	},
 
 	"calculette" : {
@@ -254,11 +257,11 @@
 		"ex0CalcLCDM": "Standard ΛCDM<br>model",
 		"ex1CalcLCDM": "Einstein-de Sitter<br>model",
 		"ex2CalcLCDM": "Lemaître<br>model",
-		"ex3CalcLCDM": "Hoyle<br>model",
+		"ex3CalcLCDM": "de Sitter<br>model",
 		"ex0CalcDE": "Standard ΛCDM<br>model",
 		"ex1CalcDE": "Einstein-de Sitter<br>model",
 		"ex2CalcDE": "Lemaître<br>model",
-		"ex3CalcDE": "Hoyle<br>model"
+		"ex3CalcDE": "Big Fall<br>and Big Rip"
 	},
 
 	"constante": {
