@@ -868,9 +868,9 @@ function exemples(exemple) {
         document.getElementById("Omégal0").value = "0.6911";
         document.getElementById("optionsOmégar0").value = "optionRFC_et_Neutrinos";
         document.getElementById("OptionsOmégak0").checked = false;
-        document.getElementById("graphique_z_min").value = "0";
+        document.getElementById("graphique_z_min").value = "-0.99";
         document.getElementById("graphique_z_max").value = "5";
-        document.getElementById("graphique_pas").value = "300";
+        document.getElementById("graphique_pas").value = "100";
         updateCalculette();
     }
 
@@ -882,9 +882,9 @@ function exemples(exemple) {
         document.getElementById("Omégal0").value = "0";
         document.getElementById("optionsOmégar0").value = "optionRien";
         document.getElementById("OptionsOmégak0").checked = true;
-        document.getElementById("graphique_z_min").value = "0";
+        document.getElementById("graphique_z_min").value = "-0.99";
         document.getElementById("graphique_z_max").value = "5";
-        document.getElementById("graphique_pas").value = "300";
+        document.getElementById("graphique_pas").value = "100";
         updateCalculette();
     }
 
@@ -896,9 +896,9 @@ function exemples(exemple) {
         document.getElementById("Omégal0").value = "1.239";
         document.getElementById("optionsOmégar0").value = "optionRFC";
         document.getElementById("OptionsOmégak0").checked = false;
-        document.getElementById("graphique_z_min").value = "0";
+        document.getElementById("graphique_z_min").value = "-0.99";
         document.getElementById("graphique_z_max").value = "5";
-        document.getElementById("graphique_pas").value = "300";
+        document.getElementById("graphique_pas").value = "100";
         updateCalculette();
     }
 
@@ -910,9 +910,9 @@ function exemples(exemple) {
         document.getElementById("Omégal0").value = "1";
         document.getElementById("optionsOmégar0").value = "optionRien";
         document.getElementById("OptionsOmégak0").checked = true;
-        document.getElementById("graphique_z_min").value = "0";
+        document.getElementById("graphique_z_min").value = "-0.99";
         document.getElementById("graphique_z_max").value = "5";
-        document.getElementById("graphique_pas").value = "300";
+        document.getElementById("graphique_pas").value = "100";
         updateCalculette();
     }
 
@@ -930,9 +930,9 @@ function exemples(exemple) {
         document.getElementById("w1").value = "0";
         document.getElementById("optionsOmégar0").value = "optionRFC_et_Neutrinos";
         document.getElementById("OptionsOmégak0").checked = false;
-        document.getElementById("graphique_z_min").value = "0";
+        document.getElementById("graphique_z_min").value = "-0.99";
         document.getElementById("graphique_z_max").value = "5";
-        document.getElementById("graphique_pas").value = "300";
+        document.getElementById("graphique_pas").value = "100";
         updateCalculette();
     }
 
@@ -946,9 +946,9 @@ function exemples(exemple) {
         document.getElementById("w1").value = "0";
         document.getElementById("optionsOmégar0").value = "optionRien";
         document.getElementById("OptionsOmégak0").checked = true;
-        document.getElementById("graphique_z_min").value = "0";
+        document.getElementById("graphique_z_min").value = "-0.99";
         document.getElementById("graphique_z_max").value = "5";
-        document.getElementById("graphique_pas").value = "300";
+        document.getElementById("graphique_pas").value = "100";
         updateCalculette();
     }
 
@@ -962,9 +962,9 @@ function exemples(exemple) {
         document.getElementById("w1").value = "0";
         document.getElementById("optionsOmégar0").value = "optionRFC";
         document.getElementById("OptionsOmégak0").checked = false;
-        document.getElementById("graphique_z_min").value = "0";
+        document.getElementById("graphique_z_min").value = "-0.99";
         document.getElementById("graphique_z_max").value = "5";
-        document.getElementById("graphique_pas").value = "300";
+        document.getElementById("graphique_pas").value = "100";
         updateCalculette();
     }
 
@@ -978,9 +978,9 @@ function exemples(exemple) {
         document.getElementById("w1").value = "0.2";
         document.getElementById("optionsOmégar0").value = "optionRFC_et_Neutrinos";
         document.getElementById("OptionsOmégak0").checked = false;
-        document.getElementById("graphique_z_min").value = "0";
+        document.getElementById("graphique_z_min").value = "-0.99";
         document.getElementById("graphique_z_max").value = "5";
-        document.getElementById("graphique_pas").value = "300";
+        document.getElementById("graphique_pas").value = "100";
         updateCalculette();
     }
 
