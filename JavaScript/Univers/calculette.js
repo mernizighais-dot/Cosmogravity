@@ -523,12 +523,13 @@ function generer_graphique_Omega(fonction_EouF,is_t ,is_test = 0) {
                 let start_temps=Date.now();
                 log_abs=document.getElementById('check_log_abs').checked;
                 log_ord=document.getElementById('check_log_ord').checked;
+                let H0 = Number(document.getElementById("H0").value);
 
                 //paramètre pour le tracer
                 let zmin = Number(document.getElementById("graphique_z_min").value);
                 let zmax = Number(document.getElementById("graphique_z_max").value);
                 let pas = Number(document.getElementById("graphique_pas").value);
-                
+
                 // valeur des abscisses
                 let abscisse;
 
@@ -798,6 +799,7 @@ function generer_graphique_TempsDecalage(fonction_EouF, is_t, is_test = 0) {
 
             //Si il n'y a pas de big bang impossible a calculer
             let T0 = Number(document.getElementById("T0").value);
+            let H0 = Number(document.getElementById("H0").value);
             if (isNaN(debut_fin_univers(equa_diff_2, T0)[2])){
                 document.getElementById("loading").style.display = "none";
                 return;
@@ -1015,6 +1017,7 @@ function calcul_theta_vers_diametre(){
  * @param {*} fonction_EouF 
  */
 function calcul_horizons_annexe(fonction_EouF){
+	let H0 = Number(document.getElementById("H0").value);
 	let t_pour_horizon= Number(document.getElementById("t_pour_calcul_horizon").value);
 	if (t_pour_horizon<=0){
         document.getElementById("resultat_dm_particule_m").value=NaN;
@@ -1057,8 +1060,9 @@ function calcul_horizons_annexe(fonction_EouF){
  * @returns 
  */
 function calcul_dm_inverse(fonction_EouF){
+    let H0 = Number(document.getElementById("H0").value);
     z_negatif=document.getElementById('z_negatif_dm_inverse').checked; //savoir si on cherche un z négatif car il existe un z negatif (ou plus) et un z positif (ou plus) pour chaque valeur de dm
-    dm_input = document.getElementById("dm_inverse").value; 
+    dm_input = document.getElementById("dm_inverse").value;
 
 
 
@@ -1157,6 +1161,7 @@ function calcul_dm_inverse(fonction_EouF){
  * @param {*} fonction_EouF 
  */
 function affichage_t_inverse(fonction_EouF){
+    let H0 = Number(document.getElementById("H0").value);
     temps_em_input=document.getElementById("tem_inverse").value;
     if (temps_em_input<0.01){
         z_em=NaN;
