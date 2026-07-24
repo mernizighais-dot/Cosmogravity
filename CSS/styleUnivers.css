@@ -190,6 +190,8 @@ body {
     justify-self: center; 
     text-align: start;
     margin: 1%;
+    max-height: 42vh;
+    overflow-y: auto;
 }
 
 #resteDuGraphe {
