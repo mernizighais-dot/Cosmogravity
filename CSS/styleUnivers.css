@@ -182,6 +182,7 @@ body {
     grid-area: avertissement;
     align-self: center;
     justify-self: center;
+    z-index: 800;
 }
 
 #txt_info_univers{
