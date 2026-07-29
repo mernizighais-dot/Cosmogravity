@@ -630,8 +630,15 @@ function DistanceMetrique(fonction, Zemission, Zreception, z_utilise=false, prec
     function fonction_a_integrer(x) {
         if (z_utilise){
             return Math.pow(fonction(x,true),-0.5);
-        } else {
-            return Math.pow(fonction(x),-0.5)/Math.pow(x,2);
+        } else { /* Cas où x vaut a=x^2 */
+            //return Math.pow(fonction(x),-0.5)/Math.pow(x,2);
+            if (x==0) {
+                return 2 / (Math.pow(x,3) * Math.sqrt(fonction(x*x))+1e-50) 
+            }
+            else {
+                return 2 / (Math.pow(x,3) * Math.sqrt(fonction(x*x))) 
+            }
+            
         }
     }
 
@@ -650,8 +657,9 @@ function DistanceMetrique(fonction, Zemission, Zreception, z_utilise=false, prec
  */
 function calcul_horizon_particule(fonction, z_emission=0){
     let a_emission=1/(z_emission+1);
+    let t=Math.sqrt(a_emission); /*Changement de variable principalement pour corriger le cas où oméga r0 est nul*/
     //formule 21 dans la théorie du 20/05/2024
-    return DistanceMetrique(fonction,1e-50,a_emission,false,1e3);
+    return DistanceMetrique(fonction,1e-15,t,false,1e3);
 }
 
 /**
