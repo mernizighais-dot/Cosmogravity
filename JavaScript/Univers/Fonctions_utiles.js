@@ -591,7 +591,12 @@ function calcul_ages(fonction, H0, a1, a2,z_utilise=false) {
         }
     }
 
-    return (1 / H0) * simpson_composite(integrande, a1, a2, 100);
+    // simpson_adaptatif plutôt que simpson_composite : avec des paramètres extrêmes (ex : énergie noire
+    // très fortement fantôme + forte courbure), l'intégrande peut varier de plusieurs ordres de grandeur
+    // sur une fraction infime de [a1,a2], ce qu'un nombre de subdivisions fixe ne résout pas correctement
+    // (l'âge calculé peut alors être faux d'un facteur plusieurs). La version adaptative reste précise dans
+    // tous les cas, et se comporte comme simpson_composite (même précision, coût comparable) sur les modèles usuels.
+    return (1 / H0) * simpson_adaptatif(integrande, a1, a2, 1e-8);
 }
 
 /** renvoie la fonction Sk pour calculer les distances cosmologiques en fontion de la courbure de l'espace
@@ -674,7 +679,142 @@ function calcul_horizon_evenements(fonction,z_reception=0){
 }
 
 /**
- * Inverse du calcul de l'age en fonction d'un z grâce a la fonction dichotomie (marche seulement pour des fonction absolument croissante)
+ * Recherche si le facteur d'échelle a(t) admet un extremum (ȧ=0 pour un a strictement positif, par exemple un
+ * univers fermé qui atteint un maximum d'expansion avant de recollapser) du côté de a=1 indiqué.
+ * On sait que ȧ² est proportionnel à a²·fonction_EouF(a,false) (c'est exactement le terme sous la racine dans
+ * equa_diff_1_LCDM/DE). Cette quantité vaut 1 en a=1 et ne peut pas devenir négative : si elle s'annule pour un
+ * a fini différent de 0, c'est qu'on a affaire à un extremum de a(t) et non au Big Bang/Big Crunch habituel (a=0).
+ * On la cherche en doublant/divisant a par 2 à partir de 1 jusqu'à repérer un changement de signe, puis en
+ * affinant par dichotomie.
+ * @param {function} fonction_EouF fonction_E (LCDM) ou fonction_F (DE)
+ * @param {boolean} versLeFutur true pour chercher un extremum futur (a>1, ex: Big Crunch à venir), false pour un extremum passé (a<1, ex: rebond)
+ * @returns {number|null} la valeur de a à l'extremum, ou null si a(t) est monotone de ce côté sur la plage explorée
+ */
+function trouver_extremum_facteur_echelle(fonction_EouF, versLeFutur){
+    function G(a){
+        return a*a*fonction_EouF(a,false);
+    }
+
+    let a_precedent = 1;
+    let a_courant = 1;
+    let a_limite = versLeFutur ? 1e20 : 1e-15;
+
+    while (versLeFutur ? a_courant < a_limite : a_courant > a_limite){
+        a_courant = versLeFutur ? a_courant*2 : a_courant/2;
+        let G_courant = G(a_courant);
+
+        if (!isFinite(G_courant)){
+            return null;
+        }
+
+        if (G_courant <= 0){
+            let borneDebut = versLeFutur ? a_precedent : a_courant;
+            let borneFin = versLeFutur ? a_courant : a_precedent;
+            return Dichotomie(G,0,borneDebut,borneFin,1e-9,100);
+        }
+
+        a_precedent = a_courant;
+    }
+    return null;
+}
+
+// Marge relative utilisée pour ne jamais évaluer calcul_ages exactement sur un extremum de a(t) (ȧ=0) :
+// l'intégrande de calcul_ages y diverge (singularité intégrable), et l'évaluer pile dessus - ou même
+// à une distance flottante aléatoire qui dépend du résidu de précision de la dichotomie - peut renvoyer
+// n'importe quoi (résidu positif ou négatif selon le hasard de la dichotomie, jusqu'à NaN). On reste donc
+// systématiquement à une distance relative connue et sûre, du côté physique de l'extremum.
+const EPS_EXTREMUM = 1e-4;
+
+/**
+ * Renvoie la valeur de a à partir de laquelle on peut calculer un âge de façon fiable avec calcul_ages(fonction,H0,borne,x) :
+ * normalement 1e-20 (près du Big Bang), sauf si un extremum passé de a(t) existe (ex : univers "sans Big Bang" qui
+ * n'a fait que rebondir en a>0, cas "pas de Big Bang" déjà identifié ailleurs sur le site via les séparatrices).
+ * Dans ce dernier cas, intégrer depuis 1e-20 traverserait une zone interdite (ȧ² négatif) : on prend alors le rebond
+ * lui-même comme référence t=0, légèrement décalé (EPS_EXTREMUM) pour rester du côté physique de la singularité.
+ * @param {function} fonction_EouF fonction_E (LCDM) ou fonction_F (DE)
+ * @returns {number} borne inférieure à utiliser pour calcul_ages
+ */
+function borne_debut_age(fonction_EouF){
+	let a_extremum_passe = trouver_extremum_facteur_echelle(fonction_EouF,false);
+	return (a_extremum_passe !== null) ? a_extremum_passe*(1+EPS_EXTREMUM) : 1e-20;
+}
+
+/**
+ * Renvoie true si G(a)=a²·fonction_EouF(a) (∝ȧ², cf trouver_extremum_facteur_echelle) descend près de 0 dans la
+ * direction indiquée sans forcément la croiser : c'est le cas d'un univers "hésitant" (ex : modèle de Lemaître,
+ * 1931), proche d'une séparatrice entre types d'univers mais pas encore de l'autre côté. trouver_extremum_facteur_echelle
+ * ne détecte que le franchissement (G(a)<=0), pas la simple approche : dans ce cas-là, debut_fin_univers reste
+ * capable de trouver un Big Bang/Big Crunch (boolDebut/boolFin restent vrais) mais avec un pas RK4 bien trop
+ * grossier pour être fiable au voisinage du quasi-palier, sans que rien ne le signale.
+ * @param {function} fonction_EouF fonction_E (LCDM) ou fonction_F (DE)
+ * @param {boolean} versLeFutur true pour chercher du côté a>1, false pour a<1
+ * @param {number} seuil valeur de G(a) en-dessous de laquelle on considère qu'on est proche d'une séparatrice
+ * @returns {boolean}
+ */
+function pres_separatrice(fonction_EouF, versLeFutur, seuil = 1e-2){
+	function G(a){
+		return a*a*fonction_EouF(a,false);
+	}
+
+	let a = 1;
+	let G_min = 1;
+	let a_limite = versLeFutur ? 1e20 : 1e-15;
+
+	while (versLeFutur ? a < a_limite : a > a_limite){
+		a = versLeFutur ? a*2 : a/2;
+		let g = G(a);
+
+		if (!isFinite(g)){
+			break;
+		}
+		if (g <= 0){
+			return true;
+		}
+		if (g < G_min){
+			G_min = g;
+		}
+	}
+	return G_min < seuil;
+}
+
+/**
+ * Calcule précisément l'âge écoulé entre un extremum de a(t) (ȧ=0, où l'intégrande de calcul_ages diverge)
+ * et une valeur a_cible, grâce au changement de variable a = a_extremum ∓ s² qui élimine cette singularité
+ * intégrable (même principe que le changement de variable déjà utilisé dans calcul_horizon_particule pour
+ * une raison similaire). N'est utilisée que pour obtenir cette valeur ponctuelle avec précision : calcul_ages
+ * standard reste utilisé partout ailleurs, où il est plus fiable numériquement (cette substitution donne une
+ * mauvaise résolution loin de l'extremum, une plage de subdivisions fixe n'y suffit pas).
+ * @param {function} fonction fonction_E ou fonction_F
+ * @param H0 {number} taux d'expansion actuel de l'univers
+ * @param {number} a_extremum valeur de a à l'extremum (ȧ=0)
+ * @param {number} a_cible valeur de a de référence (ex : borne_debut_age) jusqu'à laquelle mesurer l'âge
+ * @param {boolean} versLeFutur true si a_extremum est un maximum futur (a_cible<a_extremum), false si c'est un rebond passé (a_cible>a_extremum)
+ * @returns {number} âge entre a_extremum et a_cible
+ */
+function calcul_age_jusqu_extremum(fonction,H0,a_extremum,a_cible,versLeFutur){
+	function G(a){
+		let g = a*a*fonction(a,false);
+		return g<0 ? 0 : g;
+	}
+	function integrande(s){
+		let a = versLeFutur ? (a_extremum - s*s) : (a_extremum + s*s);
+		let g = G(a);
+		if (g<=0) return 0;
+		return 2*s/Math.sqrt(g);
+	}
+	let diff = versLeFutur ? (a_extremum-a_cible) : (a_cible-a_extremum);
+	let s_cible = Math.sqrt(Math.max(diff,0));
+	return (1/H0)*simpson_adaptatif(integrande,0,s_cible,1e-8);
+}
+
+/**
+ * Inverse du calcul de l'age en fonction d'un z grâce a la fonction dichotomie (marche seulement pour des fonction absolument croissante).
+ * Si a(t) n'est pas monotone (ex : univers fermé qui recollapse dans le futur, ou univers "sans Big Bang" qui rebondit
+ * dans le passé), la dichotomie directe sur [1,1e20] ou [1e-15,1] n'est plus valide au-delà du point de retournement.
+ * On détecte ces extremums avec trouver_extremum_facteur_echelle : le rebond passé (s'il existe) sert de nouvelle
+ * référence t=0 pour a_dichotomer, et pour un retournement futur on exploite la symétrie temporelle de la trajectoire
+ * (le temps mis pour redescendre depuis une valeur de a est le même que celui mis pour y monter) pour retomber sur
+ * la branche montante, où a_dichotomer reste valide.
  * @param {number} temps valeur t
  * @param {function} fonction fonction à rechercher
  * @param H0 {number} taux d'expansion actuel de l'univers
@@ -683,16 +823,38 @@ function calcul_horizon_evenements(fonction,z_reception=0){
  * @returns valeur de z
  */
 function calcul_t_inverse(temps,fonction,H0,precision=1e-30,iterationsmax=100){
+	let a_min = borne_debut_age(fonction);
+
 	function a_dichotomer(x){
-		return calcul_ages(fonction,H0,1e-20,x);
+		return calcul_ages(fonction,H0,a_min,x);
 	}
 	let age_univers = a_dichotomer(1);
 
     let a_t
 	if (age_univers>=temps){
-		a_t=Dichotomie(a_dichotomer,temps,1e-15,1,1e-30,iterationsmax);
+		a_t=Dichotomie(a_dichotomer,temps,a_min,1,1e-30,iterationsmax);
 	}else{
-		a_t=Dichotomie(a_dichotomer,temps,1,1e20,1e-30,iterationsmax);
+		let a_extremum = trouver_extremum_facteur_echelle(fonction,true);
+		if (a_extremum === null){
+			a_t=Dichotomie(a_dichotomer,temps,1,1e20,1e-30,iterationsmax);
+		}else{
+			// t_extremum est calculé précisément via le changement de variable (a_dichotomer lui-même
+			// diverge pile sur l'extremum, cf calcul_age_jusqu_extremum), et sert de pivot pour la symétrie temporelle.
+			let t_extremum = calcul_age_jusqu_extremum(fonction,H0,a_extremum,a_min,true);
+			// On reste légèrement en retrait de l'extremum exact pour que a_dichotomer (intégration standard)
+			// ne soit jamais évalué pile sur la singularité pendant la recherche par dichotomie.
+			let a_extremum_clip = a_extremum*(1-EPS_EXTREMUM);
+			if (temps<=t_extremum){
+				// Encore dans la phase d'expansion : la branche [1,a_extremum] est monotone, la dichotomie directe marche.
+				a_t=Dichotomie(a_dichotomer,temps,1,a_extremum_clip,1e-30,iterationsmax);
+			}else{
+				// Après le point de retournement, a(t) redescend et a_dichotomer n'est plus valide directement :
+				// par symétrie temporelle autour de l'extremum, a(temps) = a(2*t_extremum - temps), et ce temps
+				// miroir tombe avant l'extremum, sur la branche montante où a_dichotomer reste valide.
+				let temps_miroir = 2*t_extremum - temps;
+				a_t=Dichotomie(a_dichotomer,temps_miroir,a_min,a_extremum_clip,1e-30,iterationsmax);
+			}
+		}
 	}
 	return (1-a_t)/a_t;
 }
@@ -726,7 +888,11 @@ function bornes_temps_CI() {
 
     let t_0 = calcul_ages(fonction_simplifiant, H0parGAnnee, 1e-10, 1)
 
-    let t_min = calcul_ages(fonction_simplifiant, H0parGAnnee, 1e-10, a_min)
+    // Math.max avec borne_debut_age évite d'évaluer calcul_ages pile en a_min=0 (valeur par défaut de tous les
+    // exemples) : l'intégrande y est indéterminé (Infinity*0=NaN) alors que sa limite réelle est finie, ce qui
+    // rendait tau_min systématiquement NaN et faisait retomber pas dans la branche de repli en Ga au lieu de tau
+    // (cf modèle de Lemaître, où ce pas trop grossier laissait passer un Big Bang mal calculé sans avertissement).
+    let t_min = calcul_ages(fonction_simplifiant, H0parGAnnee, 1e-10, Math.max(a_min, borne_debut_age(fonction_simplifiant)))
     let tau_min = H0parGAnnee * (t_min - t_0)
 
     let t_max = calcul_ages(fonction_simplifiant, H0parGAnnee, 1e-10, a_max)

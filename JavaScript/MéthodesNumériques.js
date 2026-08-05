@@ -47,6 +47,54 @@ function simpson_composite(fonction, borne_inf, borne_sup, subdivisions=100) {
     return (pas / 6) * integrale;
 }
 
+/**
+ * Méthode d'intégration de Simpson adaptative : contrairement à simpson_composite (nombre de subdivisions fixe,
+ * réparties uniformément), celle-ci raffine récursivement l'intervalle là où c'est nécessaire pour atteindre la
+ * tolérance demandée. simpson_composite sous-échantillonne gravement un intégrande qui varie sur plusieurs ordres
+ * de grandeur sur une petite partie de l'intervalle (ex : univers avec une énergie noire très fortement fantôme,
+ * où l'essentiel de la variation de l'intégrande se joue sur un intervalle bien plus petit que (borne_sup-borne_inf)/100) :
+ * une subdivision fixe peut alors être fausse d'un facteur plusieurs, alors que celle-ci reste précise quel que
+ * soit l'intégrande.
+ * @param {function} fonction Fonction ne dépendant que d'un seul paramètre
+ * @param {number} borne_inf Borne inférieure d'intégration
+ * @param {number} borne_sup Borne supérieure d'intégration
+ * @param {number} tolerance_relative Tolérance relative visée sur l'intégrale totale
+ * @param {number} profondeur_max Profondeur maximale de subdivision (protection contre une récursion trop longue si l'intégrande est réellement singulier)
+ * @returns {number} Valeur de l'intégrale
+ */
+function simpson_adaptatif(fonction, borne_inf, borne_sup, tolerance_relative=1e-6, profondeur_max=25) {
+    function simpson_base(fa, fc, fb, largeur) {
+        return (largeur / 6) * (fa + 4 * fc + fb);
+    }
+
+    function subdivise(a, b, fa, fc, fb, S, tolerance, profondeur) {
+        let c = (a + b) / 2;
+        let d = (a + c) / 2;
+        let e = (c + b) / 2;
+        let fd = fonction(d);
+        let fe = fonction(e);
+        let S_gauche = simpson_base(fa, fd, fc, c - a);
+        let S_droite = simpson_base(fc, fe, fb, b - c);
+        let S2 = S_gauche + S_droite;
+
+        if (!isFinite(S2) || profondeur <= 0 || Math.abs(S2 - S) <= 15 * tolerance) {
+            // Extrapolation de Richardson : améliore l'estimation en exploitant l'écart entre les deux niveaux de raffinement
+            return S2 + (S2 - S) / 15;
+        }
+        return subdivise(a, c, fa, fd, fc, S_gauche, tolerance / 2, profondeur - 1)
+             + subdivise(c, b, fc, fe, fb, S_droite, tolerance / 2, profondeur - 1);
+    }
+
+    let fa = fonction(borne_inf);
+    let fb = fonction(borne_sup);
+    let c = (borne_inf + borne_sup) / 2;
+    let fc = fonction(c);
+    let S = simpson_base(fa, fc, fb, borne_sup - borne_inf);
+    let tolerance = tolerance_relative * Math.max(Math.abs(S), 1e-300);
+
+    return subdivise(borne_inf, borne_sup, fa, fc, fb, S, tolerance, profondeur_max);
+}
+
 
 /**
  * Permet de trouver l'abscisser correspond à une ordonée d'une fonction monotone

@@ -479,12 +479,18 @@ function updateCalculette() {
         update_point()
     }
     let equa_diff_2
+    let fonction_simplifiant
     if (document.getElementById("Omégal0")) {
         equa_diff_2 = equa_diff_2_LCDM
+        fonction_simplifiant = fonction_E
     } else {
         equa_diff_2 = equa_diff_2_DE
+        fonction_simplifiant = fonction_F
     }
-    if ((!debut_fin_univers(equa_diff_2, T0)[5] && Math.sign(document.getElementById("H0").value)==1) || (!debut_fin_univers(equa_diff_2, T0)[6] && Math.sign(document.getElementById("H0").value)==-1)) {
+    if ((!debut_fin_univers(equa_diff_2, T0)[5] && Math.sign(document.getElementById("H0").value)==1)
+        || (!debut_fin_univers(equa_diff_2, T0)[6] && Math.sign(document.getElementById("H0").value)==-1)
+        || pres_separatrice(fonction_simplifiant, false)
+        || pres_separatrice(fonction_simplifiant, true)) {
         document.getElementById("avertissement_nbb").classList.remove('cache')
         document.getElementById("avertissement_nbb2").classList.remove('cache')
     } else {

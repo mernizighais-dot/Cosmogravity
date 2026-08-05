@@ -221,10 +221,25 @@ function affichage_des_z(fonction_EouF){
 
 function abscisse_t(fonction_EouF,zmin,zmax,pas){
     let H0 = Number(document.getElementById("H0").value);
-    age_univers=calcul_ages(fonction_EouF,H0_parAnnees(H0),1e-30,1);
+    // borne_debut_age vaut normalement ~0 (Big Bang), sauf si a(t) a rebondi dans le passé (univers "sans Big Bang") :
+    // dans ce cas c'est le rebond lui-même qu'il faut prendre comme référence, sous peine d'intégrer à travers une
+    // zone interdite (ȧ² négatif) et d'obtenir des NaN partout.
+    let a_min = borne_debut_age(fonction_EouF);
+    age_univers=calcul_ages(fonction_EouF,H0_parAnnees(H0),a_min,1);
     liste_z=[];
-    let tmax=calcul_ages(fonction_EouF,H0_parAnnees(H0),1e-30,1/(1+zmin))
-    let tmin=calcul_ages(fonction_EouF,H0_parAnnees(H0),1e-30,1/(1+zmax))
+    // On ne peut pas demander un z antérieur à ce rebond : on borne les a correspondants à a_min.
+    let a_zmin = Math.max(1/(1+zmin), a_min);
+    let a_zmax = Math.max(1/(1+zmax), a_min);
+    // Symétriquement, si l'univers recollapse dans le futur (a atteint un maximum puis redescend), on ne
+    // peut pas non plus demander un a au-delà de ce maximum.
+    let a_extremum_futur = trouver_extremum_facteur_echelle(fonction_EouF,true);
+    if (a_extremum_futur !== null){
+        let a_extremum_futur_clip = a_extremum_futur*(1-EPS_EXTREMUM);
+        a_zmin = Math.min(a_zmin, a_extremum_futur_clip);
+        a_zmax = Math.min(a_zmax, a_extremum_futur_clip);
+    }
+    let tmax=calcul_ages(fonction_EouF,H0_parAnnees(H0),a_min,a_zmin)
+    let tmin=calcul_ages(fonction_EouF,H0_parAnnees(H0),a_min,a_zmax)
     liste_point_t=linear_scale(tmin,tmax,pas);
     liste_point_t.forEach(i => {
         if (i>age_univers){
@@ -809,22 +824,26 @@ function generer_graphique_TempsDecalage(fonction_EouF, is_t, is_test = 0) {
             let zmax = Number(document.getElementById("graphique_z_max").value);
             let pas = Number(document.getElementById("graphique_pas").value);
             let abscisse;
-            // valeur des abscisses
-            if (is_t == 0) {
-                abscisse = array_lerp(zmin,zmax,pas);
-            } else {
-                abscisse = linear_scale(zmin,zmax,pas);
-            }
             // valeurs des ordonnées
             let zArr = [];
 
-            //calculs des longueurs
-            abscisse.forEach(i => {
-                let zdet
-                zdet = calcul_ages(fonction_EouF,H0_parAnnees(H0),1e-15,1/(1+i));
-
-                zArr.push(zdet);
-            });
+            if (is_t == 0) {
+                // valeur des abscisses
+                abscisse = array_lerp(zmin,zmax,pas);
+                //calculs des temps
+                abscisse.forEach(i => {
+                    let zdet = calcul_ages(fonction_EouF,H0_parAnnees(H0),1e-15,1/(1+i));
+                    zArr.push(zdet);
+                });
+            } else {
+                // On construit directement une grille de temps puis on retrouve le z correspondant
+                // (comme abscisse_t/calcul_t_inverse), ce qui reste valide même si a(t) n'est pas monotone
+                // (ex : univers fermé qui recollapse), contrairement à un calcul direct t(z) suivi d'un
+                // échange d'axes qui ne couvrirait que la branche d'expansion.
+                let sortieabscisse = abscisse_t(fonction_EouF,zmin,zmax,pas);
+                zArr = sortieabscisse[0];
+                abscisse = sortieabscisse[1];
+            }
 
             //affichage des omega0 sous le titre
             let annots = [{xref: 'paper',
@@ -842,9 +861,6 @@ function generer_graphique_TempsDecalage(fonction_EouF, is_t, is_test = 0) {
                 plot_title = "z(t)";
                 xaxis_title=xaxis_temps;
                 graphdivid="graphique_z_t"
-                let abscisse_temp=zArr; //inverser les deux axes
-                zArr=abscisse;
-                abscisse=abscisse_temp;
                 document.getElementById('graphique_z_t').classList.remove('cache');
                 sessionStorage.setItem("affichage_z_t","True")
             }else{
